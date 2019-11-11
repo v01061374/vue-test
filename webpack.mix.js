@@ -21,3 +21,6 @@ mix.webpackConfig({
 });
 mix.js('resources/js/app.js', 'public/js')
    .css('resources/css/app.css', 'public/css');
+mix.styles([
+    'resources/css/app.css'
+], 'public/css/app.css');

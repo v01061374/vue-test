@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <router-link tag="li" to="/">Home</router-link>
-        <router-link tag="li" to="/about">About</router-link>
-
-        <router-link tag="li" to="/chart">Chart</router-link>
-        <router-view></router-view>
-    </div>
+    <router-view></router-view>
 </template>
 <script>
-    export default {};
+
+    export default {
+
+    };
 </script>
+<style lang="scss">
+    @import '../../css/app.css';
+</style>
