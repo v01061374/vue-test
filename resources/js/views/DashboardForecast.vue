@@ -26,27 +26,27 @@
                 tabs: {
                     'forecast-tables': {
                         'text': 'جداول مالی',
-                        'url': 'revenue',
+                        'url': '/dashboard/forecast/financial-tables',
                         'type': 'link'
                     },
                     'profit-and-loss': {
                         'text': 'سود و ضرر',
-                        'url': 'profit-and-loss',
+                        'url': '/dashboard/forecast/profit-and-loss',
                         'type': 'link'
                     },
                     'balance-sheet': {
                         'text': 'ترازنامه',
-                        'url': 'balance-sheet',
+                        'url': '/dashboard/forecast/balance-sheet',
                         'type': 'link'
                     },
                     'cash-flow': {
                         'text': 'ورودی مالی',
-                        'url': 'cash-flow',
+                        'url': '/dashboard/forecast/cash-flow',
                         'type': 'link'
                     },
                     'download-and-print': {
                         'text': 'دانلود و چاپ',
-                        'url': 'download-and-print',
+                        'url': '/dashboard/forecast/download-and-print',
                         'type': 'action',
                     },
 

@@ -4,6 +4,13 @@ import Vue from 'vue';
 import Routes from '@/js/routes.js';
 import HighchartsVue from 'highcharts-vue';
 
+
+
+
+
+
+
+
 import App from '@/js/views/App';
 Vue.use(HighchartsVue);
 

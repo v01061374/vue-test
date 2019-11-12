@@ -150,6 +150,11 @@ a{
 .ctr{
     text-align: center;
 }
+.text-right{
+    direction: rtl;
+    text-align: right;
+    display: inline-block;
+}
 .bold{
     font-weight: bold;
 }
@@ -214,6 +219,9 @@ div:focus,
 a:focus{
     border: none;
     outline:none;
+}
+.inner-container{
+    background-image: linear-gradient(to bottom, white 0px, white 30px, #EBEFF4 400px);
 }
 .header-container{
     transform: none;
@@ -627,12 +635,12 @@ span.divider{
     border: 1px solid #D5DBE1;
 }
 .button-type-one:focus{
-    background: #F9F9F9;
-    color: #3F484B;
+
     border: 1px solid #D5DBE1;
 }
 .button-type-one.toggle-button{
     padding: 10px 10px 10px 10px;
+    width: 165px;
 }
 .button-type-one.toggle-button span{
     padding-right: 20px;
@@ -647,9 +655,15 @@ span.divider{
     background-image: url("../img/play.svg");
     background-size: 18px;
     background-position:  right;
+
 }
-.button-type-one.instructions span{
+
+.button-type-one.instructions.hidden span{
     background-position: right 1px;
+}
+.button-type-one.instructions.visible span{
+
+    background-position: right -31px;
 }
 
 .info-container .subheader{
@@ -695,12 +709,31 @@ span.divider{
     font-size: 18px;
     font-weight: normal;
 }
+.subheader-content-container p{
+    font-size: 14px;
+    text-justify: distribute-all-lines;
+}
 
 .details-container{
     position: relative;
 }
+.details-container .table-container .table{
+    direction: rtl;
+}
+.details-container .table-container .table *:not(.faNum){
+    direction: rtl;
+    text-align: right;
+}
+.details-container .table-container .table .open-button{
+    float: right;
+    padding: 0;
 
-.controls-container .buttonColor {
+}
+.details-container .table-container .table .open-button .closed{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.controls-container .buttonColor{
     margin: 0 0 0 10px;
     padding: 10px;
     color: #FFFFFF;
@@ -712,6 +745,7 @@ span.divider{
     border-radius: 3px;
     line-height: 12px;
     font-family: IRANSans, Tahoma;
+    cursor: pointer;
 }
 .controls-container {
     height: 54px;
@@ -744,6 +778,10 @@ span.divider{
     margin: 0 10px 0 0;
     font-family: IRANSans, Tahoma;
 }
+.content-container label{
+    font-family: IRANSans, Tahoma;
+    font-size: 12px;
+}
 .subfooter-note {
     margin: 13px 0 0 0;
     border-radius: 3px;
@@ -755,6 +793,7 @@ span.divider{
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     font-size: 12px;
     font-weight: 600 !important;
+    font-family: IRANSans, Tahoma;
 }
 .subfooter-note a {
     color: #2565C0;
@@ -765,4 +804,28 @@ span.divider{
     height: 35px;
     margin: 20px 0 0 0;
     float: left;
+}
+
+footer{
+    direction: rtl;
+    width: 960px;
+    margin: 0 auto;
+    padding: 30px 20px 40px 0;
+    height: 10px;
+    font: 400 12px/12px IRANSans, Tahoma;
+    text-align: right;
+    color: #7D8F94;
+    box-sizing: border-box;
+}
+footer a{
+    color: #2565C0;
+    cursor: pointer;
+}
+footer ul {
+    float: left;
+    list-style: none;
+}
+footer ul li {
+    float: right;
+    padding: 0 16px 0 0;
 }
