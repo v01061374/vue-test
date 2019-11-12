@@ -1,30 +1,16 @@
-
 <template>
-    <div v-show="value">
+
+    <div v-if="showModal">
         <transition name="modal">
             <div class="modal-mask">
-                <div class="modal-wrapper">
+                <div @keyup.esc="close" class="modal-wrapper">
                     <div class="modal-container">
-
-                        <div class="modal-header">
-                            <slot name="header">
-                                default header
-                            </slot>
-                        </div>
-
                         <div class="modal-body">
-                            <slot name="body">
-                                default body
+                            <slot>
                             </slot>
-                        </div>
-
-                        <div class="modal-footer">
-                            <slot name="footer">
-                                default footer
-                                <button class="modal-default-button"  @click.prevent="close">
-                                    OK
-                                </button>
-                            </slot>
+                            <a href="#" id="modal-close-button" @click="close">
+                            </a>
+                            <a  href="#" id="modal-close-text" @click="close">بستن</a>
                         </div>
                     </div>
                 </div>
@@ -38,15 +24,26 @@
     export default {
         name: 'Modal',
         props: {
-            value: {
+            showModal: {
                 required: true
             }
         },
         methods: {
             close() {
-                this.$emit("input", !this.value);
+
+                this.$emit('close-modal');
             }
-        }
+        },
+        // ready: function() {
+        //     window.addEventListener('keyup', function(event) {
+        //
+        //         if (event.key  === 27) {
+        //             this.close();
+        //         }
+        //     });
+        // }
+        // TODO listen to esc key
+
     };
 </script>
 
@@ -71,9 +68,9 @@
     }
 
     .modal-container {
-        width: 300px;
+        width: 500px;
         margin: 0px auto;
-        padding: 20px 30px;
+        /* padding: 20px 30px; */
         background-color: #fff;
         border-radius: 2px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
@@ -88,8 +85,42 @@
 
     .modal-body {
         margin: 20px 0;
+        position: relative;
     }
+    .modal-body #modal-close-button, .modal-body #modal-close-text {
+        position: absolute;
 
+
+
+        cursor: pointer;
+    }
+    .modal-body #modal-close-button{
+        bottom: -28px;
+        width: 20px;
+        height: 20px;
+        right: 4px;
+    }
+    .modal-body #modal-close-text{
+        bottom: -23px;
+        right: 18px;
+        font-family: IRANSans, Tahoma;
+        font-size: 12px;
+    }
+    
+    .modal-body #modal-close-button:before, .modal-body #modal-close-button:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 10px;
+        width: 2px;
+        background-color: #333;
+    }
+    .modal-body #modal-close-button:before {
+        transform: rotate(45deg);
+    }
+    .modal-body #modal-close-button:after {
+        transform: rotate(-45deg);
+    }
     .modal-default-button {
         float: right;
     }
@@ -117,3 +148,11 @@
         transform: scale(1.1);
     }
 </style>
+
+
+
+
+
+
+
+

@@ -1,36 +1,16 @@
 <template>
-    <tree-table
-            class="table"
-            :columns="columns"
-            :table-data="tableData" />
+    <div>
+        <v-playback :url="url" ></v-playback>
+wdasfasdf
+    </div>
 </template>
-
 <script>
-    import TreeTable from 'vue-tree-table-component'
-
     export default {
-        name: 'َAbout',
-        components: {TreeTable},
-        data: function(){
+        data(){
             return {
-                tableData: [
-                    {name: 'Ziuta', surname: 'Kozak', children: [
-                            {name: 'Czerwony Kapturek', surname: 'Kozak'}
-                        ]},
-                    {name: 'Koziolek', surname: 'Matolek', children: [
-                            { name: 'Timon', surname: 'Matolek', children: [ {name: 'Timon Junior', surname: 'Matolek'} ]}
-                        ]},
-                    {name: 'Pumba', surname: 'unknown'}
-                ],
-                columns: [{label: 'Name', id: 'name'}, {label: 'Surname', id: 'surname'}]
+                url: 'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4'
+                // TODO upload local video
             }
         }
     }
 </script>
-
-<style scoped>
-    .table{
-        width: 60%;
-        margin: auto;
-    }
-</style>

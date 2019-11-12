@@ -14,7 +14,7 @@
                                 عدم نمایش راهنما
                             </span>
                         </button>
-                        <button class="button-type-one toggle-button video">
+                        <button class="button-type-one toggle-button video" @click="showVideoModal = true">
                             <span>
                                 مشاهده ویدئو
                             </span>
@@ -120,15 +120,22 @@
             </div>
 
 
-
+        <modal @close-modal="showVideoModal=false" :showModal="showVideoModal" slot="body">
+            <v-playback :url="'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4'" ></v-playback>
+        </modal>
     </div>
+
 </template>
 
 <script>
     import TreeTable from 'vue-tree-table-component';
+    import Modal from "@/js/components/Modal.vue";
     export default {
         name: "DashboardForecastRevenue",
-        components: {TreeTable},
+        components: {
+            TreeTable,
+            Modal
+        },
         data: function(){
             return {
                 tableData: [
@@ -143,7 +150,8 @@
                 columns: [{label: 'Name', id: 'name'}, {label: 'Surname', id: 'surname'}],
 
                 showInstruction:false,
-                showMoreInstruction: false
+                showMoreInstruction: false,
+                showVideoModal: false
             }
         },
         methods:{

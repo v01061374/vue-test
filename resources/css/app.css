@@ -220,6 +220,9 @@ a:focus{
     border: none;
     outline:none;
 }
+.vjs-picture-in-picture-control.vjs-control.vjs-button{
+    display: none;
+}
 .inner-container{
     background-image: linear-gradient(to bottom, white 0px, white 30px, #EBEFF4 400px);
 }
