@@ -51,9 +51,10 @@
                 </div>
                 <div class="subheader-content-container">
                         <span>
-                            <img src="../../img/chart-SC.jpg"
-                                 style="width: 100%; height: 185.22px;"
-                                 alt="">
+                            <!--<img src="../../img/chart-SC.jpg"-->
+                                 <!--style="width: 100%; height: 185.22px;"-->
+                                 <!--alt="">-->
+                            <highcharts class="chart" :options="chartOptions" :updateArgs="updateArgs"></highcharts>
                         </span>
                 </div>
             </div>
@@ -90,7 +91,8 @@
                                         <label>
                                             <input
                                                     type="checkbox"
-                                                    value="on">
+                                                    value="on"
+                                                    >
                                             نمایش آمار ماهیانه
                                         </label>
                                     </p>
@@ -151,14 +153,62 @@
 
                 showInstruction:false,
                 showMoreInstruction: false,
-                showVideoModal: false
+                showVideoModal: false,
+
+
+                updateArgs: [true, true, {duration: 1000}],
+                chartOptions: {
+                    chart: {
+                        type: 'spline',
+                    },
+                    title: {
+                        text: 'Sin chart'
+                    },
+                    series: [{
+                        data: [10, 0, 8, 2, 6, 4, 5, 5],
+                        color: '#6fcd98',
+                        name: 'سری 1'
+                    }],
+                    height: 200,
+                    xAxis:{
+                        reversed: true,
+                        className: 'rtl-faNum'
+                    },
+                    legend: {
+                        rtl: true,
+                        useHTML:true,
+                        itemStyle:{
+                            fontFamily: 'IRANSansFaNum',
+                            direction: 'rtl',
+                            textAlign: 'right'
+                        }
+
+
+                    },
+                    yAxis:{
+                        opposite: true,
+                        className: 'rtl-faNum'
+
+                    },
+                    tooltip: {
+                        valueSuffix: ' تومان',
+                        useHTML:true,
+                        style:{
+                            fontFamily: 'IRANSansFaNum',
+                            direction: 'rtl',
+                            textAlign: 'right'
+                        }
+                    },
+                }
+
             }
         },
         methods:{
             toggleInstruction(){
                 this.showInstruction = !this.showInstruction;
                 this.showMoreInstruction = false;
-            }
+            },
+
         }
     }
 </script>
