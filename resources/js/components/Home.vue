@@ -1,16 +1,17 @@
 <template>
     <div>
         <button class="btn" @click="openModal">Open Modal</button>
-        <modal :showModal="modalOpen"></modal>
+        <video-modal :showModal="modalOpen"></video-modal>
     </div>
 </template>
 
 <script>
 
-    import modal from "@/js/components/Modal.vue";
+    import VideoModal from "./VideoModal";
+    // TODO change addressing formats
     export default {
         components: {
-            modal
+            VideoModal,
         },
         data() {
             return {

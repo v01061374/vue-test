@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 import Home from './components/Home.vue';
 import About from './components/About.vue';
 import Chart from './components/Chart.vue';
-import Modal from './components/Modal.vue';
+import Modal from './components/VideoModal.vue';
 
 import Dashboard from './views/Dashboard.vue';
 import Forecast from './views/DashboardForecast.vue';

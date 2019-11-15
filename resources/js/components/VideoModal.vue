@@ -1,5 +1,4 @@
 <template>
-
     <div v-if="showModal">
         <transition name="modal">
             <div class="modal-mask">
@@ -22,7 +21,7 @@
 
 <script>
     export default {
-        name: 'Modal',
+        name: 'VideoModal',
         props: {
             showModal: {
                 required: true
