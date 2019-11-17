@@ -13,7 +13,7 @@
                                 عدم نمایش راهنما
                             </span>
                         </button>
-                        <button class="button-type-one toggle-button video" @click="triggerModalVisibility(0)">
+                        <button class="button-type-one toggle-button video" @click="toggleModalVisibility(0)">
                             <span>
                                 مشاهده ویدئو
                             </span>
@@ -74,7 +74,7 @@
                 <div>
                     <div class="controls-container clearfix">
                         <div class="buttonContainer marginTop">
-                            <a class="buttonColor" name="revenue-add-revenue-button" @click="triggerModalVisibility(1)">
+                            <a class="buttonColor" name="revenue-add-revenue-button" @click="toggleModalVisibility(1)">
                                 افزودن منبع درآمد
                             </a>
                             <a class="buttonGray" name="dc-add-direct-labor-button"
@@ -115,14 +115,14 @@
             </div>
 
 
-        <video-modal v-if="isModalVisible(0)" @close-modal="triggerModalVisibility(0)" :showModal="isModalVisible(0)">
+        <video-modal v-if="isModalVisible(0)" @close-modal="toggleModalVisibility(0)" :showModal="isModalVisible(0)">
 
                 <v-playback :auto-play="false" :url="'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4'" ></v-playback>
 
         </video-modal>
 
         <!--TODO scroll jump after closing (why)-->
-        <base-modal v-if="isModalVisible(1)" @close-modal="triggerModalVisibility(1)" :showModal="isModalVisible(1)">
+        <base-modal v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" :showModal="isModalVisible(1)">
             <template v-slot:header-text>
                 <p>هدر</p>
             </template>
@@ -488,22 +488,22 @@
             <template v-slot:footer>
                 <div class="modal-footer-control-container right">
                     <div>
-                        <div class="trash-delete">
+                        <div v-if="modals[1].isDeleting === false" class="trash-delete">
                             <a href="#" class="trashcan" role="button" aria-label="Delete">
-                                <span class="trash-text">
+                                <span class="trash-text" @click="toggleModalIsDeleting(1)">
                                     حذف
                                 </span>
                             </a>
                         </div>
-                        <div id="trash-confirm" aria-live="assertive">
+                        <div v-if="modals[1].isDeleting === true" id="trash-confirm" aria-live="assertive">
                             <div class="trashcan-confirm">
                                 <span class="trash-text-confirm">
                                     <p>آیا اطمینان دارید?</p>
-                                    <a href="#close" role="button" tabindex="1">تایید</a>
+                                    <a @click="deleteEntry(1)" href="#close" role="button" tabindex="1">تایید</a>
                                     <span>
                                         یا
                                     </span>
-                                    <a href="#" role="button" tabindex="2">
+                                    <a @click="toggleModalIsDeleting(1)" href="#" role="button" tabindex="2" >
                                         لغو
                                     </a>
                                 </span>
@@ -592,12 +592,33 @@
                         }
                     },
                 },
-
                 instructionVisibility:false,
                 moreInstructionVisibility: false,
-                modalVisibility: [],
 
-                currentModalTab: 0
+                modalVisibility: [],
+                modalCurrentTab: 0,
+                modals: { //list of modals (except video modal)
+                    // TODO resolve state change scroll bug
+                    1:{
+                        state: 0,
+                        previousState: 0,
+                        // cases:{
+                        //     0: new entry,
+                        //     1: tab1: entry title added,
+                        //     2: ... -> tab2: option 1 selected: { }
+                        //     3: ... -> tab2: option 2 selected: { }
+                        //     4: ... -> tab2: option 3 selected: { }
+                        //     5: ... -> tab2: option 4 selected: { }
+                        //     6: ... -> TODO add next cases
+                        //
+                        //
+                        //
+                        // }
+                        isDeleting: false
+                    },
+                    // revenue addition modal
+                }
+
 
 
 
@@ -609,16 +630,38 @@
                 this.instructionVisibility = !this.instructionVisibility;
                 this.moreInstructionVisibility = false;
             },
-            triggerModalVisibility: function (i) {
-                let state = (typeof this.modalVisibility[i] !== 'undefined')? this.modalVisibility[i] : false;
-                this.$set(this.modalVisibility, i, !state);
-                this.currentModalTab = 0;
+            toggleModalVisibility: function (modalID) {
+                let visible = (typeof this.modalVisibility[modalID] !== 'undefined')? this.modalVisibility[modalID] : false;
+                if(visible === true){
+                    this.$set(this.modalVisibility, modalID, !visible);
+                    this.setModalTab(0);
+                    this.toggleModalIsDeleting(modalID);
+                }
+                else{
+                    this.handleModalState(modalID);
+                    this.$set(this.modalVisibility, modalID, !visible);
+                }
             },
             isModalVisible: function (i) {
                 return this.modalVisibility[i];
             },
             setModalTab: function (tab) {
                 this.currentModalTab = tab;
+            },
+            setModalState: function (modalID, stateIndex) {
+                // this.$set(this.modals[modalID], 'state', stateIndex)
+                this.modals[modalID].previousState = this.modals[modalID].state ;
+                this.modals[modalID].state = stateIndex;
+            },
+            toggleModalIsDeleting: function(modalID){
+                this.modals[modalID].isDeleting = !this.modals[modalID].isDeleting;
+            },
+            deleteEntry: function (modalID) {
+                // TODO implement delete logic
+                this.toggleModalVisibility(modalID);
+            },
+            handleModalState: function (modalID) {
+                // TODO set state according to data
             }
 
         }

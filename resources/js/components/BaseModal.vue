@@ -46,6 +46,7 @@
                 this.$emit('close-modal');
             }
         },
+
         // ready: function() {
         //     window.addEventListener('keyup', function(event) {
         //
@@ -55,6 +56,14 @@
         //     });
         // }
         // TODO listen to esc key
+        mounted() {
+            console.log(window.document.getElementsByTagName('body')[0])
+            // TODO set body overflow-y: hidden here
+        },
+        destroyed() {
+            console.log(window.document.getElementsByTagName('body')[0])
+            // TODO set body overflow-y: hidden here
+        }
 
     };
 </script>

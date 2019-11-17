@@ -1910,7 +1910,8 @@ __webpack_require__.r(__webpack_exports__);
     close: function close() {
       this.$emit('close-modal');
     }
-  } // ready: function() {
+  },
+  // ready: function() {
   //     window.addEventListener('keyup', function(event) {
   //
   //         if (event.key  === 27) {
@@ -1919,7 +1920,12 @@ __webpack_require__.r(__webpack_exports__);
   //     });
   // }
   // TODO listen to esc key
-
+  mounted: function mounted() {
+    console.log(window.document.getElementsByTagName('body')[0]); // TODO set body overflow-y: hidden here
+  },
+  destroyed: function destroyed() {
+    console.log(window.document.getElementsByTagName('body')[0]); // TODO set body overflow-y: hidden here
+  }
 });
 
 /***/ }),
@@ -3605,7 +3611,29 @@ __webpack_require__.r(__webpack_exports__);
       instructionVisibility: false,
       moreInstructionVisibility: false,
       modalVisibility: [],
-      currentModalTab: 0
+      modalCurrentTab: 0,
+      modals: {
+        //list of modals (except video modal)
+        // TODO resolve state change scroll bug
+        1: {
+          state: 0,
+          previousState: 0,
+          // cases:{
+          //     0: new entry,
+          //     1: tab1: entry title added,
+          //     2: ... -> tab2: option 1 selected: { }
+          //     3: ... -> tab2: option 2 selected: { }
+          //     4: ... -> tab2: option 3 selected: { }
+          //     5: ... -> tab2: option 4 selected: { }
+          //     6: ... -> TODO add next cases
+          //
+          //
+          //
+          // }
+          isDeleting: false
+        } // revenue addition modal
+
+      }
     };
   },
   methods: {
@@ -3613,16 +3641,37 @@ __webpack_require__.r(__webpack_exports__);
       this.instructionVisibility = !this.instructionVisibility;
       this.moreInstructionVisibility = false;
     },
-    triggerModalVisibility: function triggerModalVisibility(i) {
-      var state = typeof this.modalVisibility[i] !== 'undefined' ? this.modalVisibility[i] : false;
-      this.$set(this.modalVisibility, i, !state);
-      this.currentModalTab = 0;
+    toggleModalVisibility: function toggleModalVisibility(modalID) {
+      var visible = typeof this.modalVisibility[modalID] !== 'undefined' ? this.modalVisibility[modalID] : false;
+
+      if (visible === true) {
+        this.$set(this.modalVisibility, modalID, !visible);
+        this.setModalTab(0);
+        this.toggleModalIsDeleting(modalID);
+      } else {
+        this.handleModalState(modalID);
+        this.$set(this.modalVisibility, modalID, !visible);
+      }
     },
     isModalVisible: function isModalVisible(i) {
       return this.modalVisibility[i];
     },
     setModalTab: function setModalTab(tab) {
       this.currentModalTab = tab;
+    },
+    setModalState: function setModalState(modalID, stateIndex) {
+      // this.$set(this.modals[modalID], 'state', stateIndex)
+      this.modals[modalID].previousState = this.modals[modalID].state;
+      this.modals[modalID].state = stateIndex;
+    },
+    toggleModalIsDeleting: function toggleModalIsDeleting(modalID) {
+      this.modals[modalID].isDeleting = !this.modals[modalID].isDeleting;
+    },
+    deleteEntry: function deleteEntry(modalID) {
+      // TODO implement delete logic
+      this.toggleModalVisibility(modalID);
+    },
+    handleModalState: function handleModalState(modalID) {// TODO set state according to data
     }
   }
 });
@@ -3813,7 +3862,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
 
 // exports
 
@@ -26134,7 +26183,7 @@ var render = function() {
                 staticClass: "button-type-one toggle-button video",
                 on: {
                   click: function($event) {
-                    return _vm.triggerModalVisibility(0)
+                    return _vm.toggleModalVisibility(0)
                   }
                 }
               },
@@ -26258,7 +26307,7 @@ var render = function() {
                   attrs: { name: "revenue-add-revenue-button" },
                   on: {
                     click: function($event) {
-                      return _vm.triggerModalVisibility(1)
+                      return _vm.toggleModalVisibility(1)
                     }
                   }
                 },
@@ -26299,7 +26348,7 @@ var render = function() {
               attrs: { showModal: _vm.isModalVisible(0) },
               on: {
                 "close-modal": function($event) {
-                  return _vm.triggerModalVisibility(0)
+                  return _vm.toggleModalVisibility(0)
                 }
               }
             },
@@ -26321,7 +26370,7 @@ var render = function() {
             attrs: { showModal: _vm.isModalVisible(1) },
             on: {
               "close-modal": function($event) {
-                return _vm.triggerModalVisibility(1)
+                return _vm.toggleModalVisibility(1)
               }
             },
             scopedSlots: _vm._u(
@@ -26901,81 +26950,116 @@ var render = function() {
                         { staticClass: "modal-footer-control-container right" },
                         [
                           _c("div", [
-                            _c("div", { staticClass: "trash-delete" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "trashcan",
-                                  attrs: {
-                                    href: "#",
-                                    role: "button",
-                                    "aria-label": "Delete"
-                                  }
-                                },
-                                [
-                                  _c("span", { staticClass: "trash-text" }, [
-                                    _vm._v(
-                                      "\n                                حذف\n                            "
-                                    )
-                                  ])
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                attrs: {
-                                  id: "trash-confirm",
-                                  "aria-live": "assertive"
-                                }
-                              },
-                              [
-                                _c("div", { staticClass: "trashcan-confirm" }, [
+                            _vm.modals[1].isDeleting === false
+                              ? _c("div", { staticClass: "trash-delete" }, [
                                   _c(
-                                    "span",
-                                    { staticClass: "trash-text-confirm" },
+                                    "a",
+                                    {
+                                      staticClass: "trashcan",
+                                      attrs: {
+                                        href: "#",
+                                        role: "button",
+                                        "aria-label": "Delete"
+                                      }
+                                    },
                                     [
-                                      _c("p", [_vm._v("آیا اطمینان دارید?")]),
-                                      _vm._v(" "),
                                       _c(
-                                        "a",
+                                        "span",
                                         {
-                                          attrs: {
-                                            href: "#close",
-                                            role: "button",
-                                            tabindex: "1"
-                                          }
-                                        },
-                                        [_vm._v("تایید")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("span", [
-                                        _vm._v(
-                                          "\n                                    یا\n                                "
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "#",
-                                            role: "button",
-                                            tabindex: "2"
+                                          staticClass: "trash-text",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.toggleModalIsDeleting(
+                                                1
+                                              )
+                                            }
                                           }
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    لغو\n                                "
+                                            "\n                                حذف\n                            "
                                           )
                                         ]
                                       )
                                     ]
                                   )
                                 ])
-                              ]
-                            )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.modals[1].isDeleting === true
+                              ? _c(
+                                  "div",
+                                  {
+                                    attrs: {
+                                      id: "trash-confirm",
+                                      "aria-live": "assertive"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "trashcan-confirm" },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "trash-text-confirm" },
+                                          [
+                                            _c("p", [
+                                              _vm._v("آیا اطمینان دارید?")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  href: "#close",
+                                                  role: "button",
+                                                  tabindex: "1"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.deleteEntry(1)
+                                                  }
+                                                }
+                                              },
+                                              [_vm._v("تایید")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("span", [
+                                              _vm._v(
+                                                "\n                                    یا\n                                "
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  href: "#",
+                                                  role: "button",
+                                                  tabindex: "2"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.toggleModalIsDeleting(
+                                                      1
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                    لغو\n                                "
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
                           ])
                         ]
                       ),
@@ -27010,7 +27094,7 @@ var render = function() {
               ],
               null,
               false,
-              1751126643
+              3707760775
             )
           })
         : _vm._e()
