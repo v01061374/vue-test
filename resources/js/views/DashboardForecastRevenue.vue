@@ -117,9 +117,10 @@
 
         <video-modal v-if="isModalVisible(0)" @close-modal="triggerModalVisibility(0)" :showModal="isModalVisible(0)">
 
-                <v-playback :url="'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4'" ></v-playback>
+                <v-playback :auto-play="false" :url="'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4'" ></v-playback>
 
         </video-modal>
+
         <!--TODO scroll jump after closing (why)-->
         <base-modal v-if="isModalVisible(1)" @close-modal="triggerModalVisibility(1)" :showModal="isModalVisible(1)">
             <template v-slot:header-text>
@@ -127,13 +128,13 @@
             </template>
             <template v-slot:content>
                 <ul class="navigation-stripe">
-                    <li class="step-link active" tabindex="0" aria-selected="true">
-                        <span class="circle" >
+                    <li :class="['step-link', {'active': currentModalTab === 0 }]" tabindex="0" aria-selected="true" @click="setModalTab(0)">
+                        <span class="circle">
                             1
                         </span>
                         نام
                     </li>
-                    <li class="step-link hover" tabindex="0">
+                    <li :class="['step-link', {'active': currentModalTab === 1 }]" tabindex="1" @click="setModalTab(1)">
                         <span class="circle" aria-label="step 2:">
                             2
                         </span>
@@ -142,70 +143,70 @@
                 </ul>
                 <div>
                     <div>
-                        <div class="section" style="display: none">
-                            <!--<div class="title-top">-->
-                                <!--نام آن چیست؟-->
-                            <!--</div>-->
-                            <!--<div class="error">-->
-                                <!--<div class="max-length-input-container">-->
-                                    <!--<input type="text"-->
-                                       <!--class="input-box description error"-->
-                                       <!--value="" placeholder="لورم لورم"-->
-                                       <!--aria-label=" (255 characters remaining)"-->
-                                       <!--aria-describedby="910483b6-20d6-9972-78e5-e58c5e6cd27b"-->
-                                       <!--aria-invalid="true">-->
-                                    <!--<span class="count-down-wrapper">-->
-                                        <!--255-->
-                                    <!--</span>-->
-                                <!--</div>-->
-                                <!--<div class="feedback-line" aria-live="assertive" aria-atomic="true">-->
-                                    <!--<p>-->
-                                        <!--مقداری را وارد کنید.-->
-                                    <!--</p>-->
-                                <!--</div>-->
-                            <!--</div>-->
+                        <div class="section" v-if="currentModalTab===0">
+                            <!--TODO add state condition-->
+                            <div class="title-top">
+                                نام آن چیست؟
+                            </div>
+                            <div class="error">
+                                <div class="max-length-input-container">
+                                    <input type="text"
+                                       class="input-box description error"
+                                       value="" placeholder="لورم لورم"
+                                       aria-label=" (255 characters remaining)"
+                                       aria-describedby="910483b6-20d6-9972-78e5-e58c5e6cd27b"
+                                       aria-invalid="true">
+                                    <span class="count-down-wrapper">
+                                        255
+                                    </span>
+                                </div>
+                                <div class="feedback-line" aria-live="assertive" aria-atomic="true">
+                                    <p>
+                                        مقداری را وارد کنید.
+                                    </p>
+                                </div>
+                            </div>
 
-                        </div><!--TODO revenue tab 1 (delete this todo)-->
-                        <div class="section"  style="display: none">
-
-                            <!--<div class="title-top">نوع درآمد؟</div>-->
-                            <!--<div class="radio-buttons-list rtl" tabindex="0" role="radiogroup">-->
-                                <!--<p class="radio-right">-->
-                                    <!--<input type="radio" name="revenueType" id="emp0" class="radio-style" value="on">-->
-                                    <!--<label for="emp0">لورم 1</label>-->
-                                <!--</p>-->
-                                <!--<p  class="description">-->
-                                    <!--Best for products that are sold in individual units or set quantities-->
-                                <!--</p>-->
-                                <!--<p class="radio-right"><input type="radio" name="revenueType" id="emp1" class="radio-style" value="on">-->
-                                    <!--<label for="emp1">-->
-                                        <!--Billable hours-->
-                                    <!--</label>-->
-                                <!--</p>-->
-                                <!--<p  class="description">-->
-                                    <!--Best for services that are priced on a per-hour basis-->
-                                <!--</p>-->
-                                <!--<p class="radio-right">-->
-                                    <!--<input type="radio" name="revenueType" id="emp2" class="radio-style" value="on">-->
-                                    <!--<label for="emp2">-->
-                                        <!--Recurring charges-->
-                                    <!--</label>-->
-                                <!--</p>-->
-                                <!--<p  class="description">-->
-                                    <!--Best for subscriptions, memberships, rentals, web apps, or other offerings with monthly or periodic-->
-                                <!--</p>-->
-                                <!--<p class="radio-right"><input type="radio" name="revenueType" id="emp3" class="radio-style" value="on">-->
-                                    <!--<label for="emp3">-->
-                                        <!--Revenue only-->
-                                    <!--</label>-->
-                                <!--</p>-->
-                                <!--<p  class="description">-->
-                                    <!--If none of the models above are applicable, or you already have a detailed forecast in Excel or elsewhere, choose this option to just enter overall revenue values without any detail-->
-                                <!--</p>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    </div><!--TODO revenue tab 2 (delete this todo)-->
-                        <div class="forecast-item-editor">
+                        </div>
+                        <div class="section"   v-if="currentModalTab===1">
+                            <!--TODO add state condition-->
+                            <div class="title-top">نوع درآمد؟</div>
+                            <div class="radio-buttons-list rtl" tabindex="0" role="radiogroup">
+                                <p class="radio-right">
+                                    <input type="radio" name="revenueType" id="emp0" class="radio-style" value="on">
+                                    <label for="emp0">لورم 1</label>
+                                </p>
+                                <p  class="description">
+                                    Best for products that are sold in individual units or set quantities
+                                </p>
+                                <p class="radio-right"><input type="radio" name="revenueType" id="emp1" class="radio-style" value="on">
+                                    <label for="emp1">
+                                        Billable hours
+                                    </label>
+                                </p>
+                                <p  class="description">
+                                    Best for services that are priced on a per-hour basis
+                                </p>
+                                <p class="radio-right">
+                                    <input type="radio" name="revenueType" id="emp2" class="radio-style" value="on">
+                                    <label for="emp2">
+                                        Recurring charges
+                                    </label>
+                                </p>
+                                <p  class="description">
+                                    Best for subscriptions, memberships, rentals, web apps, or other offerings with monthly or periodic
+                                </p>
+                                <p class="radio-right"><input type="radio" name="revenueType" id="emp3" class="radio-style" value="on">
+                                    <label for="emp3">
+                                        Revenue only
+                                    </label>
+                                </p>
+                                <p  class="description">
+                                    If none of the models above are applicable, or you already have a detailed forecast in Excel or elsewhere, choose this option to just enter overall revenue values without any detail
+                                </p>
+                            </div>
+                        </div>
+                        <div class="forecast-item-editor" v-if="currentModalTab===3">
                             <div>
                                 <div class="section" style="margin-bottom: 30px">
                                     <div class="title-top">
@@ -596,6 +597,8 @@
                 moreInstructionVisibility: false,
                 modalVisibility: [],
 
+                currentModalTab: 0
+
 
 
 
@@ -609,10 +612,15 @@
             triggerModalVisibility: function (i) {
                 let state = (typeof this.modalVisibility[i] !== 'undefined')? this.modalVisibility[i] : false;
                 this.$set(this.modalVisibility, i, !state);
+                this.currentModalTab = 0;
             },
             isModalVisible: function (i) {
                 return this.modalVisibility[i];
+            },
+            setModalTab: function (tab) {
+                this.currentModalTab = tab;
             }
+
         }
     }
 </script>

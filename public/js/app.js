@@ -3517,6 +3517,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3603,7 +3604,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       instructionVisibility: false,
       moreInstructionVisibility: false,
-      modalVisibility: []
+      modalVisibility: [],
+      currentModalTab: 0
     };
   },
   methods: {
@@ -3614,9 +3616,13 @@ __webpack_require__.r(__webpack_exports__);
     triggerModalVisibility: function triggerModalVisibility(i) {
       var state = typeof this.modalVisibility[i] !== 'undefined' ? this.modalVisibility[i] : false;
       this.$set(this.modalVisibility, i, !state);
+      this.currentModalTab = 0;
     },
     isModalVisible: function isModalVisible(i) {
       return this.modalVisibility[i];
+    },
+    setModalTab: function setModalTab(tab) {
+      this.currentModalTab = tab;
     }
   }
 });
@@ -3807,7 +3813,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
 
 // exports
 
@@ -26300,6 +26306,7 @@ var render = function() {
             [
               _c("v-playback", {
                 attrs: {
+                  "auto-play": false,
                   url:
                     "https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4"
                 }
@@ -26334,8 +26341,16 @@ var render = function() {
                         _c(
                           "li",
                           {
-                            staticClass: "step-link active",
-                            attrs: { tabindex: "0", "aria-selected": "true" }
+                            class: [
+                              "step-link",
+                              { active: _vm.currentModalTab === 0 }
+                            ],
+                            attrs: { tabindex: "0", "aria-selected": "true" },
+                            on: {
+                              click: function($event) {
+                                return _vm.setModalTab(0)
+                              }
+                            }
                           },
                           [
                             _c("span", { staticClass: "circle" }, [
@@ -26352,8 +26367,16 @@ var render = function() {
                         _c(
                           "li",
                           {
-                            staticClass: "step-link hover",
-                            attrs: { tabindex: "0" }
+                            class: [
+                              "step-link",
+                              { active: _vm.currentModalTab === 1 }
+                            ],
+                            attrs: { tabindex: "1" },
+                            on: {
+                              click: function($event) {
+                                return _vm.setModalTab(1)
+                              }
+                            }
                           },
                           [
                             _c(
@@ -26377,287 +26400,492 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", [
                         _c("div", [
-                          _c("div", {
-                            staticClass: "section",
-                            staticStyle: { display: "none" }
-                          }),
-                          _vm._v(" "),
-                          _c("div", {
-                            staticClass: "section",
-                            staticStyle: { display: "none" }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "forecast-item-editor" }, [
-                            _c("div", [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "section",
-                                  staticStyle: { "margin-bottom": "30px" }
-                                },
-                                [
-                                  _c("div", { staticClass: "title-top" }, [
-                                    _vm._v(
-                                      "\n                                    How many units will you sell?\n                                "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "title-content" }, [
-                                    _vm._v(
-                                      "\n                                    How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.\n                                "
-                                    )
-                                  ]),
+                          _vm.currentModalTab === 0
+                            ? _c("div", { staticClass: "section" }, [
+                                _c("div", { staticClass: "title-top" }, [
+                                  _vm._v(
+                                    "\n                            نام آن چیست؟\n                        "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "error" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "max-length-input-container"
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "input-box description error",
+                                        attrs: {
+                                          type: "text",
+                                          value: "",
+                                          placeholder: "لورم لورم",
+                                          "aria-label":
+                                            " (255 characters remaining)",
+                                          "aria-describedby":
+                                            "910483b6-20d6-9972-78e5-e58c5e6cd27b",
+                                          "aria-invalid": "true"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "count-down-wrapper" },
+                                        [
+                                          _vm._v(
+                                            "\n                                    255\n                                "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
                                   _vm._v(" "),
                                   _c(
                                     "div",
                                     {
-                                      staticClass: "radio-box CONSTANT",
+                                      staticClass: "feedback-line",
                                       attrs: {
-                                        role: "radiogroup",
-                                        tabindex: "-1",
-                                        "aria-orientation": "horizontal"
+                                        "aria-live": "assertive",
+                                        "aria-atomic": "true"
                                       }
                                     },
                                     [
-                                      _c("ul", [
+                                      _c("p", [
+                                        _vm._v(
+                                          "\n                                    مقداری را وارد کنید.\n                                "
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.currentModalTab === 1
+                            ? _c("div", { staticClass: "section" }, [
+                                _c("div", { staticClass: "title-top" }, [
+                                  _vm._v("نوع درآمد؟")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "radio-buttons-list rtl",
+                                    attrs: { tabindex: "0", role: "radiogroup" }
+                                  },
+                                  [
+                                    _c("p", { staticClass: "radio-right" }, [
+                                      _c("input", {
+                                        staticClass: "radio-style",
+                                        attrs: {
+                                          type: "radio",
+                                          name: "revenueType",
+                                          id: "emp0",
+                                          value: "on"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("label", { attrs: { for: "emp0" } }, [
+                                        _vm._v("لورم 1")
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "description" }, [
+                                      _vm._v(
+                                        "\n                                Best for products that are sold in individual units or set quantities\n                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "radio-right" }, [
+                                      _c("input", {
+                                        staticClass: "radio-style",
+                                        attrs: {
+                                          type: "radio",
+                                          name: "revenueType",
+                                          id: "emp1",
+                                          value: "on"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("label", { attrs: { for: "emp1" } }, [
+                                        _vm._v(
+                                          "\n                                    Billable hours\n                                "
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "description" }, [
+                                      _vm._v(
+                                        "\n                                Best for services that are priced on a per-hour basis\n                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "radio-right" }, [
+                                      _c("input", {
+                                        staticClass: "radio-style",
+                                        attrs: {
+                                          type: "radio",
+                                          name: "revenueType",
+                                          id: "emp2",
+                                          value: "on"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("label", { attrs: { for: "emp2" } }, [
+                                        _vm._v(
+                                          "\n                                    Recurring charges\n                                "
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "description" }, [
+                                      _vm._v(
+                                        "\n                                Best for subscriptions, memberships, rentals, web apps, or other offerings with monthly or periodic\n                            "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "radio-right" }, [
+                                      _c("input", {
+                                        staticClass: "radio-style",
+                                        attrs: {
+                                          type: "radio",
+                                          name: "revenueType",
+                                          id: "emp3",
+                                          value: "on"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("label", { attrs: { for: "emp3" } }, [
+                                        _vm._v(
+                                          "\n                                    Revenue only\n                                "
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "description" }, [
+                                      _vm._v(
+                                        "\n                                If none of the models above are applicable, or you already have a detailed forecast in Excel or elsewhere, choose this option to just enter overall revenue values without any detail\n                            "
+                                      )
+                                    ])
+                                  ]
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.currentModalTab === 3
+                            ? _c(
+                                "div",
+                                { staticClass: "forecast-item-editor" },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "section",
+                                        staticStyle: { "margin-bottom": "30px" }
+                                      },
+                                      [
                                         _c(
-                                          "li",
-                                          { staticClass: "horizontal" },
+                                          "div",
+                                          { staticClass: "title-top" },
                                           [
-                                            _c("label", [
-                                              _c("input", {
-                                                attrs: {
-                                                  type: "radio",
-                                                  name:
-                                                    "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                  value: "on"
-                                                }
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._v("لورم")
-                                            ])
+                                            _vm._v(
+                                              "\n                                    How many units will you sell?\n                                "
+                                            )
                                           ]
                                         ),
                                         _vm._v(" "),
                                         _c(
-                                          "li",
-                                          { staticClass: "horizontal" },
+                                          "p",
+                                          { staticClass: "title-content" },
                                           [
-                                            _c("label", [
-                                              _c("input", {
-                                                attrs: {
-                                                  type: "radio",
-                                                  name:
-                                                    "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                  value: "on"
-                                                }
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._v(
-                                                "Varying amounts over time"
-                                              )
-                                            ])
+                                            _vm._v(
+                                              "\n                                    How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.\n                                "
+                                            )
                                           ]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "clear" })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _c(
-                                      "div",
-                                      { staticClass: "input-with-dropdown" },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
-                                          attrs: {
-                                            type: "text",
-                                            value: "",
-                                            "aria-describedby":
-                                              "value-control-2",
-                                            "aria-invalid": "true"
-                                          }
-                                        }),
+                                        ),
                                         _vm._v(" "),
-                                        _c("div", [
-                                          _c("span", { staticClass: "per" }, [
-                                            _vm._v("به ازای  ")
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "select-box",
-                                              staticStyle: {
-                                                "max-width": "999999px",
-                                                width: "89px"
-                                              }
-                                            },
-                                            [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "radio-box CONSTANT",
+                                            attrs: {
+                                              role: "radiogroup",
+                                              tabindex: "-1",
+                                              "aria-orientation": "horizontal"
+                                            }
+                                          },
+                                          [
+                                            _c("ul", [
                                               _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "selected-option",
-                                                  attrs: {
-                                                    tabindex: "0",
-                                                    role: "button"
-                                                  }
-                                                },
+                                                "li",
+                                                { staticClass: "horizontal" },
                                                 [
-                                                  _vm._v("لورم"),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "arrow"
-                                                  })
+                                                  _c("label", [
+                                                    _c("input", {
+                                                      attrs: {
+                                                        type: "radio",
+                                                        name:
+                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
+                                                        value: "on"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _vm._v("لورم")
+                                                  ])
                                                 ]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "div",
-                                                {
-                                                  staticClass: "options right",
-                                                  staticStyle: {
-                                                    width: "88px"
-                                                  },
-                                                  attrs: {
-                                                    tabindex: "-1",
-                                                    role: "listbox"
-                                                  }
-                                                },
+                                                "li",
+                                                { staticClass: "horizontal" },
                                                 [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass: "option-div",
+                                                  _c("label", [
+                                                    _c("input", {
                                                       attrs: {
-                                                        role: "option",
-                                                        tabindex: "-1"
+                                                        type: "radio",
+                                                        name:
+                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
+                                                        value: "on"
                                                       }
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                                                        Month\n                                                    "
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "selected option-div hovered",
-                                                      attrs: {
-                                                        role: "option",
-                                                        tabindex: "-1"
-                                                      }
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                                                        Year\n                                                    "
-                                                      )
-                                                    ]
-                                                  )
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _vm._v(
+                                                      "Varying amounts over time"
+                                                    )
+                                                  ])
                                                 ]
                                               )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("div", { staticClass: "clear" })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("div", [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "input-with-dropdown"
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
+                                                attrs: {
+                                                  type: "text",
+                                                  value: "",
+                                                  "aria-describedby":
+                                                    "value-control-2",
+                                                  "aria-invalid": "true"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c("div", [
+                                                _c(
+                                                  "span",
+                                                  { staticClass: "per" },
+                                                  [_vm._v("به ازای  ")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "select-box",
+                                                    staticStyle: {
+                                                      "max-width": "999999px",
+                                                      width: "89px"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "selected-option",
+                                                        attrs: {
+                                                          tabindex: "0",
+                                                          role: "button"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v("لورم"),
+                                                        _vm._v(" "),
+                                                        _c("div", {
+                                                          staticClass: "arrow"
+                                                        })
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "options right",
+                                                        staticStyle: {
+                                                          width: "88px"
+                                                        },
+                                                        attrs: {
+                                                          tabindex: "-1",
+                                                          role: "listbox"
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "option-div",
+                                                            attrs: {
+                                                              role: "option",
+                                                              tabindex: "-1"
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                        Month\n                                                    "
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "selected option-div hovered",
+                                                            attrs: {
+                                                              role: "option",
+                                                              tabindex: "-1"
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                        Year\n                                                    "
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("div", {
+                                                staticClass: "clear"
+                                              })
                                             ]
                                           )
-                                        ]),
+                                        ])
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("div"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "section",
+                                        staticStyle: { "margin-bottom": "30px" }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "title-top" },
+                                          [
+                                            _vm._v(
+                                              "\n                                    When will this revenue start?\n                                "
+                                            )
+                                          ]
+                                        ),
                                         _vm._v(" "),
-                                        _c("div", { staticClass: "clear" })
+                                        _c(
+                                          "div",
+                                          { staticClass: "select-box" },
+                                          [
+                                            _c(
+                                              "div",
+                                              { staticClass: "valid" },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "selected-option",
+                                                    attrs: {
+                                                      tabindex: "0",
+                                                      role: "button"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v("Jan 2019"),
+                                                    _vm._v(" "),
+                                                    _c("div", {
+                                                      staticClass: "arrow"
+                                                    })
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "options right",
+                                                    staticStyle: {
+                                                      width: "88px"
+                                                    },
+                                                    attrs: {
+                                                      tabindex: "-1",
+                                                      role: "listbox"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "option-div",
+                                                        attrs: {
+                                                          role: "option",
+                                                          tabindex: "-1"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                                                Month\n                                            "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "selected option-div hovered",
+                                                        attrs: {
+                                                          role: "option",
+                                                          tabindex: "-1"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                                                Year\n                                            "
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
                                       ]
                                     )
                                   ])
                                 ]
-                              ),
-                              _vm._v(" "),
-                              _c("div"),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "section",
-                                  staticStyle: { "margin-bottom": "30px" }
-                                },
-                                [
-                                  _c("div", { staticClass: "title-top" }, [
-                                    _vm._v(
-                                      "\n                                    When will this revenue start?\n                                "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "select-box" }, [
-                                    _c("div", { staticClass: "valid" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "selected-option",
-                                          attrs: {
-                                            tabindex: "0",
-                                            role: "button"
-                                          }
-                                        },
-                                        [
-                                          _vm._v("Jan 2019"),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "arrow" })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "options right",
-                                          staticStyle: { width: "88px" },
-                                          attrs: {
-                                            tabindex: "-1",
-                                            role: "listbox"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "option-div",
-                                              attrs: {
-                                                role: "option",
-                                                tabindex: "-1"
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                                Month\n                                            "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "selected option-div hovered",
-                                              attrs: {
-                                                role: "option",
-                                                tabindex: "-1"
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                                Year\n                                            "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ])
-                                  ])
-                                ]
                               )
-                            ])
-                          ])
+                            : _vm._e()
                         ])
                       ])
                     ]
@@ -26782,7 +27010,7 @@ var render = function() {
               ],
               null,
               false,
-              2051395490
+              1751126643
             )
           })
         : _vm._e()
