@@ -595,7 +595,7 @@
                 instructionVisibility:false,
                 moreInstructionVisibility: false,
                 modalVisibility: [],
-                // TODO change format of show... names
+
 
 
 

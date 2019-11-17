@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="overflow-y: scroll;">
         {{--vue output comes here--}}
     </div>
     <script src="{{asset('js/app.js')}}"></script>

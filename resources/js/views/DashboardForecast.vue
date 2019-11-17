@@ -1,16 +1,12 @@
 <template>
-    <div>
+
         <div class="tabs-container">
-            <div>
-                <div></div>
-                <div>
-                    <div style="padding-bottom: 0;"></div>
-                </div>
+
                 <tabs-bar :is-primary="true" :tabs="tabs"></tabs-bar>
                 <router-view></router-view>
-            </div>
+
         </div>
-    </div>
+
 
 </template>
 

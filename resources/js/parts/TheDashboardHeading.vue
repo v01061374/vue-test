@@ -11,8 +11,6 @@
                     </div>
                     <div class="header-top-bar-item-container">
                     <!--class=o4F_bd1d1_v3XnWoukPPJ-->
-                        <div>
-                            <div>
                                 <button class="transition-one-sec header-link-container">
                                 <!--class=_1KGAqWnQi5M_nxSdMVPa8Q   &   _2m-x_hgfsbyXvPLei8miXO-->
                                     <span class="header-top-bar-title">
@@ -63,12 +61,11 @@
                                     </div>
                                 </div>
 
-                            </div>
-                        </div>
+
+
                     </div>
                     <div class="header-top-bar-item-container">
-                        <div>
-                            <div>
+
                                 <button class="transition-one-sec header-link-container">
 
                                                                 <span class="header-top-bar-title">
@@ -102,13 +99,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="blank-horizontal-divider"></div>
                     <div class="header-top-bar-item-container">
-                        <div>
-                            <div>
+
                                 <button class="_1191rAspKGgAdYxjIJzo9E transition-one-sec header-link-container">
                                     <span class="header-top-bar-title small">حساب کاربری</span>
                                     <svg width="15" height="4">
@@ -134,12 +129,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="header-top-bar-item-container">
-                        <div>
-                            <div>
+
                                 <button class="_1191rAspKGgAdYxjIJzo9E transition-one-sec header-link-container">
                                     <span class="header-top-bar-title small">پشتیبانی</span>
                                     <svg width="15" height="4">
@@ -183,8 +176,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="padding-margin-left-zero header-top-bar-item-container"><a
                             class="bold transition-one-sec header-link-container"

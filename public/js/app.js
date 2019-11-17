@@ -2228,16 +2228,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TheDashboardContainer"
 });
@@ -2314,14 +2304,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2649,14 +2631,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2683,10 +2657,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_parts_DashboardTabsBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/js/parts/DashboardTabsBar */ "./resources/js/parts/DashboardTabsBar.vue");
-//
-//
-//
-//
 //
 //
 //
@@ -3633,8 +3603,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       instructionVisibility: false,
       moreInstructionVisibility: false,
-      modalVisibility: [] // TODO change format of show... names
-
+      modalVisibility: []
     };
   },
   methods: {
@@ -24848,27 +24817,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "app-chrome" }, [
-    _c("div", { staticClass: "application-chrome" }, [
-      _c("div", [
-        _c("div", [
-          _c("div", [
-            _c(
-              "div",
-              { staticClass: "inner-container" },
-              [
-                _c("span"),
-                _vm._v(" "),
-                _c("div", { staticStyle: { "padding-bottom": "0" } }),
-                _vm._v(" "),
-                _vm._t("default")
-              ],
-              2
-            )
-          ])
-        ])
-      ])
-    ])
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "inner-container" },
+      [
+        _c("div", { staticStyle: { "padding-bottom": "0" } }),
+        _vm._v(" "),
+        _vm._t("default")
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -25025,182 +24984,166 @@ var render = function() {
           _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "header-top-bar-item-container" }, [
-            _c("div", [
-              _c("div", [
-                _c(
-                  "button",
-                  { staticClass: "transition-one-sec header-link-container" },
-                  [
-                    _c("span", { staticClass: "header-top-bar-title" }, [
-                      _vm._v(
-                        "\n\n                                                                شرکت ممد اینا\n                                                            "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("svg", { attrs: { width: "15", height: "4" } }, [
-                      _c("line", {
-                        attrs: {
-                          x1: "4",
-                          y1: "0",
-                          x2: "8",
-                          y2: "4",
-                          "stroke-width": "1.5",
-                          stroke: "currentColor"
-                        }
-                      }),
-                      _c("line", {
-                        attrs: {
-                          x1: "8",
-                          y1: "4",
-                          x2: "12",
-                          y2: "0",
-                          "stroke-width": "1.5",
-                          stroke: "currentColor"
-                        }
-                      })
-                    ])
-                  ]
-                ),
+            _c(
+              "button",
+              { staticClass: "transition-one-sec header-link-container" },
+              [
+                _c("span", { staticClass: "header-top-bar-title" }, [
+                  _vm._v(
+                    "\n\n                                                                شرکت ممد اینا\n                                                            "
+                  )
+                ]),
                 _vm._v(" "),
-                _vm._m(1)
-              ])
-            ])
+                _c("svg", { attrs: { width: "15", height: "4" } }, [
+                  _c("line", {
+                    attrs: {
+                      x1: "4",
+                      y1: "0",
+                      x2: "8",
+                      y2: "4",
+                      "stroke-width": "1.5",
+                      stroke: "currentColor"
+                    }
+                  }),
+                  _c("line", {
+                    attrs: {
+                      x1: "8",
+                      y1: "4",
+                      x2: "12",
+                      y2: "0",
+                      "stroke-width": "1.5",
+                      stroke: "currentColor"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "header-top-bar-item-container" }, [
-            _c("div", [
-              _c("div", [
-                _c(
-                  "button",
-                  { staticClass: "transition-one-sec header-link-container" },
-                  [
-                    _c("span", { staticClass: "header-top-bar-title" }, [
-                      _vm._v(
-                        "\n                                                                vvvvvv\n                                                            "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("svg", { attrs: { width: "15", height: "4" } }, [
-                      _c("line", {
-                        attrs: {
-                          x1: "4",
-                          y1: "0",
-                          x2: "8",
-                          y2: "4",
-                          "stroke-width": "1.5",
-                          stroke: "currentColor"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: {
-                          x1: "8",
-                          y1: "4",
-                          x2: "12",
-                          y2: "0",
-                          "stroke-width": "1.5",
-                          stroke: "currentColor"
-                        }
-                      })
-                    ])
-                  ]
-                ),
+            _c(
+              "button",
+              { staticClass: "transition-one-sec header-link-container" },
+              [
+                _c("span", { staticClass: "header-top-bar-title" }, [
+                  _vm._v(
+                    "\n                                                                vvvvvv\n                                                            "
+                  )
+                ]),
                 _vm._v(" "),
-                _vm._m(2)
-              ])
-            ])
+                _c("svg", { attrs: { width: "15", height: "4" } }, [
+                  _c("line", {
+                    attrs: {
+                      x1: "4",
+                      y1: "0",
+                      x2: "8",
+                      y2: "4",
+                      "stroke-width": "1.5",
+                      stroke: "currentColor"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("line", {
+                    attrs: {
+                      x1: "8",
+                      y1: "4",
+                      x2: "12",
+                      y2: "0",
+                      "stroke-width": "1.5",
+                      stroke: "currentColor"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(2)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "blank-horizontal-divider" }),
           _vm._v(" "),
           _c("div", { staticClass: "header-top-bar-item-container" }, [
-            _c("div", [
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "_1191rAspKGgAdYxjIJzo9E transition-one-sec header-link-container"
-                  },
-                  [
-                    _c("span", { staticClass: "header-top-bar-title small" }, [
-                      _vm._v("حساب کاربری")
-                    ]),
-                    _vm._v(" "),
-                    _c("svg", { attrs: { width: "15", height: "4" } }, [
-                      _c("line", {
-                        attrs: {
-                          x1: "4",
-                          y1: "0",
-                          x2: "8",
-                          y2: "4",
-                          "stroke-width": "1.5",
-                          stroke: "currentColor"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: {
-                          x1: "8",
-                          y1: "4",
-                          x2: "12",
-                          y2: "0",
-                          "stroke-width": "1.5",
-                          stroke: "currentColor"
-                        }
-                      })
-                    ])
-                  ]
-                ),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "_1191rAspKGgAdYxjIJzo9E transition-one-sec header-link-container"
+              },
+              [
+                _c("span", { staticClass: "header-top-bar-title small" }, [
+                  _vm._v("حساب کاربری")
+                ]),
                 _vm._v(" "),
-                _vm._m(3)
-              ])
-            ])
+                _c("svg", { attrs: { width: "15", height: "4" } }, [
+                  _c("line", {
+                    attrs: {
+                      x1: "4",
+                      y1: "0",
+                      x2: "8",
+                      y2: "4",
+                      "stroke-width": "1.5",
+                      stroke: "currentColor"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("line", {
+                    attrs: {
+                      x1: "8",
+                      y1: "4",
+                      x2: "12",
+                      y2: "0",
+                      "stroke-width": "1.5",
+                      stroke: "currentColor"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(3)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "header-top-bar-item-container" }, [
-            _c("div", [
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "_1191rAspKGgAdYxjIJzo9E transition-one-sec header-link-container"
-                  },
-                  [
-                    _c("span", { staticClass: "header-top-bar-title small" }, [
-                      _vm._v("پشتیبانی")
-                    ]),
-                    _vm._v(" "),
-                    _c("svg", { attrs: { width: "15", height: "4" } }, [
-                      _c("line", {
-                        attrs: {
-                          x1: "4",
-                          y1: "0",
-                          x2: "8",
-                          y2: "4",
-                          "stroke-width": "1.5",
-                          stroke: "currentColor"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: {
-                          x1: "8",
-                          y1: "4",
-                          x2: "12",
-                          y2: "0",
-                          "stroke-width": "1.5",
-                          stroke: "currentColor"
-                        }
-                      })
-                    ])
-                  ]
-                ),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "_1191rAspKGgAdYxjIJzo9E transition-one-sec header-link-container"
+              },
+              [
+                _c("span", { staticClass: "header-top-bar-title small" }, [
+                  _vm._v("پشتیبانی")
+                ]),
                 _vm._v(" "),
-                _vm._m(4)
-              ])
-            ])
+                _c("svg", { attrs: { width: "15", height: "4" } }, [
+                  _c("line", {
+                    attrs: {
+                      x1: "4",
+                      y1: "0",
+                      x2: "8",
+                      y2: "4",
+                      "stroke-width": "1.5",
+                      stroke: "currentColor"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("line", {
+                    attrs: {
+                      x1: "8",
+                      y1: "4",
+                      x2: "12",
+                      y2: "0",
+                      "stroke-width": "1.5",
+                      stroke: "currentColor"
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(4)
           ]),
           _vm._v(" "),
           _c(
@@ -25778,38 +25721,23 @@ var render = function() {
       _c("the-heading"),
       _vm._v(" "),
       _c("div", { staticClass: "content-container" }, [
-        _c("div", [
-          _c("div", [
-            _c("div", [
-              _c("div", { staticStyle: { "padding-bottom": "0" } }, [
-                _c(
-                  "div",
-                  [
-                    _c("the-nav-bar"),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("div", { staticClass: "inner-content-container" }, [
-                        _c("div", [
-                          _c("div", [
-                            _c("div", [
-                              _c(
-                                "div",
-                                { staticClass: "inner-content" },
-                                [_c("router-view")],
-                                1
-                              )
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ],
-                  1
-                )
-              ])
+        _c(
+          "div",
+          { staticStyle: { "padding-bottom": "0" } },
+          [
+            _c("the-nav-bar"),
+            _vm._v(" "),
+            _c("div", { staticClass: "inner-content-container" }, [
+              _c(
+                "div",
+                { staticClass: "inner-content" },
+                [_c("router-view")],
+                1
+              )
             ])
-          ])
-        ])
+          ],
+          1
+        )
       ]),
       _vm._v(" "),
       _c("the-footer")
@@ -25839,32 +25767,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "tabs-container" }, [
-      _c(
-        "div",
-        [
-          _c("div"),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c("tabs-bar", { attrs: { "is-primary": true, tabs: _vm.tabs } }),
-          _vm._v(" "),
-          _c("router-view")
-        ],
-        1
-      )
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "tabs-container" },
+    [
+      _c("tabs-bar", { attrs: { "is-primary": true, tabs: _vm.tabs } }),
+      _vm._v(" "),
+      _c("router-view")
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("div", { staticStyle: { "padding-bottom": "0" } })])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -44060,23 +43974,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue");
 /* harmony import */ var _components_About_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/About.vue */ "./resources/js/components/About.vue");
 /* harmony import */ var _components_Chart_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Chart.vue */ "./resources/js/components/Chart.vue");
-/* harmony import */ var _components_VideoModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/VideoModal.vue */ "./resources/js/components/VideoModal.vue");
-/* harmony import */ var _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/Dashboard.vue */ "./resources/js/views/Dashboard.vue");
-/* harmony import */ var _views_DashboardForecast_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/DashboardForecast.vue */ "./resources/js/views/DashboardForecast.vue");
-/* harmony import */ var _views_DashboardForecastFinancialTables_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/DashboardForecastFinancialTables.vue */ "./resources/js/views/DashboardForecastFinancialTables.vue");
-/* harmony import */ var _views_DashboardForecastProfitAndLoss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/DashboardForecastProfitAndLoss */ "./resources/js/views/DashboardForecastProfitAndLoss.vue");
-/* harmony import */ var _views_DashboardForecastBalanceSheet__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/DashboardForecastBalanceSheet */ "./resources/js/views/DashboardForecastBalanceSheet.vue");
-/* harmony import */ var _views_DashboardForecastCashFlow__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/DashboardForecastCashFlow */ "./resources/js/views/DashboardForecastCashFlow.vue");
-/* harmony import */ var _views_DashboardForecastRevenue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/DashboardForecastRevenue */ "./resources/js/views/DashboardForecastRevenue.vue");
-/* harmony import */ var _views_DashboardForecastDirectCosts__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/DashboardForecastDirectCosts */ "./resources/js/views/DashboardForecastDirectCosts.vue");
-/* harmony import */ var _views_DashboardForecastPersonnel__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/DashboardForecastPersonnel */ "./resources/js/views/DashboardForecastPersonnel.vue");
-/* harmony import */ var _views_DashboardForecastExpenses__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/DashboardForecastExpenses */ "./resources/js/views/DashboardForecastExpenses.vue");
-/* harmony import */ var _views_DashboardForecastAssets__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/DashboardForecastAssets */ "./resources/js/views/DashboardForecastAssets.vue");
-/* harmony import */ var _views_DashboardForecastTaxes__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/DashboardForecastTaxes */ "./resources/js/views/DashboardForecastTaxes.vue");
-/* harmony import */ var _views_DashboardForecastDividends__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/DashboardForecastDividends */ "./resources/js/views/DashboardForecastDividends.vue");
-/* harmony import */ var _views_DashboardForecastCashFlowAssumptions__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/DashboardForecastCashFlowAssumptions */ "./resources/js/views/DashboardForecastCashFlowAssumptions.vue");
-/* harmony import */ var _views_DashboardForecastFinancing__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./views/DashboardForecastFinancing */ "./resources/js/views/DashboardForecastFinancing.vue");
-
+/* harmony import */ var _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Dashboard.vue */ "./resources/js/views/Dashboard.vue");
+/* harmony import */ var _views_DashboardForecast_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/DashboardForecast.vue */ "./resources/js/views/DashboardForecast.vue");
+/* harmony import */ var _views_DashboardForecastFinancialTables_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/DashboardForecastFinancialTables.vue */ "./resources/js/views/DashboardForecastFinancialTables.vue");
+/* harmony import */ var _views_DashboardForecastProfitAndLoss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/DashboardForecastProfitAndLoss */ "./resources/js/views/DashboardForecastProfitAndLoss.vue");
+/* harmony import */ var _views_DashboardForecastBalanceSheet__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/DashboardForecastBalanceSheet */ "./resources/js/views/DashboardForecastBalanceSheet.vue");
+/* harmony import */ var _views_DashboardForecastCashFlow__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/DashboardForecastCashFlow */ "./resources/js/views/DashboardForecastCashFlow.vue");
+/* harmony import */ var _views_DashboardForecastRevenue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/DashboardForecastRevenue */ "./resources/js/views/DashboardForecastRevenue.vue");
+/* harmony import */ var _views_DashboardForecastDirectCosts__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/DashboardForecastDirectCosts */ "./resources/js/views/DashboardForecastDirectCosts.vue");
+/* harmony import */ var _views_DashboardForecastPersonnel__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/DashboardForecastPersonnel */ "./resources/js/views/DashboardForecastPersonnel.vue");
+/* harmony import */ var _views_DashboardForecastExpenses__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/DashboardForecastExpenses */ "./resources/js/views/DashboardForecastExpenses.vue");
+/* harmony import */ var _views_DashboardForecastAssets__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/DashboardForecastAssets */ "./resources/js/views/DashboardForecastAssets.vue");
+/* harmony import */ var _views_DashboardForecastTaxes__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/DashboardForecastTaxes */ "./resources/js/views/DashboardForecastTaxes.vue");
+/* harmony import */ var _views_DashboardForecastDividends__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/DashboardForecastDividends */ "./resources/js/views/DashboardForecastDividends.vue");
+/* harmony import */ var _views_DashboardForecastCashFlowAssumptions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/DashboardForecastCashFlowAssumptions */ "./resources/js/views/DashboardForecastCashFlowAssumptions.vue");
+/* harmony import */ var _views_DashboardForecastFinancing__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/DashboardForecastFinancing */ "./resources/js/views/DashboardForecastFinancing.vue");
 
 
 
@@ -44113,72 +44025,68 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'chart',
     component: _components_Chart_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/modal',
-    name: 'modal',
-    component: _components_VideoModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }, {
     path: '/dashboard',
     name: 'dashboard.index',
-    component: _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    component: _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     children: [{
       path: '/dashboard/forecast',
-      component: _views_DashboardForecast_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+      component: _views_DashboardForecast_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
       name: 'dashboard.forecast',
       children: [{
         path: '/dashboard/forecast/financial-tables',
-        component: _views_DashboardForecastFinancialTables_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+        component: _views_DashboardForecastFinancialTables_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
         name: 'dashboard.forecast.financialTables',
         redirect: {
           name: 'dashboard.forecast.financialTables.revenue'
         },
         children: [{
           path: 'revenue',
-          component: _views_DashboardForecastRevenue__WEBPACK_IMPORTED_MODULE_12__["default"],
+          component: _views_DashboardForecastRevenue__WEBPACK_IMPORTED_MODULE_11__["default"],
           name: 'dashboard.forecast.financialTables.revenue'
         }, {
           path: 'direct-costs',
-          component: _views_DashboardForecastDirectCosts__WEBPACK_IMPORTED_MODULE_13__["default"],
+          component: _views_DashboardForecastDirectCosts__WEBPACK_IMPORTED_MODULE_12__["default"],
           name: 'dashboard.forecast.financialTables.direct-costs'
         }, {
           path: 'personnel',
-          component: _views_DashboardForecastPersonnel__WEBPACK_IMPORTED_MODULE_14__["default"],
+          component: _views_DashboardForecastPersonnel__WEBPACK_IMPORTED_MODULE_13__["default"],
           name: 'dashboard.forecast.financialTables.personnel'
         }, {
           path: 'expenses',
-          component: _views_DashboardForecastExpenses__WEBPACK_IMPORTED_MODULE_15__["default"],
+          component: _views_DashboardForecastExpenses__WEBPACK_IMPORTED_MODULE_14__["default"],
           name: 'dashboard.forecast.financialTables.expenses'
         }, {
           path: 'assets',
-          component: _views_DashboardForecastAssets__WEBPACK_IMPORTED_MODULE_16__["default"],
+          component: _views_DashboardForecastAssets__WEBPACK_IMPORTED_MODULE_15__["default"],
           name: 'dashboard.forecast.financialTables.assets'
         }, {
           path: 'taxes',
-          component: _views_DashboardForecastTaxes__WEBPACK_IMPORTED_MODULE_17__["default"],
+          component: _views_DashboardForecastTaxes__WEBPACK_IMPORTED_MODULE_16__["default"],
           name: 'dashboard.forecast.financialTables.taxes'
         }, {
           path: 'dividends',
-          component: _views_DashboardForecastDividends__WEBPACK_IMPORTED_MODULE_18__["default"],
+          component: _views_DashboardForecastDividends__WEBPACK_IMPORTED_MODULE_17__["default"],
           name: 'dashboard.forecast.financialTables.dividends'
         }, {
           path: 'cash-flow-assumptions',
-          component: _views_DashboardForecastCashFlowAssumptions__WEBPACK_IMPORTED_MODULE_19__["default"],
+          component: _views_DashboardForecastCashFlowAssumptions__WEBPACK_IMPORTED_MODULE_18__["default"],
           name: 'dashboard.forecast.financialTables.cashFlowAssumptions'
         }, {
           path: 'financing',
-          component: _views_DashboardForecastFinancing__WEBPACK_IMPORTED_MODULE_20__["default"],
+          component: _views_DashboardForecastFinancing__WEBPACK_IMPORTED_MODULE_19__["default"],
           name: 'dashboard.forecast.financialTables.financing'
         }]
       }, {
         path: 'profit-and-loss',
-        component: _views_DashboardForecastProfitAndLoss__WEBPACK_IMPORTED_MODULE_9__["default"],
+        component: _views_DashboardForecastProfitAndLoss__WEBPACK_IMPORTED_MODULE_8__["default"],
         name: 'dashboard.forecast.profitAndLoss'
       }, {
         path: 'balance-sheet',
-        component: _views_DashboardForecastBalanceSheet__WEBPACK_IMPORTED_MODULE_10__["default"],
+        component: _views_DashboardForecastBalanceSheet__WEBPACK_IMPORTED_MODULE_9__["default"],
         name: 'dashboard.forecast.balanceSheet'
       }, {
         path: 'cash-flow',
-        component: _views_DashboardForecastCashFlow__WEBPACK_IMPORTED_MODULE_11__["default"],
+        component: _views_DashboardForecastCashFlow__WEBPACK_IMPORTED_MODULE_10__["default"],
         name: 'dashboard.forecast.cashFlow'
       }]
     }]
