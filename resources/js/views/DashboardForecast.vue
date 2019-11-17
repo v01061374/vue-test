@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import TabsBar from '@/js/parts/DashboardTabsBar.vue';
+    import TabsBar from '@/js/parts/DashboardTabsBar';
     export default {
         name: "DashboardForecast",
         components:{

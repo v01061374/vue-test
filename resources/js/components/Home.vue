@@ -7,7 +7,7 @@
 
 <script>
 
-    import VideoModal from "./VideoModal";
+    import VideoModal from "@/js/components/VideoModal";
     // TODO change addressing formats
     export default {
         components: {

@@ -4,12 +4,12 @@
             <div class="modal-mask">
                 <div @keyup.esc="close" class="modal-wrapper">
                     <div class="modal-container">
-                        <div class="modal-body">
+                        <div class="video-modal-body">
                             <slot>
                             </slot>
-                            <a href="#" id="modal-close-button" @click="close">
-                            </a>
-                            <a  href="#" id="modal-close-text" @click="close">بستن</a>
+                            <a href="#" class="modal-close-button" @click="close">
+                        </a>
+                            <a  href="#" class="modal-close-text" @click="close">بستن</a>
                         </div>
                     </div>
                 </div>
@@ -82,31 +82,31 @@
         color: #42b983;
     }
 
-    .modal-body {
+    .video-modal-body {
         margin: 20px 0;
         position: relative;
     }
-    .modal-body #modal-close-button, .modal-body #modal-close-text {
+    .video-modal-body .modal-close-button, .video-modal-body .modal-close-text {
         position: absolute;
 
 
 
         cursor: pointer;
     }
-    .modal-body #modal-close-button{
+    .video-modal-body .modal-close-button{
         bottom: -28px;
         width: 20px;
         height: 20px;
         right: 4px;
     }
-    .modal-body #modal-close-text{
+    .video-modal-body .modal-close-text{
         bottom: -23px;
         right: 18px;
         font-family: IRANSans, Tahoma;
         font-size: 12px;
     }
     
-    .modal-body #modal-close-button:before, .modal-body #modal-close-button:after {
+    .video-modal-body .modal-close-button:before, .video-modal-body .modal-close-button:after {
         position: absolute;
         left: 15px;
         content: ' ';
@@ -114,10 +114,10 @@
         width: 2px;
         background-color: #333;
     }
-    .modal-body #modal-close-button:before {
+    .video-modal-body .modal-close-button:before {
         transform: rotate(45deg);
     }
-    .modal-body #modal-close-button:after {
+    .video-modal-body .modal-close-button:after {
         transform: rotate(-45deg);
     }
     .modal-default-button {

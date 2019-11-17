@@ -524,8 +524,8 @@
 
 <script>
     import TreeTable from 'vue-tree-table-component';
-    import VideoModal from "../components/VideoModal";
-    import BaseModal from "../components/BaseModal";
+    import VideoModal from "@/js/components/VideoModal";
+    import BaseModal from "@/js/components/BaseModal";
 
     export default {
         name: "DashboardForecastRevenue",

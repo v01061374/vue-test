@@ -7,7 +7,7 @@
 
 <script>
     import { Fragment } from 'vue-fragment';
-    import TabsBar from '@/js/parts/DashboardTabsBar.vue';
+    import TabsBar from '@/js/parts/DashboardTabsBar';
     export default {
         name: "DashboardForecastFinancialTables",
         components:{

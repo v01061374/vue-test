@@ -4,11 +4,15 @@
             <div class="modal-mask">
                 <div class="modal-wrapper">
                     <div class="modal-container">
-                        <div class="modal-body">
+                        <div class="base-modal-body">
                             <div class="base-modal-header-wrapper">
                                 <div class="base-modal-header">
                                     <slot name="header-text"></slot>
-                                    <button tabindex="0" role="button" aria-label="close" class="base-modal-header-close-button" @click="close()"></button>
+                                    <!--<button tabindex="0" role="button" aria-label="close" class="base-modal-header-close-button" @click="close()">-->
+                                        <!---->
+                                    <!--</button>-->
+                                    <a href="#" class="modal-close-button" @click="close">
+                                    </a>
                                 </div>
                             </div>
                             <div role="group">
@@ -91,42 +95,35 @@
         color: #42b983;
     }
 
-    .modal-body {
+    .base-modal-body {
         margin: 20px 0;
         position: relative;
     }
-    .modal-body #modal-close-button, .modal-body #modal-close-text {
+    .base-modal-body .modal-close-button, .base-modal-body .modal-close-text {
         position: absolute;
-
-
-
         cursor: pointer;
     }
-    .modal-body #modal-close-button{
-        bottom: -28px;
+    .base-modal-body .modal-close-button{
+        top: 18px;
         width: 20px;
         height: 20px;
-        right: 4px;
-    }
-    .modal-body #modal-close-text{
-        bottom: -23px;
         right: 18px;
-        font-family: IRANSans, Tahoma;
-        font-size: 12px;
     }
     
-    .modal-body #modal-close-button:before, .modal-body #modal-close-button:after {
+    .base-modal-body .modal-close-button:before, .base-modal-body .modal-close-button:after {
         position: absolute;
-        left: 15px;
         content: ' ';
-        height: 10px;
+        height: 20px;
         width: 2px;
-        background-color: #333;
+        background-color: #fff;
     }
-    .modal-body #modal-close-button:before {
+
+
+
+    .base-modal-body .modal-close-button:before {
         transform: rotate(45deg);
     }
-    .modal-body #modal-close-button:after {
+    .base-modal-body .modal-close-button:after {
         transform: rotate(-45deg);
     }
     .modal-default-button {
@@ -167,26 +164,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
         line-height: 55px;
-        margin-left: 30px;
-        margin-right: 55px;
+        margin-left: 55px;
+        margin-right: 30px;
         font-size: 18px;
         color: #FFFFFF;
         font-family: IRANSans, Tahoma;
     }
-    .base-modal-header-close-button {
-        padding: 0;
-        position: absolute;
-        right: 30px;
-        top: 20px;
-        height: 16px;
-        width: 16px;
-        border: 0;
-        cursor: pointer;
-        background-color: transparent;
-        background-image: url(https://d2rdonr34l28sy.cloudfront.net/10mCIwurNt.png);
-        /*TODO change to content*/
-        background-position: top;
-    }
+    /*TODO correct margins*/
     .modal-content-container{
         padding-top: 30px;
         padding-left: 30px;

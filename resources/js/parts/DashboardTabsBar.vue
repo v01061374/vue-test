@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import Tab from '@/js/components/DashboardTabsBarItem.vue';
+    import Tab from '@/js/components/DashboardTabsBarItem';
     export default {
         name: "DashboardTabsContainer",
         components:{
