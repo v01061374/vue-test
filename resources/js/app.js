@@ -5,6 +5,8 @@ import Routes from '@/js/routes.js';
 import HighchartsVue from 'highcharts-vue';
 import vPlayBack from 'v-playback';
 
+
+
 import App from '@/js/views/App';
 
 

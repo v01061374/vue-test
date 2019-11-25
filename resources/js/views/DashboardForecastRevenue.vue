@@ -209,21 +209,21 @@
                             </div>
                             <div class="error">
                                 <div class="max-length-input-container">
-                                    <input type="text"
-                                       class="input-box description error"
-                                       value="" placeholder="لورم لورم"
-                                       aria-label=" (255 characters remaining)"
-                                       aria-describedby="910483b6-20d6-9972-78e5-e58c5e6cd27b"
-                                       aria-invalid="true">
-                                    <span class="count-down-wrapper">
-                                        255
-                                    </span>
+                                        <input type="text"
+                                               class="input-box description error"
+                                               placeholder="لورم لورم"
+                                               v-model="newRevenueName">
+                                        <span class="count-down-wrapper">
+                                            {{255 - newRevenueName.length}}
+                                        </span>
+                                        <div class="feedback-line">
+                                            <p v-for="(err, i) in errors.name">
+                                                {{err}}
+                                            </p>
+                                        </div>
+
                                 </div>
-                                <div class="feedback-line" aria-live="assertive" aria-atomic="true">
-                                    <p>
-                                        مقداری را وارد کنید.
-                                    </p>
-                                </div>
+
                             </div>
 
                         </div>
@@ -2240,6 +2240,7 @@
     import VideoModal from "@/js/components/VideoModal";
     import BaseModal from "@/js/components/BaseModal";
 
+
     export default {
         name: "DashboardForecastRevenue",
         components: {
@@ -2332,13 +2333,11 @@
                         // }
                         isDeleting: false
                     },// revenue addition modal
-
+                },
+                newRevenueName: '',
+                errors: {
+                    'name': []
                 }
-
-
-
-
-
             }
         },
         methods:{
@@ -2388,8 +2387,38 @@
                 // TODO set state according to data
                 this.setModalState(1, 0);
                 // default
-            }
+            },
 
+            // revenue addition modal
+            // TODO optional: make a new component from modal contents
+
+            checkName(serverSide = false){
+                console.log('validation');
+                if (this.newRevenueName.length < 1){
+                    this.errors['name'].push('نام را وارد کنید')
+                    return false;
+                }
+                else{
+
+                    if(serverSide){
+                        //TODO implement server side validation logic
+                    }
+                }
+                this.errors.name = [];
+                return true;
+
+            },
+
+            //
+
+
+
+
+        },
+        watch:{
+            newRevenueName: function(){
+                this.checkName(false);
+            }
         }
     }
 </script>
