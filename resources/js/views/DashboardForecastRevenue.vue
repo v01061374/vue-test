@@ -129,7 +129,7 @@
             <template v-slot:content>
                 <ul class="navigation-stripe">
                     <li :class="['step-link', {'active': currentModalTab === 0 }]" tabindex="0" aria-selected="true" @click="setModalTab(0)">
-                        <span class="circle">
+                        <span class="circle" aria-label="step 1:">
                             1
                         </span>
                         نام
@@ -140,9 +140,68 @@
                         </span>
                         نوع
                     </li>
+
+                    <li v-if="getModalState(1)===20" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">
+                        <span class="circle" aria-label="step 3:">
+                            3
+                        </span>
+                        تعداد فروش
+                    </li>
+                    <li  v-if="getModalState(1)===20" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">
+                        <span class="circle" aria-label="step 4:">
+                            4
+                        </span>
+                        قیمت واحد
+                    </li>
+
+
+                    <li v-if="getModalState(1)===21" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">
+                        <span class="circle" aria-label="step 3:">
+                            3
+                        </span>
+                        پرداخت ساعتی
+                    </li>
+                    <li v-if="getModalState(1)===21" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">
+                        <span class="circle" aria-label="step 4:">
+                            4
+                        </span>
+                        نرخ پرداخت ساعتی
+                    </li>
+
+
+                    <li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">
+                        <span class="circle" aria-label="step 3:">
+                            3
+                        </span>
+                        ثبت نام ها
+                    </li>
+                    <li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">
+                        <span class="circle" aria-label="step 4:">
+                            4
+                        </span>
+                        شارژ دوره ای
+                    </li>
+                    <li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 4 }]" tabindex="4" @click="setModalTab(4)">
+                        <span class="circle" aria-label="step 4:">
+                            5
+                        </span>
+                        churn rate
+                    </li>
+                    <!--TODO IMPORTANT: get translations-->
+
+
+                    <li v-if="getModalState(1)===23" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">
+                        <span class="circle" aria-label="step 3:">
+                            3
+                        </span>
+                        منبع مالی
+                    </li>
+
+
                 </ul>
                 <div>
                     <div>
+                        <!--TODO resolve extra height caused by extra 30px paddings-->
                         <div class="section" v-if="currentModalTab===0">
                             <!--TODO add state condition-->
                             <div class="title-top">
@@ -173,13 +232,14 @@
                             <div class="title-top">نوع درآمد؟</div>
                             <div class="radio-buttons-list rtl" tabindex="0" role="radiogroup">
                                 <p class="radio-right">
-                                    <input type="radio" name="revenueType" id="emp0" class="radio-style" value="on">
-                                    <label for="emp0">لورم 1</label>
+                                    <input :checked="getModalState(1)===20" @click="setModalState(1, 20)" type="radio" name="revenueType" id="emp0" class="radio-style" value="on">
+                                    <label for="emp0">تعداد فروش</label>
                                 </p>
                                 <p  class="description">
                                     Best for products that are sold in individual units or set quantities
                                 </p>
-                                <p class="radio-right"><input type="radio" name="revenueType" id="emp1" class="radio-style" value="on">
+                                <p class="radio-right">
+                                    <input :checked="getModalState(1)===21" @click="setModalState(1, 21)" type="radio" name="revenueType" id="emp1" class="radio-style" value="on">
                                     <label for="emp1">
                                         Billable hours
                                     </label>
@@ -188,7 +248,7 @@
                                     Best for services that are priced on a per-hour basis
                                 </p>
                                 <p class="radio-right">
-                                    <input type="radio" name="revenueType" id="emp2" class="radio-style" value="on">
+                                    <input :checked="getModalState(1)===22" @click="setModalState(1, 22)" type="radio" name="revenueType" id="emp2" class="radio-style" value="on">
                                     <label for="emp2">
                                         Recurring charges
                                     </label>
@@ -196,7 +256,8 @@
                                 <p  class="description">
                                     Best for subscriptions, memberships, rentals, web apps, or other offerings with monthly or periodic
                                 </p>
-                                <p class="radio-right"><input type="radio" name="revenueType" id="emp3" class="radio-style" value="on">
+                                <p class="radio-right">
+                                    <input :checked="getModalState(1)===23" @click="setModalState(1, 23)" type="radio" name="revenueType" id="emp3" class="radio-style" value="on">
                                     <label for="emp3">
                                         Revenue only
                                     </label>
@@ -206,7 +267,8 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="forecast-item-editor" v-if="currentModalTab===3">
+
+                        <div class="forecast-item-editor" v-if="getModalState(1)===20 && currentModalTab===2">
                             <div>
                                 <div class="section" style="margin-bottom: 30px">
                                     <div class="title-top">
@@ -481,8 +543,1658 @@
                                 <!--TODO constant amount selected (delete this todo-->
 
                             </div>
+                        </div>
+                        <div class="forecast-item-editor" v-if="getModalState(1)===20 && currentModalTab===3">
+                            <div>
+                                <div class="section" style="margin-bottom: 30px">
+                                    <div class="title-top">
+                                        What price will you charge for each unit?
+                                    </div>
+                                    <p class="title-content">
+                                        Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
+                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
+                                        <ul>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    لورم
+                                                </label>
+                                            </li>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    Varying amounts over time
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+                                    <div>
+                                        <div class="input-with-dropdown">
+                                            <div class="input-box-wrapper " style="width: 140px;">
+
+                                                <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
+                                                <span aria-hidden="true" class="currency">ریال</span>
+                                            </div>
+                                            <span></span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+
+                                </div>
+                                <div><!--TODO variable amount selected (delete this todo-->
+                                    <!--<div class="financial-year-box" role="grid">-->
+                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
+                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
+                                    <!--<div>-->
+                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
+                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
+                                    <!--<strong>2019</strong>-->
+                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
+                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
+                                    <!--Learn more-->
+                                    <!--</a>-->
+                                    <!--</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
+                                    <!--<p>Change</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
+                                    <!--<span aria-hidden="true" class="percent">-->
+                                    <!--%-->
+                                    <!--</span>-->
+                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
+                                    <!--Apply-->
+                                    <!--</button>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                    <!--<div>-->
+                                    <!--<div data-highcharts-chart="7">-->
+                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div>-->
+                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Mar '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Apr '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="May '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="June '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="July '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Aug '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Sept '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Oct '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Nov '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Dec '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
+                                    <!--aria-label="2019">-->
+                                    <!--<div class="fillRightDots">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>2020</li>-->
+                                    <!--<li>2021</li>-->
+                                    <!--</ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2020">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2021">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
+                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
+                                </div> <!--TODO variable amount selected (delete this todo-->
+
                             </div>
                         </div>
+
+                        <div class="forecast-item-editor" v-if="getModalState(1)===21 && currentModalTab===2">
+                            <div>
+                                <div class="section" style="margin-bottom: 30px">
+                                    <div class="title-top">
+                                        How many units will you sell?
+                                    </div>
+                                    <p class="title-content">
+                                        How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.
+                                    </p>
+                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
+                                        <ul>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    <!-- react-text: 131 -->لورم<!-- /react-text -->
+                                                </label>
+                                            </li>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    <!-- react-text: 135 -->Varying amounts over time<!-- /react-text -->
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+                                    <div>
+                                        <div class="input-with-dropdown">
+                                            <input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">
+                                            <div>
+                                                <span class="per">به ازای  </span>
+                                                <div class="select-box" style="max-width: 999999px; width: 89px;">
+                                                    <div class="selected-option" tabindex="0" role="button">
+                                                        <!-- react-text: 144 -->لورم<!-- /react-text -->
+                                                        <div class="arrow"></div>
+                                                    </div>
+                                                    <div style="width: 88px;" tabindex="-1" class="options right" role="listbox">
+                                                        <div role="option" tabindex="-1" class="option-div">
+                                                            Month
+                                                        </div>
+                                                        <div role="option" tabindex="-1" class="selected option-div hovered">
+                                                            Year
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div><!-- react-empty: 148 -->
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+
+                                </div>
+                                <div><!--TODO variable amount selected (delete this todo-->
+                                    <!--<div class="financial-year-box" role="grid">-->
+                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
+                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
+                                    <!--<div>-->
+                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
+                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
+                                    <!--<strong>2019</strong>-->
+                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
+                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
+                                    <!--Learn more-->
+                                    <!--</a>-->
+                                    <!--</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
+                                    <!--<p>Change</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
+                                    <!--<span aria-hidden="true" class="percent">-->
+                                    <!--%-->
+                                    <!--</span>-->
+                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
+                                    <!--Apply-->
+                                    <!--</button>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                    <!--<div>-->
+                                    <!--<div data-highcharts-chart="7">-->
+                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div>-->
+                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Mar '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Apr '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="May '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="June '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="July '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Aug '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Sept '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Oct '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Nov '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Dec '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
+                                    <!--aria-label="2019">-->
+                                    <!--<div class="fillRightDots">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>2020</li>-->
+                                    <!--<li>2021</li>-->
+                                    <!--</ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2020">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2021">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
+                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
+                                </div> <!--TODO variable amount selected (delete this todo-->
+
+                                <!--TODO constant amount selected (delete this todo-->
+                                <div class="section" style="margin-bottom: 30px">
+                                    <div class="title-top">
+                                        When will this revenue start?
+                                    </div>
+                                    <div class="select-box">
+                                        <div class="valid">
+                                            <div class="selected-option" tabindex="0" role="button">
+                                                <!-- react-text: 293 -->Jan 2019<!-- /react-text -->
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">
+                                                <div role="option" tabindex="-1" class="option-div">
+                                                    Month
+                                                </div>
+                                                <div role="option" tabindex="-1" class="selected option-div hovered">
+                                                    Year
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--TODO constant amount selected (delete this todo-->
+
+                            </div>
+                        </div>
+                        <div class="forecast-item-editor" v-if="getModalState(1)===21 && currentModalTab===3">
+                            <div>
+                                <div class="section" style="margin-bottom: 30px">
+                                    <div class="title-top">
+                                        What price will you charge for each unit?
+                                    </div>
+                                    <p class="title-content">
+                                        Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
+                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
+                                        <ul>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    لورم
+                                                </label>
+                                            </li>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    Varying amounts over time
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+                                    <div>
+                                        <div class="input-with-dropdown">
+                                            <div class="input-box-wrapper " style="width: 140px;">
+
+                                                <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
+                                                <span aria-hidden="true" class="currency">ریال</span>
+                                            </div>
+                                            <span></span>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+
+                                </div>
+                                <div><!--TODO variable amount selected (delete this todo-->
+                                    <!--<div class="financial-year-box" role="grid">-->
+                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
+                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
+                                    <!--<div>-->
+                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
+                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
+                                    <!--<strong>2019</strong>-->
+                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
+                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
+                                    <!--Learn more-->
+                                    <!--</a>-->
+                                    <!--</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
+                                    <!--<p>Change</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
+                                    <!--<span aria-hidden="true" class="percent">-->
+                                    <!--%-->
+                                    <!--</span>-->
+                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
+                                    <!--Apply-->
+                                    <!--</button>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                    <!--<div>-->
+                                    <!--<div data-highcharts-chart="7">-->
+                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div>-->
+                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Mar '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Apr '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="May '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="June '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="July '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Aug '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Sept '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Oct '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Nov '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Dec '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
+                                    <!--aria-label="2019">-->
+                                    <!--<div class="fillRightDots">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>2020</li>-->
+                                    <!--<li>2021</li>-->
+                                    <!--</ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2020">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2021">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
+                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
+                                </div> <!--TODO variable amount selected (delete this todo-->
+
+                            </div>
+                        </div>
+
+                        <div class="forecast-item-editor" v-if="getModalState(1)===22 && currentModalTab===2">
+                            <div>
+                                <div class="section" style="margin-bottom: 30px">
+                                    <div class="title-top">
+                                        When will this revenue start?
+                                    </div>
+                                    <div class="select-box">
+                                        <div class="valid">
+                                            <div class="selected-option" tabindex="0" role="button">
+                                                <!-- react-text: 293 -->Jan 2019<!-- /react-text -->
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">
+                                                <div role="option" tabindex="-1" class="option-div">
+                                                    Month
+                                                </div>
+                                                <div role="option" tabindex="-1" class="selected option-div hovered">
+                                                    Year
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section" style="margin-bottom: 30px">
+                                    <div class="title-top">
+                                        How many units will you sell?
+                                    </div>
+                                    <p class="title-content">
+                                        How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.
+                                    </p>
+                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
+                                        <ul>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    <!-- react-text: 131 -->لورم<!-- /react-text -->
+                                                </label>
+                                            </li>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    <!-- react-text: 135 -->Varying amounts over time<!-- /react-text -->
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+                                    <div>
+                                        <div class="input-with-dropdown">
+                                            <input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">
+                                            <div>
+                                                <span class="per"> در ماه</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div><!-- react-empty: 148 -->
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+
+                                </div>
+                                <div><!--TODO variable amount selected (delete this todo-->
+                                    <!--<div class="financial-year-box" role="grid">-->
+                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
+                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
+                                    <!--<div>-->
+                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
+                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
+                                    <!--<strong>2019</strong>-->
+                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
+                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
+                                    <!--Learn more-->
+                                    <!--</a>-->
+                                    <!--</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
+                                    <!--<p>Change</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
+                                    <!--<span aria-hidden="true" class="percent">-->
+                                    <!--%-->
+                                    <!--</span>-->
+                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
+                                    <!--Apply-->
+                                    <!--</button>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                    <!--<div>-->
+                                    <!--<div data-highcharts-chart="7">-->
+                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div>-->
+                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Mar '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Apr '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="May '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="June '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="July '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Aug '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Sept '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Oct '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Nov '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Dec '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
+                                    <!--aria-label="2019">-->
+                                    <!--<div class="fillRightDots">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>2020</li>-->
+                                    <!--<li>2021</li>-->
+                                    <!--</ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2020">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2021">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
+                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
+                                </div> <!--TODO variable amount selected (delete this todo-->
+
+
+                            </div>
+                        </div>
+                        <div v-if="getModalState(1)===22 && currentModalTab===3">
+                            <div class="forecast-item-editor">
+                                <div>
+                                    <div class="section" style="margin-bottom: 30px">
+                                        <div class="title-top">
+                                            What price will you charge for each unit?
+                                        </div>
+                                        <p class="title-content">
+                                            Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
+                                        <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
+                                            <ul>
+                                                <li class="horizontal">
+                                                    <label>
+                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                        لورم
+                                                    </label>
+                                                </li>
+                                                <li class="horizontal">
+                                                    <label>
+                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                        Varying amounts over time
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <!--TODO constant amount selected (delete this todo-->
+                                        <div>
+                                            <div class="input-with-dropdown">
+                                                <div class="input-box-wrapper " style="width: 140px;">
+
+                                                    <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
+                                                    <span aria-hidden="true" class="currency">ریال</span>
+                                                </div>
+                                                <span></span>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <!--TODO constant amount selected (delete this todo-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forecast-item-editor">
+                                <div>
+                                    <div class="section" style="margin-bottom: 30px">
+                                        <div class="title-top">
+                                            What price will you charge for each unit?
+                                        </div>
+                                        <p class="title-content">
+                                            Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
+                                        <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
+                                            <ul>
+                                                <li class="horizontal">
+                                                    <label>
+                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                        لورم
+                                                    </label>
+                                                </li>
+                                                <li class="horizontal">
+                                                    <label>
+                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                        Varying amounts over time
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <!--TODO constant amount selected (delete this todo-->
+                                        <div>
+                                            <div class="input-with-dropdown">
+                                                <div class="input-box-wrapper " style="width: 140px;">
+
+                                                    <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
+                                                    <span aria-hidden="true" class="currency">ریال</span>
+                                                </div>
+                                                <span></span>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <!--TODO constant amount selected (delete this todo-->
+
+                                    </div>
+                                    <div><!--TODO variable amount selected (delete this todo-->
+                                        <!--<div class="financial-year-box" role="grid">-->
+                                        <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
+                                        <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
+                                        <!--<div>-->
+                                        <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
+                                        <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
+                                        <!--<strong>2019</strong>-->
+                                        <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
+                                        <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
+                                        <!--Learn more-->
+                                        <!--</a>-->
+                                        <!--</p>-->
+                                        <!--<div>-->
+                                        <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
+                                        <!--<p>Change</p>-->
+                                        <!--<div>-->
+                                        <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
+                                        <!--<span aria-hidden="true" class="percent">-->
+                                        <!--%-->
+                                        <!--</span>-->
+                                        <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<button class="overlay-button primary disabled" tabindex="-1">-->
+                                        <!--Apply-->
+                                        <!--</button>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div>-->
+                                        <!--<div>-->
+                                        <!--<div data-highcharts-chart="7">-->
+                                        <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
+                                        <!--<ul class="labels">-->
+                                        <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
+                                        <!--<ul class="fields" role="row">-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div>-->
+                                        <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="Mar '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="Apr '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="May '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="June '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="July '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="Aug '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="Sept '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="Oct '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="Nov '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="" aria-label="Dec '19">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                        <!--value="4" readonly="" disabled="" tabindex="-1"-->
+                                        <!--aria-label="2019">-->
+                                        <!--<div class="fillRightDots">&nbsp;</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--</ul>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
+                                        <!--<ul class="labels">-->
+                                        <!--<li>2020</li>-->
+                                        <!--<li>2021</li>-->
+                                        <!--</ul>-->
+                                        <!--<ul class="fields" role="row">-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                        <!--aria-label="2020">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li role="gridcell">-->
+                                        <!--<div class="valid">-->
+                                        <!--<div><input type="text"-->
+                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                        <!--aria-label="2021">-->
+                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</li>-->
+                                        <!--</ul>-->
+                                        <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
+                                        <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
+                                    </div> <!--TODO variable amount selected (delete this todo-->
+                                </div>
+                            </div>
+                            <div class="forecast-item-editor">
+                                <div>
+                                    <div class="section" style="margin-bottom: 30px">
+                                        <div class="title-top">
+                                            How often is this charge assessed?
+                                        </div>
+                                        <div class="select-box">
+                                            <div class="valid">
+                                                <div class="selected-option" tabindex="0" role="button">
+                                                    <!-- react-text: 293 -->Jan 2019<!-- /react-text -->
+                                                    <div class="arrow"></div>
+                                                </div>
+                                                <div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">
+                                                    <div role="option" tabindex="-1" class="option-div">
+                                                        Month
+                                                    </div>
+                                                    <div role="option" tabindex="-1" class="selected option-div hovered">
+                                                        Year
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div v-if="getModalState(1)===22 && currentModalTab===4">
+                            <div class="forecast-item-editor">
+                                <div>
+                                    <div class="section" style="margin-bottom: 30px">
+                                        <div class="title-top">
+                                            What price will you charge for each unit?
+                                        </div>
+                                        <p class="title-content">
+                                            Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
+                                        <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
+                                            <ul>
+                                                <li class="horizontal">
+                                                    <label>
+                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                        لورم
+                                                    </label>
+                                                </li>
+                                                <li class="horizontal">
+                                                    <label>
+                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                        Varying amounts over time
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <!--TODO constant amount selected (delete this todo-->
+                                        <div>
+                                            <div class="input-with-dropdown">
+                                                <div class="input-box-wrapper " style="width: 140px;">
+
+                                                    <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
+                                                    <span aria-hidden="true" class="currency">ریال</span>
+                                                </div>
+                                                <span></span>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <!--TODO constant amount selected (delete this todo-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="forecast-item-editor" v-if="getModalState(1)===23 && currentModalTab===2">
+                            <div>
+                                <div class="section" style="margin-bottom: 30px">
+                                    <div class="title-top">
+                                        How many units will you sell?
+                                    </div>
+                                    <p class="title-content">
+                                        How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.
+                                    </p>
+                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
+                                        <ul>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    <!-- react-text: 131 -->لورم<!-- /react-text -->
+                                                </label>
+                                            </li>
+                                            <li class="horizontal">
+                                                <label>
+                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
+                                                    <!-- react-text: 135 -->Varying amounts over time<!-- /react-text -->
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+                                    <div>
+                                        <div class="input-with-dropdown">
+                                            <input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">
+                                            <div>
+                                                <span class="per">به ازای  </span>
+                                                <div class="select-box" style="max-width: 999999px; width: 89px;">
+                                                    <div class="selected-option" tabindex="0" role="button">
+                                                        <!-- react-text: 144 -->لورم<!-- /react-text -->
+                                                        <div class="arrow"></div>
+                                                    </div>
+                                                    <div style="width: 88px;" tabindex="-1" class="options right" role="listbox">
+                                                        <div role="option" tabindex="-1" class="option-div">
+                                                            Month
+                                                        </div>
+                                                        <div role="option" tabindex="-1" class="selected option-div hovered">
+                                                            Year
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div><!-- react-empty: 148 -->
+                                    </div>
+                                    <!--TODO constant amount selected (delete this todo-->
+
+                                </div>
+                                <div><!--TODO variable amount selected (delete this todo-->
+                                    <!--<div class="financial-year-box" role="grid">-->
+                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
+                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
+                                    <!--<div>-->
+                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
+                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
+                                    <!--<strong>2019</strong>-->
+                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
+                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
+                                    <!--Learn more-->
+                                    <!--</a>-->
+                                    <!--</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
+                                    <!--<p>Change</p>-->
+                                    <!--<div>-->
+                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
+                                    <!--<span aria-hidden="true" class="percent">-->
+                                    <!--%-->
+                                    <!--</span>-->
+                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
+                                    <!--Apply-->
+                                    <!--</button>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                    <!--<div>-->
+                                    <!--<div data-highcharts-chart="7">-->
+                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div>-->
+                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Mar '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Apr '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="May '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="June '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="July '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Aug '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Sept '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Oct '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Nov '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="" aria-label="Dec '19">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
+                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
+                                    <!--aria-label="2019">-->
+                                    <!--<div class="fillRightDots">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
+                                    <!--<ul class="labels">-->
+                                    <!--<li>2020</li>-->
+                                    <!--<li>2021</li>-->
+                                    <!--</ul>-->
+                                    <!--<ul class="fields" role="row">-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2020">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--<li role="gridcell">-->
+                                    <!--<div class="valid">-->
+                                    <!--<div><input type="text"-->
+                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
+                                    <!--aria-label="2021">-->
+                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
+                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
+                                </div> <!--TODO variable amount selected (delete this todo-->
+
+                                <!--TODO constant amount selected (delete this todo-->
+                                <div class="section" style="margin-bottom: 30px">
+                                    <div class="title-top">
+                                        When will this revenue start?
+                                    </div>
+                                    <div class="select-box">
+                                        <div class="valid">
+                                            <div class="selected-option" tabindex="0" role="button">
+                                                <!-- react-text: 293 -->Jan 2019<!-- /react-text -->
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">
+                                                <div role="option" tabindex="-1" class="option-div">
+                                                    Month
+                                                </div>
+                                                <div role="option" tabindex="-1" class="selected option-div hovered">
+                                                    Year
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--TODO constant amount selected (delete this todo-->
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
                 </div>
             </template>
             <template v-slot:footer>
@@ -533,7 +2245,7 @@
         components: {
             VideoModal,
             TreeTable,
-            BaseModal
+            BaseModal,
         },
         data: function(){
             return {
@@ -592,11 +2304,11 @@
                         }
                     },
                 },
-                instructionVisibility:false,
+                instructionVisibility:true,
                 moreInstructionVisibility: false,
 
                 modalVisibility: [],
-                modalCurrentTab: 0,
+                currentModalTab: 0,
                 modals: { //list of modals (except video modal)
                     // TODO resolve state change scroll bug
                     1:{
@@ -605,18 +2317,22 @@
                         // cases:{
                         //     0: new entry,
                         //     1: tab1: entry title added,
-                        //     2: ... -> tab2: option 1 selected: { }
-                        //     3: ... -> tab2: option 2 selected: { }
-                        //     4: ... -> tab2: option 3 selected: { }
-                        //     5: ... -> tab2: option 4 selected: { }
-                        //     6: ... -> TODO add next cases
+                        //     2: ... -> tab2: non-selected {
+                        //                 option 1 selected: 21
+                        //                 option 2 selected: 22
+                        //                 option 3 selected: 23
+                        //                 option 4 selected: 24
+                        //                      }
+                        //
+                        //
+                        //     3: ... -> TODO add next cases
                         //
                         //
                         //
                         // }
                         isDeleting: false
-                    },
-                    // revenue addition modal
+                    },// revenue addition modal
+
                 }
 
 
@@ -635,7 +2351,8 @@
                 if(visible === true){
                     this.$set(this.modalVisibility, modalID, !visible);
                     this.setModalTab(0);
-                    this.toggleModalIsDeleting(modalID);
+                    this.setModalIsDeleting(modalID, false);
+                    this.handleModalState(modalID);
                 }
                 else{
                     this.handleModalState(modalID);
@@ -648,13 +2365,20 @@
             setModalTab: function (tab) {
                 this.currentModalTab = tab;
             },
+            // TODO implement getModalTab
             setModalState: function (modalID, stateIndex) {
                 // this.$set(this.modals[modalID], 'state', stateIndex)
                 this.modals[modalID].previousState = this.modals[modalID].state ;
                 this.modals[modalID].state = stateIndex;
             },
+            getModalState: function(modalID){
+                return this.modals[modalID].state;
+            },
             toggleModalIsDeleting: function(modalID){
                 this.modals[modalID].isDeleting = !this.modals[modalID].isDeleting;
+            },
+            setModalIsDeleting: function(modalID, isDeleting){
+                this.modals[modalID].isDeleting = false;
             },
             deleteEntry: function (modalID) {
                 // TODO implement delete logic
@@ -662,6 +2386,8 @@
             },
             handleModalState: function (modalID) {
                 // TODO set state according to data
+                this.setModalState(1, 0);
+                // default
             }
 
         }

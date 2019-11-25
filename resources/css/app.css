@@ -759,7 +759,7 @@ span.divider{
 }
 .navigation-stripe .step-link {
     display: inline-block;
-    margin-left: 15px;
+    margin-left: 10px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
@@ -838,6 +838,10 @@ span.divider{
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     text-align: right;
+
+}
+.input-box-with-currency{
+    padding-left: 25px;
 }
 .input-box.description {
     width: 100%;
@@ -1053,7 +1057,7 @@ span.divider{
     top: 1px;
 }
 .input-box-wrapper span.currency {
-    right: 11px;
+    left: 11px;
 }
 .forecast-item-editor input {
     margin-bottom: 0 !important;

@@ -11,8 +11,7 @@
                                     <!--<button tabindex="0" role="button" aria-label="close" class="base-modal-header-close-button" @click="close()">-->
                                         <!---->
                                     <!--</button>-->
-                                    <a href="#" class="modal-close-button" @click="close">
-                                    </a>
+                                    <a href="#" class="modal-close-button" @click.prevent="close"></a>
                                 </div>
                             </div>
                             <div role="group">
@@ -57,12 +56,12 @@
         // }
         // TODO listen to esc key
         mounted() {
-            console.log(window.document.getElementsByTagName('body')[0])
-            // TODO set body overflow-y: hidden here
+            let body = window.document.getElementsByTagName('body')[0];
+            body.setAttribute("style", "overflow: hidden");
         },
         destroyed() {
-            console.log(window.document.getElementsByTagName('body')[0])
-            // TODO set body overflow-y: hidden here
+            let body = window.document.getElementsByTagName('body')[0];
+            body.setAttribute("style", "overflow: auto");
         }
 
     };
@@ -72,20 +71,24 @@
 
 <style lang="css" scoped>
     .modal-mask {
+        z-index: 11010;
         position: fixed;
-        z-index: 9998;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, .5);
-        display: table;
-        transition: opacity .3s ease;
+        bottom: 0;
+        right: 0;
+        overflow: auto;
+        background-color: rgba(44, 46, 47, 0.9);
     }
 
     .modal-wrapper {
-        display: table-cell;
-        vertical-align: middle;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: 0;
+        margin-top: 50px;
+        border-radius: 3px;
     }
 
     .modal-container {
