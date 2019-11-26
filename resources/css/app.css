@@ -770,7 +770,6 @@ span.divider{
 }
 .navigation-stripe .step-link .circle {
     display: inline-block;
-    padding-top: 1px;
     margin-right: 6px;
     font-size: 9px;
     border: 2px solid;
@@ -1238,3 +1237,14 @@ footer ul li {
     float: right;
     padding: 0 16px 0 0;
 }
+
+
+/*PrimeVue Styles*/
+.p-treetable-tablewrapper table{
+    direction: rtl;
+
+}
+.pi-chevron-right:before{
+    content: "\E900";
+}
+/*PrimeVue Styles*/

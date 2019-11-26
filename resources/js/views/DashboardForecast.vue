@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import TabsBar from '@/js/parts/DashboardTabsBar';
+    import TabsBar from './../parts/DashboardTabsBar';
     export default {
         name: "DashboardForecast",
         components:{

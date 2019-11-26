@@ -21,6 +21,7 @@ import Taxes from "./views/DashboardForecastTaxes";
 import Dividends from "./views/DashboardForecastDividends";
 import CashFlowAssumptions from "./views/DashboardForecastCashFlowAssumptions";
 import Financing from "./views/DashboardForecastFinancing";
+import TableTest from "./components/TableTest";
 
 
 
@@ -44,6 +45,12 @@ const router = new VueRouter({
             path: '/chart',
             name: 'chart',
             component: Chart
+        }
+        ,
+        {
+            path: '/table',
+            name: 'table',
+            component: TableTest
         }
         ,
         {

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import Tab from '@/js/components/DashboardTabsBarItem';
+    import Tab from './../components/DashboardTabsBarItem';
     export default {
         name: "DashboardTabsContainer",
         components:{
