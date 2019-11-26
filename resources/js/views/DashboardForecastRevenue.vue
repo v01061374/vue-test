@@ -121,7 +121,6 @@
 
         </video-modal>
 
-        <!--TODO scroll jump after closing (why)-->
         <base-modal v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" :showModal="isModalVisible(1)">
             <template v-slot:header-text>
                 <p>هدر</p>
