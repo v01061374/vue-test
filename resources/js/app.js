@@ -3,6 +3,8 @@ import Vue from 'vue';
 
 import Routes from '@/js/routes.js';
 import HighchartsVue from 'highcharts-vue';
+import Highcharts from 'highcharts';
+import draggable from 'highcharts/modules/draggable-points'
 import vPlayBack from 'v-playback';
 
 
@@ -18,9 +20,10 @@ import 'primeicons/primeicons.css';
 
 import App from '@/js/views/App';
 
-
+draggable(Highcharts);
 Vue.use(HighchartsVue);
 Vue.use(vPlayBack);
+
 Vue.component('tree-table', TreeTable);
 Vue.component('column', Column);
 Vue.component('drop-down', Dropdown);

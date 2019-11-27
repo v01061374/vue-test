@@ -2867,7 +2867,18 @@
                         name: 'unit-sales',
                         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
+
                     }],
+                    plotOptions: {
+                        series: {
+                            stickyTracking: true,
+
+                            dragDrop: {
+                                draggableY: true,
+
+                            }
+                        },
+                    },
 
 
 
@@ -2886,9 +2897,8 @@
                     yAxis:{
                         opposite: true,
                         className: 'rtl-faNum',
-                        softMax: 10000000,
-                        softMin: 0,
 
+                    // TODO handle automatic y-axis
 
 
                     },
