@@ -390,7 +390,7 @@ span.divider{
     border-radius: 3px;
     line-height: 9px;
     text-decoration: none;
-    font-family: Open Sans, sans-serif;
+    font-family: IRANSANS, Tahoma;
     white-space: nowrap;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -1019,6 +1019,66 @@ span.divider{
 .forecast-item-editor .radio-box {
     margin-bottom: 10px;
 }
+.financial-year-box {
+    clear: both;
+    margin: 20px 0 10px 0;
+}
+.forecast-item-editor .financial-year-box{
+    margin: 10px 0 0 0;
+
+}
+.forecast-item-editor .financial-year-box .financial-year-box-container{
+    margin: 0 -30px 26px -30px;
+    padding: 0 30px;
+    background: #F9F9F9;
+}
+.forecast-item-editor .financial-year-box .financial-year-box-wrapper{
+    overflow: hidden;
+    height: 0;
+
+}
+.financial-year-box .financial-year-box-header{
+    margin: 20px 0;
+    padding-left: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.financial-year-box .financial-year-box-header p{
+    font-size: 13px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-family: IRANSANS, Tahoma;
+    padding: 10px;
+
+}
+.financial-year-box .financial-year-box-header .financial-year-box-header-controls{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 210px;
+}
+.financial-year-box .financial-year-box-header .financial-year-box-header-controls p{
+    font-weight: bold;
+}
+.financial-year-box .financial-year-box-header .financial-year-box-header-controls .overlay-button.primary {
+    margin-right: 10px;
+}
 .radio-box li.horizontal {
     float: right;
     margin-left: 20px;
@@ -1047,10 +1107,11 @@ span.divider{
 }
 .input-box-wrapper span {
     position: absolute;
-    top: 13px;
+    top: 11px;
     pointer-events: none;
     font-size: 13px;
     color: #7D8F94;
+
 }
 .input-with-dropdown .input-box-wrapper span {
     top: 1px;
@@ -1064,6 +1125,14 @@ span.divider{
 .input-box.medium-cash {
     width: 140px;
 }
+.input-box.smallPercentage {
+    width: 87px;
+    padding-left: 30px;
+    font-family: IRANSansFaNum, Tahoma;
+}
+.input-box-wrapper span.percent {
+    left: 11px;
+}
 .input-with-dropdown .input-box, .input-with-dropdown .input-box-wrapper {
     float: right;
     height: 37px;
@@ -1071,7 +1140,7 @@ span.divider{
 }
 .input-with-dropdown span.per {
     float: right;
-    margin-top: 15px;
+    margin-top: 8px;
     margin-left: 10px;
     margin-right: 10px;
     font-size: 13px;
@@ -1246,5 +1315,29 @@ footer ul li {
 }
 .pi-chevron-right:before{
     content: "\E900";
+}
+.p-dropdown .p-dropdown-trigger{
+    left: 0;
+    right: unset;
+}
+.p-dropdown .p-dropdown-label{
+    padding: 0.61em 0.61em 0.61em 2em;
+}
+.p-dropdown-panel .p-dropdown-item{
+    text-align: right;
+    font-family: IRANSansFaNum, Tahoma;
+}
+.input-with-dropdown.length-selection .p-dropdown{
+    width: 8em;
+    height: 37px;
+    font-family: IRANSANS, Tahoma;
+}
+.select-box.period-selection .p-dropdown{
+    width: 11em;
+    height: 37px;
+    font-family: IRANSANSFaNum, Tahoma;
+ }
+.select-box.period-selection label{
+    font-family: IRANSANSFaNum, Tahoma;
 }
 /*PrimeVue Styles*/

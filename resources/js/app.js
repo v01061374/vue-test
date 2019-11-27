@@ -8,10 +8,12 @@ import vPlayBack from 'v-playback';
 
 import TreeTable from 'primevue/treetable';
 import Column from 'primevue/column';
-// import 'primevue/resources/themes/nova-light/theme.css';
+import Dropdown from 'primevue/dropdown';
+
+import 'primevue/resources/themes/nova-light/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
-import '@/css/app.css'
+// import '@/css/app.css'
 
 
 import App from '@/js/views/App';
@@ -21,6 +23,8 @@ Vue.use(HighchartsVue);
 Vue.use(vPlayBack);
 Vue.component('tree-table', TreeTable);
 Vue.component('column', Column);
+Vue.component('drop-down', Dropdown);
+
 
  const app = new Vue({
      el: '#app',
