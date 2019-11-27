@@ -352,7 +352,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="financial-year-chart-container">
-                                                            <highcharts class="chart" :options="chartOptions" :updateArgs="updateArgs"></highcharts>
+                                                            <highcharts class="chart" :options="annualUnitSalesChartOptions" :updateArgs="updateArgs"></highcharts>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2786,12 +2786,12 @@
                 instructionVisibility:true,
                 moreInstructionVisibility: false,
 
-                modalVisibility: [],
-                currentModalTab: 0,
+                modalVisibility: [false,true],
+                currentModalTab: 2,
                 modals: { //list of modals (except video modal)
                     // TODO resolve state change scroll bug
                     1:{
-                        state: 0,
+                        state: 20,
                         previousState: 0,
                         // cases:{
                         //     0: new entry,
@@ -2833,7 +2833,69 @@
                     {title: 'تیر 1398', code: '4'},
                     {title: 'مرداد 1398', code: '5'},
                 ],
-                unitSalesTypeIsConstant: '1'
+                unitSalesTypeIsConstant: '1',
+
+                annualUnitSalesChartOptions:{
+                    chart: {
+                        type: 'line',
+                        height: 260,
+                        events: {
+                            'click': function(e) {
+
+                                let x = e.xAxis[0].value;
+                                let y = e.yAxis[0].value;
+
+                                if(x < 0){
+                                    x=0;
+                                }
+                                else if(x>=12){
+                                    x=12;
+                                }
+                                else{
+                                    x = Math.round(x);
+                                }
+                                this.series[0].data[x].y = y;
+                                this.series[0].setData(this.series[0].data, true, true, true);
+
+                            }
+                        }
+                    },
+                    title: {
+                        text: 'Sin chart'
+                    },
+                    series: [{
+                        name: 'unit-sales',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+                    }],
+
+
+
+
+                    xAxis:{
+                        reversed: true,
+                        className: 'rtl-faNum',
+                        categories: [
+                            'فروردین','اردیبهشت','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین'
+                        ]
+                    },
+                    legend: {
+                        enabled: false
+
+                    },
+                    yAxis:{
+                        opposite: true,
+                        className: 'rtl-faNum',
+                        softMax: 10000000,
+                        softMin: 0,
+
+
+
+                    },
+                    tooltip: {
+                        enabled: false
+                    },
+                }
 
             }
         },
