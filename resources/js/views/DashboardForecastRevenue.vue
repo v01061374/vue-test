@@ -330,7 +330,7 @@
                                         variable
                                         <div class="financial-year-box" role="grid">
                                             <div class="financial-year-box-container">
-                                                <div class="financial-year-box-wrapper" style="height: 340px; width: 964px">
+                                                <div class="financial-year-box-wrapper" style="height: 400px; width: 964px">
                                                     <div>
                                                         <div class="financial-year-box-header">
                                                             <p>
@@ -353,6 +353,175 @@
                                                         </div>
                                                         <div class="financial-year-chart-container">
                                                             <highcharts class="chart" :options="annualUnitSalesChartOptions" :updateArgs="updateArgs"></highcharts>
+                                                        </div>
+                                                        <div class="financial-year-input-container">
+                                                            <ul class="labels faNum">
+                                                                <li>
+                                                                    <p>1398</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>اردیبهشت</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>خرداد</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>اسفند</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>1399</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>1340</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <div class="fillRightDots" aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2836,7 +3005,9 @@
                 unitSalesTypeIsConstant: '1',
 
                 annualUnitSalesChartOptions:{
+                    // parent: this,
                     chart: {
+
                         type: 'line',
                         height: 260,
                         events: {
@@ -2856,57 +3027,74 @@
                                 }
                                 this.series[0].data[x].y = y;
                                 this.series[0].setData(this.series[0].data, true, true, true);
-
+                            },
+                            'redraw': function(e) {
+                                console.log(this);
                             }
-                        }
+                        },
+                        backgroundColor: null,
                     },
-                    title: {
-                        text: 'Sin chart'
-                    },
+
                     series: [{
                         name: 'unit-sales',
-                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-
+                        data: [0, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1,
+                            95.6, 54.4]
                     }],
                     plotOptions: {
                         series: {
-                            stickyTracking: true,
-
+                            stickyTracking: false,
                             dragDrop: {
-                                draggableY: true,
+                                draggableY: true
+                                    // TODO add mouse movement addition
+                                    // TODO improve range and animation smoothness
+                                },
+                        },
 
-                            }
+                        line: {
+                            cursor: 'ns-resize'
                         },
                     },
-
-
-
-
                     xAxis:{
+
                         reversed: true,
                         className: 'rtl-faNum',
-                        categories: [
-                            'فروردین','اردیبهشت','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین','فروردین'
-                        ]
-                    },
-                    legend: {
-                        enabled: false
-
+                        labels: {
+                            enabled: false // disable labels
+                        },
+                        visible: false
+                        // categories: [
+                        //     'فروردین',
+                        //     'اردیبهشت',
+                        //     'فروردین',
+                        //     'فروردین',
+                        //     'فروردین',
+                        //     'فروردین',
+                        //     'فروردین',
+                        //     'فروردین',
+                        //     'فروردین',
+                        //     'فروردین',
+                        //     'فروردین',
+                        //     'فروردین'
+                        // ]
                     },
                     yAxis:{
                         opposite: true,
-                        className: 'rtl-faNum',
-
+                        className: 'faNum',
+                        softMin: -100,
+                        softMax: 100,
+                        title: {
+                            text: null
+                        },
                     // TODO handle automatic y-axis
-
+                    },
+                    legend: {
+                        enabled: false
 
                     },
                     tooltip: {
                         enabled: false
                     },
                 }
-
             }
         },
         methods:{
@@ -2957,6 +3145,17 @@
                 this.setModalState(1, 0);
                 // default
             },
+            getModalAnnualUnitSalesByPeriodIndex(i){
+                // i =
+                // 1-12 current year monthes
+                // 0 total current year
+                // 13 next year
+                // 14 year after next year
+                // return this.chartOptions.series
+                console.log(this.chartOptions);
+                return 1;
+
+            },
 
             // revenue addition modal
             // TODO optional: make a new component from modal contents
@@ -2974,9 +3173,11 @@
                     }
                 }
                 this.errors.name = [];
+                console.log(this.annualUnitSalesChartOptions.series[0].data)
                 return true;
 
             },
+
 
             //
 

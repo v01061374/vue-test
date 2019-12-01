@@ -1033,13 +1033,10 @@ span.divider{
     background: #F9F9F9;
 }
 .forecast-item-editor .financial-year-box .financial-year-box-wrapper{
-    overflow: hidden;
-    height: 0;
-
+    padding: 10px 0;
 }
 .financial-year-box .financial-year-box-header{
-    margin: 20px 0;
-    padding-left: 30px;
+
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1079,6 +1076,35 @@ span.divider{
 .financial-year-box .financial-year-box-header .financial-year-box-header-controls .overlay-button.primary {
     margin-right: 10px;
 }
+.financial-year-box .financial-year-chart-container{
+    padding-right: 30px;
+}
+/*.financial-year-box .financial-year-input-container{*/
+/*}*/
+.financial-year-box .financial-year-input-container ul.labels {
+    clear: both;
+    margin: 10px -15px 10px 0;
+    width: 1005px;
+}
+.financial-year-box .financial-year-input-container ul li {
+    display: inline-block;
+    text-align: center;
+    width: 72.5px;
+    /*margin: 0 0 0 8px;*/
+    color: #3F484B;
+    font-size: 12px;
+}
+.financial-year-box .financial-year-input-container ul li:nth-child(2) {
+    /*margin-right: -10px;*/
+}
+
+.financial-year-box .financial-year-input-container ul.fields{
+    clear: both;
+}
+/*.financial-year-box .financial-year-input-container ul.fields li {*/
+    /*display: inline;*/
+/*}*/
+
 .radio-box li.horizontal {
     float: right;
     margin-left: 20px;
