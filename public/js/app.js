@@ -5115,6 +5115,7 @@ __webpack_require__.r(__webpack_exports__);
         }],
         plotOptions: {
           series: {
+            animation: false,
             stickyTracking: false,
             dragDrop: {
               draggableY: true,
@@ -5535,7 +5536,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
 
 // exports
 
@@ -33247,18 +33248,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[0]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33278,6 +33272,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -33357,18 +33356,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[1]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33388,6 +33380,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -33467,18 +33464,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[2]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33498,6 +33488,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -33577,18 +33572,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[3]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33608,6 +33596,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -33687,18 +33680,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[4]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33718,6 +33704,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -33797,18 +33788,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[5]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33828,6 +33812,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -33907,18 +33896,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[6]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33938,6 +33920,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -34017,18 +34004,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[7]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34048,6 +34028,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -34127,18 +34112,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[8]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34158,6 +34136,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -34237,18 +34220,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[9]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34268,6 +34244,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -34347,18 +34328,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[10]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34378,6 +34352,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -34457,18 +34436,11 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[11]
                                                                                   },
                                                                                   on: {
-                                                                                    blur: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updatechart()
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.$forceUpdate()
-                                                                                      }
-                                                                                    ],
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.updatechart()
+                                                                                    },
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34488,6 +34460,11 @@ var render = function() {
                                                                                             .value
                                                                                         )
                                                                                       )
+                                                                                    },
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$forceUpdate()
                                                                                     }
                                                                                   }
                                                                                 }
@@ -36559,7 +36536,7 @@ var render = function() {
               ],
               null,
               false,
-              843052076
+              583541420
             )
           })
         : _vm._e()
