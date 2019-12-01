@@ -343,10 +343,10 @@
                                                                     <div>
                                                                         <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">
                                                                             <span aria-hidden="true" class="percent">%</span>
-                                                                            <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="0">
+                                                                            <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model="annualSalesUnitShiftPercent">
                                                                         </div>
                                                                     </div>
-                                                                    <button class="overlay-button primary" tabindex="-1">اعمال</button>
+                                                                    <button class="overlay-button primary" @click="shiftAnnualSalesUnitChart()" tabindex="-1">اعمال</button>
 
                                                                 </div>
                                                             </div>
@@ -1917,7 +1917,10 @@
                         title: {
                             text: null
                         },
-                        allowDecimals: false
+                        allowDecimals: false,
+                        minPadding: 2,
+                        maxPadding: 2,
+
                     // TODO handle automatic y-axis
                     },
                     legend: {
@@ -1929,7 +1932,9 @@
                     },
                 },
 
-                annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165]
+                annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165],
+                annualSalesUnitShiftPercent: 0
+
             }
 
         },
@@ -1937,6 +1942,7 @@
             EventBus.$on('modal-chart-redraw', data => {
                 this.annualSalesUnitPeriodsData = data
             });
+
 
         },
         destroyed(){
@@ -1951,6 +1957,7 @@
                 let visible = (typeof this.modalVisibility[modalID] !== 'undefined')? this.modalVisibility[modalID] : false;
                 if(visible === true){
                     this.$set(this.modalVisibility, modalID, !visible);
+                    this.shiftPercent = 0;
                     this.setModalTab(0);
                     this.setModalIsDeleting(modalID, false);
                     this.handleModalState(modalID);
@@ -1993,9 +2000,17 @@
             updateAnnualSalesUnitChart(value, index){
                 if(!value){
                     this.annualSalesUnitPeriodsData[index] = 0;
-                    // TODO let the input be null
                 }
                 this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
+            },
+            shiftAnnualSalesUnitChart(){
+                console.log('shifted');
+                for(let i = 0 ; i<=11 ; i++){
+                    this.$set(this.annualSalesUnitPeriodsData, i, this.annualSalesUnitPeriodsData[i]*(1+(this.annualSalesUnitShiftPercent)/100));
+                }
+                this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
+                // console.log(this.annualUnitSalesChartOptions.series[0].data);
+
             },
 
             // TODO optional: make a new component from modal contents

@@ -1099,7 +1099,7 @@ span.divider{
     color: #3F484B;
     font-size: 12px;
 }
-.financial-year-box .financial-year-input-container ul li input{
+.financial-year-box .financial-year-input-container ul li input, .financial-year-box-header-controls input{
     direction: ltr;
     text-align: left;
     font-family: IRANSansFaNum, Tahoma;
