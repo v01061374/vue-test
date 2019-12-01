@@ -382,7 +382,7 @@
                                                                     <p>اردیبهشت</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="" v-model="annualSalesUnitPeriodsData[1]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[1]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -393,7 +393,7 @@
                                                                     <p>خرداد</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[2]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[2]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -404,7 +404,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[3]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[3]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -415,7 +415,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[4]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[4]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -426,7 +426,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[5]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[5]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -437,7 +437,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[6]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[6]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -448,7 +448,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[7]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[7]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -459,7 +459,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[8]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[8]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -470,7 +470,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[9]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[9]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -481,7 +481,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[10]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[10]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -492,7 +492,7 @@
                                                                     <p>اسفند</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[11]">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[11]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>

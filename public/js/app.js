@@ -33334,21 +33334,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[1],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[1]"
+                                                                                        "annualSalesUnitPeriodsData[1]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -33356,6 +33357,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[1]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33369,9 +33382,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         1,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -33429,21 +33444,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[2],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[2]"
+                                                                                        "annualSalesUnitPeriodsData[2]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -33451,6 +33467,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[2]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33464,9 +33492,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         2,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -33524,21 +33554,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[3],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[3]"
+                                                                                        "annualSalesUnitPeriodsData[3]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -33546,6 +33577,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[3]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33559,9 +33602,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         3,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -33619,21 +33664,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[4],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[4]"
+                                                                                        "annualSalesUnitPeriodsData[4]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -33641,6 +33687,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[4]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33654,9 +33712,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         4,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -33714,21 +33774,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[5],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[5]"
+                                                                                        "annualSalesUnitPeriodsData[5]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -33736,6 +33797,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[5]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33749,9 +33822,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         5,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -33809,21 +33884,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[6],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[6]"
+                                                                                        "annualSalesUnitPeriodsData[6]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -33831,6 +33907,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[6]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33844,9 +33932,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         6,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -33904,21 +33994,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[7],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[7]"
+                                                                                        "annualSalesUnitPeriodsData[7]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -33926,6 +34017,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[7]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -33939,9 +34042,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         7,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -33999,21 +34104,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[8],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[8]"
+                                                                                        "annualSalesUnitPeriodsData[8]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -34021,6 +34127,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[8]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34034,9 +34152,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         8,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -34094,21 +34214,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[9],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[9]"
+                                                                                        "annualSalesUnitPeriodsData[9]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -34116,6 +34237,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[9]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34129,9 +34262,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         9,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -34189,21 +34324,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[10],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[10]"
+                                                                                        "annualSalesUnitPeriodsData[10]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -34211,6 +34347,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[10]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34224,9 +34372,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         10,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -34284,21 +34434,22 @@ var render = function() {
                                                                                       name:
                                                                                         "model",
                                                                                       rawName:
-                                                                                        "v-model",
+                                                                                        "v-model.number",
                                                                                       value:
                                                                                         _vm
                                                                                           .annualSalesUnitPeriodsData[11],
                                                                                       expression:
-                                                                                        "annualSalesUnitPeriodsData[11]"
+                                                                                        "annualSalesUnitPeriodsData[11]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
                                                                                     }
                                                                                   ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
+                                                                                      "number"
                                                                                   },
                                                                                   domProps: {
                                                                                     value:
@@ -34306,6 +34457,18 @@ var render = function() {
                                                                                         .annualSalesUnitPeriodsData[11]
                                                                                   },
                                                                                   on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
                                                                                     input: function(
                                                                                       $event
                                                                                     ) {
@@ -34319,9 +34482,11 @@ var render = function() {
                                                                                       _vm.$set(
                                                                                         _vm.annualSalesUnitPeriodsData,
                                                                                         11,
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
                                                                                       )
                                                                                     }
                                                                                   }
@@ -36394,7 +36559,7 @@ var render = function() {
               ],
               null,
               false,
-              3513727337
+              843052076
             )
           })
         : _vm._e()
