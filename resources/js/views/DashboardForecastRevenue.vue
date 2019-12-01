@@ -360,7 +360,7 @@
                                                                     <p>1398</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" disabled :value="currentYearAnnualUnitSales">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -371,7 +371,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[0]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[0]" @input = "updateAnnualSalesUnitChart($event.target.value , 0)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -382,7 +382,7 @@
                                                                     <p>اردیبهشت</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[1]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[1]" @input = "updateAnnualSalesUnitChart($event.target.value, 1)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -393,7 +393,7 @@
                                                                     <p>خرداد</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[2]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[2]" @input = "updateAnnualSalesUnitChart($event.target.value, 2)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -404,7 +404,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[3]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[3]" @input = "updateAnnualSalesUnitChart($event.target.value, 3)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -415,7 +415,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[4]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[4]" @input = "updateAnnualSalesUnitChart($event.target.value, 4)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -426,7 +426,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[5]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[5]" @input = "updateAnnualSalesUnitChart($event.target.value,5)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -437,7 +437,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[6]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[6]" @input = "updateAnnualSalesUnitChart($event.target.value, 6)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -448,7 +448,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[7]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[7]" @input = "updateAnnualSalesUnitChart($event.target.value, 7)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -459,7 +459,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[8]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[8]" @input = "updateAnnualSalesUnitChart($event.target.value, 8)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -470,7 +470,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[9]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[9]" @input = "updateAnnualSalesUnitChart($event.target.value, 9)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -481,7 +481,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[10]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[10]" @input = "updateAnnualSalesUnitChart($event.target.value, 10)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -492,7 +492,7 @@
                                                                     <p>اسفند</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[11]" @change = "updatechart()">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[11]" @input = "updateAnnualSalesUnitChart($event.target.value, 11)">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -1930,8 +1930,6 @@
                 },
 
                 annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165]
-
-
             }
 
         },
@@ -1992,30 +1990,20 @@
                 this.setModalState(1, 0);
                 // default
             },
-            // getModalAnnualUnitSalesByPeriodIndex(i){
-            //     // i =
-            //     // 1-12 current year monthes
-            //     // 0 total current year
-            //     // 13 next year
-            //     // 14 year after next year
-            //     // return this.chartOptions.series
-            //
-            //     return window.annualChartUnitSalesSeries[i-1];
-            //
-            // },
-            updatechart(){
-                console.log('blur');
-                console.log(this.annualUnitSalesChartOptions.series[0].data);
-                console.log(this.annualSalesUnitPeriodsData);
+            updateAnnualSalesUnitChart(value, index){
+                if(!value){
+                    this.annualSalesUnitPeriodsData[index] = 0;
+                    // TODO let the input be null
+                }
                 this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
             },
-            // revenue addition modal
+
             // TODO optional: make a new component from modal contents
 
             checkName(serverSide = false){
                 console.log('validation');
                 if (this.newRevenueName.length < 1){
-                    this.errors['name'].push('نام را وارد کنید')
+                    this.errors['name'].push('نام را وارد کنید');
                     return false;
                 }
                 else{
@@ -2025,7 +2013,6 @@
                     }
                 }
                 this.errors.name = [];
-                console.log(this.annualUnitSalesChartOptions.series[0].data)
                 return true;
 
             },
@@ -2039,6 +2026,17 @@
                     return this.monthlyTableData;
                 }
             },
+            currentYearAnnualUnitSales(){
+                let sum = 0;
+                this.annualSalesUnitPeriodsData.forEach(function e(item, index){
+                    if(!item && item!==0){}
+                    else{
+                        sum = sum + item;
+                    }
+                });
+                return sum;
+
+            }
 
         },
         watch:{

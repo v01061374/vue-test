@@ -187,6 +187,11 @@ div.dataTables_wrapper {
 }
 /* Ensure that the demo table scrolls */
 th, td { white-space: nowrap; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 div.dataTables_wrapper {
     width: 100%;
     margin: 0 auto;
@@ -1094,13 +1099,16 @@ span.divider{
     color: #3F484B;
     font-size: 12px;
 }
+.financial-year-box .financial-year-input-container ul li input{
+    direction: ltr;
+    text-align: left;
+    font-family: IRANSansFaNum, Tahoma;
+}
 .financial-year-box .financial-year-input-container ul li:nth-child(2) {
     /*margin-right: -10px;*/
 }
 
-.financial-year-box .financial-year-input-container ul.fields{
-    clear: both;
-}
+
 /*.financial-year-box .financial-year-input-container ul.fields li {*/
     /*display: inline;*/
 /*}*/
