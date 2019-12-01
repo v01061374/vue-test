@@ -352,7 +352,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="financial-year-chart-container">
-                                                            <highcharts class="chart" :options="annualUnitSalesChartOptions" :updateArgs="updateArgs"></highcharts>
+                                                            <highcharts class="chart" :options="annualUnitSalesChartOptions" :updateArgs="updateArgs" @redraw="consolelog()"></highcharts>
                                                         </div>
                                                         <div class="financial-year-input-container">
                                                             <ul class="labels faNum">
@@ -371,7 +371,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[0]" @blur = "updatechart()">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -382,7 +382,7 @@
                                                                     <p>اردیبهشت</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="" v-model="annualSalesUnitPeriodsData[1]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -393,7 +393,7 @@
                                                                     <p>خرداد</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[2]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -404,7 +404,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[3]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -415,7 +415,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[4]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -426,7 +426,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[5]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -437,7 +437,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[6]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -448,7 +448,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[7]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -459,7 +459,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[8]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -470,7 +470,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[9]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -481,7 +481,7 @@
                                                                     <p>فروردین</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[10]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -492,7 +492,7 @@
                                                                     <p>اسفند</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value=""  v-model="annualSalesUnitPeriodsData[11]">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -589,202 +589,6 @@
                                     <!--TODO constant amount selected (delete this todo-->
 
                                 </div>
-                                <div><!--TODO variable amount selected (delete this todo-->
-                                    <!--<div class="financial-year-box" role="grid">-->
-                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
-                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
-                                    <!--<div>-->
-                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
-                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
-                                    <!--<strong>2019</strong>-->
-                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
-                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
-                                    <!--Learn more-->
-                                    <!--</a>-->
-                                    <!--</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
-                                    <!--<p>Change</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
-                                    <!--<span aria-hidden="true" class="percent">-->
-                                    <!--%-->
-                                    <!--</span>-->
-                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
-                                    <!--Apply-->
-                                    <!--</button>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div>-->
-                                    <!--<div>-->
-                                    <!--<div data-highcharts-chart="7">-->
-                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Mar '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Apr '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="May '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="June '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="July '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Aug '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Sept '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Oct '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Nov '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Dec '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
-                                    <!--aria-label="2019">-->
-                                    <!--<div class="fillRightDots">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>2020</li>-->
-                                    <!--<li>2021</li>-->
-                                    <!--</ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2020">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2021">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
-                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
-                                </div> <!--TODO variable amount selected (delete this todo-->
 
                             </div>
                         </div>
@@ -842,202 +646,7 @@
                                     <!--TODO constant amount selected (delete this todo-->
 
                                 </div>
-                                <div><!--TODO variable amount selected (delete this todo-->
-                                    <!--<div class="financial-year-box" role="grid">-->
-                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
-                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
-                                    <!--<div>-->
-                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
-                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
-                                    <!--<strong>2019</strong>-->
-                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
-                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
-                                    <!--Learn more-->
-                                    <!--</a>-->
-                                    <!--</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
-                                    <!--<p>Change</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
-                                    <!--<span aria-hidden="true" class="percent">-->
-                                    <!--%-->
-                                    <!--</span>-->
-                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
-                                    <!--Apply-->
-                                    <!--</button>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div>-->
-                                    <!--<div>-->
-                                    <!--<div data-highcharts-chart="7">-->
-                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Mar '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Apr '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="May '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="June '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="July '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Aug '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Sept '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Oct '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Nov '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Dec '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
-                                    <!--aria-label="2019">-->
-                                    <!--<div class="fillRightDots">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>2020</li>-->
-                                    <!--<li>2021</li>-->
-                                    <!--</ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2020">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2021">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
-                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
-                                </div> <!--TODO variable amount selected (delete this todo-->
+
 
                                 <!--TODO constant amount selected (delete this todo-->
                                 <div class="section" style="margin-bottom: 30px">
@@ -1105,202 +714,6 @@
                                     <!--TODO constant amount selected (delete this todo-->
 
                                 </div>
-                                <div><!--TODO variable amount selected (delete this todo-->
-                                    <!--<div class="financial-year-box" role="grid">-->
-                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
-                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
-                                    <!--<div>-->
-                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
-                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
-                                    <!--<strong>2019</strong>-->
-                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
-                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
-                                    <!--Learn more-->
-                                    <!--</a>-->
-                                    <!--</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
-                                    <!--<p>Change</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
-                                    <!--<span aria-hidden="true" class="percent">-->
-                                    <!--%-->
-                                    <!--</span>-->
-                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
-                                    <!--Apply-->
-                                    <!--</button>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div>-->
-                                    <!--<div>-->
-                                    <!--<div data-highcharts-chart="7">-->
-                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Mar '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Apr '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="May '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="June '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="July '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Aug '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Sept '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Oct '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Nov '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Dec '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
-                                    <!--aria-label="2019">-->
-                                    <!--<div class="fillRightDots">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>2020</li>-->
-                                    <!--<li>2021</li>-->
-                                    <!--</ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2020">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2021">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
-                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
-                                </div> <!--TODO variable amount selected (delete this todo-->
 
                             </div>
                         </div>
@@ -1366,202 +779,7 @@
                                     <!--TODO constant amount selected (delete this todo-->
 
                                 </div>
-                                <div><!--TODO variable amount selected (delete this todo-->
-                                    <!--<div class="financial-year-box" role="grid">-->
-                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
-                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
-                                    <!--<div>-->
-                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
-                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
-                                    <!--<strong>2019</strong>-->
-                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
-                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
-                                    <!--Learn more-->
-                                    <!--</a>-->
-                                    <!--</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
-                                    <!--<p>Change</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
-                                    <!--<span aria-hidden="true" class="percent">-->
-                                    <!--%-->
-                                    <!--</span>-->
-                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
-                                    <!--Apply-->
-                                    <!--</button>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div>-->
-                                    <!--<div>-->
-                                    <!--<div data-highcharts-chart="7">-->
-                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Mar '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Apr '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="May '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="June '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="July '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Aug '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Sept '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Oct '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Nov '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Dec '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
-                                    <!--aria-label="2019">-->
-                                    <!--<div class="fillRightDots">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>2020</li>-->
-                                    <!--<li>2021</li>-->
-                                    <!--</ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2020">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2021">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
-                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
-                                </div> <!--TODO variable amount selected (delete this todo-->
+
 
 
                             </div>
@@ -1649,202 +867,6 @@
                                         <!--TODO constant amount selected (delete this todo-->
 
                                     </div>
-                                    <div><!--TODO variable amount selected (delete this todo-->
-                                        <!--<div class="financial-year-box" role="grid">-->
-                                        <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
-                                        <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
-                                        <!--<div>-->
-                                        <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
-                                        <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
-                                        <!--<strong>2019</strong>-->
-                                        <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
-                                        <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
-                                        <!--Learn more-->
-                                        <!--</a>-->
-                                        <!--</p>-->
-                                        <!--<div>-->
-                                        <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
-                                        <!--<p>Change</p>-->
-                                        <!--<div>-->
-                                        <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
-                                        <!--<span aria-hidden="true" class="percent">-->
-                                        <!--%-->
-                                        <!--</span>-->
-                                        <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<button class="overlay-button primary disabled" tabindex="-1">-->
-                                        <!--Apply-->
-                                        <!--</button>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div>-->
-                                        <!--<div>-->
-                                        <!--<div data-highcharts-chart="7">-->
-                                        <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
-                                        <!--<ul class="labels">-->
-                                        <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
-                                        <!--<ul class="fields" role="row">-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="Mar '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="Apr '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="May '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="June '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="July '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="Aug '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="Sept '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="Oct '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="Nov '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="" aria-label="Dec '19">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--value="4" readonly="" disabled="" tabindex="-1"-->
-                                        <!--aria-label="2019">-->
-                                        <!--<div class="fillRightDots">&nbsp;</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--</ul>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
-                                        <!--<ul class="labels">-->
-                                        <!--<li>2020</li>-->
-                                        <!--<li>2021</li>-->
-                                        <!--</ul>-->
-                                        <!--<ul class="fields" role="row">-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                        <!--aria-label="2020">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li role="gridcell">-->
-                                        <!--<div class="valid">-->
-                                        <!--<div><input type="text"-->
-                                        <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                        <!--aria-label="2021">-->
-                                        <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--</ul>-->
-                                        <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
-                                        <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
-                                    </div> <!--TODO variable amount selected (delete this todo-->
                                 </div>
                             </div>
                             <div class="forecast-item-editor">
@@ -1972,203 +994,6 @@
                                     <!--TODO constant amount selected (delete this todo-->
 
                                 </div>
-                                <div><!--TODO variable amount selected (delete this todo-->
-                                    <!--<div class="financial-year-box" role="grid">-->
-                                    <!--<div class="_33jTwP74Ar_CSHuwZZTN2Q _2nVxIfwHGXUhK0hfTZ81R7">-->
-                                    <!--<div class="qv55CvV2j37ME4406V_kt _1W41zR4aGAe6ywyaRnU9q_" style="height: 340px;">-->
-                                    <!--<div>-->
-                                    <!--<div class="ChgIxvnoZz8qBJQqoqtHN">-->
-                                    <!--<p class="_2MpZt94QK8uSoTo_sCypAp">-->
-                                    <!--<strong>2019</strong>-->
-                                    <!--&lt;!&ndash; react-text: 988 &ndash;&gt;Click on the chart or enter values below to set the amounts you want.&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 989 &ndash;&gt; &lt;!&ndash; /react-text &ndash;&gt;-->
-                                    <!--<a href="http://helpcenter.liveplan.com/articles/preparing-a-forecast/helpful-forecast-features/using-an-interactive-chart-to-enter-varying-amounts" target="_blank">-->
-                                    <!--Learn more-->
-                                    <!--</a>-->
-                                    <!--</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="_2i5-lgSd5MKasfbgvD6x4k">-->
-                                    <!--<p>Change</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
-                                    <!--<span aria-hidden="true" class="percent">-->
-                                    <!--%-->
-                                    <!--</span>-->
-                                    <!--<input type="text" class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" value="0">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button class="overlay-button primary disabled" tabindex="-1">-->
-                                    <!--Apply-->
-                                    <!--</button>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div>-->
-                                    <!--<div>-->
-                                    <!--<div data-highcharts-chart="7">-->
-                                    <!--<div class="highcharts-container" id="highcharts-21" style="position: relative; overflow: hidden; width: 964px; height: 260px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Open Sans&quot;, sans-serif;"><svg version="1.1" style="font-family:&quot;Open Sans&quot;, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="964" height="260"><desc>Created with Highcharts 4.1.5-modified</desc><defs><clipPath id="highcharts-22"><rect x="0" y="0" width="882" height="235"></rect></clipPath></defs><rect x="0" y="0" width="964" height="260" strokeWidth="0" fill="transparent" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 167.5 L 882 167.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 88.5 L 882 88.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 9.5 L 882 9.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-axis" zIndex="2"></g><path fill="none" d="M 0 245.5 L 882 245.5" stroke="#7D8F94" stroke-width="1" zIndex="2"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" clip-path="url(#highcharts-22)"><path fill="none" d="M 26.75 78.33333333333334 L 46.75 78.33333333333334" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="23" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,10) scale(1 1)" style="" clip-path="none"><path fill="white" d="M 36 74.33333333333334 C 41.328 74.33333333333334 41.328 82.33333333333334 36 82.33333333333334 C 30.672 82.33333333333334 30.672 74.33333333333334 36 74.33333333333334 Z" stroke="#4C9BEE" stroke-width="3"></path><path fill="#4C9BEE" d="M 0 0" stroke="#4C9BEE" stroke-width="3" visibility="hidden"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="248" opacity="1">0</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="170" opacity="1">2</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="92" opacity="1">4</text><text x="897" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:308px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="13" opacity="1">6</text></g></svg></div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC monthly-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>Jan '19</li><li>Feb '19</li><li>Mar '19</li><li>Apr '19</li><li>May '19</li><li>June '19</li><li>July '19</li><li>Aug '19</li><li>Sept '19</li><li>Oct '19</li><li>Nov '19</li><li>Dec '19</li><li>2019</li></ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="4" aria-label="Jan '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid"><div><input type="text" class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value="" aria-label="Feb '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Mar '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Apr '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="May '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="June '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="July '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Aug '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Sept '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Oct '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Nov '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="" aria-label="Dec '19">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box total-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--value="4" readonly="" disabled="" tabindex="-1"-->
-                                    <!--aria-label="2019">-->
-                                    <!--<div class="fillRightDots">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="_2WSAZbyrXEXzi9kQFZeNMC last-row" role="rowgroup">-->
-                                    <!--<ul class="labels">-->
-                                    <!--<li>2020</li>-->
-                                    <!--<li>2021</li>-->
-                                    <!--</ul>-->
-                                    <!--<ul class="fields" role="row">-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2020">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li role="gridcell">-->
-                                    <!--<div class="valid">-->
-                                    <!--<div><input type="text"-->
-                                    <!--class="input-box _3nXdR_fo3j0MwFs8AZWYc5" value=""-->
-                                    <!--aria-label="2021">-->
-                                    <!--<div class="fillRightDots" aria-hidden="true">&nbsp;</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>&lt;!&ndash; react-empty: 1097 &ndash;&gt;&lt;!&ndash; react-empty: 1098 &ndash;&gt;-->
-                                    <!--&lt;!&ndash; react-empty: 1099 &ndash;&gt;</div>-->
-                                </div> <!--TODO variable amount selected (delete this todo-->
-
                                 <!--TODO constant amount selected (delete this todo-->
                                 <div class="section" style="margin-bottom: 30px">
                                     <div class="title-top">
@@ -2243,7 +1068,7 @@
 <script>
     import VideoModal from "@/js/components/VideoModal";
     import BaseModal from "@/js/components/BaseModal";
-
+    import { EventBus } from "@/js/event-bus.js"
 
     export default {
         name: "DashboardForecastRevenue",
@@ -3005,11 +1830,11 @@
                 unitSalesTypeIsConstant: '1',
 
                 annualUnitSalesChartOptions:{
-                    // parent: this,
                     chart: {
-
                         type: 'line',
                         height: 260,
+                        animation: false,
+                        backgroundColor: null,
                         events: {
                             'click': function(e) {
 
@@ -3029,29 +1854,37 @@
                                 this.series[0].setData(this.series[0].data, true, true, true);
                             },
                             'redraw': function(e) {
-                                console.log(this);
+                                let output = [];
+                                for (let i = 0; i< 12 ; i++ ){
+                                    output[i] = Math.round(this.series[0].data[i].y);
+                                }
+                                EventBus.$emit('modal-chart-redraw', output);
                             }
                         },
-                        backgroundColor: null,
                     },
 
                     series: [{
                         name: 'unit-sales',
-                        data: [0, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1,
-                            95.6, 54.4]
+                        data: [0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0],
+
                     }],
                     plotOptions: {
                         series: {
+
                             stickyTracking: false,
                             dragDrop: {
-                                draggableY: true
+                                draggableY: true,
+                                liveRedraw: false,
+                                animation: false,
+
                                     // TODO add mouse movement addition
                                     // TODO improve range and animation smoothness
                                 },
                         },
 
                         line: {
-                            cursor: 'ns-resize'
+                            cursor: 'ns-resize',
+
                         },
                     },
                     xAxis:{
@@ -3085,6 +1918,7 @@
                         title: {
                             text: null
                         },
+                        allowDecimals: false
                     // TODO handle automatic y-axis
                     },
                     legend: {
@@ -3094,8 +1928,22 @@
                     tooltip: {
                         enabled: false
                     },
-                }
+                },
+
+                annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165]
+
+
             }
+
+        },
+        mounted(){
+            EventBus.$on('modal-chart-redraw', data => {
+                this.annualSalesUnitPeriodsData = data
+            });
+
+        },
+        destroyed(){
+
         },
         methods:{
             toggleInstruction(){
@@ -3145,18 +1993,23 @@
                 this.setModalState(1, 0);
                 // default
             },
-            getModalAnnualUnitSalesByPeriodIndex(i){
-                // i =
-                // 1-12 current year monthes
-                // 0 total current year
-                // 13 next year
-                // 14 year after next year
-                // return this.chartOptions.series
-                console.log(this.chartOptions);
-                return 1;
-
+            // getModalAnnualUnitSalesByPeriodIndex(i){
+            //     // i =
+            //     // 1-12 current year monthes
+            //     // 0 total current year
+            //     // 13 next year
+            //     // 14 year after next year
+            //     // return this.chartOptions.series
+            //
+            //     return window.annualChartUnitSalesSeries[i-1];
+            //
+            // },
+            updatechart(){
+                console.log('blur');
+                console.log(this.annualUnitSalesChartOptions.series[0].data);
+                console.log(this.annualSalesUnitPeriodsData);
+                this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
             },
-
             // revenue addition modal
             // TODO optional: make a new component from modal contents
 
@@ -3177,13 +2030,6 @@
                 return true;
 
             },
-
-
-            //
-
-
-
-
         },
         computed:{
             tableData: function(){
@@ -3193,7 +2039,8 @@
                 else{
                     return this.monthlyTableData;
                 }
-            }
+            },
+
         },
         watch:{
             newRevenueName: function(){
@@ -3205,12 +2052,11 @@
 
                 if(this.unitSalesTypeIsConstant==='0'){
                     modalContainer.setAttribute("style", "width: 1024px");
+                    this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
                 }
                 else{
                     modalContainer.setAttribute("style", "width: 500px");
                 }
-
-
             }
         }
     }

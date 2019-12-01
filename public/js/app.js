@@ -3339,6 +3339,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_components_VideoModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/js/components/VideoModal */ "./resources/js/components/VideoModal.vue");
 /* harmony import */ var _js_components_BaseModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/js/components/BaseModal */ "./resources/js/components/BaseModal.vue");
+/* harmony import */ var _js_event_bus_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/js/event-bus.js */ "./resources/js/event-bus.js");
 //
 //
 //
@@ -4406,1181 +4407,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6250,10 +5077,11 @@ __webpack_require__.r(__webpack_exports__);
       }],
       unitSalesTypeIsConstant: '1',
       annualUnitSalesChartOptions: {
-        // parent: this,
         chart: {
           type: 'line',
           height: 260,
+          animation: false,
+          backgroundColor: null,
           events: {
             'click': function click(e) {
               var x = e.xAxis[0].value;
@@ -6271,20 +5099,27 @@ __webpack_require__.r(__webpack_exports__);
               this.series[0].setData(this.series[0].data, true, true, true);
             },
             'redraw': function redraw(e) {
-              console.log(this);
+              var output = [];
+
+              for (var i = 0; i < 12; i++) {
+                output[i] = Math.round(this.series[0].data[i].y);
+              }
+
+              _js_event_bus_js__WEBPACK_IMPORTED_MODULE_2__["EventBus"].$emit('modal-chart-redraw', output);
             }
-          },
-          backgroundColor: null
+          }
         },
         series: [{
           name: 'unit-sales',
-          data: [0, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+          data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }],
         plotOptions: {
           series: {
             stickyTracking: false,
             dragDrop: {
-              draggableY: true // TODO add mouse movement addition
+              draggableY: true,
+              liveRedraw: false,
+              animation: false // TODO add mouse movement addition
               // TODO improve range and animation smoothness
 
             }
@@ -6323,7 +5158,8 @@ __webpack_require__.r(__webpack_exports__);
           softMax: 100,
           title: {
             text: null
-          } // TODO handle automatic y-axis
+          },
+          allowDecimals: false // TODO handle automatic y-axis
 
         },
         legend: {
@@ -6332,9 +5168,18 @@ __webpack_require__.r(__webpack_exports__);
         tooltip: {
           enabled: false
         }
-      }
+      },
+      annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165]
     };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    _js_event_bus_js__WEBPACK_IMPORTED_MODULE_2__["EventBus"].$on('modal-chart-redraw', function (data) {
+      _this.annualSalesUnitPeriodsData = data;
+    });
+  },
+  destroyed: function destroyed() {},
   methods: {
     toggleInstruction: function toggleInstruction() {
       this.instructionVisibility = !this.instructionVisibility;
@@ -6382,15 +5227,22 @@ __webpack_require__.r(__webpack_exports__);
       // TODO set state according to data
       this.setModalState(1, 0); // default
     },
-    getModalAnnualUnitSalesByPeriodIndex: function getModalAnnualUnitSalesByPeriodIndex(i) {
-      // i =
-      // 1-12 current year monthes
-      // 0 total current year
-      // 13 next year
-      // 14 year after next year
-      // return this.chartOptions.series
-      console.log(this.chartOptions);
-      return 1;
+    // getModalAnnualUnitSalesByPeriodIndex(i){
+    //     // i =
+    //     // 1-12 current year monthes
+    //     // 0 total current year
+    //     // 13 next year
+    //     // 14 year after next year
+    //     // return this.chartOptions.series
+    //
+    //     return window.annualChartUnitSalesSeries[i-1];
+    //
+    // },
+    updatechart: function updatechart() {
+      console.log('blur');
+      console.log(this.annualUnitSalesChartOptions.series[0].data);
+      console.log(this.annualSalesUnitPeriodsData);
+      this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
     },
     // revenue addition modal
     // TODO optional: make a new component from modal contents
@@ -6409,8 +5261,7 @@ __webpack_require__.r(__webpack_exports__);
       this.errors.name = [];
       console.log(this.annualUnitSalesChartOptions.series[0].data);
       return true;
-    } //
-
+    }
   },
   computed: {
     tableData: function tableData() {
@@ -6430,6 +5281,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.unitSalesTypeIsConstant === '0') {
         modalContainer.setAttribute("style", "width: 1024px");
+        this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
       } else {
         modalContainer.setAttribute("style", "width: 500px");
       }
@@ -6683,7 +5535,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
 
 // exports
 
@@ -34262,6 +33114,13 @@ var render = function() {
                                                                         _vm.annualUnitSalesChartOptions,
                                                                       updateArgs:
                                                                         _vm.updateArgs
+                                                                    },
+                                                                    on: {
+                                                                      redraw: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.consolelog()
+                                                                      }
                                                                     }
                                                                   }
                                                                 )
@@ -34360,13 +33219,66 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model.number",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[0],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[0]",
+                                                                                      modifiers: {
+                                                                                        number: true
+                                                                                      }
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
                                                                                     type:
-                                                                                      "text",
+                                                                                      "number"
+                                                                                  },
+                                                                                  domProps: {
                                                                                     value:
-                                                                                      ""
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[0]
+                                                                                  },
+                                                                                  on: {
+                                                                                    blur: [
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.updatechart()
+                                                                                      },
+                                                                                      function(
+                                                                                        $event
+                                                                                      ) {
+                                                                                        return _vm.$forceUpdate()
+                                                                                      }
+                                                                                    ],
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        0,
+                                                                                        _vm._n(
+                                                                                          $event
+                                                                                            .target
+                                                                                            .value
+                                                                                        )
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34417,6 +33329,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[1],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[1]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34424,6 +33349,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[1]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        1,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34474,6 +33424,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[2],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[2]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34481,6 +33444,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[2]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        2,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34531,6 +33519,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[3],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[3]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34538,6 +33539,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[3]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        3,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34588,6 +33614,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[4],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[4]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34595,6 +33634,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[4]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        4,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34645,6 +33709,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[5],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[5]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34652,6 +33729,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[5]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        5,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34702,6 +33804,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[6],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[6]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34709,6 +33824,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[6]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        6,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34759,6 +33899,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[7],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[7]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34766,6 +33919,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[7]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        7,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34816,6 +33994,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[8],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[8]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34823,6 +34014,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[8]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        8,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34873,6 +34089,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[9],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[9]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34880,6 +34109,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[9]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        9,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34930,6 +34184,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[10],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[10]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34937,6 +34204,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[10]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        10,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -34987,6 +34279,19 @@ var render = function() {
                                                                               _c(
                                                                                 "input",
                                                                                 {
+                                                                                  directives: [
+                                                                                    {
+                                                                                      name:
+                                                                                        "model",
+                                                                                      rawName:
+                                                                                        "v-model",
+                                                                                      value:
+                                                                                        _vm
+                                                                                          .annualSalesUnitPeriodsData[11],
+                                                                                      expression:
+                                                                                        "annualSalesUnitPeriodsData[11]"
+                                                                                    }
+                                                                                  ],
                                                                                   staticClass:
                                                                                     "input-box _3nXdR_fo3j0MwFs8AZWYc5",
                                                                                   attrs: {
@@ -34994,6 +34299,31 @@ var render = function() {
                                                                                       "text",
                                                                                     value:
                                                                                       ""
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      _vm
+                                                                                        .annualSalesUnitPeriodsData[11]
+                                                                                  },
+                                                                                  on: {
+                                                                                    input: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      if (
+                                                                                        $event
+                                                                                          .target
+                                                                                          .composing
+                                                                                      ) {
+                                                                                        return
+                                                                                      }
+                                                                                      _vm.$set(
+                                                                                        _vm.annualSalesUnitPeriodsData,
+                                                                                        11,
+                                                                                        $event
+                                                                                          .target
+                                                                                          .value
+                                                                                      )
+                                                                                    }
                                                                                   }
                                                                                 }
                                                                               ),
@@ -35351,9 +34681,7 @@ var render = function() {
                                           )
                                         ])
                                       ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div")
+                                    )
                                   ])
                                 ]
                               )
@@ -35566,8 +34894,6 @@ var render = function() {
                                         ])
                                       ]
                                     ),
-                                    _vm._v(" "),
-                                    _c("div"),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -35809,9 +35135,7 @@ var render = function() {
                                           )
                                         ])
                                       ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div")
+                                    )
                                   ])
                                 ]
                               )
@@ -36042,9 +35366,7 @@ var render = function() {
                                           )
                                         ])
                                       ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div")
+                                    )
                                   ])
                                 ]
                               )
@@ -36336,9 +35658,7 @@ var render = function() {
                                             )
                                           ])
                                         ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("div")
+                                      )
                                     ])
                                   ]
                                 ),
@@ -36812,8 +36132,6 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _c("div"),
-                                    _vm._v(" "),
                                     _c(
                                       "div",
                                       {
@@ -37076,7 +36394,7 @@ var render = function() {
               ],
               null,
               false,
-              3823812805
+              3513727337
             )
           })
         : _vm._e()
@@ -53312,6 +52630,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoModal_vue_vue_type_template_id_1fd86e9d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/event-bus.js":
+/*!***********************************!*\
+  !*** ./resources/js/event-bus.js ***!
+  \***********************************/
+/*! exports provided: EventBus */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventBus", function() { return EventBus; });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 
 /***/ }),
 
