@@ -84,6 +84,18 @@
                         </tree-table>
 
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
                 <div>
                     <div class="controls-container clearfix">
                         <div class="buttonContainer marginTop">
@@ -360,7 +372,7 @@
                                                                     <p>1398</p>
                                                                     <div class="valid">
                                                                         <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" disabled :value="currentYearAnnualUnitSales">
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" disabled readOnly :value="currentYearAnnualUnitSales">
                                                                             <div class="fillRightDots" aria-hidden="true">
                                                                                 &nbsp;
                                                                             </div>
@@ -1780,12 +1792,13 @@
                 instructionVisibility:true,
                 moreInstructionVisibility: false,
 
-                modalVisibility: [false,true],
-                currentModalTab: 2,
+                modalVisibility: [false,false],
+
+                currentModalTab: 0,
                 modals: { //list of modals (except video modal)
                     // TODO resolve state change scroll bug
                     1:{
-                        state: 20,
+                        state: 0,
                         previousState: 0,
                         // cases:{
                         //     0: new entry,
@@ -1942,8 +1955,6 @@
             EventBus.$on('modal-chart-redraw', data => {
                 this.annualSalesUnitPeriodsData = data
             });
-
-
         },
         destroyed(){
 

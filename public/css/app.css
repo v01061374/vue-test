@@ -185,6 +185,9 @@ div.dataTables_wrapper {
 .faNum{
     font-family: IRANSansFaNum, IRANSans, Tahoma !important;
 }
+input.input-box[readOnly] {
+    background: #D5DBE1;
+}
 /* Ensure that the demo table scrolls */
 th, td { white-space: nowrap; }
 input[type=number]::-webkit-inner-spin-button,
@@ -609,7 +612,6 @@ span.divider{
 
 .inner-content .info-container {
     padding: 30px;
-    width: 900px;
     -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     border-bottom-right-radius: 4px;
@@ -1374,4 +1376,170 @@ footer ul li {
 .select-box.period-selection label{
     font-family: IRANSANSFaNum, Tahoma;
 }
+.p-slider.p-slider-horizontal, .p-slider.p-slider-horizontal .p-slider-range{
+    height: 7px !important;
+    background: #D5DBE1 !important;
+    -webkit-box-shadow: 0 1px 3px 0 #7D8F94 inset !important;
+    box-shadow: 0 1px 3px 0 #7D8F94 inset !important;
+    border-radius: 3px !important;
+
+}
+
+.p-slider .p-slider-handle{
+    background: #4C9BEE !important;
+    border: 0 !important;
+}
+.slider-tooltip {
+    z-index: 2;
+    position: absolute;
+    background-color: #4C9BEE;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    font: 600 10px/9px IRANSansFaNum, IRANSans, Tahoma;
+    padding: 7px 9px 7px 10px;
+    right: 0;
+    border-radius: 3px;
+    border: 0;
+    margin-right: -19px;
+    width: 40px;
+}
+.slider-component .slider-tooltip {
+    top: 26px;
+    cursor: pointer;
+}
+.slider-tooltip:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #4C9BEE;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -1px;
+}
+
 /*PrimeVue Styles*/
+
+
+/*cash flow assumptions*/
+.two-column-boxes .column-left {
+    float: left;
+}
+.two-column-boxes .column-right {
+    float: right;
+}
+
+.box-half.naked {
+    padding: 0px;
+    border: 0px;
+}
+.box-half {
+    width: 440px;
+    margin: 0 0 20px;
+    padding: 20px;
+    border: 1px solid #D5DBE1;
+    font-family: IRANSANS;
+}
+.box-half .box-half-title {
+    font-size: 20px;
+    line-height: 1em;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #2C2E2F;
+}
+.box-half .box-half-header {
+    margin: 0 0 10px;
+    height: 20px;
+    color: #2C2E2F;
+    direction: rtl;
+}
+.box-half .box-half-header p {
+    font-size: 18px;
+    margin: 0;
+    float: right;
+    width: 220px;
+    text-align: justify;
+
+}
+.box-half-tip-wrapper .tip-container {
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 0 !important;
+    float: left;
+}
+.box-half-tip-wrapper .tip-container a {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-image: url('../img/tip.svg');
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.box-half-tip-wrapper .tip-arrow-box {
+    text-align: right;
+    background: #F9F9F9;
+    border: 1px solid #D5DBE1;
+    width: 250px;
+    position: absolute;
+    z-index: 3;
+    right: -260px;
+    top: -60px;
+    padding: 15px;
+    border-radius: 3px;
+}
+.box-half-tip-wrapper .tip-arrow-box:before, .box-half-tip-wrapper .tip-arrow-box:after {
+    top: 70px;
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+}
+.box-half-tip-wrapper .tip-arrow-box:before {
+    border-color: rgba(213, 219, 225, 0);
+    border-bottom-color: #D5DBE1;
+    border-width: 7px;
+    margin-top: -7px;
+}
+.box-half-tip-wrapper .tip-arrow-box:after {
+    border-color: rgba(249, 249, 249, 0);
+    border-bottom-color: #F9F9F9;
+    border-width: 6px;
+    margin-top: -7px;
+    margin-right: -1px;
+}
+.box-half-tip-wrapper .tip-arrow-box p {
+    font-size: 12px !important;
+    line-height: 18px !important;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.slider-component {
+    height: 50px;
+    position: relative;
+    top: 15px;
+    margin-bottom: 16px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.box-half .slider-component {
+    margin-top: 10px;
+}
+/*cash flow assumptions*/
