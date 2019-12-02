@@ -188,6 +188,17 @@ div.dataTables_wrapper {
 input.input-box[readOnly] {
     background: #D5DBE1;
 }
+.invisible{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    opacity: 0;
+    z-index: 999999999999999999;
+}
+
+
+
 /* Ensure that the demo table scrolls */
 th, td { white-space: nowrap; }
 input[type=number]::-webkit-inner-spin-button,
@@ -1376,6 +1387,7 @@ footer ul li {
 .select-box.period-selection label{
     font-family: IRANSANSFaNum, Tahoma;
 }
+
 .p-slider.p-slider-horizontal, .p-slider.p-slider-horizontal .p-slider-range{
     height: 7px !important;
     background: #D5DBE1 !important;
@@ -1385,10 +1397,6 @@ footer ul li {
 
 }
 
-.p-slider .p-slider-handle{
-    background: #4C9BEE !important;
-    border: 0 !important;
-}
 .slider-tooltip {
     z-index: 2;
     position: absolute;
@@ -1401,8 +1409,11 @@ footer ul li {
     right: 0;
     border-radius: 3px;
     border: 0;
-    margin-right: -19px;
+    margin-right: -20px;
     width: 40px;
+}
+.box-half .slider-component {
+    position: relative;
 }
 .slider-component .slider-tooltip {
     top: 26px;
@@ -1421,7 +1432,69 @@ footer ul li {
     margin-left: -5px;
     margin-top: -1px;
 }
-
+.slider-ticks-container{
+    height: 15px;
+    padding-top: 5px;
+    width: 398px;
+}
+.p-slider .p-slider-handle{
+    background: #4C9BEE !important;
+    border: 0 !important;
+}
+.slider-tick{
+    float: right;
+    height: 5px;
+    border-right: 1px solid #7d8f9452;
+}
+.slider-tick:last-child{
+    border-left: 1px solid #7d8f9452;
+    position: relative;
+}
+.slider-tick.tick-percent{
+     width: 5%;
+ }
+.slider-tick.tick-percent:nth-child(2n+1), .slider-tick.tick-percent:last-child{
+    height: 10px;
+}
+.slider-tick.tick-percent:last-child:after{
+    content: "";
+    position: absolute;
+    right: -1px;
+    z-index: 100;
+    bottom: 0;
+    width: 1px;
+    height: 50%;
+    background: #FFFFFF;
+    z-index: -99999999999999999;
+}
+.slider-component .invisible {
+    top: 0;
+}
+.slider-component .invisible .p-slider .p-slider-handle{
+    left: 0;
+    height: 49px;
+    width: 40px;
+    top: 7px;
+    margin-left: -20px;
+}
+.slider-component .invisible .p-slider.p-slider-horizontal ,.p-slider .p-slider-range{
+    height: 50px !important;
+}
+.slider-component .invisible .p-slider .p-slider-handle{
+    height: 49px;
+    width: 40px;
+    top: 7px;
+}
+.slider-component .slider-levels-container{
+    position: relative;
+}
+.slider-component .slider-levels-container .slider-level{
+    font-size: 10px;
+    color: #7D8F94;
+    font-weight: 600;
+    position: absolute;
+    top:7px;
+}
 /*PrimeVue Styles*/
 
 

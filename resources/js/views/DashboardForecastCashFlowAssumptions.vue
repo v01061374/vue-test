@@ -24,7 +24,28 @@
                         </div>
                         <div class="slider-component">
                             <slider v-model="sliderValueOffset[0]" :min="sliderRange[0].min" :max="sliderRange[0].max"/>
-                            <div class="slider-tooltip" :style="{ right: (398/(sliderRange[0].max-sliderRange[0].min))*sliderValue[0] + 'px' }">{{sliderValue[0]}}%</div>
+                            <div class="slider-tooltip" :style="{ right: (100/(sliderRange[0].max-sliderRange[0].min))*sliderValue[0] + '%' }">{{sliderValue[0]}}%</div>
+                            <div class="slider-ticks-container">
+                                <span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span><span class="slider-tick tick-percent"></span><span
+                                    class="slider-tick tick-percent"></span>
+                            </div>
+                            <div class="invisible">
+                                <slider v-model="sliderValueOffset[0]" :min="sliderRange[0].min" :max="sliderRange[0].max"/>
+                            </div>
+                            <div class="slider-levels-container">
+                                <span class="slider-level faNum" style="left: -10px;">100%</span>
+                                <span class="slider-level faNum" style="right:189px;">50%</span>
+                                <span class="slider-level faNum" style="right:-7px;">0%</span>
+                            </div>
                         </div>
 
                     </div>
@@ -151,33 +172,7 @@
                     100,
                     100
                 ],
-                sliderRange: [
-                    {
-                        'min': 0,
-                        'max': 100
-
-                    },
-                    {
-                        'min': 0,
-                        'max': 100
-                    },
-                    {
-                        'min': 0,
-                        'max': 100
-                    },
-                    {
-                        'min': 0,
-                        'max': 100
-                    },
-                    {
-                        'min': 0,
-                        'max': 100
-                    },
-                    {
-                        'min': 0,
-                        'max': 100
-                    },
-                ]
+                sliderRange: [{'min': 0, 'max': 100},{'min': 0, 'max': 100},{'min': 0, 'max': 100},{'min': 0, 'max': 100},{'min': 0, 'max': 100},{'min': 0, 'max': 100}]
             }
         },
         computed: {
