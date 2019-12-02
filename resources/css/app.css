@@ -1435,7 +1435,7 @@ footer ul li {
 .slider-ticks-container{
     height: 15px;
     padding-top: 5px;
-    width: 398px;
+    width: 400px;
 }
 .p-slider .p-slider-handle{
     background: #4C9BEE !important;
@@ -1450,9 +1450,16 @@ footer ul li {
     border-left: 1px solid #7d8f9452;
     position: relative;
 }
+
 .slider-tick.tick-percent{
      width: 5%;
  }
+.slider-tick.tick-18{
+    width: 23.45px;
+}
+.slider-tick.tick-9{
+    width: 49.9px;
+}
 .slider-tick.tick-percent:nth-child(2n+1), .slider-tick.tick-percent:last-child{
     height: 10px;
 }
@@ -1487,6 +1494,7 @@ footer ul li {
 }
 .slider-component .slider-levels-container{
     position: relative;
+    width: 398px;
 }
 .slider-component .slider-levels-container .slider-level{
     font-size: 10px;
