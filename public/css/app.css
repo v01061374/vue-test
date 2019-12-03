@@ -242,7 +242,7 @@ button:hover,
 div:focus,
 a:focus{
     border: none;
-    outline:none;
+    outline:inherit;
 }
 .vjs-picture-in-picture-control.vjs-control.vjs-button{
     display: none;
@@ -858,7 +858,7 @@ span.divider{
 
 }
 .input-box-with-currency{
-    padding-left: 25px;
+    padding-left: 35px;
 }
 .input-box.description {
     width: 100%;
@@ -1503,6 +1503,7 @@ footer ul li {
     position: absolute;
     top:7px;
 }
+
 /*PrimeVue Styles*/
 
 
@@ -1524,6 +1525,9 @@ footer ul li {
     padding: 20px;
     border: 1px solid #D5DBE1;
     font-family: IRANSANS;
+}
+.column-left .box-half:last-child{
+    height: 138px;
 }
 .box-half .box-half-title {
     font-size: 20px;
@@ -1622,5 +1626,17 @@ footer ul li {
 }
 .box-half .slider-component {
     margin-top: 10px;
+}
+.box-half .input-box-wrapper{
+    margin-left: 10px;
+    float: right;
+}
+.box-half .input-box-wrapper .input-box{
+    float: right;
+    width: 140px;
+}
+.box-half .buttonColor{
+    height: 39px;
+    width: 70px;
 }
 /*cash flow assumptions*/

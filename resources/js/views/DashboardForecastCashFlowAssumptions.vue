@@ -283,6 +283,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="input-box-wrapper " style="width: 140px; ">
+
+                            <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
+                            <span aria-hidden="true" class="currency">ریال</span>
+
+
+                        </div>
+                        <button class="buttonColor">
+                            اعمال
+                        </button>
                     </div>
                 </div>
             </div>
