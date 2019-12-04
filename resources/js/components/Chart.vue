@@ -70,7 +70,7 @@
                 colorInputIsSupported: null,
                 animationDuration: 1000,
                 updateArgs: [true, true, {duration: 1000}],
-                chartOptions: {
+                annualChartOptions: {
                     chart: {
                         type: 'spline'
                     },
@@ -91,16 +91,16 @@
         },
         watch: {
             title (newValue) {
-                this.chartOptions.title.text = newValue
+                this.annualChartOptions.title.text = newValue
             },
             points (newValue) {
-                this.chartOptions.series[0].data = newValue
+                this.annualChartOptions.series[0].data = newValue
             },
             chartType (newValue) {
-                this.chartOptions.chart.type = newValue.toLowerCase()
+                this.annualChartOptions.chart.type = newValue.toLowerCase()
             },
             seriesColor (newValue) {
-                this.chartOptions.series[0].color = newValue.toLowerCase()
+                this.annualChartOptions.series[0].color = newValue.toLowerCase()
             },
             animationDuration (newValue) {
                 this.updateArgs[2].duration = Number(newValue)

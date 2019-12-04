@@ -51,10 +51,10 @@
                             <span>
                                 <div class="double-column">
                                     <div class="right-chart">
-                                        <highcharts class="chart" :options="chartOptions" :updateArgs="updateArgs"></highcharts>
+                                        <highcharts class="chart" :options="monthlyChartOptions" :updateArgs="updateArgs"></highcharts>
                                     </div>
                                     <div class="left-chart">
-                                        <highcharts class="chart" :options="chartOptions" :updateArgs="updateArgs"></highcharts>
+                                        <highcharts class="chart" :options="annualChartOptions" :updateArgs="updateArgs"></highcharts>
                                     </div>
                                 </div>
                             </span>
@@ -73,6 +73,27 @@
                                 <p>
                                     {{tableData.totals['title']}}
                                 </p>
+                            </template>
+                            <template #body="slotProps">
+                                <span v-if="slotProps.node.data.level === 1">
+                                    1 -  {{slotProps.node.data.name}}
+                                </span>
+                                <span v-if="slotProps.node.data.level === 2">
+                                    2 -  {{slotProps.node.data.name}}
+                                </span>
+                                <div v-if="slotProps.node.data.level === 3" class="editable-cell-wrapper">
+                                    <a @click="toggleModalVisibility(1)">
+                                        3 -  {{slotProps.node.data.name}}
+
+                                    </a>
+                                    <span class="row-edit-edit row-edit-control" title="Edit" @click="toggleModalVisibility(1)"></span>
+                                    <span class="row-edit-copy  row-edit-control" title="Copy"></span>
+                                    <span class="row-edit-move-up  row-edit-control" title="Move"></span>
+
+
+
+                                </div>
+
                             </template>
                         </column>
                         <column field="1398" header="1398" headerStyle="width: 10%">
@@ -96,17 +117,6 @@
                                 </span>
                             </template>
                         </column>
-
-                        <!--<column  headerStyle="width: 8em" bodyStyle="text-align: center">-->
-                            <!--<template #header>-->
-                                <!--<Button type="button" icon="pi pi-cog"></Button>-->
-                            <!--</template>-->
-                            <!--<template #body="slotProps">-->
-                                <!--<button  @click="log(slotProps.node.data.type)">-->
-                                        <!--{{slotProps.node.data.type}}-->
-                                <!--</button>-->
-                            <!--</template>-->
-                        <!--</column>-->
                     </tree-table>
 
 
@@ -1081,6 +1091,7 @@
                 </div>
             </template>
         </base-modal>
+
     </div>
 
 
@@ -1120,6 +1131,8 @@
                                 "1400"
                                     :
                                     "11000000ریال",
+                                "level":
+                                    1
                             }
                         ,
 
@@ -1144,7 +1157,9 @@
                                     "1400"
                                         :
                                         "1600ریال",
-                                }
+                                    "level":
+                                        1
+                                        }
                             ,
                             "children"
                                 :
@@ -1156,7 +1171,35 @@
                                             "1398": "1500ریال",
                                             "1399": "1700ریال",
                                             "1400": "1600ریال",
-                                        }
+                                            "level":
+                                                2
+                                        },
+                                        "children"
+                                            :
+                                            [
+                                                {
+                                                    "key": "1-0-0",
+                                                    "data": {
+                                                        "name": "استودیو فلان",
+                                                        "1398": "1500ریال",
+                                                        "1399": "1700ریال",
+                                                        "1400": "1600ریال",
+                                                        "level":
+                                                            3
+                                                    }
+                                                },
+                                                {
+                                                    "key": "1-0-1",
+                                                    "data": {
+                                                        "name": "استودیو فلان",
+                                                        "1398": "1500ریال",
+                                                        "1399": "1700ریال",
+                                                        "1400": "1600ریال",
+                                                        "level":
+                                                            3
+                                                    }
+                                                }
+                                            ]
                                     },
                                     {
                                         "key": "1-1",
@@ -1165,6 +1208,8 @@
                                             "1398": "1500ریال",
                                             "1399": "1700ریال",
                                             "1400": "1600ریال",
+                                            "level":
+                                                2
                                         }
                                     }
                                 ]
@@ -1189,6 +1234,8 @@
                                     "1400"
                                         :
                                         "1600ریال",
+                                    "level":
+                                        1
                                 }
                             ,
                         }
@@ -1552,38 +1599,88 @@
                 ],
                 columns: [{label: 'Name', id: 'name'}, {label: 'Surname', id: 'surname'}],
                 updateArgs: [true, true, {duration: 1000}],
-                chartOptions: {
+                annualChartOptions: {
                     chart: {
                         type: 'column',
                         height: 200,
+                        title: '',
                     },
                     title: {
-                        text: 'Sin chart'
+                        text: ''
                     },
                     series: [{
-                        data: [10, 0, 8],
-                        color: '#6fcd98',
-                        name: 'سری 1'
+                        data: [10, -10, 8],
+                        color: '#4c9aee',
+                        negativeColor: '#d83405',
+                        name: 'سری 1',
+
                     }],
 
                     xAxis:{
                         reversed: true,
-                        className: 'rtl-faNum'
+                        className: 'faNum',
+                        categories: [
+                            1399,
+                            1400,
+                            1401
+                        ],
+                        title:{
+                            text: '  '
+                        },
+                        labels:{
+                            rotation: 60,
+                            align: 'left',
+
+                        }
+
+
+
                     },
                     legend: {
-                        rtl: true,
-                        useHTML:true,
-                        itemStyle:{
-                            fontFamily: 'IRANSansFaNum',
-                            direction: 'rtl',
-                            textAlign: 'right'
-                        }
+                        // rtl: true,
+                        // useHTML:true,
+                        // itemStyle:{
+                        //     fontFamily: 'IRANSansFaNum',
+                        //     direction: 'rtl',
+                        //     textAlign: 'right'
+                        // },
+                        enabled: false
 
 
                     },
                     yAxis:{
                         opposite: true,
-                        className: 'rtl-faNum'
+                        className: 'rtl-faNum',
+
+                        title: '',
+                        // TODO align charts zero gridlines
+                        // gridLineColor: '#197F07',
+                        // gridLineWidth: 0,
+                        // lineWidth:1,
+                        // plotLines: [{
+                        //     color: '#FF0000',
+                        //     width: 1,
+                        //     value: 0
+                        // }],
+
+                        labels:{
+
+                            useHTML: true,
+                            formatter: function() {
+                                if (this.value >= 0){
+                                    return '<span class="faNum ltr"> '+this.value + ' ریال</span> ';
+                                }
+                                else{
+                                    this.value = -1*this.value;
+                                    return '<span class="faNum ltr"> ('+this.value + ' ریال</span>)';
+                                }
+
+
+                            }
+
+
+                        }
+
 
                     },
                     tooltip: {
@@ -1592,7 +1689,106 @@
                         style:{
                             fontFamily: 'IRANSansFaNum',
                             direction: 'rtl',
-                            textAlign: 'right'
+                            textAlign: 'right',
+                            // TODO make tooltip black
+                        },
+                        formatter: function() {
+                            if(this.y >=0){
+                                return '<b>' + this.y +  ' ریال</b>';
+                            }
+                            else{
+                                this.y = -1*this.y;
+
+                                return '<b>(' + this.y +  '  ریال)</b>';
+                            }
+
+                        }
+                    },
+                },
+                monthlyChartOptions: {
+                    chart: {
+                        type: 'column',
+                        height: 200,
+                    },
+                    title: {
+                        text: ''
+                    },
+                    series: [{
+                        data: [-150, -10, 8, '', -10, 8, 10, -10, 8, 10, -150, 8 ],
+                        color: '#4c9aee',
+                        negativeColor: '#d83405',
+                        name: 'سری 1',
+
+                    }],
+
+                    xAxis:{
+                        reversed: true,
+                        className: 'faNum',
+                        categories: ['فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'اسفند 98'],
+                        labels: {
+                            align: 'left',
+
+                            rotation: 60
+                        }
+                    },
+                    legend: {
+                        // rtl: true,
+                        // useHTML:true,
+                        // itemStyle:{
+                        //     fontFamily: 'IRANSansFaNum',
+                        //     direction: 'rtl',
+                        //     textAlign: 'right'
+                        // },
+                        enabled: false
+
+
+                    },
+                    yAxis:{
+                        opposite: true,
+                        className: 'rtl-faNum',
+
+                        title: '',
+
+                        gridLineWidth: 1,
+
+                        labels:{
+                            useHTML: true,
+                            formatter: function() {
+                                if (this.value >= 0){
+                                    return '<span class="faNum ltr"> '+this.value + ' ریال</span> ';
+                                }
+                                else{
+                                    this.value = -1*this.value;
+                                    return '<span class="faNum ltr"> ('+this.value + ' ریال</span>)';
+                                }
+
+
+                            }
+
+
+                        }
+
+
+                    },
+                    tooltip: {
+                        valueSuffix: ' تومان',
+                        useHTML:true,
+                        style:{
+                            fontFamily: 'IRANSansFaNum',
+                            direction: 'rtl',
+                            textAlign: 'right',
+                            // TODO make tooltip black
+                        },
+                        formatter: function() {
+                            if(this.y >=0){
+                                return '<b>' + this.y +  ' ریال</b>';
+                            }
+                            else{
+                                this.y = -1*this.y;
+
+                                return '<b>(' + this.y +  '  ریال)</b>';
+                            }
+
                         }
                     },
                 },
@@ -1709,20 +1905,6 @@
                             enabled: false // disable labels
                         },
                         visible: false
-                        // categories: [
-                        //     'فروردین',
-                        //     'اردیبهشت',
-                        //     'فروردین',
-                        //     'فروردین',
-                        //     'فروردین',
-                        //     'فروردین',
-                        //     'فروردین',
-                        //     'فروردین',
-                        //     'فروردین',
-                        //     'فروردین',
-                        //     'فروردین',
-                        //     'فروردین'
-                        // ]
                     },
                     yAxis:{
                         opposite: true,
@@ -1743,8 +1925,10 @@
 
                     },
                     tooltip: {
-                        enabled: false
+                        enabled: false,
+
                     },
+
                 },
                 annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165],
                 annualSalesUnitShiftPercent: 0

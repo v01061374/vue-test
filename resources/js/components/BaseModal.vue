@@ -77,7 +77,7 @@
         bottom: 0;
         right: 0;
         overflow: auto;
-        background-color: rgba(44, 46, 47, 0.9);
+        background-color: rgba(44, 46, 47, 0.99);
     }
 
     .modal-wrapper {

@@ -147,6 +147,7 @@ a{
     font-family: IRANSansFaNum, Tahoma;
     direction: rtl;
     text-align: right;
+    padding-left: 50px;
 }
 .ltr{
     direction: ltr !important;
@@ -185,6 +186,7 @@ div.dataTables_wrapper {
 .faNum{
     font-family: IRANSansFaNum, IRANSans, Tahoma !important;
 }
+
 input.input-box[readOnly] {
     background: #D5DBE1;
 }
@@ -1363,10 +1365,16 @@ footer ul li {
 .p-treetable table{
     width: unset;
 }
+.p-treetable table td{
+    position: relative;;
+}
 .p-treetable *:not(.pi){
     font-family: IRANSansFaNum, IRANSans, Tahoma;
     font-size: 12px;
 }
+
+
+
 .p-treetable td:not(:last-child), .p-treetable th:not(:last-child){
     border-left: 0 !important;
 }
@@ -1401,6 +1409,53 @@ body .p-treetable .p-treetable-tbody > tr > td {
 .p-treetable tr td:first-child, .p-treetable th:first-child{
     background-color: #F9F9F9 !important;
 }
+.p-treetable tbody tr:hover{
+    background-color: #F1F1F1 !important;
+}
+.p-treetable tbody tr:hover>td:first-child{
+    background-color: #D5DBE1 !important;
+}
+/*MMMMMMMMIIIIIIIIIIIIIIIINNNNNNNNNNNNNNEEEEEEEEEEEEEEEEEE*/
+.p-treetable .editable-cell-wrapper{
+    display: inline;
+}
+.p-treetable .row-edit-control {
+    display: none;
+}
+.p-treetable tr:hover .row-edit-control{
+    display: inherit;
+}
+.p-treetable .row-edit-control{
+    position: absolute;
+    width: 12px;
+    height: 13px;
+    top: 0.52em;
+    cursor: pointer;
+}
+.p-treetable .row-edit-control.row-edit-edit{
+    background: url('../img/edit.svg') 0 0 no-repeat;
+    left: 4em;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.p-treetable .row-edit-control.row-edit-copy{
+    background: url('../img/copy.svg') 0 0 no-repeat;
+    left: 2.2em;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.p-treetable .row-edit-control.row-edit-move-up{
+    background: url('../img/move.svg') 0 0 no-repeat;
+    left: 0.8em;
+}
+/*.p-treetable .row-edit-control.row-edit-move-down{*/
+    /*background: url('../img/move.svg') 0 0 no-repeat;*/
+    /*left: 4.4em;*/
+/*}*/
+/*MMMMMMMMIIIIIIIIIIIIIIIINNNNNNNNNNNNNNEEEEEEEEEEEEEEEEEE*/
+
+
+
 .pi-chevron-right:before{
     content: "\E900";
 }
