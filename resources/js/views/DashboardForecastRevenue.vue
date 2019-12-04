@@ -63,39 +63,54 @@
             </div>
             <div class="details-container">
 
+
+
                 <div class="table-container faNum"><!--class=_itvKHRBWKjJt7IYI2Cy8-->
 
-                        <tree-table :value="tableData">
-                            <column headerStyle="background-color: #F9F9F9;" bodyStyle="background-color: #F9F9F9;" field="name" header="Name" :expander="true"></column>
-                            <column field="size" header="Size"></column>
-                            <column field="type" header="Type" >
-                            </column>
-                            <!--<column headerStyle="width: 8em" bodyStyle="text-align: center">-->
-                            <!--&lt;!&ndash;<template #header>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<Button type="button" icon="pi pi-cog"></Button>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</template>&ndash;&gt;-->
-                            <!---->
-                            <!--</column>-->
+                    <tree-table :value="tableData.details">
+                        <column field="name" header="درآمد" :expander="true" headerStyle="width: 20%">
                             <template #footer>
-                                <div style="text-align:left">
-                                    <button icon="pi pi-refresh"/>
-                                </div>
+                                <p>
+                                    {{tableData.totals['title']}}
+                                </p>
                             </template>
-                        </tree-table>
+                        </column>
+                        <column field="1398" header="1398" headerStyle="width: 10%">
+                            <template #footer>
+                                <span>
+                                    {{tableData.totals['1398']}}
+                                </span>
+                            </template>
+                        </column>
+                        <column field="1399" header="1399" headerStyle="width: 10%">
+                            <template #footer>
+                                <span>
+                                    {{tableData.totals['1399']}}
+                                </span>
+                            </template>
+                        </column>
+                        <column field="1400" header="1400" headerStyle="width: 10%">
+                            <template #footer>
+                                <span>
+                                    {{tableData.totals['1400']}}
+                                </span>
+                            </template>
+                        </column>
+
+                        <!--<column  headerStyle="width: 8em" bodyStyle="text-align: center">-->
+                            <!--<template #header>-->
+                                <!--<Button type="button" icon="pi pi-cog"></Button>-->
+                            <!--</template>-->
+                            <!--<template #body="slotProps">-->
+                                <!--<button  @click="log(slotProps.node.data.type)">-->
+                                        <!--{{slotProps.node.data.type}}-->
+                                <!--</button>-->
+                            <!--</template>-->
+                        <!--</column>-->
+                    </tree-table>
+
 
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
                 <div>
                     <div class="controls-container clearfix">
                         <div class="buttonContainer marginTop">
@@ -1029,14 +1044,9 @@
                                     </div>
                                 </div>
                                 <!--TODO constant amount selected (delete this todo-->
-
                             </div>
                         </div>
-
-
-
                     </div>
-
                 </div>
             </template>
             <template v-slot:footer>
@@ -1081,7 +1091,6 @@
     import VideoModal from "@/js/components/VideoModal";
     import BaseModal from "@/js/components/BaseModal";
     import { EventBus } from "@/js/event-bus.js"
-
     export default {
         name: "DashboardForecastRevenue",
         components: {
@@ -1090,307 +1099,107 @@
         },
         data: function(){
             return {
+                annualTableData: {
+                    details: [
+                        {
+                        "key"
+                            :
+                            "0",
+                        "data"
+                            :
+                            {
+                                "name"
+                                    :
+                                    "زرد",
+                                "1398"
+                                    :
+                                    "11000000ریال",
+                                "1399"
+                                    :
+                                    "11000000ریال",
+                                "1400"
+                                    :
+                                    "11000000ریال",
+                            }
+                        ,
 
-                annualTableData: [
-                    {
-                        "key": "0",
-                        "data":{
-                            "name":"Applications",
-                            "size":"100kb",
-                            "type":"<a href=\"adsjfapsdfakf\">asfasdfasfd</a>"
-                        },
-
-                    },
-                    {
-                        "key": "1",
-                        "data":{
-                            "name":"Cloud",
-                            "size":"20kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "1-0",
-                                "data":{
-                                    "name":"backup-1.zip",
-                                    "size":"10kb",
-                                    "type":"Zip"
+                        }
+                        ,
+                        {
+                            "key"
+                                :
+                                "1",
+                            "data"
+                                :
+                                {
+                                    "name"
+                                        :
+                                        "استودیو فلان",
+                                    "1398"
+                                        :
+                                        "1500ریال",
+                                    "1399"
+                                        :
+                                        "1700ریال",
+                                    "1400"
+                                        :
+                                        "1600ریال",
                                 }
-                            },
-                            {
-                                "key": "1-1",
-                                "data":{
-                                    "name":"backup-2.zip",
-                                    "size":"10kb",
-                                    "type":"Zip"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "2",
-                        "data": {
-                            "name":"Desktop",
-                            "size":"150kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "2-0",
-                                "data":{
-                                    "name":"note-meeting.txt",
-                                    "size":"50kb",
-                                    "type":"Text"
-                                }
-                            },
-                            {
-                                "key": "2-1",
-                                "data":{
-                                    "name":"note-todo.txt",
-                                    "size":"100kb",
-                                    "type":"Text"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "3",
-                        "data":{
-                            "name":"Documents",
-                            "size":"75kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "3-0",
-                                "data":{
-                                    "name":"Work",
-                                    "size":"55kb",
-                                    "type":"Folder"
-                                },
-                                "children":[
+                            ,
+                            "children"
+                                :
+                                [
                                     {
-                                        "key": "3-0-0",
-                                        "data":{
-                                            "name":"Expenses.doc",
-                                            "size":"30kb",
-                                            "type":"Document"
+                                        "key": "1-0",
+                                        "data": {
+                                            "name": "استودیو فلان",
+                                            "1398": "1500ریال",
+                                            "1399": "1700ریال",
+                                            "1400": "1600ریال",
                                         }
                                     },
                                     {
-                                        "key": "3-0-1",
-                                        "data":{
-                                            "name":"Resume.doc",
-                                            "size":"25kb",
-                                            "type":"Resume"
+                                        "key": "1-1",
+                                        "data": {
+                                            "name": "استودیو فلان",
+                                            "1398": "1500ریال",
+                                            "1399": "1700ریال",
+                                            "1400": "1600ریال",
                                         }
                                     }
                                 ]
-                            },
-                            {
-                                "key": "3-1",
-                                "data":{
-                                    "name":"Home",
-                                    "size":"20kb",
-                                    "type":"Folder"
-                                },
-                                "children":[
-                                    {
-                                        "key": "3-1-0",
-                                        "data":{
-                                            "name":"Invoices",
-                                            "size":"20kb",
-                                            "type":"Text"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "key": "4",
-                        "data": {
-                            "name":"Downloads",
-                            "size":"25kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "4-0",
-                                "data": {
-                                    "name":"Spanish",
-                                    "size":"10kb",
-                                    "type":"Folder"
-                                },
-                                "children":[
-                                    {
-                                        "key": "4-0-0",
-                                        "data":{
-                                            "name":"tutorial-a1.txt",
-                                            "size":"5kb",
-                                            "type":"Text"
-                                        }
-                                    },
-                                    {
-                                        "key": "4-0-1",
-                                        "data":{
-                                            "name":"tutorial-a2.txt",
-                                            "size":"5kb",
-                                            "type":"Text"
-                                        }
-                                    }
-                                ]
-                            },
-                            {
-                                "key": "4-1",
-                                "data":{
-                                    "name":"Travel",
-                                    "size":"15kb",
-                                    "type":"Text"
-                                },
-                                "children":[
-                                    {
-                                        "key": "4-1-0",
-                                        "data":{
-                                            "name":"Hotel.pdf",
-                                            "size":"10kb",
-                                            "type":"PDF"
-                                        }
-                                    },
-                                    {
-                                        "key": "4-1-1",
-                                        "data":{
-                                            "name":"Flight.pdf",
-                                            "size":"5kb",
-                                            "type":"PDF"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "key": "5",
-                        "data": {
-                            "name":"Main",
-                            "size":"50kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "5-0",
-                                "data":{
-                                    "name":"bin",
-                                    "size":"50kb",
-                                    "type":"Link"
+                        }
+                        ,
+                        {
+                            "key"
+                                :
+                                "2",
+                            "data"
+                                :
+                                {
+                                    "name"
+                                        :
+                                        "استودیو بهمان",
+                                    "1398"
+                                        :
+                                        "1500ریال",
+                                    "1399"
+                                        :
+                                        "1700ریال",
+                                    "1400"
+                                        :
+                                        "1600ریال",
                                 }
-                            },
-                            {
-                                "key": "5-1",
-                                "data":{
-                                    "name":"etc",
-                                    "size":"100kb",
-                                    "type":"Link"
-                                }
-                            },
-                            {
-                                "key": "5-2",
-                                "data":{
-                                    "name":"var",
-                                    "size":"100kb",
-                                    "type":"Link"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "6",
-                        "data":{
-                            "name":"Other",
-                            "size":"5kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "6-0",
-                                "data":{
-                                    "name":"todo.txt",
-                                    "size":"3kb",
-                                    "type":"Text"
-                                }
-                            },
-                            {
-                                "key": "6-1",
-                                "data":{
-                                    "name":"logo.png",
-                                    "size":"2kb",
-                                    "type":"Picture"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "7",
-                        "data":{
-                            "name":"Pictures",
-                            "size":"150kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "7-0",
-                                "data":{
-                                    "name":"barcelona.jpg",
-                                    "size":"90kb",
-                                    "type":"Picture"
-                                }
-                            },
-                            {
-                                "key": "7-1",
-                                "data":{
-                                    "name":"primeng.png",
-                                    "size":"30kb",
-                                    "type":"Picture"
-                                }
-                            },
-                            {
-                                "key": "7-2",
-                                "data":{
-                                    "name":"prime.jpg",
-                                    "size":"30kb",
-                                    "type":"Picture"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "8",
-                        "data":{
-                            "name":"Videos",
-                            "size":"1500kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "8-0",
-                                "data":{
-                                    "name":"primefaces.mkv",
-                                    "size":"1000kb",
-                                    "type":"Video"
-                                }
-                            },
-                            {
-                                "key": "8-1",
-                                "data":{
-                                    "name":"intro.avi",
-                                    "size":"500kb",
-                                    "type":"Video"
-                                }
-                            }
-                        ]
+                            ,
+                        }
+                        ],
+                    totals: {
+                        'title': 'جمع',
+                        '1398': '2500 ریال',
+                        '1399': '2500 ریال',
+                        '1400': '2500 ریال',
                     }
-                ],
-
+                },
                 monthlyTableData:[
                     {
                         "key": "0",
@@ -1741,8 +1550,6 @@
                         ]
                     }
                 ],
-
-
                 columns: [{label: 'Name', id: 'name'}, {label: 'Surname', id: 'surname'}],
                 updateArgs: [true, true, {duration: 1000}],
                 chartOptions: {
@@ -1791,9 +1598,7 @@
                 },
                 instructionVisibility:true,
                 moreInstructionVisibility: false,
-
                 modalVisibility: [false,false],
-
                 currentModalTab: 0,
                 modals: { //list of modals (except video modal)
                     // TODO resolve state change scroll bug
@@ -1821,8 +1626,6 @@
                 },
                 newRevenueName: '',
                 tableMonthlyDetailsActive: false,
-
-
                 // modals data
                 errors: {
                     'name': []
@@ -1841,7 +1644,6 @@
                     {title: 'مرداد 1398', code: '5'},
                 ],
                 unitSalesTypeIsConstant: '1',
-
                 annualUnitSalesChartOptions:{
                     chart: {
                         type: 'line',
@@ -1944,12 +1746,9 @@
                         enabled: false
                     },
                 },
-
                 annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165],
                 annualSalesUnitShiftPercent: 0
-
             }
-
         },
         mounted(){
             EventBus.$on('modal-chart-redraw', data => {
@@ -1957,9 +1756,11 @@
             });
         },
         destroyed(){
-
         },
         methods:{
+            log(data){
+                console.log(data)
+            },
             toggleInstruction(){
                 this.instructionVisibility = !this.instructionVisibility;
                 this.moreInstructionVisibility = false;
@@ -2045,7 +1846,7 @@
         },
         computed:{
             tableData: function(){
-                if(this.tableMonthlyDetailsActive){
+                if(!this.tableMonthlyDetailsActive){
                     return this.annualTableData;
                 }
                 else{
