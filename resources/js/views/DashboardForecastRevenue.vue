@@ -67,7 +67,7 @@
 
                 <div class="table-container faNum"><!--class=_itvKHRBWKjJt7IYI2Cy8-->
 
-                    <tree-table :value="tableData.details">
+                    <tree-table :value="tableData.details" v-if="!tableMonthlyDetailsActive">
                         <column field="name" header="درآمد" :expander="true" headerStyle="width: 20%">
                             <template #footer>
                                 <p>
@@ -118,6 +118,151 @@
                             </template>
                         </column>
                     </tree-table>
+
+                    <div class="table-names-container"  v-if="tableMonthlyDetailsActive">
+                        <tree-table :value="tableData.details">
+                            <column field="name" header="درآمد" :expander="true" headerStyle="width: 35%">
+                                <template #footer>
+                                    <p>
+                                        {{tableData.totals['title']}}
+                                    </p>
+                                </template>
+                                <template #body="slotProps">
+                                <span v-if="slotProps.node.data.level === 1">
+                                    1 -  {{slotProps.node.data.name}}
+                                </span>
+                                    <span v-if="slotProps.node.data.level === 2">
+                                    2 -  {{slotProps.node.data.name}}
+                                </span>
+                                    <div v-if="slotProps.node.data.level === 3" class="editable-cell-wrapper">
+                                        <a @click="toggleModalVisibility(1)">
+                                            3 -  {{slotProps.node.data.name}}
+
+                                        </a>
+                                        <span class="row-edit-edit row-edit-control" title="Edit" @click="toggleModalVisibility(1)"></span>
+                                        <span class="row-edit-copy  row-edit-control" title="Copy"></span>
+                                        <span class="row-edit-move-up  row-edit-control" title="Move"></span>
+
+
+
+                                    </div>
+
+                                </template>
+                            </column>
+                        </tree-table>
+                    </div>
+                    <div class="table-details-container"  v-if="tableMonthlyDetailsActive">
+                        <div class="border-corrector"></div>
+                        <tree-table :value="tableData.details">
+                            <column field="far" header="فروردین" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['far']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="ord" header="اردیبهشت" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['ord']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="khor" header="خرداد" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['khor']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="tir" header="تیر" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['tir']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="mor" header="مرداد" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['mor']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="shah" header="شهریور" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['shah']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="mehr" header="مهر" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['mehr']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="aban" header="آبان" headerStyle="width: 10%">
+                                <template #footer>
+                                <span>
+                                    {{tableData.totals['aban']}}
+                                </span>
+                                </template>
+                            </column>
+                            <column field="azar" header="آذر" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['azar']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="dey" header="دی" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['dey']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="bah" header="بهمن" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['bah']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="esf" header="اسفند" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['esf']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="1398" header="1398" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['1398']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="1399" header="1399" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['1399']}}
+                            </span>
+                                </template>
+                            </column>
+                            <column field="1400" header="1400" headerStyle="width: 10%">
+                                <template #footer>
+                            <span>
+                                {{tableData.totals['1400']}}
+                            </span>
+                                </template>
+                            </column>
+                        </tree-table>
+
+                    </div>
+
 
 
                 </div>
@@ -1247,356 +1392,167 @@
                         '1400': '2500 ریال',
                     }
                 },
-                monthlyTableData:[
-                    {
-                        "key": "0",
-                        "data":{
-                            "name":"Applications",
-                            "size":"100kb",
-                            "type":"<a href=\"adsjfapsdfakf\">asfasdfasfd</a>"
-                        },
-                        "children":[
-                            {
-                                "key": "0-0",
-                                "data":{
-                                    "name":"Vue",
-                                    "size":"25kb",
-                                    "type":"Folder"
-                                },
-                                "children":[
+                monthlyTableData:{
+                    details: [
+                        {
+                            "key"
+                                :
+                                "0",
+                            "data"
+                                :
+                                {
+                                    "name"
+                                        :
+                                        "زرد",
+                                    'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                    'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                    'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                    "1398"
+                                        :
+                                        "11000000ریال",
+                                    "1399"
+                                        :
+                                        "11000000ریال",
+                                    "1400"
+                                        :
+                                        "11000000ریال",
+                                    "level":
+                                        1
+                                }
+                            ,
+
+                        }
+                        ,
+                        {
+                            "key"
+                                :
+                                "1",
+                            "data"
+                                :
+                                {
+                                    "name"
+                                        :
+                                        "استودیو فلان",
+                                    'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                    'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                    'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                    "1398"
+                                        :
+                                        "1500ریال",
+                                    "1399"
+                                        :
+                                        "1700ریال",
+                                    "1400"
+                                        :
+                                        "1600ریال",
+                                    "level":
+                                        1
+                                }
+                            ,
+                            "children"
+                                :
+                                [
                                     {
-                                        "key": "0-0-0",
-                                        "data":{
-                                            "name":"Vue.app",
-                                            "size":"10kb",
-                                            "type":"Application"
-                                        }
+                                        "key": "1-0",
+                                        "data": {
+                                            "name": "استودیو فلان",
+                                            'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                            'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                            'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                            "1398": "1500ریال",
+                                            "1399": "1700ریال",
+                                            "1400": "1600ریال",
+                                            "level":
+                                                2
+                                        },
+                                        "children"
+                                            :
+                                            [
+                                                {
+                                                    "key": "1-0-0",
+                                                    "data": {
+                                                        "name": "استودیو فلان",
+                                                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                                        "1398": "1500ریال",
+                                                        "1399": "1700ریال",
+                                                        "1400": "1600ریال",
+                                                        "level":
+                                                            3
+                                                    }
+                                                },
+                                                {
+                                                    "key": "1-0-1",
+                                                    "data": {
+                                                        "name": "استودیو فلان",
+                                                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                                        "1398": "1500ریال",
+                                                        "1399": "1700ریال",
+                                                        "1400": "1600ریال",
+                                                        "level":
+                                                            3
+                                                    }
+                                                }
+                                            ]
                                     },
                                     {
-                                        "key": "0-0-1",
-                                        "data":{
-                                            "name":"native.app",
-                                            "size":"10kb",
-                                            "type":"Application"
-                                        }
-                                    },
-                                    {
-                                        "key": "0-0-2",
-                                        "data":{
-                                            "name":"mobile.app",
-                                            "size":"5kb",
-                                            "type":"Application"
+                                        "key": "1-1",
+                                        "data": {
+                                            "name": "استودیو فلان",
+                                            'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                            'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                            'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                            "1398": "1500ریال",
+                                            "1399": "1700ریال",
+                                            "1400": "1600ریال",
+                                            "level":
+                                                2
                                         }
                                     }
                                 ]
-                            },
-                            {
-                                "key": "0-1",
-                                "data":{
-                                    "name":"editor.app",
-                                    "size":"25kb",
-                                    "type":"Application"
+                        }
+                        ,
+                        {
+                            "key"
+                                :
+                                "2",
+                            "data"
+                                :
+                                {
+                                    "name"
+                                        :
+                                        "استودیو بهمان",
+                                    'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                    'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                    'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                    "1398"
+                                        :
+                                        "1500ریال",
+                                    "1399"
+                                        :
+                                        "1700ریال",
+                                    "1400"
+                                        :
+                                        "1600ریال",
+                                    "level":
+                                        1
                                 }
-                            },
-                            {
-                                "key": "0-2",
-                                "data":{
-                                    "name":"settings.app",
-                                    "size":"50kb",
-                                    "type":"Application"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "1",
-                        "data":{
-                            "name":"Cloud",
-                            "size":"20kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "1-0",
-                                "data":{
-                                    "name":"backup-1.zip",
-                                    "size":"10kb",
-                                    "type":"Zip"
-                                }
-                            },
-                            {
-                                "key": "1-1",
-                                "data":{
-                                    "name":"backup-2.zip",
-                                    "size":"10kb",
-                                    "type":"Zip"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "2",
-                        "data": {
-                            "name":"Desktop",
-                            "size":"150kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "2-0",
-                                "data":{
-                                    "name":"note-meeting.txt",
-                                    "size":"50kb",
-                                    "type":"Text"
-                                }
-                            },
-                            {
-                                "key": "2-1",
-                                "data":{
-                                    "name":"note-todo.txt",
-                                    "size":"100kb",
-                                    "type":"Text"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "3",
-                        "data":{
-                            "name":"Documents",
-                            "size":"75kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "3-0",
-                                "data":{
-                                    "name":"Work",
-                                    "size":"55kb",
-                                    "type":"Folder"
-                                },
-                                "children":[
-                                    {
-                                        "key": "3-0-0",
-                                        "data":{
-                                            "name":"Expenses.doc",
-                                            "size":"30kb",
-                                            "type":"Document"
-                                        }
-                                    },
-                                    {
-                                        "key": "3-0-1",
-                                        "data":{
-                                            "name":"Resume.doc",
-                                            "size":"25kb",
-                                            "type":"Resume"
-                                        }
-                                    }
-                                ]
-                            },
-                            {
-                                "key": "3-1",
-                                "data":{
-                                    "name":"Home",
-                                    "size":"20kb",
-                                    "type":"Folder"
-                                },
-                                "children":[
-                                    {
-                                        "key": "3-1-0",
-                                        "data":{
-                                            "name":"Invoices",
-                                            "size":"20kb",
-                                            "type":"Text"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "key": "4",
-                        "data": {
-                            "name":"Downloads",
-                            "size":"25kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "4-0",
-                                "data": {
-                                    "name":"Spanish",
-                                    "size":"10kb",
-                                    "type":"Folder"
-                                },
-                                "children":[
-                                    {
-                                        "key": "4-0-0",
-                                        "data":{
-                                            "name":"tutorial-a1.txt",
-                                            "size":"5kb",
-                                            "type":"Text"
-                                        }
-                                    },
-                                    {
-                                        "key": "4-0-1",
-                                        "data":{
-                                            "name":"tutorial-a2.txt",
-                                            "size":"5kb",
-                                            "type":"Text"
-                                        }
-                                    }
-                                ]
-                            },
-                            {
-                                "key": "4-1",
-                                "data":{
-                                    "name":"Travel",
-                                    "size":"15kb",
-                                    "type":"Text"
-                                },
-                                "children":[
-                                    {
-                                        "key": "4-1-0",
-                                        "data":{
-                                            "name":"Hotel.pdf",
-                                            "size":"10kb",
-                                            "type":"PDF"
-                                        }
-                                    },
-                                    {
-                                        "key": "4-1-1",
-                                        "data":{
-                                            "name":"Flight.pdf",
-                                            "size":"5kb",
-                                            "type":"PDF"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "key": "5",
-                        "data": {
-                            "name":"Main",
-                            "size":"50kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "5-0",
-                                "data":{
-                                    "name":"bin",
-                                    "size":"50kb",
-                                    "type":"Link"
-                                }
-                            },
-                            {
-                                "key": "5-1",
-                                "data":{
-                                    "name":"etc",
-                                    "size":"100kb",
-                                    "type":"Link"
-                                }
-                            },
-                            {
-                                "key": "5-2",
-                                "data":{
-                                    "name":"var",
-                                    "size":"100kb",
-                                    "type":"Link"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "6",
-                        "data":{
-                            "name":"Other",
-                            "size":"5kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "6-0",
-                                "data":{
-                                    "name":"todo.txt",
-                                    "size":"3kb",
-                                    "type":"Text"
-                                }
-                            },
-                            {
-                                "key": "6-1",
-                                "data":{
-                                    "name":"logo.png",
-                                    "size":"2kb",
-                                    "type":"Picture"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "7",
-                        "data":{
-                            "name":"Pictures",
-                            "size":"150kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "7-0",
-                                "data":{
-                                    "name":"barcelona.jpg",
-                                    "size":"90kb",
-                                    "type":"Picture"
-                                }
-                            },
-                            {
-                                "key": "7-1",
-                                "data":{
-                                    "name":"primeng.png",
-                                    "size":"30kb",
-                                    "type":"Picture"
-                                }
-                            },
-                            {
-                                "key": "7-2",
-                                "data":{
-                                    "name":"prime.jpg",
-                                    "size":"30kb",
-                                    "type":"Picture"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "key": "8",
-                        "data":{
-                            "name":"Videos",
-                            "size":"1500kb",
-                            "type":"Folder"
-                        },
-                        "children":[
-                            {
-                                "key": "8-0",
-                                "data":{
-                                    "name":"primefaces.mkv",
-                                    "size":"1000kb",
-                                    "type":"Video"
-                                }
-                            },
-                            {
-                                "key": "8-1",
-                                "data":{
-                                    "name":"intro.avi",
-                                    "size":"500kb",
-                                    "type":"Video"
-                                }
-                            }
-                        ]
+                            ,
+                        }
+                    ],
+                    totals: {
+                        'title': 'جمع',
+                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                        '1398': '2500 ریال',
+                        '1399': '2500 ریال',
+                        '1400': '2500 ریال',
                     }
-                ],
+                },
                 columns: [{label: 'Name', id: 'name'}, {label: 'Surname', id: 'surname'}],
                 updateArgs: [true, true, {duration: 1000}],
                 annualChartOptions: {
