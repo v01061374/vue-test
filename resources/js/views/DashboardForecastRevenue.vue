@@ -76,14 +76,14 @@
                             </template>
                             <template #body="slotProps">
                                 <span v-if="slotProps.node.data.level === 1">
-                                    1 -  {{slotProps.node.data.name}}
+                                    {{slotProps.node.data.name}}
                                 </span>
                                 <span v-if="slotProps.node.data.level === 2">
-                                    2 -  {{slotProps.node.data.name}}
+                                    {{slotProps.node.data.name}}
                                 </span>
                                 <div v-if="slotProps.node.data.level === 3" class="editable-cell-wrapper">
                                     <a @click="toggleModalVisibility(1)">
-                                        3 -  {{slotProps.node.data.name}}
+                                        {{slotProps.node.data.name}}
 
                                     </a>
                                     <span class="row-edit-edit row-edit-control" title="Edit" @click="toggleModalVisibility(1)"></span>
@@ -130,24 +130,19 @@
                                 </template>
                                 <template #body="slotProps">
                                 <span v-if="slotProps.node.data.level === 1">
-                                    1 -  {{slotProps.node.data.name}}
+                                    {{slotProps.node.data.name}}
                                 </span>
                                     <span v-if="slotProps.node.data.level === 2">
-                                    2 -  {{slotProps.node.data.name}}
+                                    {{slotProps.node.data.name}}
                                 </span>
                                     <div v-if="slotProps.node.data.level === 3" class="editable-cell-wrapper">
                                         <a @click="toggleModalVisibility(1)">
-                                            3 -  {{slotProps.node.data.name}}
-
+                                            {{slotProps.node.data.name}}
                                         </a>
                                         <span class="row-edit-edit row-edit-control" title="Edit" @click="toggleModalVisibility(1)"></span>
                                         <span class="row-edit-copy  row-edit-control" title="Copy"></span>
                                         <span class="row-edit-move-up  row-edit-control" title="Move"></span>
-
-
-
                                     </div>
-
                                 </template>
                             </column>
                         </tree-table>
@@ -324,7 +319,12 @@
 
         <base-modal v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" :showModal="isModalVisible(1)">
             <template v-slot:header-text>
-                <p>هدر</p>
+                <p v-if="currentModalData.title">
+                    {{currentModalData.title}}
+                </p>
+                <p v-else>
+                    درباره این درآمد بگویید
+                </p>
             </template>
             <template v-slot:content>
                 <ul class="navigation-stripe">
@@ -1237,9 +1237,6 @@
         </base-modal>
 
     </div>
-
-
-
 </template>
 
 <script>
@@ -1751,6 +1748,7 @@
                 moreInstructionVisibility: false,
                 modalVisibility: [false,false],
                 currentModalTab: 0,
+                currentModalData: {},
                 modals: { //list of modals (except video modal)
                     // TODO resolve state change scroll bug
                     1:{
