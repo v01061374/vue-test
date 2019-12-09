@@ -2064,6 +2064,77 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_BaseModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/BaseModal */ "./resources/js/components/BaseModal.vue");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2170,12 +2241,37 @@ var ESF_1398 = 12;
 var _1399 = 13;
 var _1400 = 14;
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ModalRevenueCrud",
   data: function data() {
     return {
+      NOT_SELECTED: -1,
+      REVENUE_TYPE_UNIT_SALES: 0,
+      REVENUE_TYPE_BILLABLE_HOURS: 1,
+      REVENUE_TYPE_RECURRING_CHANGES: 2,
+      REVENUE_TYPE_REVENUE_ONLY: 3,
+      MEASURE_TYPE_FREE: 0,
+      MEASURE_TYPE_CONSTANT: 1,
+      MEASURE_TYPE_VARIABLE: 2,
+      LENGTH_MONTH: 'm',
+      LENGTH_YEAR: 'y',
+      FAR_1398: 1,
+      ORD_1398: 2,
+      KHO_1398: 3,
+      TIR_1398: 4,
+      MOR_1398: 5,
+      SHAH_1398: 6,
+      MEHR_1398: 7,
+      ABA_1398: 8,
+      AZAR_1398: 9,
+      DEY_1398: 10,
+      BAH_1398: 11,
+      ESF_1398: 12,
+      _1399: 13,
+      _1400: 14,
       isDeleting: false,
-      currentModalTab: 0,
+      currentTab: 0,
       periodsOptions: [{
         title: 'ماه',
         code: LENGTH_MONTH
@@ -2332,6 +2428,9 @@ var _1400 = 14;
     };
   },
   methods: {
+    setCurrentTab: function setCurrentTab(tab) {
+      this.currentTab = tab;
+    },
     close: function close() {
       this.$emit('close-modal');
     },
@@ -2341,6 +2440,23 @@ var _1400 = 14;
     deleteRecord: function deleteRecord() {
       // TODO implement delete logic
       this.close();
+    },
+    getRevenueType: function getRevenueType() {
+      if (typeof this.revenue !== 'undefined') {
+        return this.revenue.type;
+      } else {
+        return this.tempRevenueType;
+      }
+    }
+  },
+  validations: {
+    tempRevenueName: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
+      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["maxLength"])(255),
+      test: function test(value) {
+        // TODO server check
+        return true;
+      }
     }
   },
   props: {
@@ -30819,6 +30935,271 @@ var render = function() {
         proxy: true
       },
       {
+        key: "content",
+        fn: function() {
+          return [
+            _c("ul", { staticClass: "navigation-stripe" }, [
+              _c(
+                "li",
+                {
+                  class: ["step-link", { active: _vm.currentTab === 0 }],
+                  attrs: { tabindex: "0", "aria-selected": "true" },
+                  on: {
+                    click: function($event) {
+                      return _vm.setCurrentTab(0)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "circle",
+                      attrs: { "aria-label": "step 1:" }
+                    },
+                    [_vm._v("\n        1\n        ")]
+                  ),
+                  _vm._v("\n                نام\n            ")
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: ["step-link", { active: _vm.currentTab === 1 }],
+                  attrs: { tabindex: "1" },
+                  on: {
+                    click: function($event) {
+                      return _vm.setCurrentTab(1)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "circle",
+                      attrs: { "aria-label": "step 2:" }
+                    },
+                    [_vm._v("\n        2\n        ")]
+                  ),
+                  _vm._v("\n                نوع\n            ")
+                ]
+              ),
+              _vm._v(" "),
+              _vm.getRevenueType() === _vm.REVENUE_TYPE_UNIT_SALES
+                ? _c(
+                    "li",
+                    {
+                      class: ["step-link", { active: _vm.currentTab === 2 }],
+                      attrs: { tabindex: "2" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setCurrentTab(2)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "circle",
+                          attrs: { "aria-label": "step 3:" }
+                        },
+                        [_vm._v("\n                3\n                ")]
+                      ),
+                      _vm._v("\n                تعداد فروش\n            ")
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.getRevenueType() === _vm.REVENUE_TYPE_UNIT_SALES
+                ? _c(
+                    "li",
+                    {
+                      class: ["step-link", { active: _vm.currentTab === 3 }],
+                      attrs: { tabindex: "3" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setCurrentTab(3)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "circle",
+                          attrs: { "aria-label": "step 4:" }
+                        },
+                        [_vm._v("\n                4\n                ")]
+                      ),
+                      _vm._v("\n                قیمت واحد\n            ")
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.getRevenueType() === _vm.REVENUE_TYPE_BILLABLE_HOURS
+                ? _c(
+                    "li",
+                    {
+                      class: ["step-link", { active: _vm.currentTab === 2 }],
+                      attrs: { tabindex: "2" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setCurrentTab(2)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "circle",
+                          attrs: { "aria-label": "step 3:" }
+                        },
+                        [_vm._v("\n                3\n                ")]
+                      ),
+                      _vm._v("\n                پرداخت ساعتی\n            ")
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.getRevenueType() === _vm.REVENUE_TYPE_BILLABLE_HOURS
+                ? _c(
+                    "li",
+                    {
+                      class: ["step-link", { active: _vm.currentTab === 3 }],
+                      attrs: { tabindex: "3" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setCurrentTab(3)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "circle",
+                          attrs: { "aria-label": "step 4:" }
+                        },
+                        [_vm._v("\n                4\n                ")]
+                      ),
+                      _vm._v("\n                نرخ پرداخت ساعتی\n            ")
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.getRevenueType() === _vm.REVENUE_TYPE_RECURRING_CHANGES
+                ? _c(
+                    "li",
+                    {
+                      class: ["step-link", { active: _vm.currentTab === 2 }],
+                      attrs: { tabindex: "2" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setCurrentTab(2)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "circle",
+                          attrs: { "aria-label": "step 3:" }
+                        },
+                        [_vm._v("\n                3\n                ")]
+                      ),
+                      _vm._v("\n                ثبت نام ها\n            ")
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.getRevenueType() === _vm.REVENUE_TYPE_RECURRING_CHANGES
+                ? _c(
+                    "li",
+                    {
+                      class: ["step-link", { active: _vm.currentTab === 3 }],
+                      attrs: { tabindex: "3" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setCurrentTab(3)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "circle",
+                          attrs: { "aria-label": "step 4:" }
+                        },
+                        [_vm._v("\n                4\n                ")]
+                      ),
+                      _vm._v("\n                شارژ دوره ای\n            ")
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.getRevenueType() === _vm.REVENUE_TYPE_RECURRING_CHANGES
+                ? _c(
+                    "li",
+                    {
+                      class: ["step-link", { active: _vm.currentTab === 4 }],
+                      attrs: { tabindex: "4" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setCurrentTab(4)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "circle",
+                          attrs: { "aria-label": "step 4:" }
+                        },
+                        [_vm._v("\n                5\n                ")]
+                      ),
+                      _vm._v("\n                churn rate\n            ")
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.getRevenueType() === _vm.REVENUE_TYPE_REVENUE_ONLY
+                ? _c(
+                    "li",
+                    {
+                      class: ["step-link", { active: _vm.currentTab === 2 }],
+                      attrs: { tabindex: "2" },
+                      on: {
+                        click: function($event) {
+                          return _vm.setCurrentTab(2)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "circle",
+                          attrs: { "aria-label": "step 3:" }
+                        },
+                        [_vm._v("\n                3\n                ")]
+                      ),
+                      _vm._v("\n                منبع مالی\n            ")
+                    ]
+                  )
+                : _vm._e()
+            ])
+          ]
+        },
+        proxy: true
+      },
+      {
         key: "footer",
         fn: function() {
           return [
@@ -30909,7 +31290,9 @@ var render = function() {
                     )
                   : _vm._e()
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer-controls-container left" })
           ]
         },
         proxy: true

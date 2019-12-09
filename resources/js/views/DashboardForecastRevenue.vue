@@ -1293,7 +1293,7 @@
     import { EventBus } from "@/js/event-bus.js"
 
 
-    import { required, minLength, between, maxLength } from 'vuelidate/lib/validators'
+    import { required, minLength, between, maxLength } from 'vuelidate/lib/validators';
 
 
     export default {

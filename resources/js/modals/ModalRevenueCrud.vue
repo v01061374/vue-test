@@ -1,6 +1,6 @@
 <template>
     <base-modal show-modal="true" @close="close">
-        <template v-slot:header-text>
+        <template #header-text>
             <p v-if="revenue">
                 درباره"{{revenue.title}}"
             </p>
@@ -8,7 +8,76 @@
                 درباره این درآمد بگویید
             </p>
         </template>
-        <template v-slot:footer>
+        <template #content>
+            <ul class="navigation-stripe">
+                <li :class="['step-link', {'active': currentTab === 0 }]" tabindex="0" aria-selected="true" @click="setCurrentTab(0)">
+            <span class="circle" aria-label="step 1:">
+            1
+            </span>
+                    نام
+                </li>
+                <li :class="['step-link', {'active': currentTab === 1 }]" tabindex="1" @click="setCurrentTab(1)">
+            <span class="circle" aria-label="step 2:">
+            2
+            </span>
+                    نوع
+                </li>
+                <li v-if="getRevenueType()===REVENUE_TYPE_UNIT_SALES" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="setCurrentTab(2)">
+                    <span class="circle" aria-label="step 3:">
+                    3
+                    </span>
+                    تعداد فروش
+                </li>
+                <li  v-if="getRevenueType()===REVENUE_TYPE_UNIT_SALES" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="setCurrentTab(3)">
+                    <span class="circle" aria-label="step 4:">
+                    4
+                    </span>
+                    قیمت واحد
+                </li>
+
+
+                <li v-if="getRevenueType()===REVENUE_TYPE_BILLABLE_HOURS" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="setCurrentTab(2)">
+                    <span class="circle" aria-label="step 3:">
+                    3
+                    </span>
+                    پرداخت ساعتی
+                </li>
+                <li v-if="getRevenueType()===REVENUE_TYPE_BILLABLE_HOURS" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="setCurrentTab(3)">
+                    <span class="circle" aria-label="step 4:">
+                    4
+                    </span>
+                    نرخ پرداخت ساعتی
+                </li>
+
+
+                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="setCurrentTab(2)">
+                    <span class="circle" aria-label="step 3:">
+                    3
+                    </span>
+                    ثبت نام ها
+                </li>
+                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="setCurrentTab(3)">
+                    <span class="circle" aria-label="step 4:">
+                    4
+                    </span>
+                    شارژ دوره ای
+                </li>
+                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 4 }]" tabindex="4" @click="setCurrentTab(4)">
+                    <span class="circle" aria-label="step 4:">
+                    5
+                    </span>
+                    churn rate
+                </li>
+                <!--TODO IMPORTANT: get translations-->
+                <li v-if="getRevenueType()===REVENUE_TYPE_REVENUE_ONLY" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="setCurrentTab(2)">
+                    <span class="circle" aria-label="step 3:">
+                    3
+                    </span>
+                    منبع مالی
+                </li>
+            </ul>
+        </template>
+        <template #footer>
             <div class="modal-footer-control-container right">
                 <div>
                     <div v-if="isDeleting === false" class="trash-delete">
@@ -34,47 +103,47 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="modal-footer-controls-container left">-->
+            <div class="modal-footer-controls-container left">
                 <!--<button :class="['modal-button','primary', ($v.tempRevenueName.$error || !tempRevenueName.length)? 'disabled' : '']" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===20 && currentModalTab===2">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===20 && currentTab===2">-->
                 <!--<button :class="['modal-button','primary','disabled', (!tempRevenueName.length)? 'disabled' : '']" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===20 && currentModalTab===3">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===20 && currentTab===3">-->
                 <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentModalTab===2">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentTab===2">-->
                 <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
 
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentModalTab===3">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentTab===3">-->
                 <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentModalTab===2">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentTab===2">-->
                 <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentModalTab===2">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentTab===2">-->
                 <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentModalTab===3">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentTab===3">-->
                 <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentModalTab===4">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentTab===4">-->
                 <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
             <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===23 && currentModalTab===2">-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===23 && currentTab===2">-->
                 <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
                 <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
-            <!--</div>-->
+            </div>
         </template>
     </base-modal>
 </template>
@@ -88,12 +157,20 @@
     const ESF_1398 = 12; const _1399 = 13; const _1400 = 14;
 
     import BaseModal from './../components/BaseModal';
+    import { required, minLength, between, maxLength } from 'vuelidate/lib/validators';
+
     export default {
         name: "ModalRevenueCrud",
         data: function(){
             return {
+                NOT_SELECTED : -1, REVENUE_TYPE_UNIT_SALES : 0, REVENUE_TYPE_BILLABLE_HOURS : 1, REVENUE_TYPE_RECURRING_CHANGES : 2, 
+                REVENUE_TYPE_REVENUE_ONLY : 3, MEASURE_TYPE_FREE : 0, MEASURE_TYPE_CONSTANT : 1, MEASURE_TYPE_VARIABLE : 2, 
+                LENGTH_MONTH : 'm', LENGTH_YEAR : 'y', FAR_1398 : 1, ORD_1398 : 2, KHO_1398 : 3, TIR_1398 : 4, 
+                MOR_1398 : 5, SHAH_1398 : 6, MEHR_1398 : 7, ABA_1398 : 8, AZAR_1398 : 9, DEY_1398 : 10, BAH_1398 : 11, 
+                ESF_1398 : 12, _1399 : 13, _1400 : 14,
+
                 isDeleting: false,
-                currentModalTab: 0,
+                currentTab: 0,
                 periodsOptions: [
                     {title: 'ماه', code: LENGTH_MONTH},
                     {title: 'سال', code: LENGTH_YEAR},
@@ -164,9 +241,13 @@
             }
         },
         methods: {
+            setCurrentTab: function (tab) {
+                this.currentTab = tab;
+            },
             close() {
                 this.$emit('close-modal');
             },
+            
             toggleIsDeleting: function(){
                 this.isDeleting = !this.isDeleting;
             },
@@ -174,6 +255,25 @@
                 // TODO implement delete logic
                 this.close();
             },
+            getRevenueType: function(){
+                if(typeof this.revenue !== 'undefined'){
+                    return this.revenue.type;
+                }
+                else{
+                    return this.tempRevenueType;
+                }
+            }
+
+        },
+        validations:{
+            tempRevenueName:{
+                required,
+                maxLength: maxLength(255),
+                test: function(value){
+                    // TODO server check
+                    return true;
+                }
+            }
         },
         props: {
             revenue: {
