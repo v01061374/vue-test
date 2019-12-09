@@ -5441,6 +5441,13 @@ body .p-treetable .p-treetable-tbody > tr > td {
 .p-treetable .editable-cell-wrapper{
     display: inline;
 }
+.p-treetable .editable-cell-wrapper a{
+    color: #2565C0;
+}
+.p-treetable .editable-cell-wrapper a:hover{
+    text-decoration: underline;
+}
+
 .p-treetable .row-edit-control {
     display: none;
 }
@@ -5451,7 +5458,7 @@ body .p-treetable .p-treetable-tbody > tr > td {
     position: absolute;
     width: 12px;
     height: 13px;
-    top: 0.52em;
+    top: 0.79em;
     cursor: pointer;
 }
 .p-treetable .row-edit-control.row-edit-edit{
