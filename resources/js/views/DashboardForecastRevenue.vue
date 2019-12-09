@@ -120,8 +120,9 @@
                     </tree-table>
 
                     <div class="table-names-container"  v-if="tableMonthlyDetailsActive">
-                        <tree-table :value="tableData.details">
-                            <column field="name" header="درآمد" :expander="true" headerStyle="width: 35%">
+                        <tree-table :value="tableData.details" @node-expand="monthlyTableNodeExpandHandler" @node-collapse="monthlyTableNodeCollapseHandler">
+                            <column field="name" header="درآمد" :expander="true" headerStyle="width: 35%" >
+
                                 <template #footer>
                                     <p>
                                         {{tableData.totals['title']}}
@@ -151,10 +152,10 @@
                             </column>
                         </tree-table>
                     </div>
+                    <div class="border-corrector" v-if="tableMonthlyDetailsActive"></div>
                     <div class="table-details-container"  v-if="tableMonthlyDetailsActive">
-                        <div class="border-corrector"></div>
-                        <tree-table :value="tableData.details">
-                            <column field="far" header="فروردین" headerStyle="width: 10%">
+                        <tree-table :value="tableData.details"  :expandedKeys="monthlyTableExpandedKeys">
+                            <column field="far" header="فروردین" headerStyle="width: 10%" >
                                 <template #footer>
                             <span>
                                 {{tableData.totals['far']}}
@@ -262,9 +263,7 @@
                         </tree-table>
 
                     </div>
-
-
-
+                    <br class="clear">
                 </div>
                 <div>
                     <div class="controls-container clearfix">
@@ -1778,6 +1777,7 @@
                 },
                 newRevenueName: '',
                 tableMonthlyDetailsActive: false,
+                monthlyTableExpandedKeys: {},
                 // modals data
                 errors: {
                     'name': []
@@ -1948,6 +1948,18 @@
                 // TODO set state according to data
                 this.setModalState(1, 0);
                 // default
+            },
+            monthlyTableNodeExpandHandler(node){
+                console.log(node);
+                let k = node.key;
+                this.$set(this.monthlyTableExpandedKeys, k, true);
+            },
+            monthlyTableNodeCollapseHandler(node){
+                console.log(node);
+                let k = node.key;
+
+                this.$set(this.monthlyTableExpandedKeys, k, false);
+
             },
             updateAnnualSalesUnitChart(value, index){
                 if(!value){

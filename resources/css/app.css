@@ -164,6 +164,9 @@ a{
 .bold{
     font-weight: bold;
 }
+.clear{
+    clear: both;
+}
 .cursor-pointer{
     cursor: pointer;
 }
@@ -756,9 +759,18 @@ span.divider{
 .details-container .table-container{
     direction: rtl;
     width: 100%;
+    position: relative;
 
 }
-
+.details-container .table-container .border-corrector{
+    height: 23.5px;
+    width: 1px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 999999;
+    background: white;
+}
 
 .details-container .table-container .table{
     direction: rtl;
@@ -772,20 +784,41 @@ span.divider{
     float: right;
     width: 70%;
     overflow-x: auto;
-    padding-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
     /*border: 1px solid #c8c8c8;*/
     /*border-top: 0;*/
     /*border-bottom: 0;*/
     border-left: 1px solid #c8c8c8;
 }
-.details-container .table-container  .border-corrector{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 35px;
-    width: 1px;
-    background: red;
+.details-container .table-container .table-details-container::-webkit-scrollbar {
+    width: 10px;
+
 }
+
+.details-container .table-container .table-details-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    background: #f9f9f9;
+
+}
+.details-container .table-container .table-details-container::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #D5DBE1;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/
+}
+.details-container .table-container .table-details-container::-webkit-scrollbar-thumb:hover {
+    background: #7D8F94;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/
+}
+
+.details-container .table-container .table-details-container::-webkit-scrollbar-thumb:window-inactive {
+    background: #D5DBE1;
+}
+
 .details-container .table-container .table-names-container tr > td, .details-container .table-container .table-names-container tr > th{
     border-left: 0 !important;
     border-right: 0 !important;
@@ -800,6 +833,15 @@ span.divider{
     background-color: #fff !important;
     text-align: center !important;
 }
+
+
+/*.details-container .table-container .table-details-container tbody tr:hover td {*/
+    /*background-color: #F1F1F1 !important;*/
+/*}*/
+/*.details-container .table-container .table-names-container tbody tr:hover>td:first-child{*/
+    /*background-color: #D5DBE1 !important;*/
+/*}*/
+/*TODO trigger details hover on names hover and V.v*/
 
 .details-container .table-container .table *:not(.faNum){
     direction: rtl;
@@ -1462,12 +1504,16 @@ body .p-treetable .p-treetable-tbody > tr > td {
 .p-treetable tr td:first-child, .p-treetable th:first-child{
     background-color: #F9F9F9 !important;
 }
-.p-treetable tbody tr:hover{
-    background-color: #F1F1F1 !important;
-}
-.p-treetable tbody tr:hover>td:first-child{
-    background-color: #D5DBE1 !important;
-}
+/*.p-treetable tbody tr:hover{*/
+    /*background-color: #F1F1F1 !important;*/
+/*}*/
+/*.p-treetable tbody tr:hover>td:first-child{*/
+    /*background-color: #D5DBE1 !important;*/
+/*}*/
+/*.p-treetable tfoot tr:hover{*/
+    /*background-color: #F9F9F9 !important;*/
+/*}*/
+/*TODO correct but inconsistence with monthly table*/
 /*MMMMMMMMIIIIIIIIIIIIIIIINNNNNNNNNNNNNNEEEEEEEEEEEEEEEEEE*/
 .p-treetable .editable-cell-wrapper{
     display: inline;
