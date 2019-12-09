@@ -317,937 +317,990 @@
 
         </video-modal>
 
-        <base-modal v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" :showModal="isModalVisible(1)">
-            <template v-slot:header-text>
-                <p v-if="currentModalData.title">
-                    {{currentModalData.title}}
-                </p>
-                <p v-else>
-                    درباره این درآمد بگویید
-                </p>
-            </template>
-            <template v-slot:content>
-                <ul class="navigation-stripe">
-                    <li :class="['step-link', {'active': currentModalTab === 0 }]" tabindex="0" aria-selected="true" @click="setModalTab(0)">
-                        <span class="circle" aria-label="step 1:">
-                            1
-                        </span>
-                        نام
-                    </li>
-                    <li :class="['step-link', {'active': currentModalTab === 1 }]" tabindex="1" @click="setModalTab(1)">
-                        <span class="circle" aria-label="step 2:">
-                            2
-                        </span>
-                        نوع
-                    </li>
-
-                    <li v-if="getModalState(1)===20" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">
-                        <span class="circle" aria-label="step 3:">
-                            3
-                        </span>
-                        تعداد فروش
-                    </li>
-                    <li  v-if="getModalState(1)===20" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">
-                        <span class="circle" aria-label="step 4:">
-                            4
-                        </span>
-                        قیمت واحد
-                    </li>
-
-
-                    <li v-if="getModalState(1)===21" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">
-                        <span class="circle" aria-label="step 3:">
-                            3
-                        </span>
-                        پرداخت ساعتی
-                    </li>
-                    <li v-if="getModalState(1)===21" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">
-                        <span class="circle" aria-label="step 4:">
-                            4
-                        </span>
-                        نرخ پرداخت ساعتی
-                    </li>
-
-
-                    <li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">
-                        <span class="circle" aria-label="step 3:">
-                            3
-                        </span>
-                        ثبت نام ها
-                    </li>
-                    <li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">
-                        <span class="circle" aria-label="step 4:">
-                            4
-                        </span>
-                        شارژ دوره ای
-                    </li>
-                    <li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 4 }]" tabindex="4" @click="setModalTab(4)">
-                        <span class="circle" aria-label="step 4:">
-                            5
-                        </span>
-                        churn rate
-                    </li>
-                    <!--TODO IMPORTANT: get translations-->
-
-
-                    <li v-if="getModalState(1)===23" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">
-                        <span class="circle" aria-label="step 3:">
-                            3
-                        </span>
-                        منبع مالی
-                    </li>
-
-
-                </ul>
-                <div>
-                    <div>
-                        <!--TODO resolve extra height caused by extra 30px paddings-->
-                        <div class="section" v-if="currentModalTab===0">
-                            <!--TODO add state condition-->
-                            <div class="title-top">
-                                نام آن چیست؟
-                            </div>
-                            <div class="error">
-                                <div class="max-length-input-container">
-                                        <input type="text"
-                                               class="input-box description error"
-                                               placeholder="لورم لورم"
-                                               v-model="newRevenueName">
-                                        <span class="count-down-wrapper">
-                                            {{255 - newRevenueName.length}}
-                                        </span>
-                                        <div class="feedback-line">
-                                            <p v-for="(err, i) in errors.name">
-                                                {{err}}
-                                            </p>
-                                        </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="section"   v-if="currentModalTab===1">
-                            <!--TODO add state condition-->
-                            <div class="title-top">نوع درآمد؟</div>
-                            <div class="radio-buttons-list rtl" tabindex="0" role="radiogroup">
-                                <p class="radio-right">
-                                    <input :checked="getModalState(1)===20" @click="setModalState(1, 20)" type="radio" name="revenueType" id="emp0" class="radio-style" value="on">
-                                    <label for="emp0">تعداد فروش</label>
-                                </p>
-                                <p  class="description">
-                                    Best for products that are sold in individual units or set quantities
-                                </p>
-                                <p class="radio-right">
-                                    <input :checked="getModalState(1)===21" @click="setModalState(1, 21)" type="radio" name="revenueType" id="emp1" class="radio-style" value="on">
-                                    <label for="emp1">
-                                        Billable hours
-                                    </label>
-                                </p>
-                                <p  class="description">
-                                    Best for services that are priced on a per-hour basis
-                                </p>
-                                <p class="radio-right">
-                                    <input :checked="getModalState(1)===22" @click="setModalState(1, 22)" type="radio" name="revenueType" id="emp2" class="radio-style" value="on">
-                                    <label for="emp2">
-                                        Recurring charges
-                                    </label>
-                                </p>
-                                <p  class="description">
-                                    Best for subscriptions, memberships, rentals, web apps, or other offerings with monthly or periodic
-                                </p>
-                                <p class="radio-right">
-                                    <input :checked="getModalState(1)===23" @click="setModalState(1, 23)" type="radio" name="revenueType" id="emp3" class="radio-style" value="on">
-                                    <label for="emp3">
-                                        Revenue only
-                                    </label>
-                                </p>
-                                <p  class="description">
-                                    If none of the models above are applicable, or you already have a detailed forecast in Excel or elsewhere, choose this option to just enter overall revenue values without any detail
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="forecast-item-editor" v-if="getModalState(1)===20 && currentModalTab===2">
-                            <div>
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        How many units will you sell?
-                                    </div>
-                                    <p class="title-content">
-                                        How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.
-                                    </p>
-                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                        <ul>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="sales-unit-type" value="1" v-model="unitSalesTypeIsConstant">
-                                                    <!-- react-text: 131 -->لورم<!-- /react-text -->
-                                                </label>
-                                            </li>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="sales-unit-type" value="0" v-model="unitSalesTypeIsConstant">
-                                                    <!-- react-text: 135 -->Varying amounts over time<!-- /react-text -->
-                                                </label>
-                                            </li>
-                                        </ul>
-                                        <div class="clear"></div>
-
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-                                    <div v-if="unitSalesTypeIsConstant==='1'">
-                                        <div class="input-with-dropdown length-selection">
-                                            <input type="text" class="faNum input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">
-                                            <div>
-                                                <span class="per">به ازای  </span>
-                                                <drop-down v-model="selectedLength" :options="lengthOptions" optionLabel="title" optionValue="code" scrollHeight="100px"/>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div><!-- react-empty: 148 -->
-                                    </div>
-                                    <div  v-if="unitSalesTypeIsConstant==='0'">
-
-                                        variable
-                                        <div class="financial-year-box" role="grid">
-                                            <div class="financial-year-box-container">
-                                                <div class="financial-year-box-wrapper" style="height: 400px; width: 964px">
-                                                    <div>
-                                                        <div class="financial-year-box-header">
-                                                            <p>
-                                                                <strong class="faNum">1398 - </strong>
-                                                                فلان فلان فلان
-                                                            </p>
-                                                            <div>
-                                                                <div class="financial-year-box-header-controls">
-                                                                    <p>تغییرات</p>
-                                                                    <div>
-                                                                        <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">
-                                                                            <span aria-hidden="true" class="percent">%</span>
-                                                                            <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model="annualSalesUnitShiftPercent">
-                                                                        </div>
-                                                                    </div>
-                                                                    <button class="overlay-button primary" @click="shiftAnnualSalesUnitChart()" tabindex="-1">اعمال</button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="financial-year-chart-container">
-                                                            <highcharts class="chart" :options="annualUnitSalesChartOptions" :updateArgs="updateArgs" @redraw="consolelog()"></highcharts>
-                                                        </div>
-                                                        <div class="financial-year-input-container">
-                                                            <ul class="labels faNum">
-                                                                <li>
-                                                                    <p>1398</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" disabled readOnly :value="currentYearAnnualUnitSales">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[0]" @input = "updateAnnualSalesUnitChart($event.target.value , 0)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>اردیبهشت</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[1]" @input = "updateAnnualSalesUnitChart($event.target.value, 1)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>خرداد</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[2]" @input = "updateAnnualSalesUnitChart($event.target.value, 2)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[3]" @input = "updateAnnualSalesUnitChart($event.target.value, 3)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[4]" @input = "updateAnnualSalesUnitChart($event.target.value, 4)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[5]" @input = "updateAnnualSalesUnitChart($event.target.value,5)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[6]" @input = "updateAnnualSalesUnitChart($event.target.value, 6)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[7]" @input = "updateAnnualSalesUnitChart($event.target.value, 7)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[8]" @input = "updateAnnualSalesUnitChart($event.target.value, 8)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[9]" @input = "updateAnnualSalesUnitChart($event.target.value, 9)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>فروردین</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[10]" @input = "updateAnnualSalesUnitChart($event.target.value, 10)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>اسفند</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[11]" @input = "updateAnnualSalesUnitChart($event.target.value, 11)">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>1399</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <p>1340</p>
-                                                                    <div class="valid">
-                                                                        <div>
-                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">
-                                                                            <div class="fillRightDots" aria-hidden="true">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> <!--TODO variable amount selected (delete this todo-->
-
-
-                                    <!--TODO constant amount selected (delete this todo-->
-
-                                </div>
-
-                                <!--TODO constant amount selected (delete this todo-->
-                                <div class="section" style="margin-bottom: 30px" v-if="unitSalesTypeIsConstant==='1'">
-                                    <div class="title-top">
-                                        When will this revenue start?
-                                    </div>
-                                    <div class="select-box period-selection">
-                                        <div class="valid">
-                                            <drop-down v-model="selectedPeriod" :options="periodOptions" optionLabel="title" optionValue="code" scrollHeight="150px"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--TODO constant amount selected (delete this todo-->
-
-                            </div>
-                        </div>
-                        <div class="forecast-item-editor" v-if="getModalState(1)===20 && currentModalTab===3">
-                            <div>
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        What price will you charge for each unit?
-                                    </div>
-                                    <p class="title-content">
-                                        Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
-                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                        <ul>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    لورم
-                                                </label>
-                                            </li>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    Varying amounts over time
-                                                </label>
-                                            </li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-                                    <div>
-                                        <div class="input-with-dropdown">
-                                            <div class="input-box-wrapper " style="width: 140px;">
-
-                                                <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
-                                                <span aria-hidden="true" class="currency">ریال</span>
-                                            </div>
-                                            <span></span>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="forecast-item-editor" v-if="getModalState(1)===21 && currentModalTab===2">
-                            <div>
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        How many units will you sell?
-                                    </div>
-                                    <p class="title-content">
-                                        How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.
-                                    </p>
-                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                        <ul>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    <!-- react-text: 131 -->لورم<!-- /react-text -->
-                                                </label>
-                                            </li>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    <!-- react-text: 135 -->Varying amounts over time<!-- /react-text -->
-                                                </label>
-                                            </li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-                                    <div>
-                                        <div class="input-with-dropdown">
-                                            <input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">
-                                            <div>
-                                                <span class="per">به ازای  </span>
-                                                <div class="select-box" style="max-width: 999999px; width: 89px;">
-                                                    <div class="selected-option" tabindex="0" role="button">
-                                                        <!-- react-text: 144 -->لورم<!-- /react-text -->
-                                                        <div class="arrow"></div>
-                                                    </div>
-                                                    <div style="width: 88px;" tabindex="-1" class="options right" role="listbox">
-                                                        <div role="option" tabindex="-1" class="option-div">
-                                                            Month
-                                                        </div>
-                                                        <div role="option" tabindex="-1" class="selected option-div hovered">
-                                                            Year
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div><!-- react-empty: 148 -->
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-
-                                </div>
-
-
-                                <!--TODO constant amount selected (delete this todo-->
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        When will this revenue start?
-                                    </div>
-                                    <div class="select-box">
-                                        <div class="valid">
-                                            <div class="selected-option" tabindex="0" role="button">
-                                                <!-- react-text: 293 -->Jan 2019<!-- /react-text -->
-                                                <div class="arrow"></div>
-                                            </div>
-                                            <div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">
-                                                <div role="option" tabindex="-1" class="option-div">
-                                                    Month
-                                                </div>
-                                                <div role="option" tabindex="-1" class="selected option-div hovered">
-                                                    Year
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--TODO constant amount selected (delete this todo-->
-
-                            </div>
-                        </div>
-                        <div class="forecast-item-editor" v-if="getModalState(1)===21 && currentModalTab===3">
-                            <div>
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        What price will you charge for each unit?
-                                    </div>
-                                    <p class="title-content">
-                                        Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
-                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                        <ul>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    لورم
-                                                </label>
-                                            </li>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    Varying amounts over time
-                                                </label>
-                                            </li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-                                    <div>
-                                        <div class="input-with-dropdown">
-                                            <div class="input-box-wrapper " style="width: 140px;">
-
-                                                <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
-                                                <span aria-hidden="true" class="currency">ریال</span>
-                                            </div>
-                                            <span></span>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="forecast-item-editor" v-if="getModalState(1)===22 && currentModalTab===2">
-                            <div>
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        When will this revenue start?
-                                    </div>
-                                    <div class="select-box">
-                                        <div class="valid">
-                                            <div class="selected-option" tabindex="0" role="button">
-                                                <!-- react-text: 293 -->Jan 2019<!-- /react-text -->
-                                                <div class="arrow"></div>
-                                            </div>
-                                            <div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">
-                                                <div role="option" tabindex="-1" class="option-div">
-                                                    Month
-                                                </div>
-                                                <div role="option" tabindex="-1" class="selected option-div hovered">
-                                                    Year
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        How many units will you sell?
-                                    </div>
-                                    <p class="title-content">
-                                        How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.
-                                    </p>
-                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                        <ul>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    <!-- react-text: 131 -->لورم<!-- /react-text -->
-                                                </label>
-                                            </li>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    <!-- react-text: 135 -->Varying amounts over time<!-- /react-text -->
-                                                </label>
-                                            </li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-                                    <div>
-                                        <div class="input-with-dropdown">
-                                            <input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">
-                                            <div>
-                                                <span class="per"> در ماه</span>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div><!-- react-empty: 148 -->
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-
-                                </div>
 
 
 
-                            </div>
-                        </div>
-                        <div v-if="getModalState(1)===22 && currentModalTab===3">
-                            <div class="forecast-item-editor">
-                                <div>
-                                    <div class="section" style="margin-bottom: 30px">
-                                        <div class="title-top">
-                                            What price will you charge for each unit?
-                                        </div>
-                                        <p class="title-content">
-                                            Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
-                                        <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                            <ul>
-                                                <li class="horizontal">
-                                                    <label>
-                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                        لورم
-                                                    </label>
-                                                </li>
-                                                <li class="horizontal">
-                                                    <label>
-                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                        Varying amounts over time
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                        <!--TODO constant amount selected (delete this todo-->
-                                        <div>
-                                            <div class="input-with-dropdown">
-                                                <div class="input-box-wrapper " style="width: 140px;">
+        <div>
+            <!--<base-modal v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" :showModal="isModalVisible(1)">-->
+            <!--<template v-slot:header-text>-->
+            <!--<p v-if="currentModalData.title">-->
+            <!--درباره"{{currentModalData.title}}"-->
+            <!--</p>-->
+            <!--<p v-else>-->
+            <!--درباره این درآمد بگویید-->
+            <!--</p>-->
+            <!--</template>-->
+            <!--<template v-slot:content>-->
+            <!--<ul class="navigation-stripe">-->
+            <!--<li :class="['step-link', {'active': currentModalTab === 0 }]" tabindex="0" aria-selected="true" @click="setModalTab(0)">-->
+            <!--<span class="circle" aria-label="step 1:">-->
+            <!--1-->
+            <!--</span>-->
+            <!--نام-->
+            <!--</li>-->
+            <!--<li :class="['step-link', {'active': currentModalTab === 1 }]" tabindex="1" @click="setModalTab(1)">-->
+            <!--<span class="circle" aria-label="step 2:">-->
+            <!--2-->
+            <!--</span>-->
+            <!--نوع-->
+            <!--</li>-->
 
-                                                    <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
-                                                    <span aria-hidden="true" class="currency">ریال</span>
-                                                </div>
-                                                <span></span>
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div>
-                                        <!--TODO constant amount selected (delete this todo-->
+            <!--<li v-if="getModalState(1)===20" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">-->
+            <!--<span class="circle" aria-label="step 3:">-->
+            <!--3-->
+            <!--</span>-->
+            <!--تعداد فروش-->
+            <!--</li>-->
+            <!--<li  v-if="getModalState(1)===20" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">-->
+            <!--<span class="circle" aria-label="step 4:">-->
+            <!--4-->
+            <!--</span>-->
+            <!--قیمت واحد-->
+            <!--</li>-->
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="forecast-item-editor">
-                                <div>
-                                    <div class="section" style="margin-bottom: 30px">
-                                        <div class="title-top">
-                                            What price will you charge for each unit?
-                                        </div>
-                                        <p class="title-content">
-                                            Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
-                                        <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                            <ul>
-                                                <li class="horizontal">
-                                                    <label>
-                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                        لورم
-                                                    </label>
-                                                </li>
-                                                <li class="horizontal">
-                                                    <label>
-                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                        Varying amounts over time
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                        <!--TODO constant amount selected (delete this todo-->
-                                        <div>
-                                            <div class="input-with-dropdown">
-                                                <div class="input-box-wrapper " style="width: 140px;">
 
-                                                    <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
-                                                    <span aria-hidden="true" class="currency">ریال</span>
-                                                </div>
-                                                <span></span>
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div>
-                                        <!--TODO constant amount selected (delete this todo-->
+            <!--<li v-if="getModalState(1)===21" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">-->
+            <!--<span class="circle" aria-label="step 3:">-->
+            <!--3-->
+            <!--</span>-->
+            <!--پرداخت ساعتی-->
+            <!--</li>-->
+            <!--<li v-if="getModalState(1)===21" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">-->
+            <!--<span class="circle" aria-label="step 4:">-->
+            <!--4-->
+            <!--</span>-->
+            <!--نرخ پرداخت ساعتی-->
+            <!--</li>-->
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="forecast-item-editor">
-                                <div>
-                                    <div class="section" style="margin-bottom: 30px">
-                                        <div class="title-top">
-                                            How often is this charge assessed?
-                                        </div>
-                                        <div class="select-box">
-                                            <div class="valid">
-                                                <div class="selected-option" tabindex="0" role="button">
-                                                    <!-- react-text: 293 -->Jan 2019<!-- /react-text -->
-                                                    <div class="arrow"></div>
-                                                </div>
-                                                <div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">
-                                                    <div role="option" tabindex="-1" class="option-div">
-                                                        Month
-                                                    </div>
-                                                    <div role="option" tabindex="-1" class="selected option-div hovered">
-                                                        Year
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div v-if="getModalState(1)===22 && currentModalTab===4">
-                            <div class="forecast-item-editor">
-                                <div>
-                                    <div class="section" style="margin-bottom: 30px">
-                                        <div class="title-top">
-                                            What price will you charge for each unit?
-                                        </div>
-                                        <p class="title-content">
-                                            Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>
-                                        <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                            <ul>
-                                                <li class="horizontal">
-                                                    <label>
-                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                        لورم
-                                                    </label>
-                                                </li>
-                                                <li class="horizontal">
-                                                    <label>
-                                                        <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                        Varying amounts over time
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                        <!--TODO constant amount selected (delete this todo-->
-                                        <div>
-                                            <div class="input-with-dropdown">
-                                                <div class="input-box-wrapper " style="width: 140px;">
+            <!--<li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">-->
+            <!--<span class="circle" aria-label="step 3:">-->
+            <!--3-->
+            <!--</span>-->
+            <!--ثبت نام ها-->
+            <!--</li>-->
+            <!--<li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 3 }]" tabindex="3" @click="setModalTab(3)">-->
+            <!--<span class="circle" aria-label="step 4:">-->
+            <!--4-->
+            <!--</span>-->
+            <!--شارژ دوره ای-->
+            <!--</li>-->
+            <!--<li v-if="getModalState(1)===22" :class="['step-link', {'active': currentModalTab === 4 }]" tabindex="4" @click="setModalTab(4)">-->
+            <!--<span class="circle" aria-label="step 4:">-->
+            <!--5-->
+            <!--</span>-->
+            <!--churn rate-->
+            <!--</li>-->
+            <!--&lt;!&ndash;TODO IMPORTANT: get translations&ndash;&gt;-->
 
-                                                    <input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">
-                                                    <span aria-hidden="true" class="currency">ریال</span>
-                                                </div>
-                                                <span></span>
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div>
-                                        <!--TODO constant amount selected (delete this todo-->
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <!--<li v-if="getModalState(1)===23" :class="['step-link', {'active': currentModalTab === 2 }]" tabindex="2" @click="setModalTab(2)">-->
+            <!--<span class="circle" aria-label="step 3:">-->
+            <!--3-->
+            <!--</span>-->
+            <!--منبع مالی-->
+            <!--</li>-->
 
-                        <div class="forecast-item-editor" v-if="getModalState(1)===23 && currentModalTab===2">
-                            <div>
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        How many units will you sell?
-                                    </div>
-                                    <p class="title-content">
-                                        How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.
-                                    </p>
-                                    <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">
-                                        <ul>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    <!-- react-text: 131 -->لورم<!-- /react-text -->
-                                                </label>
-                                            </li>
-                                            <li class="horizontal">
-                                                <label>
-                                                    <input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">
-                                                    <!-- react-text: 135 -->Varying amounts over time<!-- /react-text -->
-                                                </label>
-                                            </li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
-                                    <div>
-                                        <div class="input-with-dropdown">
-                                            <input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">
-                                            <div>
-                                                <span class="per">به ازای  </span>
-                                                <div class="select-box" style="max-width: 999999px; width: 89px;">
-                                                    <div class="selected-option" tabindex="0" role="button">
-                                                        <!-- react-text: 144 -->لورم<!-- /react-text -->
-                                                        <div class="arrow"></div>
-                                                    </div>
-                                                    <div style="width: 88px;" tabindex="-1" class="options right" role="listbox">
-                                                        <div role="option" tabindex="-1" class="option-div">
-                                                            Month
-                                                        </div>
-                                                        <div role="option" tabindex="-1" class="selected option-div hovered">
-                                                            Year
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div><!-- react-empty: 148 -->
-                                    </div>
-                                    <!--TODO constant amount selected (delete this todo-->
 
-                                </div>
-                                <!--TODO constant amount selected (delete this todo-->
-                                <div class="section" style="margin-bottom: 30px">
-                                    <div class="title-top">
-                                        When will this revenue start?
-                                    </div>
-                                    <div class="select-box">
-                                        <div class="valid">
-                                            <div class="selected-option" tabindex="0" role="button">
-                                                <!-- react-text: 293 -->Jan 2019<!-- /react-text -->
-                                                <div class="arrow"></div>
-                                            </div>
-                                            <div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">
-                                                <div role="option" tabindex="-1" class="option-div">
-                                                    Month
-                                                </div>
-                                                <div role="option" tabindex="-1" class="selected option-div hovered">
-                                                    Year
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--TODO constant amount selected (delete this todo-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </template>
-            <template v-slot:footer>
-                <div class="modal-footer-control-container right">
-                    <div>
-                        <div v-if="modals[1].isDeleting === false" class="trash-delete">
-                            <a href="#" class="trashcan" role="button" aria-label="Delete">
-                                <span class="trash-text" @click="toggleModalIsDeleting(1)">
-                                    حذف
-                                </span>
-                            </a>
-                        </div>
-                        <div v-if="modals[1].isDeleting === true" id="trash-confirm" aria-live="assertive">
-                            <div class="trashcan-confirm">
-                                <span class="trash-text-confirm">
-                                    <p>آیا اطمینان دارید?</p>
-                                    <a @click="deleteEntry(1)" href="#close" role="button" tabindex="1">تایید</a>
-                                    <span>
-                                        یا
-                                    </span>
-                                    <a @click="toggleModalIsDeleting(1)" href="#" role="button" tabindex="2" >
-                                        لغو
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer-controls-container left">
-                    <button class="modal-button primary disabled" tabindex="0">بعدی</button>
-                    <button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>
-                </div>
-            </template>
-        </base-modal>
+            <!--</ul>-->
+            <!--<div>-->
+            <!--<div>-->
+            <!--&lt;!&ndash;TODO resolve extra height caused by extra 30px paddings&ndash;&gt;-->
+            <!--<div class="section" v-if="currentModalTab===0">-->
+            <!--&lt;!&ndash;TODO add state condition&ndash;&gt;-->
+            <!--<div class="title-top">-->
+            <!--نام آن چیست؟-->
+            <!--</div>-->
+            <!--<div class="error">-->
+            <!--<div class="max-length-input-container">-->
+            <!--<input type="text"-->
+            <!--:class="['input-box', 'description' , $v.tempRevenueName.$error ? 'error' : '']"-->
+            <!--placeholder="لورم لورم"-->
+            <!--v-model.trim="$v.tempRevenueName.$model" :maxlength="255">-->
+            <!--<span class="count-down-wrapper">-->
+            <!--{{(255 - tempRevenueName.length >= 0)? 255 - tempRevenueName.length : 0}}-->
+            <!--</span>-->
+            <!--<div class="feedback-line">-->
+            <!--<p v-if="$v.tempRevenueName.$error && !$v.tempRevenueName.required">-->
+            <!--مقداری را وارد کنید-->
+            <!--</p>-->
+            <!--<p v-if="$v.tempRevenueName.$error && !$v.tempRevenueName.maxLength">-->
+            <!--حداکثر طول 255 کاراکتر است.-->
+            <!--</p>-->
+            <!--<p v-if="$v.tempRevenueName.$error && $v.tempRevenueName.required && !$v.tempRevenueName.test">-->
+            <!--ارور چک با دیتابیس-->
+            <!--</p>-->
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--<div class="section"   v-if="currentModalTab===1">-->
+            <!--&lt;!&ndash;TODO add state condition&ndash;&gt;-->
+            <!--<div class="title-top">نوع درآمد؟</div>-->
+            <!--<div class="radio-buttons-list rtl" tabindex="0" role="radiogroup">-->
+            <!--<p class="radio-right">-->
+            <!--<input :checked="getModalState(1)===20" @click="setModalState(1, 20)" type="radio" name="revenueType"  class="radio-style" value="on">-->
+            <!--<label >تعداد فروش</label>-->
+            <!--</p>-->
+            <!--<p  class="description">-->
+            <!--Best for products that are sold in individual units or set quantities-->
+            <!--</p>-->
+            <!--<p class="radio-right">-->
+            <!--<input :checked="getModalState(1)===21" @click="setModalState(1, 21)" type="radio" name="revenueType"  class="radio-style" value="on">-->
+            <!--<label >-->
+            <!--Billable hours-->
+            <!--</label>-->
+            <!--</p>-->
+            <!--<p  class="description">-->
+            <!--Best for services that are priced on a per-hour basis-->
+            <!--</p>-->
+            <!--<p class="radio-right">-->
+            <!--<input :checked="getModalState(1)===22" @click="setModalState(1, 22)" type="radio" name="revenueType"  class="radio-style" value="on">-->
+            <!--<label >-->
+            <!--Recurring charges-->
+            <!--</label>-->
+            <!--</p>-->
+            <!--<p  class="description">-->
+            <!--Best for subscriptions, memberships, rentals, web apps, or other offerings with monthly or periodic-->
+            <!--</p>-->
+            <!--<p class="radio-right">-->
+            <!--<input :checked="getModalState(1)===23" @click="setModalState(1, 23)" type="radio" name="revenueType"  class="radio-style" value="on">-->
+            <!--<label >-->
+            <!--Revenue only-->
+            <!--</label>-->
+            <!--</p>-->
+            <!--<p  class="description">-->
+            <!--If none of the models above are applicable, or you already have a detailed forecast in Excel or elsewhere, choose this option to just enter overall revenue values without any detail-->
+            <!--</p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="forecast-item-editor" v-if="getModalState(1)===20 && currentModalTab===2">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--How many units will you sell?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.-->
+            <!--</p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="sales-unit-type" value="1" v-model="unitSalesTypeIsConstant">-->
+            <!--&lt;!&ndash; react-text: 131 &ndash;&gt;لورم&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="sales-unit-type" value="0" v-model="unitSalesTypeIsConstant">-->
+            <!--&lt;!&ndash; react-text: 135 &ndash;&gt;Varying amounts over time&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div v-if="unitSalesTypeIsConstant==='1'">-->
+            <!--<div class="input-with-dropdown length-selection">-->
+            <!--<input type="text" class="faNum input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">-->
+            <!--<div>-->
+            <!--<span class="per">به ازای  </span>-->
+            <!--<drop-down v-model="selectedLength" :options="lengthOptions" optionLabel="title" optionValue="code" scrollHeight="100px"/>-->
+            <!--</div>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>&lt;!&ndash; react-empty: 148 &ndash;&gt;-->
+            <!--</div>-->
+            <!--<div  v-if="unitSalesTypeIsConstant==='0'">-->
+
+            <!--variable-->
+            <!--<div class="financial-year-box" role="grid">-->
+            <!--<div class="financial-year-box-container">-->
+            <!--<div class="financial-year-box-wrapper" style="height: 400px; width: 964px">-->
+            <!--<div>-->
+            <!--<div class="financial-year-box-header">-->
+            <!--<p>-->
+            <!--<strong class="faNum">1398 - </strong>-->
+            <!--فلان فلان فلان-->
+            <!--</p>-->
+            <!--<div>-->
+            <!--<div class="financial-year-box-header-controls">-->
+            <!--<p>تغییرات</p>-->
+            <!--<div>-->
+            <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl" style="width: 87px;">-->
+            <!--<span aria-hidden="true" class="percent">%</span>-->
+            <!--<input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model="annualSalesUnitShiftPercent">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<button class="overlay-button primary" @click="shiftAnnualSalesUnitChart()" tabindex="-1">اعمال</button>-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="financial-year-chart-container">-->
+            <!--<highcharts class="chart" :options="annualUnitSalesChartOptions" :updateArgs="updateArgs" @redraw="consolelog()"></highcharts>-->
+            <!--</div>-->
+            <!--<div class="financial-year-input-container">-->
+            <!--<ul class="labels faNum">-->
+            <!--<li>-->
+            <!--<p>1398</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" disabled readOnly :value="currentYearAnnualUnitSales">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[0]" @input = "updateAnnualSalesUnitChart($event.target.value , 0)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>اردیبهشت</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[1]" @input = "updateAnnualSalesUnitChart($event.target.value, 1)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>خرداد</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[2]" @input = "updateAnnualSalesUnitChart($event.target.value, 2)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[3]" @input = "updateAnnualSalesUnitChart($event.target.value, 3)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[4]" @input = "updateAnnualSalesUnitChart($event.target.value, 4)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[5]" @input = "updateAnnualSalesUnitChart($event.target.value,5)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[6]" @input = "updateAnnualSalesUnitChart($event.target.value, 6)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[7]" @input = "updateAnnualSalesUnitChart($event.target.value, 7)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[8]" @input = "updateAnnualSalesUnitChart($event.target.value, 8)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[9]" @input = "updateAnnualSalesUnitChart($event.target.value, 9)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>فروردین</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[10]" @input = "updateAnnualSalesUnitChart($event.target.value, 10)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>اسفند</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="number" v-model.number="annualSalesUnitPeriodsData[11]" @input = "updateAnnualSalesUnitChart($event.target.value, 11)">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>1399</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<p>1340</p>-->
+            <!--<div class="valid">-->
+            <!--<div>-->
+            <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5" type="text" value="">-->
+            <!--<div class="fillRightDots" aria-hidden="true">-->
+            <!--&nbsp;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div> &lt;!&ndash;TODO variable amount selected (delete this todo&ndash;&gt;-->
+
+
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div class="section" style="margin-bottom: 30px" v-if="unitSalesTypeIsConstant==='1'">-->
+            <!--<div class="title-top">-->
+            <!--When will this revenue start?-->
+            <!--</div>-->
+            <!--<div class="select-box period-selection">-->
+            <!--<div class="valid">-->
+            <!--<drop-down v-model="selectedPeriod" :options="periodOptions" optionLabel="title" optionValue="code" scrollHeight="150px"/>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="forecast-item-editor" v-if="getModalState(1)===20 && currentModalTab===3">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--What price will you charge for each unit?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--لورم-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--Varying amounts over time-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div>-->
+            <!--<div class="input-with-dropdown">-->
+            <!--<div class="input-box-wrapper " style="width: 140px;">-->
+
+            <!--<input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">-->
+            <!--<span aria-hidden="true" class="currency">ریال</span>-->
+            <!--</div>-->
+            <!--<span></span>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="forecast-item-editor" v-if="getModalState(1)===21 && currentModalTab===2">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--How many units will you sell?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.-->
+            <!--</p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--&lt;!&ndash; react-text: 131 &ndash;&gt;لورم&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--&lt;!&ndash; react-text: 135 &ndash;&gt;Varying amounts over time&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div>-->
+            <!--<div class="input-with-dropdown">-->
+            <!--<input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">-->
+            <!--<div>-->
+            <!--<span class="per">به ازای  </span>-->
+            <!--<div class="select-box" style="max-width: 999999px; width: 89px;">-->
+            <!--<div class="selected-option" tabindex="0" role="button">-->
+            <!--&lt;!&ndash; react-text: 144 &ndash;&gt;لورم&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--<div class="arrow"></div>-->
+            <!--</div>-->
+            <!--<div style="width: 88px;" tabindex="-1" class="options right" role="listbox">-->
+            <!--<div role="option" tabindex="-1" class="option-div">-->
+            <!--Month-->
+            <!--</div>-->
+            <!--<div role="option" tabindex="-1" class="selected option-div hovered">-->
+            <!--Year-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>&lt;!&ndash; react-empty: 148 &ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+
+
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--When will this revenue start?-->
+            <!--</div>-->
+            <!--<div class="select-box">-->
+            <!--<div class="valid">-->
+            <!--<div class="selected-option" tabindex="0" role="button">-->
+            <!--&lt;!&ndash; react-text: 293 &ndash;&gt;Jan 2019&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--<div class="arrow"></div>-->
+            <!--</div>-->
+            <!--<div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">-->
+            <!--<div role="option" tabindex="-1" class="option-div">-->
+            <!--Month-->
+            <!--</div>-->
+            <!--<div role="option" tabindex="-1" class="selected option-div hovered">-->
+            <!--Year-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="forecast-item-editor" v-if="getModalState(1)===21 && currentModalTab===3">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--What price will you charge for each unit?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--لورم-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--Varying amounts over time-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div>-->
+            <!--<div class="input-with-dropdown">-->
+            <!--<div class="input-box-wrapper " style="width: 140px;">-->
+
+            <!--<input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">-->
+            <!--<span aria-hidden="true" class="currency">ریال</span>-->
+            <!--</div>-->
+            <!--<span></span>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="forecast-item-editor" v-if="getModalState(1)===22 && currentModalTab===2">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--When will this revenue start?-->
+            <!--</div>-->
+            <!--<div class="select-box">-->
+            <!--<div class="valid">-->
+            <!--<div class="selected-option" tabindex="0" role="button">-->
+            <!--&lt;!&ndash; react-text: 293 &ndash;&gt;Jan 2019&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--<div class="arrow"></div>-->
+            <!--</div>-->
+            <!--<div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">-->
+            <!--<div role="option" tabindex="-1" class="option-div">-->
+            <!--Month-->
+            <!--</div>-->
+            <!--<div role="option" tabindex="-1" class="selected option-div hovered">-->
+            <!--Year-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--How many units will you sell?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.-->
+            <!--</p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--&lt;!&ndash; react-text: 131 &ndash;&gt;لورم&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--&lt;!&ndash; react-text: 135 &ndash;&gt;Varying amounts over time&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div>-->
+            <!--<div class="input-with-dropdown">-->
+            <!--<input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">-->
+            <!--<div>-->
+            <!--<span class="per"> در ماه</span>-->
+            <!--</div>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>&lt;!&ndash; react-empty: 148 &ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+
+
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div v-if="getModalState(1)===22 && currentModalTab===3">-->
+            <!--<div class="forecast-item-editor">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--What price will you charge for each unit?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--لورم-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--Varying amounts over time-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div>-->
+            <!--<div class="input-with-dropdown">-->
+            <!--<div class="input-box-wrapper " style="width: 140px;">-->
+
+            <!--<input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">-->
+            <!--<span aria-hidden="true" class="currency">ریال</span>-->
+            <!--</div>-->
+            <!--<span></span>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="forecast-item-editor">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--What price will you charge for each unit?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--لورم-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--Varying amounts over time-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div>-->
+            <!--<div class="input-with-dropdown">-->
+            <!--<div class="input-box-wrapper " style="width: 140px;">-->
+
+            <!--<input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">-->
+            <!--<span aria-hidden="true" class="currency">ریال</span>-->
+            <!--</div>-->
+            <!--<span></span>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="forecast-item-editor">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--How often is this charge assessed?-->
+            <!--</div>-->
+            <!--<div class="select-box">-->
+            <!--<div class="valid">-->
+            <!--<div class="selected-option" tabindex="0" role="button">-->
+            <!--&lt;!&ndash; react-text: 293 &ndash;&gt;Jan 2019&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--<div class="arrow"></div>-->
+            <!--</div>-->
+            <!--<div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">-->
+            <!--<div role="option" tabindex="-1" class="option-div">-->
+            <!--Month-->
+            <!--</div>-->
+            <!--<div role="option" tabindex="-1" class="selected option-div hovered">-->
+            <!--Year-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--<div v-if="getModalState(1)===22 && currentModalTab===4">-->
+            <!--<div class="forecast-item-editor">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--What price will you charge for each unit?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    </p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--لورم-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--Varying amounts over time-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div>-->
+            <!--<div class="input-with-dropdown">-->
+            <!--<div class="input-box-wrapper " style="width: 140px;">-->
+
+            <!--<input class="faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5" type="text">-->
+            <!--<span aria-hidden="true" class="currency">ریال</span>-->
+            <!--</div>-->
+            <!--<span></span>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="forecast-item-editor" v-if="getModalState(1)===23 && currentModalTab===2">-->
+            <!--<div>-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--How many units will you sell?-->
+            <!--</div>-->
+            <!--<p class="title-content">-->
+            <!--How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.-->
+            <!--</p>-->
+            <!--<div class="radio-box CONSTANT" role="radiogroup" tabindex="-1" aria-orientation="horizontal">-->
+            <!--<ul>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--&lt;!&ndash; react-text: 131 &ndash;&gt;لورم&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--<li class="horizontal">-->
+            <!--<label>-->
+            <!--<input type="radio" name="0acbd865-1c1d-83e1-d4e1-72abbb104878" value="on">-->
+            <!--&lt;!&ndash; react-text: 135 &ndash;&gt;Varying amounts over time&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div>-->
+            <!--<div class="input-with-dropdown">-->
+            <!--<input type="text" class="input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash" value="" aria-describedby="value-control-2" aria-invalid="true">-->
+            <!--<div>-->
+            <!--<span class="per">به ازای  </span>-->
+            <!--<div class="select-box" style="max-width: 999999px; width: 89px;">-->
+            <!--<div class="selected-option" tabindex="0" role="button">-->
+            <!--&lt;!&ndash; react-text: 144 &ndash;&gt;لورم&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--<div class="arrow"></div>-->
+            <!--</div>-->
+            <!--<div style="width: 88px;" tabindex="-1" class="options right" role="listbox">-->
+            <!--<div role="option" tabindex="-1" class="option-div">-->
+            <!--Month-->
+            <!--</div>-->
+            <!--<div role="option" tabindex="-1" class="selected option-div hovered">-->
+            <!--Year-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>&lt;!&ndash; react-empty: 148 &ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--<div class="section" style="margin-bottom: 30px">-->
+            <!--<div class="title-top">-->
+            <!--When will this revenue start?-->
+            <!--</div>-->
+            <!--<div class="select-box">-->
+            <!--<div class="valid">-->
+            <!--<div class="selected-option" tabindex="0" role="button">-->
+            <!--&lt;!&ndash; react-text: 293 &ndash;&gt;Jan 2019&lt;!&ndash; /react-text &ndash;&gt;-->
+            <!--<div class="arrow"></div>-->
+            <!--</div>-->
+            <!--<div  style="width: 88px;" tabindex="-1" class="options right" role="listbox">-->
+            <!--<div role="option" tabindex="-1" class="option-div">-->
+            <!--Month-->
+            <!--</div>-->
+            <!--<div role="option" tabindex="-1" class="selected option-div hovered">-->
+            <!--Year-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;TODO constant amount selected (delete this todo&ndash;&gt;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</template>-->
+            <!--<template v-slot:footer>-->
+            <!--<div class="modal-footer-control-container right">-->
+            <!--<div>-->
+            <!--<div v-if="modals[1].isDeleting === false" class="trash-delete">-->
+            <!--<a href="#" class="trashcan" role="button" aria-label="Delete">-->
+            <!--<span class="trash-text" @click="toggleModalIsDeleting(1)">-->
+            <!--حذف-->
+            <!--</span>-->
+            <!--</a>-->
+            <!--</div>-->
+            <!--<div v-if="modals[1].isDeleting === true" id="trash-confirm" aria-live="assertive">-->
+            <!--<div class="trashcan-confirm">-->
+            <!--<span class="trash-text-confirm">-->
+            <!--<p>آیا اطمینان دارید?</p>-->
+            <!--<a @click="deleteEntry(1)" href="#close" role="button" tabindex="1">تایید</a>-->
+            <!--<span>-->
+            <!--یا-->
+            <!--</span>-->
+            <!--<a @click="toggleModalIsDeleting(1)" href="#" role="button" tabindex="2" >-->
+            <!--لغو-->
+            <!--</a>-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left">-->
+            <!--<button :class="['modal-button','primary', ($v.tempRevenueName.$error || !tempRevenueName.length)? 'disabled' : '']" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===20 && currentModalTab===2">-->
+            <!--<button :class="['modal-button','primary','disabled', (!tempRevenueName.length)? 'disabled' : '']" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===20 && currentModalTab===3">-->
+            <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentModalTab===2">-->
+            <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentModalTab===3">-->
+            <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentModalTab===2">-->
+            <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentModalTab===2">-->
+            <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentModalTab===3">-->
+            <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentModalTab===4">-->
+            <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===23 && currentModalTab===2">-->
+            <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
+            <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <!--</div>-->
+            <!--</template>-->
+            <!--</base-modal>-->
+        </div>
+        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)"></modal-revenue-crud>
+
 
     </div>
 </template>
 
 <script>
     import VideoModal from "@/js/components/VideoModal";
-    import BaseModal from "@/js/components/BaseModal";
+    import ModalRevenueCrud from "./../modals/ModalRevenueCrud";
     import { EventBus } from "@/js/event-bus.js"
+
+
+    import { required, minLength, between, maxLength } from 'vuelidate/lib/validators'
+
+
     export default {
         name: "DashboardForecastRevenue",
         components: {
             VideoModal,
-            BaseModal,
+            ModalRevenueCrud,
         },
         data: function(){
             return {
@@ -1549,8 +1602,8 @@
                         '1400': '2500 ریال',
                     }
                 },
-                columns: [{label: 'Name', id: 'name'}, {label: 'Surname', id: 'surname'}],
-                updateArgs: [true, true, {duration: 1000}],
+                tableMonthlyDetailsActive: false,
+                monthlyTableExpandedKeys: {},
                 annualChartOptions: {
                     chart: {
                         type: 'column',
@@ -1744,11 +1797,11 @@
                         }
                     },
                 },
+                updateArgs: [true, true, {duration: 1000}],
+
                 instructionVisibility:true,
                 moreInstructionVisibility: false,
-                modalVisibility: [false,false],
-                currentModalTab: 0,
-                currentModalData: {},
+
                 modals: { //list of modals (except video modal)
                     // TODO resolve state change scroll bug
                     1:{
@@ -1773,15 +1826,11 @@
                         isDeleting: false
                     },// revenue addition modal
                 },
-                newRevenueName: '',
-                tableMonthlyDetailsActive: false,
-                monthlyTableExpandedKeys: {},
-                // modals data
-                errors: {
-                    'name': []
-                },
+                modalVisibility: [false,false],
+                currentModalTab: 0,
+                currentModalData: {},
                 selectedLength: 'm',
-                selectedPeriod: '1',
+                selectedPeriod: '1', //TODO will be transferred into currentModalData
                 lengthOptions: [
                     {title: 'ماه', code: 'm'},
                     {title: 'سال', code: 'y'},
@@ -1841,9 +1890,9 @@
                                 draggableY: true,
                                 liveRedraw: false,
                                 animation: false,
-                                    // TODO add mouse movement addition
-                                    // TODO improve range and animation smoothness
-                                },
+                                // TODO add mouse movement addition
+                                // TODO improve range and animation smoothness
+                            },
                         },
 
                         line: {
@@ -1872,7 +1921,7 @@
                         minPadding: 2,
                         maxPadding: 2,
 
-                    // TODO handle automatic y-axis
+                        // TODO handle automatic y-axis
                     },
                     legend: {
                         enabled: false
@@ -1885,7 +1934,21 @@
 
                 },
                 annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165],
-                annualSalesUnitShiftPercent: 0
+                annualSalesUnitShiftPercent: 0,
+
+
+                tempRevenueName: '',
+
+            }
+        },
+        validations:{
+            tempRevenueName:{
+                required,
+                maxLength: maxLength(255),
+                test: function(value){
+                    // TODO server check
+                    return true;
+                }
             }
         },
         mounted(){
@@ -1977,22 +2040,22 @@
 
             // TODO optional: make a new component from modal contents
 
-            checkName(serverSide = false){
-                console.log('validation');
-                if (this.newRevenueName.length < 1){
-                    this.errors['name'].push('نام را وارد کنید');
-                    return false;
-                }
-                else{
-
-                    if(serverSide){
-                        //TODO implement server side validation logic
-                    }
-                }
-                this.errors.name = [];
-                return true;
-
-            },
+            // checkName(serverSide = false){
+            //     console.log('validation');
+            //     if (this.tempRevenueName.length < 1){
+            //         this.errors['name'].push('نام را وارد کنید');
+            //         return false;
+            //     }
+            //     else{
+            //
+            //         if(serverSide){
+            //             //TODO implement server side validation logic
+            //         }
+            //     }
+            //     this.errors.name = [];
+            //     return true;
+            //
+            // },
         },
         computed:{
             tableData: function(){
@@ -2017,9 +2080,6 @@
 
         },
         watch:{
-            newRevenueName: function(){
-                this.checkName(false);
-            },
             unitSalesTypeIsConstant: function () {
 
                 let modalContainer = window.document.getElementsByClassName('modal-container')[0];

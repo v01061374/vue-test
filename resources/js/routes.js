@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from './components/Home.vue';
-import About from './components/About.vue';
-import Chart from './components/Chart.vue';
+
 
 
 import Dashboard from './views/Dashboard.vue';
@@ -21,7 +19,6 @@ import Taxes from "./views/DashboardForecastTaxes";
 import Dividends from "./views/DashboardForecastDividends";
 import CashFlowAssumptions from "./views/DashboardForecastCashFlowAssumptions";
 import Financing from "./views/DashboardForecastFinancing";
-import TableTest from "./components/TableTest";
 
 
 
@@ -31,28 +28,6 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        {
-            path: '/',
-            name: 'home',
-            component : Home
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: About
-        },
-        {
-            path: '/chart',
-            name: 'chart',
-            component: Chart
-        }
-        ,
-        {
-            path: '/table',
-            name: 'table',
-            component: TableTest
-        }
-        ,
         {
             path: '/dashboard',
             name: 'dashboard.index',

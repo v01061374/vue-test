@@ -1829,32 +1829,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/About.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/About.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      url: 'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4' // TODO upload local video
-
-    };
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/BaseModal.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/BaseModal.vue?vue&type=script&lang=js& ***!
@@ -1864,7 +1838,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -1906,7 +1879,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     close: function close() {
-      this.$emit('close-modal');
+      this.$emit('close');
     }
   },
   // ready: function() {
@@ -1925,128 +1898,6 @@ __webpack_require__.r(__webpack_exports__);
   destroyed: function destroyed() {
     var body = window.document.getElementsByTagName('body')[0];
     body.setAttribute("style", "overflow: auto");
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chart.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Chart.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      title: '',
-      points: [10, 0, 8, 2, 6, 4, 5, 5],
-      chartType: 'Spline',
-      seriesColor: '#6fcd98',
-      colorInputIsSupported: null,
-      animationDuration: 1000,
-      updateArgs: [true, true, {
-        duration: 1000
-      }],
-      annualChartOptions: {
-        chart: {
-          type: 'spline'
-        },
-        title: {
-          text: 'Sin chart'
-        },
-        series: [{
-          data: [10, 0, 8, 2, 6, 4, 5, 5],
-          color: '#6fcd98'
-        }]
-      }
-    };
-  },
-  created: function created() {
-    var i = document.createElement('input');
-    i.setAttribute('type', 'color');
-    i.type === 'color' ? this.colorInputIsSupported = true : this.colorInputIsSupported = false;
-  },
-  watch: {
-    title: function title(newValue) {
-      this.annualChartOptions.title.text = newValue;
-    },
-    points: function points(newValue) {
-      this.annualChartOptions.series[0].data = newValue;
-    },
-    chartType: function chartType(newValue) {
-      this.annualChartOptions.chart.type = newValue.toLowerCase();
-    },
-    seriesColor: function seriesColor(newValue) {
-      this.annualChartOptions.series[0].color = newValue.toLowerCase();
-    },
-    animationDuration: function animationDuration(newValue) {
-      this.updateArgs[2].duration = Number(newValue);
-    }
   }
 });
 
@@ -2116,384 +1967,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     isCurrentPage: function isCurrentPage(link) {
       return this.currentPage.includes(link);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Home.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Home.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _js_components_VideoModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/js/components/VideoModal */ "./resources/js/components/VideoModal.vue");
-//
-//
-//
-//
-//
-//
-//
- // TODO change addressing formats
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    VideoModal: _js_components_VideoModal__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      modalOpen: false
-    };
-  },
-  methods: {
-    openModal: function openModal() {
-      this.modalOpen = !this.modalOpen;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TableTest.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TableTest.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "TableTest",
-  data: function data() {
-    return {
-      nodes: [{
-        "key": "0",
-        "data": {
-          "name": "Applications",
-          "size": "100kb",
-          "type": "<a href=\"adsjfapsdfakf\">asfasdfasfd</a>"
-        },
-        "children": [{
-          "key": "0-0",
-          "data": {
-            "name": "Vue",
-            "size": "25kb",
-            "type": "Folder"
-          },
-          "children": [{
-            "key": "0-0-0",
-            "data": {
-              "name": "Vue.app",
-              "size": "10kb",
-              "type": "Application"
-            }
-          }, {
-            "key": "0-0-1",
-            "data": {
-              "name": "native.app",
-              "size": "10kb",
-              "type": "Application"
-            }
-          }, {
-            "key": "0-0-2",
-            "data": {
-              "name": "mobile.app",
-              "size": "5kb",
-              "type": "Application"
-            }
-          }]
-        }, {
-          "key": "0-1",
-          "data": {
-            "name": "editor.app",
-            "size": "25kb",
-            "type": "Application"
-          }
-        }, {
-          "key": "0-2",
-          "data": {
-            "name": "settings.app",
-            "size": "50kb",
-            "type": "Application"
-          }
-        }]
-      }, {
-        "key": "1",
-        "data": {
-          "name": "Cloud",
-          "size": "20kb",
-          "type": "Folder"
-        },
-        "children": [{
-          "key": "1-0",
-          "data": {
-            "name": "backup-1.zip",
-            "size": "10kb",
-            "type": "Zip"
-          }
-        }, {
-          "key": "1-1",
-          "data": {
-            "name": "backup-2.zip",
-            "size": "10kb",
-            "type": "Zip"
-          }
-        }]
-      }, {
-        "key": "2",
-        "data": {
-          "name": "Desktop",
-          "size": "150kb",
-          "type": "Folder"
-        },
-        "children": [{
-          "key": "2-0",
-          "data": {
-            "name": "note-meeting.txt",
-            "size": "50kb",
-            "type": "Text"
-          }
-        }, {
-          "key": "2-1",
-          "data": {
-            "name": "note-todo.txt",
-            "size": "100kb",
-            "type": "Text"
-          }
-        }]
-      }, {
-        "key": "3",
-        "data": {
-          "name": "Documents",
-          "size": "75kb",
-          "type": "Folder"
-        },
-        "children": [{
-          "key": "3-0",
-          "data": {
-            "name": "Work",
-            "size": "55kb",
-            "type": "Folder"
-          },
-          "children": [{
-            "key": "3-0-0",
-            "data": {
-              "name": "Expenses.doc",
-              "size": "30kb",
-              "type": "Document"
-            }
-          }, {
-            "key": "3-0-1",
-            "data": {
-              "name": "Resume.doc",
-              "size": "25kb",
-              "type": "Resume"
-            }
-          }]
-        }, {
-          "key": "3-1",
-          "data": {
-            "name": "Home",
-            "size": "20kb",
-            "type": "Folder"
-          },
-          "children": [{
-            "key": "3-1-0",
-            "data": {
-              "name": "Invoices",
-              "size": "20kb",
-              "type": "Text"
-            }
-          }]
-        }]
-      }, {
-        "key": "4",
-        "data": {
-          "name": "Downloads",
-          "size": "25kb",
-          "type": "Folder"
-        },
-        "children": [{
-          "key": "4-0",
-          "data": {
-            "name": "Spanish",
-            "size": "10kb",
-            "type": "Folder"
-          },
-          "children": [{
-            "key": "4-0-0",
-            "data": {
-              "name": "tutorial-a1.txt",
-              "size": "5kb",
-              "type": "Text"
-            }
-          }, {
-            "key": "4-0-1",
-            "data": {
-              "name": "tutorial-a2.txt",
-              "size": "5kb",
-              "type": "Text"
-            }
-          }]
-        }, {
-          "key": "4-1",
-          "data": {
-            "name": "Travel",
-            "size": "15kb",
-            "type": "Text"
-          },
-          "children": [{
-            "key": "4-1-0",
-            "data": {
-              "name": "Hotel.pdf",
-              "size": "10kb",
-              "type": "PDF"
-            }
-          }, {
-            "key": "4-1-1",
-            "data": {
-              "name": "Flight.pdf",
-              "size": "5kb",
-              "type": "PDF"
-            }
-          }]
-        }]
-      }, {
-        "key": "5",
-        "data": {
-          "name": "Main",
-          "size": "50kb",
-          "type": "Folder"
-        },
-        "children": [{
-          "key": "5-0",
-          "data": {
-            "name": "bin",
-            "size": "50kb",
-            "type": "Link"
-          }
-        }, {
-          "key": "5-1",
-          "data": {
-            "name": "etc",
-            "size": "100kb",
-            "type": "Link"
-          }
-        }, {
-          "key": "5-2",
-          "data": {
-            "name": "var",
-            "size": "100kb",
-            "type": "Link"
-          }
-        }]
-      }, {
-        "key": "6",
-        "data": {
-          "name": "Other",
-          "size": "5kb",
-          "type": "Folder"
-        },
-        "children": [{
-          "key": "6-0",
-          "data": {
-            "name": "todo.txt",
-            "size": "3kb",
-            "type": "Text"
-          }
-        }, {
-          "key": "6-1",
-          "data": {
-            "name": "logo.png",
-            "size": "2kb",
-            "type": "Picture"
-          }
-        }]
-      }, {
-        "key": "7",
-        "data": {
-          "name": "Pictures",
-          "size": "150kb",
-          "type": "Folder"
-        },
-        "children": [{
-          "key": "7-0",
-          "data": {
-            "name": "barcelona.jpg",
-            "size": "90kb",
-            "type": "Picture"
-          }
-        }, {
-          "key": "7-1",
-          "data": {
-            "name": "primeng.png",
-            "size": "30kb",
-            "type": "Picture"
-          }
-        }, {
-          "key": "7-2",
-          "data": {
-            "name": "prime.jpg",
-            "size": "30kb",
-            "type": "Picture"
-          }
-        }]
-      }, {
-        "key": "8",
-        "data": {
-          "name": "Videos",
-          "size": "1500kb",
-          "type": "Folder"
-        },
-        "children": [{
-          "key": "8-0",
-          "data": {
-            "name": "primefaces.mkv",
-            "size": "1000kb",
-            "type": "Video"
-          }
-        }, {
-          "key": "8-1",
-          "data": {
-            "name": "intro.avi",
-            "size": "500kb",
-            "type": "Video"
-          }
-        }]
-      }],
-      value: [20, 80]
-    };
-  },
-  methods: {
-    rowClick: function rowClick(e) {
-      console.log(e);
     }
   }
 });
@@ -2577,6 +2050,307 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TheDashboardContainer"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/modals/ModalRevenueCrud.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/modals/ModalRevenueCrud.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_BaseModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/BaseModal */ "./resources/js/components/BaseModal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var NOT_SELECTED = -1;
+var REVENUE_TYPE_UNIT_SALES = 0;
+var REVENUE_TYPE_BILLABLE_HOURS = 1;
+var REVENUE_TYPE_RECURRING_CHANGES = 2;
+var REVENUE_TYPE_REVENUE_ONLY = 3;
+var MEASURE_TYPE_FREE = 0;
+var MEASURE_TYPE_CONSTANT = 1;
+var MEASURE_TYPE_VARIABLE = 2;
+var LENGTH_MONTH = 'm';
+var LENGTH_YEAR = 'y';
+var FAR_1398 = 1;
+var ORD_1398 = 2;
+var KHO_1398 = 3;
+var TIR_1398 = 4;
+var MOR_1398 = 5;
+var SHAH_1398 = 6;
+var MEHR_1398 = 7;
+var ABA_1398 = 8;
+var AZAR_1398 = 9;
+var DEY_1398 = 10;
+var BAH_1398 = 11;
+var ESF_1398 = 12;
+var _1399 = 13;
+var _1400 = 14;
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ModalRevenueCrud",
+  data: function data() {
+    return {
+      isDeleting: false,
+      currentModalTab: 0,
+      periodsOptions: [{
+        title: 'ماه',
+        code: LENGTH_MONTH
+      }, {
+        title: 'سال',
+        code: LENGTH_YEAR
+      }],
+      startOptions: [{
+        title: 'فروردین 1398',
+        code: FAR_1398
+      }, {
+        title: 'اردیبهشت 1398',
+        code: ORD_1398
+      }, {
+        title: 'خرداد 1398',
+        code: KHO_1398
+      }, {
+        title: 'تیر 1398',
+        code: TIR_1398
+      }, {
+        title: 'مرداد 1398',
+        code: MOR_1398
+      }, {
+        title: 'شهریور 1398',
+        code: SHAH_1398
+      }, {
+        title: 'مهر 1398',
+        code: MEHR_1398
+      }, {
+        title: 'آبان 1398',
+        code: ABA_1398
+      }, {
+        title: 'آذر 1398',
+        code: AZAR_1398
+      }, {
+        title: 'دی 1398',
+        code: DEY_1398
+      }, {
+        title: 'بهمن 1398',
+        code: BAH_1398
+      }, {
+        title: 'اسفند 1398',
+        code: ESF_1398
+      }, {
+        title: '1399',
+        code: _1399
+      }, {
+        title: '1400',
+        code: _1400
+      }],
+      revenueStart: FAR_1398,
+      // tab 0
+      tempRevenueName: '',
+      // tab 1
+      tempRevenueType: NOT_SELECTED,
+      //type 0 - tab 2 && type 1 - tab 2 && && type 2 - tab 2 && type 3 - tab 1
+      serviceCountType: MEASURE_TYPE_CONSTANT,
+      constantServicePeriod: LENGTH_MONTH,
+      // for type 2 = LENGTH_MONTH
+      // constantServiceCount: '',
+      serviceCountPerPeriod: {
+        FAR_1398: '',
+        ORD_1398: '',
+        KHO_1398: '',
+        TIR_1398: '',
+        MOR_1398: '',
+        SHAH_1398: '',
+        MEHR_1398: '',
+        ABA_1398: '',
+        AZAR_1398: '',
+        DEY_1398: '',
+        BAH_1398: '',
+        ESF_1398: '',
+        _1399: '',
+        _1400: ''
+      },
+      // type 0 - tab 3 && type 1 - tab 3
+      unitPriceType: MEASURE_TYPE_CONSTANT,
+      // constantUnitPrice: '',
+      unitPricePerPeriod: {
+        FAR_1398: '',
+        ORD_1398: '',
+        KHO_1398: '',
+        TIR_1398: '',
+        MOR_1398: '',
+        SHAH_1398: '',
+        MEHR_1398: '',
+        ABA_1398: '',
+        AZAR_1398: '',
+        DEY_1398: '',
+        BAH_1398: '',
+        ESF_1398: '',
+        _1399: '',
+        _1400: ''
+      },
+      // type 2 - tab 3
+      upFrontFeeType: MEASURE_TYPE_FREE,
+      // constantUpFrontFee: '',
+      upFrontFeePerPeriod: {
+        FAR_1398: '',
+        ORD_1398: '',
+        KHO_1398: '',
+        TIR_1398: '',
+        MOR_1398: '',
+        SHAH_1398: '',
+        MEHR_1398: '',
+        ABA_1398: '',
+        AZAR_1398: '',
+        DEY_1398: '',
+        BAH_1398: '',
+        ESF_1398: '',
+        _1399: '',
+        _1400: ''
+      },
+      recurringChargeType: MEASURE_TYPE_FREE,
+      // constantRecurringCharge: '',
+      recurringChargePerPeriod: {
+        FAR_1398: '',
+        ORD_1398: '',
+        KHO_1398: '',
+        TIR_1398: '',
+        MOR_1398: '',
+        SHAH_1398: '',
+        MEHR_1398: '',
+        ABA_1398: '',
+        AZAR_1398: '',
+        DEY_1398: '',
+        BAH_1398: '',
+        ESF_1398: '',
+        _1399: '',
+        _1400: ''
+      },
+      recurringChargeMonthFrequency: 1,
+      recurringChargeMonthFrequencyOptions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      // type 2 - tab 4
+      churnRateType: MEASURE_TYPE_CONSTANT,
+      // constantChurnRate: '',
+      churnRatePerPeriod: {
+        FAR_1398: '',
+        ORD_1398: '',
+        KHO_1398: '',
+        TIR_1398: '',
+        MOR_1398: '',
+        SHAH_1398: '',
+        MEHR_1398: '',
+        ABA_1398: '',
+        AZAR_1398: '',
+        DEY_1398: '',
+        BAH_1398: '',
+        ESF_1398: '',
+        _1399: '',
+        _1400: ''
+      }
+    };
+  },
+  methods: {
+    close: function close() {
+      this.$emit('close-modal');
+    },
+    toggleIsDeleting: function toggleIsDeleting() {
+      this.isDeleting = !this.isDeleting;
+    },
+    deleteRecord: function deleteRecord() {
+      // TODO implement delete logic
+      this.close();
+    }
+  },
+  props: {
+    revenue: {
+      type: Object
+    }
+  },
+  components: {
+    BaseModal: _components_BaseModal__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -3818,8 +3592,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_components_VideoModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/js/components/VideoModal */ "./resources/js/components/VideoModal.vue");
-/* harmony import */ var _js_components_BaseModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/js/components/BaseModal */ "./resources/js/components/BaseModal.vue");
+/* harmony import */ var _modals_ModalRevenueCrud__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../modals/ModalRevenueCrud */ "./resources/js/modals/ModalRevenueCrud.vue");
 /* harmony import */ var _js_event_bus_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/js/event-bus.js */ "./resources/js/event-bus.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -5061,6 +4837,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -5068,7 +4893,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "DashboardForecastRevenue",
   components: {
     VideoModal: _js_components_VideoModal__WEBPACK_IMPORTED_MODULE_0__["default"],
-    BaseModal: _js_components_BaseModal__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ModalRevenueCrud: _modals_ModalRevenueCrud__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -5316,16 +5141,8 @@ __webpack_require__.r(__webpack_exports__);
           '1400': '2500 ریال'
         }
       },
-      columns: [{
-        label: 'Name',
-        id: 'name'
-      }, {
-        label: 'Surname',
-        id: 'surname'
-      }],
-      updateArgs: [true, true, {
-        duration: 1000
-      }],
+      tableMonthlyDetailsActive: false,
+      monthlyTableExpandedKeys: {},
       annualChartOptions: {
         chart: {
           type: 'column',
@@ -5476,11 +5293,11 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
       },
+      updateArgs: [true, true, {
+        duration: 1000
+      }],
       instructionVisibility: true,
       moreInstructionVisibility: false,
-      modalVisibility: [false, false],
-      currentModalTab: 0,
-      currentModalData: {},
       modals: {
         //list of modals (except video modal)
         // TODO resolve state change scroll bug
@@ -5507,15 +5324,12 @@ __webpack_require__.r(__webpack_exports__);
         } // revenue addition modal
 
       },
-      newRevenueName: '',
-      tableMonthlyDetailsActive: false,
-      monthlyTableExpandedKeys: {},
-      // modals data
-      errors: {
-        'name': []
-      },
+      modalVisibility: [false, false],
+      currentModalTab: 0,
+      currentModalData: {},
       selectedLength: 'm',
       selectedPeriod: '1',
+      //TODO will be transferred into currentModalData
       lengthOptions: [{
         title: 'ماه',
         code: 'm'
@@ -5623,8 +5437,19 @@ __webpack_require__.r(__webpack_exports__);
         }
       },
       annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165],
-      annualSalesUnitShiftPercent: 0
+      annualSalesUnitShiftPercent: 0,
+      tempRevenueName: ''
     };
+  },
+  validations: {
+    tempRevenueName: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__["required"],
+      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__["maxLength"])(255),
+      test: function test(value) {
+        // TODO server check
+        return true;
+      }
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -5710,23 +5535,24 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData; // console.log(this.annualUnitSalesChartOptions.series[0].data);
-    },
-    // TODO optional: make a new component from modal contents
-    checkName: function checkName() {
-      var serverSide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-      console.log('validation');
+    } // TODO optional: make a new component from modal contents
+    // checkName(serverSide = false){
+    //     console.log('validation');
+    //     if (this.tempRevenueName.length < 1){
+    //         this.errors['name'].push('نام را وارد کنید');
+    //         return false;
+    //     }
+    //     else{
+    //
+    //         if(serverSide){
+    //             //TODO implement server side validation logic
+    //         }
+    //     }
+    //     this.errors.name = [];
+    //     return true;
+    //
+    // },
 
-      if (this.newRevenueName.length < 1) {
-        this.errors['name'].push('نام را وارد کنید');
-        return false;
-      } else {
-        if (serverSide) {//TODO implement server side validation logic
-        }
-      }
-
-      this.errors.name = [];
-      return true;
-    }
   },
   computed: {
     tableData: function tableData() {
@@ -5747,9 +5573,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
-    newRevenueName: function newRevenueName() {
-      this.checkName(false);
-    },
     unitSalesTypeIsConstant: function unitSalesTypeIsConstant() {
       var modalContainer = window.document.getElementsByClassName('modal-container')[0];
 
@@ -5816,7 +5639,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\r\n* {\r\n    -moz-box-sizing: border-box;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody .p-component {\r\n    \r\n    font-size: 14px;\r\n    text-decoration: none;\r\n}\r\n/*body a {*/\r\n    /*color: #007ad9;*/\r\n    /*text-decoration: none;*/\r\n/*}*/\r\n/*body a:hover {*/\r\n    /*color: #116fbf;*/\r\n/*}*/\r\n/*body a:active {*/\r\n    /*color: #005b9f;*/\r\n/*}*/\r\nbody .p-disabled, body .p-component:disabled {\r\n    opacity: 0.5;\r\n    filter: alpha(opacity=50);\r\n}\r\nbody .pi {\r\n    font-size: 1.25em;\r\n}\r\nbody .p-link {\r\n    font-size: 14px;\r\n    \r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\n\r\nbody {\r\n    /* Validations */\r\n}\r\nbody .p-inputtext {\r\n    font-size: 14px;\r\n    color: #333333;\r\n    background: #ffffff;\r\n    padding: 0.429em;\r\n    border: 1px solid #a6a6a6;\r\n    -moz-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: border-color 0.2s, box-shadow 0.2s;\r\n    transition: border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    appearance: none;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-inputtext:enabled:hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-inputtext:enabled:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-checkbox {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n}\r\nbody .p-checkbox .p-checkbox-box {\r\n    border: 1px solid #a6a6a6;\r\n    background-color: #ffffff;\r\n    width: 20px;\r\n    height: 20px;\r\n    text-align: center;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-checkbox .p-checkbox-box:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-checkbox .p-checkbox-box:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-checkbox .p-checkbox-box.p-highlight {\r\n    border-color: #007ad9;\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled):hover {\r\n    border-color: #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-checkbox .p-checkbox-box .p-checkbox-icon {\r\n    overflow: hidden;\r\n    position: relative;\r\n    font-size: 18px;\r\n}\r\nbody .p-checkbox-label {\r\n    margin: 0 0 0 0.5em;\r\n}\r\nbody .p-radiobutton {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box {\r\n    border: 1px solid #a6a6a6;\r\n    background-color: #ffffff;\r\n    width: 20px;\r\n    height: 20px;\r\n    text-align: center;\r\n    position: relative;\r\n    -moz-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box.p-highlight {\r\n    border-color: #007ad9;\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box.p-highlight .p-radiobutton-icon {\r\n    background-color: #ffffff;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {\r\n    border-color: #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {\r\n    background: transparent;\r\n    width: 10px;\r\n    height: 10px;\r\n    display: inline-block;\r\n    position: absolute;\r\n    left: 50%;\r\n    top: 50%;\r\n    margin-left: -5px;\r\n    margin-top: -5px;\r\n    -moz-transition: background-color 0.2s;\r\n    -o-transition: background-color 0.2s;\r\n    -webkit-transition: background-color 0.2s;\r\n    transition: background-color 0.2s;\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box .p-radiobutton-icon:before {\r\n    display: none;\r\n}\r\nbody .p-radiobutton-label {\r\n    margin: 0 0 0 0.5em;\r\n}\r\nbody .p-inputswitch {\r\n    width: 3em;\r\n    height: 1.75em;\r\n}\r\nbody .p-inputswitch .p-inputswitch-slider {\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    border-radius: 30px;\r\n    background: #cccccc;\r\n}\r\nbody .p-inputswitch .p-inputswitch-slider:before {\r\n    background-color: #ffffff;\r\n    height: 1.25em;\r\n    width: 1.25em;\r\n    left: 0.25em;\r\n    bottom: 0.25em;\r\n    border-radius: 50%;\r\n    -webkit-transition: 0.2s;\r\n    transition: 0.2s;\r\n}\r\nbody .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {\r\n    -webkit-transform: translateX(1.25em);\r\n    -ms-transform: translateX(1.25em);\r\n    transform: translateX(1.25em);\r\n}\r\nbody .p-inputswitch.p-inputswitch-focus .p-inputswitch-slider {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {\r\n    background-color: #b7b7b7;\r\n}\r\nbody .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {\r\n    background-color: #116fbf;\r\n}\r\nbody .p-autocomplete .p-autocomplete-input {\r\n    padding: 0.429em;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container {\r\n    padding: 0.2145em 0.429em;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token {\r\n    margin: 0;\r\n    padding: 0.2145em 0;\r\n    color: #333333;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token input {\r\n    \r\n    font-size: 14px;\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token {\r\n    font-size: 14px;\r\n    padding: 0.2145em 0.429em;\r\n    margin: 0 0.286em 0 0;\r\n    background: #007ad9;\r\n    color: #ffffff;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-autocomplete-panel {\r\n    padding: 0;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items {\r\n    padding: 0;\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-list-item {\r\n    margin: 0;\r\n    padding: 0.429em 0.857em;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-list-item:hover {\r\n    color: #333333;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-list-item.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-group {\r\n    padding: 0.429em 0.857em;\r\n    background-color: #d8dae2;\r\n    color: #333333;\r\n}\r\nbody .p-fluid .p-autocomplete .p-autocomplete-dropdown.p-button {\r\n    width: 2.357em;\r\n}\r\nbody .p-fluid .p-autocomplete.p-autocomplete-multiple.p-autocomplete-dd .p-autocomplete-multiple-container {\r\n    border-right: 0 none;\r\n    width: calc(100% - 2.357em);\r\n}\r\nbody .p-fluid .p-autocomplete.p-autocomplete-dd .p-inputtext {\r\n    border-right: 0 none;\r\n    width: calc(100% - 2.357em);\r\n}\r\nbody .p-chips > ul.p-inputtext {\r\n    padding: 0.2145em 0.429em;\r\n    display: inline-block;\r\n}\r\nbody .p-chips > ul.p-inputtext:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-chips > ul.p-inputtext:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-input-token {\r\n    padding: 0.2145em 0;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-input-token input {\r\n    \r\n    font-size: 14px;\r\n    padding: 0;\r\n    margin: 0;\r\n    color: #333333;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-input-token input:hover {\r\n    border: 0 none;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-input-token input:focus {\r\n    -webkit-box-shadow: none;\r\n    -moz-box-shadow: none;\r\n    box-shadow: none;\r\n    outline: 0 none;\r\n    border: 0 none;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-token {\r\n    font-size: 14px;\r\n    padding: 0.2145em 0.429em;\r\n    margin: 0 0.286em 0 0;\r\n    background: #007ad9;\r\n    color: #ffffff;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-dropdown {\r\n    background: #ffffff;\r\n    border: 1px solid #a6a6a6;\r\n    -moz-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: border-color 0.2s, box-shadow 0.2s;\r\n    transition: border-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-dropdown:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-dropdown:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-dropdown .p-dropdown-label {\r\n    padding-right: 2em;\r\n}\r\nbody .p-dropdown .p-dropdown-label:focus {\r\n    outline: 0 none;\r\n    -webkit-box-shadow: none;\r\n    -moz-box-shadow: none;\r\n    box-shadow: none;\r\n}\r\nbody .p-dropdown .p-dropdown-trigger {\r\n    background-color: #ffffff;\r\n    width: 2em;\r\n    line-height: 2em;\r\n    text-align: center;\r\n    padding: 0;\r\n    color: #848484;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-dropdown .p-dropdown-clear-icon {\r\n    color: #848484;\r\n}\r\nbody .p-dropdown-panel {\r\n    padding: 0;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-dropdown-panel .p-dropdown-filter-container {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border-bottom: 1px solid #eaeaea;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-filter-container .p-dropdown-filter {\r\n    width: 100%;\r\n    padding-right: 2em;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-filter-container .p-dropdown-filter-icon {\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    right: 1.357em;\r\n    color: #007ad9;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-items {\r\n    padding: 0;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-items .p-dropdown-item, body .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {\r\n    margin: 0;\r\n    padding: 0.429em 0.857em;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight, body .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover, body .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group:not(.p-highlight):not(.p-disabled):hover {\r\n    color: #333333;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-multiselect {\r\n    background: #ffffff;\r\n    border: 1px solid #a6a6a6;\r\n    -moz-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: border-color 0.2s, box-shadow 0.2s;\r\n    transition: border-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-multiselect:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-multiselect:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-multiselect .p-multiselect-label {\r\n    padding: 0.429em;\r\n    padding-right: 2em;\r\n    font-weight: 400;\r\n    color: #333333;\r\n}\r\nbody .p-multiselect .p-multiselect-trigger {\r\n    background-color: #ffffff;\r\n    width: 2em;\r\n    line-height: 2em;\r\n    text-align: center;\r\n    padding: 0;\r\n    color: #848484;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-multiselect-panel {\r\n    padding: 0;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border-bottom: 1px solid #eaeaea;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container {\r\n    float: none;\r\n    width: 70%;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin-left: 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext {\r\n    padding: 0.429em;\r\n    padding-right: 2em;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {\r\n    color: #007ad9;\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    right: 0.5em;\r\n    left: auto;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-checkbox {\r\n    margin-right: 0.5em;\r\n    float: none;\r\n    vertical-align: middle;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-multiselect-close {\r\n    color: #848484;\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items {\r\n    padding: 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item {\r\n    margin: 0;\r\n    padding: 0.429em 0.857em;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {\r\n    color: #333333;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {\r\n    position: static;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin: 0 0.5em 0 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item label {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n}\r\nbody .p-listbox {\r\n    padding: 0;\r\n    min-width: 12em;\r\n    background: #ffffff;\r\n    border: 1px solid #a6a6a6;\r\n}\r\nbody .p-listbox .p-checkbox {\r\n    margin: 0 0.5em 0 0;\r\n}\r\nbody .p-listbox .p-listbox-header {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border-bottom: 1px solid #eaeaea;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-listbox .p-listbox-header .p-listbox-filter-container input {\r\n    padding: 0.429em;\r\n    padding-right: 2em;\r\n}\r\nbody .p-listbox .p-listbox-header .p-listbox-filter-container .p-listbox-filter-icon {\r\n    top: 50%;\r\n    left: auto;\r\n    margin-top: -0.5em;\r\n    right: 0.5em;\r\n    color: #007ad9;\r\n}\r\nbody .p-listbox .p-listbox-list {\r\n    background-color: #ffffff;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item {\r\n    margin: 0;\r\n    padding: 0.429em 0.857em;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item .p-checkbox {\r\n    position: static;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin: 0 0.5em 0 0;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item label {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n}\r\nbody .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {\r\n    color: #333333;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-listbox.p-disabled .p-checkbox-box:not(.p-disabled):not(.p-highlight):hover {\r\n    border: 1px solid #a6a6a6;\r\n}\r\nbody .p-listbox .p-listbox-footer {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border-top: 1px solid #eaeaea;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n}\r\nbody .p-editor-container .p-editor-toolbar {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n}\r\nbody .p-editor-container .p-editor-content {\r\n    border: 1px solid #c8c8c8;\r\n}\r\nbody .p-editor-container .p-editor-content .ql-editor {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n}\r\nbody .p-editor-container .ql-picker.ql-expanded .ql-picker-label {\r\n    color: #333333;\r\n}\r\nbody .p-editor-container .ql-stroke {\r\n    stroke: #333333;\r\n}\r\nbody .p-editor-container .ql-picker-label {\r\n    color: #333333;\r\n}\r\nbody .p-editor-container .ql-snow.ql-toolbar button:hover,\r\nbody .p-editor-container .ql-snow .ql-toolbar button:hover,\r\nbody .p-editor-container .ql-snow.ql-toolbar button.ql-active,\r\nbody .p-editor-container .ql-snow .ql-toolbar button.ql-active,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected {\r\n    color: #007ad9;\r\n}\r\nbody .p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar button:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar button.ql-active .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar button:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {\r\n    stroke: #007ad9;\r\n}\r\nbody .p-rating .p-rating-icon {\r\n    font-size: 20px;\r\n    text-align: center;\r\n    display: inline-block;\r\n    color: #333333;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-rating .p-rating-icon.p-rating-cancel {\r\n    color: #e4018d;\r\n}\r\nbody .p-rating .p-rating-icon:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon:hover {\r\n    color: #007ad9;\r\n}\r\nbody .p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon.p-rating-cancel:hover {\r\n    color: #b5019f;\r\n}\r\nbody .p-spinner .p-spinner-input {\r\n    padding-right: 2.429em;\r\n}\r\nbody .p-spinner .p-spinner-button {\r\n    width: 2em;\r\n}\r\nbody .p-spinner .p-spinner-button .p-spinner-button-icon {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin-top: -0.5em;\r\n    margin-left: -0.5em;\r\n    width: 1em;\r\n}\r\nbody .p-spinner .p-spinner-button.p-spinner-button {\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-spinner .p-spinner-button.p-spinner-button.p-spinner-button-up {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-spinner .p-spinner-button.p-spinner-button.p-spinner-button-down {\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-spinner .p-spinner-button.p-spinner-button:focus {\r\n    z-index: 1;\r\n}\r\nbody .p-fluid .p-spinner .p-spinner-input {\r\n    padding-right: 2.429em;\r\n}\r\nbody .p-fluid .p-spinner .p-spinner-button {\r\n    width: 2em;\r\n}\r\nbody .p-fluid .p-spinner .p-spinner-button .p-spinner-button-icon {\r\n    left: 50%;\r\n}\r\nbody .p-slider {\r\n    background-color: #c8c8c8;\r\n    border: 0 none;\r\n}\r\nbody .p-slider.p-slider-horizontal {\r\n    height: 0.286em;\r\n}\r\nbody .p-slider.p-slider-horizontal .p-slider-handle {\r\n    top: 50%;\r\n    margin-top: -0.5715em;\r\n}\r\nbody .p-slider.p-slider-vertical {\r\n    width: 0.286em;\r\n}\r\nbody .p-slider.p-slider-vertical .p-slider-handle {\r\n    left: 50%;\r\n    margin-left: -0.5715em;\r\n}\r\nbody .p-slider .p-slider-handle {\r\n    height: 1.143em;\r\n    width: 1.143em;\r\n    background-color: #ffffff;\r\n    border: 2px solid #666666;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    border-radius: 100%;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n}\r\nbody .p-slider .p-slider-handle:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-slider .p-slider-range {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-slider:not(.p-disabled) .p-slider-handle:hover {\r\n    border: 2px solid #007ad9;\r\n}\r\nbody .p-datepicker {\r\n    padding: 0.857em;\r\n    min-width: 20em;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #a6a6a6;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-datepicker:not(.p-datepicker-inline) {\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-datepicker:not(.p-disabled) .p-datepicker-header .p-datepicker-prev:hover,\r\nbody .p-datepicker:not(.p-disabled) .p-datepicker-header .p-datepicker-next:hover {\r\n    color: #007ad9;\r\n}\r\nbody .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-datepicker .p-datepicker-header {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-datepicker .p-datepicker-header .p-datepicker-prev,\r\nbody .p-datepicker .p-datepicker-header .p-datepicker-next {\r\n    cursor: pointer;\r\n    top: 0;\r\n    color: #a6a6a6;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datepicker .p-datepicker-header .p-datepicker-title {\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1;\r\n}\r\nbody .p-datepicker .p-datepicker-header .p-datepicker-title select {\r\n    margin-top: -0.35em;\r\n    margin-bottom: 0;\r\n}\r\nbody .p-datepicker table {\r\n    font-size: 14px;\r\n    margin: 0.857em 0 0 0;\r\n}\r\nbody .p-datepicker table th {\r\n    padding: 0.5em;\r\n}\r\nbody .p-datepicker table td {\r\n    padding: 0.5em;\r\n}\r\nbody .p-datepicker table td > span {\r\n    display: block;\r\n    text-align: center;\r\n    color: #333333;\r\n    cursor: pointer;\r\n    padding: 0.5em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-datepicker table td > span.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-datepicker table td.p-datepicker-today > span {\r\n    background-color: #d0d0d0;\r\n    color: #333333;\r\n}\r\nbody .p-datepicker table td.p-datepicker-today > span.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-datepicker .p-datepicker-buttonbar {\r\n    border-top: 1px solid #d8dae2;\r\n}\r\nbody .p-datepicker .p-timepicker {\r\n    border: 0 none;\r\n    border-top: 1px solid #d8dae2;\r\n    padding: 0.857em;\r\n}\r\nbody .p-datepicker .p-timepicker button {\r\n    color: #a6a6a6;\r\n    font-size: 1.286em;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datepicker .p-timepicker button:hover {\r\n    color: #007ad9;\r\n}\r\nbody .p-datepicker .p-timepicker span {\r\n    font-size: 1.286em;\r\n}\r\nbody .p-datepicker .p-monthpicker .p-monthpicker-month {\r\n    color: #333333;\r\n}\r\nbody .p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-datepicker.p-datepicker-timeonly {\r\n    padding: 0;\r\n}\r\nbody .p-datepicker.p-datepicker-timeonly .p-timepicker {\r\n    border-top: 0 none;\r\n}\r\nbody .p-datepicker.p-datepicker-multiple-month .p-datepicker-group {\r\n    border-right: 1px solid #d8dae2;\r\n    padding-right: 0.857em;\r\n    padding-left: 0.857em;\r\n    padding-top: 0;\r\n    padding-bottom: 0;\r\n}\r\nbody .p-datepicker.p-datepicker-multiple-month .p-datepicker-group:first-child {\r\n    padding-left: 0;\r\n}\r\nbody .p-datepicker.p-datepicker-multiple-month .p-datepicker-group:last-child {\r\n    padding-right: 0;\r\n    border-right: 0 none;\r\n}\r\nbody .p-calendar.p-calendar-w-btn .p-inputtext {\r\n    -moz-border-radius-topright: 0;\r\n    -webkit-border-top-right-radius: 0;\r\n    border-top-right-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n    border-right: 0 none;\r\n}\r\nbody .p-calendar.p-calendar-w-btn .p-inputtext:enabled:hover:not(.p-error), body .p-calendar.p-calendar-w-btn .p-inputtext:enabled:focus:not(.p-error) {\r\n    border-right: 0 none;\r\n}\r\nbody .p-calendar.p-calendar-w-btn .p-datepicker-trigger.p-button {\r\n    width: 2.357em;\r\n    -moz-border-radius-topleft: 0;\r\n    -webkit-border-top-left-radius: 0;\r\n    border-top-left-radius: 0;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n}\r\nbody .p-fluid .p-calendar.p-calendar-w-btn .p-inputtext {\r\n    width: calc(100% - 2.357em);\r\n}\r\nbody .p-fileupload .p-fileupload-buttonbar {\r\n    background-color: #f4f4f4;\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-fileupload .p-fileupload-buttonbar .p-button {\r\n    margin-right: 8px;\r\n}\r\nbody .p-fileupload .p-fileupload-buttonbar .p-button.p-fileupload-choose.p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-fileupload .p-fileupload-content {\r\n    background-color: #ffffff;\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-fileupload .p-progressbar {\r\n    top: 0;\r\n}\r\nbody .p-fileupload-choose:not(.p-disabled):hover {\r\n    background-color: #116fbf;\r\n    color: #ffffff;\r\n    border-color: #116fbf;\r\n}\r\nbody .p-fileupload-choose:not(.p-disabled):active {\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n    border-color: #005b9f;\r\n}\r\nbody .p-password-panel {\r\n    padding: 12px;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon {\r\n    border-color: #a6a6a6;\r\n    background-color: #eaeaea;\r\n    color: #848484;\r\n    padding: 0.429em;\r\n    min-width: 2em;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon:first-child {\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon:last-child {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon.p-inputgroup-addon-checkbox {\r\n    position: relative;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon.p-inputgroup-addon-checkbox .p-checkbox {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin-left: -10px;\r\n    margin-top: -10px;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon.p-inputgroup-addon-radiobutton {\r\n    position: relative;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon.p-inputgroup-addon-radiobutton .p-radiobutton {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin-left: -10px;\r\n    margin-top: -10px;\r\n}\r\nbody .p-inputgroup .p-button:first-child {\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .p-inputgroup .p-button:last-child {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-inputgroup .p-inputtext:focus {\r\n    z-index: 1;\r\n}\r\nbody .p-fluid .p-inputgroup .p-button {\r\n    width: auto;\r\n}\r\nbody .p-fluid .p-inputgroup .p-button.p-button-icon-only {\r\n    width: 2.357em;\r\n}\r\nbody ::-webkit-input-placeholder {\r\n    color: #666666;\r\n}\r\nbody :-moz-placeholder {\r\n    color: #666666;\r\n}\r\nbody ::-moz-placeholder {\r\n    color: #666666;\r\n}\r\nbody :-ms-input-placeholder {\r\n    color: #666666;\r\n}\r\nbody .p-inputtext.p-error,\r\nbody .p-dropdown.p-error,\r\nbody .p-autocomplete.p-error > .p-inputtext,\r\nbody .p-calendar.p-error > .p-inputtext,\r\nbody .p-chips.p-error > .p-inputtext,\r\nbody .p-checkbox.p-error > .p-checkbox-box,\r\nbody .p-radiobutton.p-error > .p-radiobutton-box,\r\nbody .p-inputswitch.p-error,\r\nbody .p-listbox.p-error,\r\nbody .p-multiselect.p-error,\r\nbody .p-spinner.p-error > .p-inputtext,\r\nbody .p-selectbutton.p-error > .p-button,\r\nbody .p-togglebutton.p-error > .p-button {\r\n    border: 1px solid #a80000;\r\n}\r\n\r\nbody .p-button {\r\n    margin: 0;\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n    font-size: 14px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-button:enabled:hover {\r\n    background-color: #116fbf;\r\n    color: #ffffff;\r\n    border-color: #116fbf;\r\n}\r\nbody .p-button:enabled:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-button:enabled:active {\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n    border-color: #005b9f;\r\n}\r\nbody .p-button.p-button-text-only .p-button-text {\r\n    padding: 0.429em 1em;\r\n}\r\nbody .p-button.p-button-text-icon-left .p-button-text {\r\n    padding: 0.429em 1em 0.429em 2.25em;\r\n}\r\nbody .p-button.p-button-text-icon-right .p-button-text {\r\n    padding: 0.429em 2.25em 0.429em 1em;\r\n}\r\nbody .p-button.p-button-icon-only {\r\n    width: 2.357em;\r\n}\r\nbody .p-button.p-button-icon-only .p-button-text {\r\n    padding: 0.429em;\r\n}\r\nbody .p-button.p-button-raised {\r\n    -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);\r\n    -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);\r\n    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);\r\n}\r\nbody .p-button.p-button-rounded {\r\n    -moz-border-radius: 15px;\r\n    -webkit-border-radius: 15px;\r\n    border-radius: 15px;\r\n}\r\nbody .p-fluid .p-button-icon-only {\r\n    width: 2.357em;\r\n}\r\nbody .p-togglebutton {\r\n    background-color: #dadada;\r\n    border: 1px solid #dadada;\r\n    color: #333333;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-togglebutton .p-button-icon-left {\r\n    color: #666666;\r\n}\r\nbody .p-togglebutton:not(.p-disabled):not(.p-highlight):hover {\r\n    background-color: #c8c8c8;\r\n    border-color: #c8c8c8;\r\n    color: #333333;\r\n}\r\nbody .p-togglebutton:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left {\r\n    color: #212121;\r\n}\r\nbody .p-togglebutton.p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-togglebutton.p-highlight {\r\n    background-color: #007ad9;\r\n    border-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-togglebutton.p-highlight .p-button-icon-left {\r\n    color: #ffffff;\r\n}\r\nbody .p-togglebutton.p-highlight:hover {\r\n    background-color: #116fbf;\r\n    border-color: #116fbf;\r\n    color: #ffffff;\r\n}\r\nbody .p-togglebutton.p-highlight:hover .p-button-icon-left {\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button {\r\n    background-color: #dadada;\r\n    border: 1px solid #dadada;\r\n    color: #333333;\r\n    outline: 0 none;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-selectbutton .p-button .p-button-icon-left {\r\n    color: #666666;\r\n}\r\nbody .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {\r\n    background-color: #c8c8c8;\r\n    border-color: #c8c8c8;\r\n    color: #333333;\r\n}\r\nbody .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left {\r\n    color: #212121;\r\n}\r\nbody .p-selectbutton .p-button.p-focus, body .p-selectbutton .p-button:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    z-index: 1;\r\n}\r\nbody .p-selectbutton .p-button.p-highlight {\r\n    background-color: #007ad9;\r\n    border-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button.p-highlight .p-button-icon-left {\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button.p-highlight:not(.p-disabled):hover {\r\n    background-color: #116fbf;\r\n    border-color: #116fbf;\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button.p-highlight:not(.p-disabled):hover .p-button-icon-left {\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button:first-child {\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .p-selectbutton .p-button:last-child {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-button {\r\n    border: 1px solid transparent;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-button:first-child {\r\n    -moz-border-radius-topright: 0;\r\n    -webkit-border-top-right-radius: 0;\r\n    border-top-right-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-button.p-splitbutton-menubutton {\r\n    -moz-border-radius-topleft: 0;\r\n    -webkit-border-top-left-radius: 0;\r\n    border-top-left-radius: 0;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-button:focus {\r\n    z-index: 1;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-menu {\r\n    min-width: 100%;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-splitbutton-menubutton .p-button-icon-left:before {\r\n    content: \"\\E902\";\r\n}\r\nbody .p-button.p-button-secondary, body .p-buttonset.p-button-secondary > .p-button {\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #f4f4f4;\r\n}\r\nbody .p-button.p-button-secondary:enabled:hover, body .p-buttonset.p-button-secondary > .p-button:enabled:hover {\r\n    background-color: #c8c8c8;\r\n    color: #333333;\r\n    border-color: #c8c8c8;\r\n}\r\nbody .p-button.p-button-secondary:enabled:focus, body .p-buttonset.p-button-secondary > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-button.p-button-secondary:enabled:active, body .p-buttonset.p-button-secondary > .p-button:enabled:active {\r\n    background-color: #a0a0a0;\r\n    color: #333333;\r\n    border-color: #a0a0a0;\r\n}\r\nbody .p-button.p-button-info, body .p-buttonset.p-button-info > .p-button {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n}\r\nbody .p-button.p-button-info:enabled:hover, body .p-buttonset.p-button-info > .p-button:enabled:hover {\r\n    background-color: #116fbf;\r\n    color: #ffffff;\r\n    border-color: #116fbf;\r\n}\r\nbody .p-button.p-button-info:enabled:focus, body .p-buttonset.p-button-info > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-button.p-button-info:enabled:active, body .p-buttonset.p-button-info > .p-button:enabled:active {\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n    border-color: #005b9f;\r\n}\r\nbody .p-button.p-button-success, body .p-buttonset.p-button-success > .p-button {\r\n    color: #ffffff;\r\n    background-color: #34A835;\r\n    border: 1px solid #34A835;\r\n}\r\nbody .p-button.p-button-success:enabled:hover, body .p-buttonset.p-button-success > .p-button:enabled:hover {\r\n    background-color: #107D11;\r\n    color: #ffffff;\r\n    border-color: #107D11;\r\n}\r\nbody .p-button.p-button-success:enabled:focus, body .p-buttonset.p-button-success > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #aae5aa;\r\n    -moz-box-shadow: 0 0 0 0.2em #aae5aa;\r\n    box-shadow: 0 0 0 0.2em #aae5aa;\r\n}\r\nbody .p-button.p-button-success:enabled:active, body .p-buttonset.p-button-success > .p-button:enabled:active {\r\n    background-color: #0C6B0D;\r\n    color: #ffffff;\r\n    border-color: #0C6B0D;\r\n}\r\nbody .p-button.p-button-warning, body .p-buttonset.p-button-warning > .p-button {\r\n    color: #333333;\r\n    background-color: #ffba01;\r\n    border: 1px solid #ffba01;\r\n}\r\nbody .p-button.p-button-warning:enabled:hover, body .p-buttonset.p-button-warning > .p-button:enabled:hover {\r\n    background-color: #ED990B;\r\n    color: #333333;\r\n    border-color: #ED990B;\r\n}\r\nbody .p-button.p-button-warning:enabled:focus, body .p-buttonset.p-button-warning > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #ffeab4;\r\n    -moz-box-shadow: 0 0 0 0.2em #ffeab4;\r\n    box-shadow: 0 0 0 0.2em #ffeab4;\r\n}\r\nbody .p-button.p-button-warning:enabled:active, body .p-buttonset.p-button-warning > .p-button:enabled:active {\r\n    background-color: #D38B10;\r\n    color: #333333;\r\n    border-color: #D38B10;\r\n}\r\nbody .p-button.p-button-danger, body .p-buttonset.p-button-danger > .p-button {\r\n    color: #ffffff;\r\n    background-color: #e91224;\r\n    border: 1px solid #e91224;\r\n}\r\nbody .p-button.p-button-danger:enabled:hover, body .p-buttonset.p-button-danger > .p-button:enabled:hover {\r\n    background-color: #c01120;\r\n    color: #ffffff;\r\n    border-color: #c01120;\r\n}\r\nbody .p-button.p-button-danger:enabled:focus, body .p-buttonset.p-button-danger > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #f9b4ba;\r\n    -moz-box-shadow: 0 0 0 0.2em #f9b4ba;\r\n    box-shadow: 0 0 0 0.2em #f9b4ba;\r\n}\r\nbody .p-button.p-button-danger:enabled:active, body .p-buttonset.p-button-danger > .p-button:enabled:active {\r\n    background-color: #a90000;\r\n    color: #ffffff;\r\n    border-color: #a90000;\r\n}\r\n\r\nbody .p-panel {\r\n    padding: 0;\r\n    border: 0 none;\r\n}\r\nbody .p-panel .p-panel-titlebar {\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n}\r\nbody .p-panel .p-panel-titlebar .p-panel-title {\r\n    vertical-align: middle;\r\n    font-weight: 700;\r\n}\r\nbody .p-panel .p-panel-titlebar .p-panel-titlebar-icon {\r\n    margin: 0.143em 0 0 0;\r\n    position: relative;\r\n    font-size: 14px;\r\n    color: #848484;\r\n    border: 1px solid transparent;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-panel .p-panel-titlebar .p-panel-titlebar-icon:hover {\r\n    color: #333333;\r\n}\r\nbody .p-panel .p-panel-titlebar .p-panel-titlebar-icon:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-panel .p-panel-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border-top: 0 none;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-panel .p-panel-footer {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border-top: 0 none;\r\n    margin: 0;\r\n}\r\nbody .p-fieldset {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-fieldset .p-fieldset-legend a {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    font-weight: 700;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-fieldset .p-fieldset-legend a .p-fieldset-toggler {\r\n    float: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin-right: 0.5em;\r\n    color: #848484;\r\n}\r\nbody .p-fieldset .p-fieldset-legend a .p-fieldset-legend-text {\r\n    padding: 0;\r\n}\r\nbody .p-fieldset .p-fieldset-legend a:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover {\r\n    background-color: #dbdbdb;\r\n    border: 1px solid #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover .p-fieldset-toggler {\r\n    color: #333333;\r\n}\r\nbody .p-fieldset .p-fieldset-content {\r\n    padding: 0;\r\n}\r\nbody .p-accordion .p-accordion-tab {\r\n    margin-bottom: 2px;\r\n}\r\nbody .p-accordion .p-accordion-header a {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    font-weight: 700;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-accordion .p-accordion-header a .p-accordion-toggle-icon {\r\n    color: #848484;\r\n}\r\nbody .p-accordion .p-accordion-header a .p-accordion-toggle-icon.pi-caret-right:before {\r\n    content: \"\\E901\";\r\n}\r\nbody .p-accordion .p-accordion-header a .p-accordion-toggle-icon.pi-caret-down:before {\r\n    content: \"\\E902\";\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled) a:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover a {\r\n    background-color: #dbdbdb;\r\n    border: 1px solid #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover a .p-accordion-toggle-icon {\r\n    color: #333333;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight {\r\n    margin-bottom: 0;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight a {\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n    color: #ffffff;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight a .p-accordion-toggle-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover a {\r\n    border: 1px solid #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover a .p-accordion-toggle-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-accordion .p-accordion-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    border-top: 0;\r\n    -moz-border-radius-topleft: 0;\r\n    -webkit-border-top-left-radius: 0;\r\n    border-top-left-radius: 0;\r\n    -moz-border-radius-topright: 0;\r\n    -webkit-border-top-right-radius: 0;\r\n    border-top-right-radius: 0;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-tabview.p-tabview-top, body .p-tabview.p-tabview-bottom, body .p-tabview.p-tabview-left, body .p-tabview.p-tabview-right {\r\n    border: 0 none;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav, body .p-tabview.p-tabview-bottom .p-tabview-nav, body .p-tabview.p-tabview-left .p-tabview-nav, body .p-tabview.p-tabview-right .p-tabview-nav {\r\n    padding: 0;\r\n    background: transparent;\r\n    border: 0 none;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a, body .p-tabview.p-tabview-bottom .p-tabview-nav li a, body .p-tabview.p-tabview-left .p-tabview-nav li a, body .p-tabview.p-tabview-right .p-tabview-nav li a {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    float: none;\r\n    display: inline-block;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a .p-tabview-left-icon, body .p-tabview.p-tabview-bottom .p-tabview-nav li a .p-tabview-left-icon, body .p-tabview.p-tabview-left .p-tabview-nav li a .p-tabview-left-icon, body .p-tabview.p-tabview-right .p-tabview-nav li a .p-tabview-left-icon {\r\n    margin-right: 0.5em;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a .p-tabview-right-icon, body .p-tabview.p-tabview-bottom .p-tabview-nav li a .p-tabview-right-icon, body .p-tabview.p-tabview-left .p-tabview-nav li a .p-tabview-right-icon, body .p-tabview.p-tabview-right .p-tabview-nav li a .p-tabview-right-icon {\r\n    margin-left: 0.5em;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a:not(.p-disabled):focus, body .p-tabview.p-tabview-bottom .p-tabview-nav li a:not(.p-disabled):focus, body .p-tabview.p-tabview-left .p-tabview-nav li a:not(.p-disabled):focus, body .p-tabview.p-tabview-right .p-tabview-nav li a:not(.p-disabled):focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li .p-tabview-close, body .p-tabview.p-tabview-bottom .p-tabview-nav li .p-tabview-close, body .p-tabview.p-tabview-left .p-tabview-nav li .p-tabview-close, body .p-tabview.p-tabview-right .p-tabview-nav li .p-tabview-close {\r\n    color: #848484;\r\n    margin: 0 0.5em 0 0;\r\n    vertical-align: middle;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a, body .p-tabview.p-tabview-bottom .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a, body .p-tabview.p-tabview-left .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a, body .p-tabview.p-tabview-right .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a {\r\n    background-color: #dbdbdb;\r\n    border: 1px solid #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-close, body .p-tabview.p-tabview-bottom .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-close, body .p-tabview.p-tabview-left .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-close, body .p-tabview.p-tabview-right .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-close {\r\n    color: #333333;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight a {\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight .p-tabview-close, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight .p-tabview-close, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight .p-tabview-close, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight .p-tabview-close {\r\n    color: #ffffff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight:hover a, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight:hover a, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight:hover a, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight:hover a {\r\n    border: 1px solid #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight:hover a .p-tabview-left-icon, body .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight:hover a .p-tabview-right-icon, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight:hover a .p-tabview-left-icon, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight:hover a .p-tabview-right-icon, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight:hover a .p-tabview-left-icon, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight:hover a .p-tabview-right-icon, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight:hover a .p-tabview-left-icon, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight:hover a .p-tabview-right-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-tabview-selected a, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-tabview-selected a, body .p-tabview.p-tabview-left .p-tabview-nav li.p-tabview-selected a, body .p-tabview.p-tabview-right .p-tabview-nav li.p-tabview-selected a {\r\n    cursor: pointer;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav {\r\n    margin-bottom: -1px;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a {\r\n    margin-right: 2px;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-tabview.p-tabview-bottom .p-tabview-nav {\r\n    margin-top: -1px;\r\n}\r\nbody .p-tabview.p-tabview-bottom .p-tabview-nav li a {\r\n    margin-right: 2px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-tabview.p-tabview-left .p-tabview-nav {\r\n    /*margin-right: -px;*/\r\n}\r\nbody .p-tabview.p-tabview-left .p-tabview-nav li a {\r\n    margin-bottom: 2px;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .p-tabview.p-tabview-right .p-tabview-nav {\r\n    margin-right: -1px;\r\n}\r\nbody .p-tabview.p-tabview-right .p-tabview-nav li a {\r\n    margin-bottom: 2px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-tabview .p-tabview-panels {\r\n    background-color: #ffffff;\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-tabview .p-tabview-panels .p-tabview-panel {\r\n    padding: 0;\r\n}\r\nbody .p-toolbar {\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-toolbar button {\r\n    vertical-align: middle;\r\n}\r\nbody .p-toolbar .p-toolbar-separator {\r\n    vertical-align: middle;\r\n    color: #848484;\r\n    margin: 0 0.5em;\r\n}\r\nbody .p-card {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);\r\n    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);\r\n    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\nbody .p-paginator {\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0;\r\n}\r\nbody .p-paginator .p-paginator-first,\r\nbody .p-paginator .p-paginator-prev,\r\nbody .p-paginator .p-paginator-next,\r\nbody .p-paginator .p-paginator-last {\r\n    color: #848484;\r\n    height: 2.286em;\r\n    min-width: 2.286em;\r\n    border: 0 none;\r\n    line-height: 2.286em;\r\n    padding: 0;\r\n    margin: 0;\r\n    vertical-align: top;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,\r\nbody .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,\r\nbody .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,\r\nbody .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {\r\n    background-color: #e0e0e0;\r\n    color: #333333;\r\n}\r\nbody .p-paginator .p-dropdown {\r\n    border: 0 none;\r\n}\r\nbody .p-paginator .p-dropdown .p-dropdown-trigger, body .p-paginator .p-dropdown .p-dropdown-label {\r\n    color: #848484;\r\n}\r\nbody .p-paginator .p-dropdown:hover .p-dropdown-trigger, body .p-paginator .p-dropdown:hover .p-dropdown-label {\r\n    color: #333333;\r\n}\r\nbody .p-paginator .p-paginator-first:before {\r\n    position: relative;\r\n    top: 1px;\r\n}\r\nbody .p-paginator .p-paginator-prev:before {\r\n    position: relative;\r\n}\r\nbody .p-paginator .p-paginator-next:before {\r\n    position: relative;\r\n    top: 1px;\r\n}\r\nbody .p-paginator .p-paginator-last:before {\r\n    position: relative;\r\n    top: 1px;\r\n}\r\nbody .p-paginator .p-paginator-current {\r\n    vertical-align: top;\r\n    display: inline-block;\r\n    height: 2.286em;\r\n    min-width: 2.286em;\r\n    border: 0 none;\r\n    line-height: 2.286em;\r\n}\r\nbody .p-paginator .p-paginator-pages {\r\n    vertical-align: top;\r\n    display: inline-block;\r\n    padding: 0;\r\n}\r\nbody .p-paginator .p-paginator-pages .p-paginator-page {\r\n    color: #848484;\r\n    height: 2.286em;\r\n    min-width: 2.286em;\r\n    border: 0 none;\r\n    line-height: 2.286em;\r\n    padding: 0;\r\n    margin: 0;\r\n    vertical-align: top;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {\r\n    background-color: #e0e0e0;\r\n    color: #333333;\r\n}\r\nbody .p-paginator .p-dropdown {\r\n    margin-left: 0.5em;\r\n    height: 2.286em;\r\n    min-width: auto;\r\n}\r\nbody .p-datatable .p-datatable-header,\r\nbody .p-datatable .p-datatable-footer {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    text-align: center;\r\n}\r\nbody .p-datatable .p-datatable-header {\r\n    border-bottom: 0 none;\r\n    font-weight: 700;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-datatable .p-datatable-footer {\r\n    border-top: 0 none;\r\n    font-weight: 700;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-datatable .p-datatable-thead > tr > th {\r\n    padding: 0.571em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    font-weight: 700;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    text-align: center;\r\n}\r\nbody .p-datatable .p-datatable-tfoot > tr > td {\r\n    padding: 0.571em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    font-weight: 700;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    text-align: center;\r\n}\r\nbody .p-datatable .p-sortable-column {\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datatable .p-sortable-column .p-sortable-column-icon {\r\n    color: #848484;\r\n}\r\nbody .p-datatable .p-sortable-column:not(.p-highlight):hover {\r\n    background-color: #e0e0e0;\r\n    color: #333333;\r\n}\r\nbody .p-datatable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {\r\n    color: #333333;\r\n}\r\nbody .p-datatable .p-sortable-column:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-datatable .p-sortable-column.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-editable-column input {\r\n    font-size: 14px;\r\n    \r\n}\r\nbody .p-datatable .p-datatable-tbody > tr {\r\n    background: #ffffff;\r\n    color: #333333;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr > td {\r\n    background: inherit;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.429em 0.857em;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr > td .p-row-toggler {\r\n    color: #848484;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr > td .p-row-toggler:hover {\r\n    color: #333333;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-highlight .p-row-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-highlight .p-row-toggler:hover {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-highlight-contextmenu {\r\n    background-color: #5ab7ff;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {\r\n    box-shadow: inset 0 2px 0 0 #007ad9;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {\r\n    box-shadow: inset 0 -2px 0 0 #007ad9;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even) {\r\n    background-color: #f9f9f9;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler:hover {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight-contextmenu {\r\n    background-color: #5ab7ff;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight-contextmenu .p-row-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight-contextmenu .p-row-toggler:hover {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):not(.p-highlight-contextmenu):hover {\r\n    cursor: pointer;\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-datatable .p-column-resizer-helper {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-datatable .p-datatable-scrollable-header,\r\nbody .p-datatable .p-datatable-scrollable-footer {\r\n    background-color: #f4f4f4;\r\n}\r\n@media screen and (max-width: 40em) {\r\n    body .p-datatable.p-datatable-responsive .p-paginator-top {\r\n        border-bottom: 1px solid #c8c8c8;\r\n    }\r\n    body .p-datatable.p-datatable-responsive .p-paginator-bottom {\r\n        border-top: 1px solid #c8c8c8;\r\n    }\r\n    body .p-datatable.p-datatable-responsive .p-datatable-tbody > tr > td {\r\n        border: 0 none;\r\n    }\r\n}\r\nbody .p-datagrid .p-datagrid-header {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-datagrid .p-datagrid-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-datagrid .p-datagrid-footer {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    border-top: 0 none;\r\n}\r\nbody .p-datalist .p-datalist-header {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-datalist .p-datalist-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-datalist .p-datalist-footer {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    border-top: 0 none;\r\n}\r\nbody .p-datascroller .p-datascroller-header {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-datascroller .p-datascroller-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-datascroller .p-datascroller-footer {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    border-top: 0 none;\r\n}\r\nbody .p-dataview .p-dataview-header {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-dataview .p-dataview-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-dataview .p-dataview-footer {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    border-top: 0 none;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .fc th {\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .fc td.ui-widget-content {\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n}\r\nbody .fc td.fc-head-container {\r\n    border: 1px solid #c8c8c8;\r\n}\r\nbody .fc .fc-row {\r\n    border-right: 1px solid #c8c8c8;\r\n}\r\nbody .fc .fc-event {\r\n    background-color: #116fbf;\r\n    border: 1px solid #116fbf;\r\n    color: #ffffff;\r\n}\r\nbody .fc .fc-toolbar .fc-button {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n    font-size: 14px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .fc .fc-toolbar .fc-button:enabled:hover {\r\n    background-color: #116fbf;\r\n    color: #ffffff;\r\n    border-color: #116fbf;\r\n}\r\nbody .fc .fc-toolbar .fc-button .fc-icon-chevron-left {\r\n    font-family: \"PrimeIcons\" !important;\r\n    text-indent: 0;\r\n}\r\nbody .fc .fc-toolbar .fc-button .fc-icon-chevron-left:before {\r\n    content: \"\\E900\";\r\n}\r\nbody .fc .fc-toolbar .fc-button .fc-icon-chevron-right {\r\n    font-family: \"PrimeIcons\" !important;\r\n    text-indent: 0;\r\n}\r\nbody .fc .fc-toolbar .fc-button .fc-icon-chevron-right:before {\r\n    content: \"\\E901\";\r\n}\r\nbody .fc .fc-toolbar .fc-button:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .fc .fc-toolbar .fc-button-group .fc-button {\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .fc .fc-toolbar .fc-button-group .fc-button:first-child {\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .fc .fc-toolbar .fc-button-group .fc-button:last-child {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .fc .fc-divider {\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #c8c8c8;\r\n}\r\nbody .p-fluid .fc .fc-toolbar .ui-button {\r\n    width: auto;\r\n}\r\nbody .p-picklist .p-picklist-buttons button {\r\n    font-size: 16px;\r\n}\r\nbody .p-picklist .p-picklist-caption {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-picklist .p-picklist-filter-container {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-picklist .p-picklist-filter-container input {\r\n    width: 100%;\r\n    padding-right: 2em;\r\n    text-indent: 0;\r\n}\r\nbody .p-picklist .p-picklist-filter-container .p-picklist-filter-icon {\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    left: auto;\r\n    right: 1.357em;\r\n    color: #007ad9;\r\n}\r\nbody .p-picklist .p-picklist-buttons {\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-picklist .p-picklist-list {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-item {\r\n    padding: 0.429em 0.857em;\r\n    margin: 0;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-item:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-item.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-droppoint-highlight {\r\n    background-color: #007ad9;\r\n}\r\n@media (max-width: 40em) {\r\n    body .p-picklist.p-picklist-responsive .p-picklist-buttons {\r\n        padding: 0.571em 1em;\r\n    }\r\n}\r\nbody .p-orderlist .p-orderlist-controls {\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-orderlist .p-orderlist-controls button {\r\n    font-size: 16px;\r\n}\r\nbody .p-orderlist .p-orderlist-caption {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-orderlist .p-orderlist-filter-container {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-orderlist .p-orderlist-filter-container input {\r\n    width: 100%;\r\n    padding-right: 2em;\r\n    text-indent: 0;\r\n}\r\nbody .p-orderlist .p-orderlist-filter-container .p-orderlist-filter-icon {\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    left: auto;\r\n    right: 1.357em;\r\n    color: #007ad9;\r\n}\r\nbody .p-orderlist .p-orderlist-list {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-item {\r\n    padding: 0.429em 0.857em;\r\n    margin: 0;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-item:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-droppoint-highlight {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-tree {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tree .p-tree-container {\r\n    padding: 0.286em;\r\n    margin: 0;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode {\r\n    padding: 0.143em 0;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content {\r\n    padding: 0;\r\n    border: 1px solid transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {\r\n    vertical-align: middle;\r\n    display: inline-block;\r\n    float: none;\r\n    margin: 0 0.286em 0 0;\r\n    color: #848484;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler b .p-tree-toggler-icon {\r\n    line-height: 1.25em;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-treenode-icon {\r\n    vertical-align: middle;\r\n    display: inline-block;\r\n    margin: 0 0.286em 0 0;\r\n    color: #848484;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-treenode-label {\r\n    margin: 0;\r\n    vertical-align: middle;\r\n    display: inline-block;\r\n    padding: 0.286em 0;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox {\r\n    margin: 0 0.286em 0 0;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-tree-toggler,\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-treenode-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-checkbox .p-checkbox-box {\r\n    border-color: #ffffff;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight-contextmenu {\r\n    border: 1px dashed #007ad9;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover .p-treenode-icon {\r\n    color: #333333;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content > span {\r\n    line-height: inherit;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-dragover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode-droppoint.p-treenode-droppoint-active {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-tree.p-tree-horizontal {\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content .p-checkbox .p-icon {\r\n    color: #007ad9;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content .p-treenode-label:not(.p-highlight):hover {\r\n    background-color: inherit;\r\n    color: inherit;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-tree .p-tree-filter-container .p-tree-filter {\r\n    width: 100%;\r\n    padding-right: 2em;\r\n}\r\nbody .p-tree .p-tree-filter-container .p-tree-filter-icon {\r\n    top: 50%;\r\n    left: auto;\r\n    margin-top: -0.5em;\r\n    right: 0.8em;\r\n    color: #007ad9;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content.p-highlight .p-node-toggler i {\r\n    color: #00325a;\r\n}\r\nbody .p-organizationchart .p-organizationchart-line-down {\r\n    background-color: #c8c8c8;\r\n}\r\nbody .p-organizationchart .p-organizationchart-line-left {\r\n    border-right: 1px solid #c8c8c8;\r\n    border-color: #c8c8c8;\r\n}\r\nbody .p-organizationchart .p-organizationchart-line-top {\r\n    border-top: 1px solid #c8c8c8;\r\n    border-color: #c8c8c8;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content .p-node-toggler {\r\n    bottom: -0.7em;\r\n    margin-left: -0.46em;\r\n    color: #848484;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content .p-node-toggler:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-treetable .p-treetable-header,\r\nbody .p-treetable .p-treetable-footer {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    text-align: center;\r\n}\r\nbody .p-treetable .p-treetable-header {\r\n    border-bottom: 0 none;\r\n    font-weight: 700;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-treetable .p-treetable-footer {\r\n    border-top: 0 none;\r\n    font-weight: 700;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-treetable .p-treetable-thead > tr > th {\r\n    padding: 0.571em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    font-weight: 700;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    text-align: center;\r\n}\r\nbody .p-treetable .p-treetable-tfoot > tr > td {\r\n    padding: 0.571em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    font-weight: 700;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    text-align: center;\r\n}\r\nbody .p-treetable .p-sortable-column {\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-treetable .p-sortable-column .p-sortable-column-icon {\r\n    color: #848484;\r\n}\r\nbody .p-treetable .p-sortable-column:not(.p-highlight):hover {\r\n    background-color: #e0e0e0;\r\n    color: #333333;\r\n}\r\nbody .p-treetable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {\r\n    color: #333333;\r\n}\r\nbody .p-treetable .p-sortable-column:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-treetable .p-sortable-column.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-sortable-column.p-highlight .p-sortable-column-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-editable-column input {\r\n    font-size: 14px;\r\n    \r\n}\r\nbody .p-treetable .p-treetable-tbody > tr {\r\n    background: #ffffff;\r\n    color: #333333;\r\n    -moz-transition: background-color 0.2s;\r\n    -o-transition: background-color 0.2s;\r\n    -webkit-transition: background-color 0.2s;\r\n    transition: background-color 0.2s;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr > td {\r\n    background: inherit;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.429em 0.857em;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {\r\n    color: #848484;\r\n    vertical-align: middle;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr.p-highlight .p-treetable-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr.p-highlight-contextmenu {\r\n    background-color: #5ab7ff;\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr.p-highlight-contextmenu .p-treetable-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):not(.p-highlight-contextmenu):hover {\r\n    cursor: pointer;\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):not(.p-highlight-contextmenu):hover .p-treetable-toggler {\r\n    color: #333333;\r\n}\r\nbody .p-treetable .p-column-resizer-helper {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-treetable .p-treetable-scrollable-header,\r\nbody .p-treetable .p-treetable-scrollable-footer {\r\n    background-color: #f4f4f4;\r\n}\r\nbody .p-carousel .p-carousel-content .p-carousel-prev,\r\nbody .p-carousel .p-carousel-content .p-carousel-next {\r\n    background-color: #ffffff;\r\n    border: solid 1px rgba(178, 193, 205, 0.64);\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n    margin: 0.2em;\r\n    color: #333333;\r\n    -moz-transition: color 0.2s;\r\n    -o-transition: color 0.2s;\r\n    -webkit-transition: color 0.2s;\r\n    transition: color 0.2s;\r\n}\r\nbody .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,\r\nbody .p-carousel .p-carousel-content .p-carousel-next:not(.p-disabled):hover {\r\n    background-color: #ffffff;\r\n    color: #007ad9;\r\n    /*border-color: solid 1px rgba(178, 193, 205, 0.64);*/\r\n}\r\nbody .p-carousel .p-carousel-dots-container .p-carousel-dot-item .p-carousel-dot-icon {\r\n    width: 20px;\r\n    height: 6px;\r\n    background-color: #b2c1cd;\r\n    margin: 0 0.2em;\r\n}\r\nbody .p-carousel .p-carousel-dots-container .p-carousel-dot-item .p-carousel-dot-icon::before {\r\n    content: \" \";\r\n}\r\nbody .p-carousel .p-carousel-dots-container .p-carousel-dot-item.p-highlight .p-carousel-dot-icon {\r\n    background-color: #007ad9;\r\n}\r\n\r\nbody .p-messages {\r\n    margin: 1em 0;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-messages .p-messages-wrapper {\r\n    padding: 1em;\r\n}\r\nbody .p-messages.p-messages-info {\r\n    background-color: #7fbcec;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-info .p-messages-icon {\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-info .p-messages-close {\r\n    background-color: #7fbcec;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-success {\r\n    background-color: #b7d8b7;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-success .p-messages-icon {\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-success .p-messages-close {\r\n    background-color: #b7d8b7;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-warn {\r\n    background-color: #ffe399;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-warn .p-messages-icon {\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-warn .p-messages-close {\r\n    background-color: #ffe399;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-error {\r\n    background-color: #f8b7bd;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-error .p-messages-icon {\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-error .p-messages-close {\r\n    background-color: #f8b7bd;\r\n    color: #212121;\r\n}\r\nbody .p-messages .p-messages-close {\r\n    top: -0.769em;\r\n    right: -0.769em;\r\n    width: 1.538em;\r\n    height: 1.538em;\r\n    line-height: 1.538em;\r\n    text-align: center;\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n}\r\nbody .p-messages .p-messages-close .p-messages-close-icon {\r\n    line-height: inherit;\r\n    font-size: 1.5em;\r\n}\r\nbody .p-messages .p-messages-close:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-messages .p-messages-icon {\r\n    font-size: 2em;\r\n}\r\nbody .p-message {\r\n    padding: 0.429em;\r\n    margin: 0;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-message.p-message-info {\r\n    background-color: #7fbcec;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-info .p-message-icon {\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-success {\r\n    background-color: #b7d8b7;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-success .p-message-icon {\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-warn {\r\n    background-color: #ffe399;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-warn .p-message-icon {\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-error {\r\n    background-color: #f8b7bd;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-error .p-message-icon {\r\n    color: #212121;\r\n}\r\nbody .p-message .p-message-icon {\r\n    font-size: 1.25em;\r\n}\r\nbody .p-message .p-message-text {\r\n    font-size: 1em;\r\n}\r\nbody .p-growl {\r\n    top: 70px;\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\r\n}\r\nbody .p-growl .p-growl-item-container {\r\n    margin: 0 0 1em 0;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-growl .p-growl-item-container .p-growl-item {\r\n    padding: 1em;\r\n}\r\nbody .p-growl .p-growl-item-container .p-growl-item .p-growl-message {\r\n    margin: 0 0 0 4em;\r\n}\r\nbody .p-growl .p-growl-item-container .p-growl-item .p-growl-image {\r\n    font-size: 2.571em;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-info {\r\n    background-color: #7fbcec;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-info .p-growl-image,\r\nbody .p-growl .p-growl-item-container.p-growl-message-info .p-growl-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-success {\r\n    background-color: #b7d8b7;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-success .p-growl-image,\r\nbody .p-growl .p-growl-item-container.p-growl-message-success .p-growl-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-warn {\r\n    background-color: #ffe399;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-warn .p-growl-image,\r\nbody .p-growl .p-growl-item-container.p-growl-message-warn .p-growl-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-error {\r\n    background-color: #f8b7bd;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-error .p-growl-image,\r\nbody .p-growl .p-growl-item-container.p-growl-message-error .p-growl-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-toast {\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\r\n}\r\nbody .p-toast .p-toast-item-container {\r\n    margin: 0 0 1em 0;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-toast .p-toast-item-container .p-toast-item {\r\n    padding: 1em;\r\n}\r\nbody .p-toast .p-toast-item-container .p-toast-item .p-toast-message {\r\n    margin: 0 0 0 4em;\r\n}\r\nbody .p-toast .p-toast-item-container .p-toast-item .p-toast-image {\r\n    font-size: 2.571em;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-info {\r\n    background-color: #7fbcec;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-info .p-toast-image,\r\nbody .p-toast .p-toast-item-container.p-toast-message-info .p-toast-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-success {\r\n    background-color: #b7d8b7;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-success .p-toast-image,\r\nbody .p-toast .p-toast-item-container.p-toast-message-success .p-toast-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-warn {\r\n    background-color: #ffe399;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-warn .p-toast-image,\r\nbody .p-toast .p-toast-item-container.p-toast-message-warn .p-toast-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-error {\r\n    background-color: #f8b7bd;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-error .p-toast-image,\r\nbody .p-toast .p-toast-item-container.p-toast-message-error .p-toast-icon-close {\r\n    color: #212121;\r\n}\r\n\r\nbody .p-component-overlay {\r\n    background-color: rgba(0, 0, 0, 0.4);\r\n}\r\nbody .p-overlaypanel {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-overlaypanel .p-overlaypanel-content {\r\n    padding: 1em;\r\n}\r\nbody .p-overlaypanel .p-overlaypanel-close {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n    width: 1.538em;\r\n    height: 1.538em;\r\n    line-height: 1.538em;\r\n    text-align: center;\r\n    position: absolute;\r\n    top: -0.769em;\r\n    right: -0.769em;\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-overlaypanel .p-overlaypanel-close:hover {\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-overlaypanel .p-overlaypanel-close > span {\r\n    line-height: inherit;\r\n}\r\nbody .p-overlaypanel:after {\r\n    border-color: rgba(255, 255, 255, 0);\r\n    border-bottom-color: #ffffff;\r\n}\r\nbody .p-overlaypanel:before {\r\n    border-color: rgba(200, 200, 200, 0);\r\n    border-bottom-color: #c8c8c8;\r\n}\r\nbody .p-overlaypanel.p-overlaypanel-flipped:after {\r\n    border-top-color: #ffffff;\r\n}\r\nbody .p-overlaypanel.p-overlaypanel-flipped:before {\r\n    border-top-color: #c8c8c8;\r\n}\r\nbody .p-dialog {\r\n    padding: 0;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-dialog .p-dialog-titlebar {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    padding: 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-dialog .p-dialog-titlebar .p-dialog-title {\r\n    margin: 0;\r\n    float: none;\r\n    font-weight: 700;\r\n}\r\nbody .p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon {\r\n    color: #848484;\r\n    border: 0 none;\r\n    padding: 0;\r\n    margin-left: 0.5em;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon:hover {\r\n    color: #333333;\r\n}\r\nbody .p-dialog .p-dialog-content {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 1em;\r\n}\r\nbody .p-dialog .p-dialog-footer {\r\n    border: 1px solid #c8c8c8;\r\n    border-top: 0 none;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    margin: 0;\r\n    text-align: right;\r\n}\r\nbody .p-dialog .p-dialog-footer button {\r\n    margin: 0 0.5em 0 0;\r\n    width: auto;\r\n}\r\nbody .p-dialog.p-confirm-dialog .p-dialog-content {\r\n    padding: 1.5em;\r\n}\r\nbody .p-dialog.p-confirm-dialog .p-dialog-content > span {\r\n    float: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    line-height: 14px;\r\n    margin: 0;\r\n}\r\nbody .p-dialog.p-confirm-dialog .p-dialog-content > span.p-icon {\r\n    margin-right: 0.35em;\r\n    font-size: 16px;\r\n}\r\nbody .p-sidebar {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-sidebar .p-sidebar-close {\r\n    color: #848484;\r\n}\r\nbody .p-sidebar .p-sidebar-close:hover {\r\n    color: #333333;\r\n}\r\nbody .p-tooltip .p-tooltip-text {\r\n    background-color: #333333;\r\n    color: #ffffff;\r\n    padding: 0.429em;\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tooltip.p-tooltip-right .p-tooltip-arrow {\r\n    border-right-color: #333333;\r\n}\r\nbody .p-tooltip.p-tooltip-left .p-tooltip-arrow {\r\n    border-left-color: #333333;\r\n}\r\nbody .p-tooltip.p-tooltip-top .p-tooltip-arrow {\r\n    border-top-color: #333333;\r\n}\r\nbody .p-tooltip.p-tooltip-bottom .p-tooltip-arrow {\r\n    border-bottom-color: #333333;\r\n}\r\nbody .p-lightbox {\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-lightbox .p-lightbox-caption {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n}\r\nbody .p-lightbox .p-lightbox-caption .p-lightbox-caption-text {\r\n    color: #333333;\r\n    margin: 0;\r\n}\r\nbody .p-lightbox .p-lightbox-caption .p-lightbox-close {\r\n    padding: 0;\r\n    color: #848484;\r\n    -moz-transition: color 0.2s;\r\n    -o-transition: color 0.2s;\r\n    -webkit-transition: color 0.2s;\r\n    transition: color 0.2s;\r\n}\r\nbody .p-lightbox .p-lightbox-caption .p-lightbox-close:hover {\r\n    color: #333333;\r\n}\r\nbody .p-lightbox .p-lightbox-content-wrapper {\r\n    overflow: hidden;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 0 none;\r\n    padding: 0;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-lightbox .p-lightbox-content-wrapper .p-lightbox-nav-left, body .p-lightbox .p-lightbox-content-wrapper .p-lightbox-nav-right {\r\n    -moz-transition: all 0.2s;\r\n    -o-transition: all 0.2s;\r\n    -webkit-transition: all 0.2s;\r\n    transition: all 0.2s;\r\n    font-size: 3em;\r\n    color: #ffffff;\r\n    margin-top: -0.5em;\r\n}\r\nbody .p-lightbox .p-lightbox-content-wrapper .p-lightbox-nav-left:hover, body .p-lightbox .p-lightbox-content-wrapper .p-lightbox-nav-right:hover {\r\n    -webkit-transform: scale(1.2);\r\n    -moz-transform: scale(1.2);\r\n    -o-transform: scale(1.2);\r\n    -ms-transform: scale(1.2);\r\n    transform: scale(1.2);\r\n}\r\nbody .p-lightbox .p-lightbox-content-wrapper .p-lightbox-content.p-lightbox-loading ~ a {\r\n    display: none;\r\n}\r\n\r\nbody .p-breadcrumb {\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-breadcrumb ul li .p-menuitem-link {\r\n    color: #333333;\r\n    margin: 0;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-breadcrumb ul li .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-breadcrumb ul li.p-breadcrumb-chevron {\r\n    margin: 0 0.5em 0 0.5em;\r\n    color: #848484;\r\n}\r\nbody .p-breadcrumb ul li:first-child a {\r\n    color: #848484;\r\n    margin: 0;\r\n}\r\nbody .p-breadcrumb ul li .p-menuitem-icon {\r\n    color: #848484;\r\n}\r\nbody .p-steps {\r\n    position: relative;\r\n}\r\nbody .p-steps .p-steps-item {\r\n    background-color: transparent;\r\n    text-align: center;\r\n}\r\nbody .p-steps .p-steps-item .p-menuitem-link {\r\n    display: inline-block;\r\n    text-align: center;\r\n    background-color: transparent;\r\n    overflow: hidden;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-steps .p-steps-item .p-menuitem-link .p-steps-number {\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n    display: inline-block;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    position: relative;\r\n    top: 16px;\r\n    margin-bottom: 14px;\r\n    width: 28px;\r\n    height: 28px;\r\n    font-size: 16px;\r\n    line-height: 24px;\r\n    text-align: center;\r\n}\r\nbody .p-steps .p-steps-item .p-menuitem-link .p-steps-title {\r\n    display: block;\r\n    margin-top: 6px;\r\n    color: #848484;\r\n}\r\nbody .p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-steps .p-steps-item.p-highlight .p-steps-number {\r\n    background: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-steps .p-steps-item.p-highlight .p-steps-title {\r\n    font-weight: 700;\r\n    color: #333333;\r\n}\r\nbody .p-steps .p-steps-item:last-child .p-menuitem-link {\r\n    display: block;\r\n}\r\nbody .p-steps:before {\r\n    content: \" \";\r\n    border-top: 1px solid #c8c8c8;\r\n    width: 100%;\r\n    top: 45%;\r\n    left: 0;\r\n    display: block;\r\n    position: absolute;\r\n}\r\nbody .p-menu .p-menuitem-link,\r\nbody .p-menubar .p-menuitem-link,\r\nbody .p-tieredmenu .p-menuitem-link,\r\nbody .p-contextmenu .p-menuitem-link,\r\nbody .p-megamenu .p-menuitem-link,\r\nbody .p-slidemenu .p-menuitem-link {\r\n    padding: 0.714em 0.857em;\r\n    color: #333333;\r\n    font-weight: normal;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-menu .p-menuitem-link .p-menuitem-text,\r\nbody .p-menubar .p-menuitem-link .p-menuitem-text,\r\nbody .p-tieredmenu .p-menuitem-link .p-menuitem-text,\r\nbody .p-contextmenu .p-menuitem-link .p-menuitem-text,\r\nbody .p-megamenu .p-menuitem-link .p-menuitem-text,\r\nbody .p-slidemenu .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-menu .p-menuitem-link .p-menuitem-icon,\r\nbody .p-menubar .p-menuitem-link .p-menuitem-icon,\r\nbody .p-tieredmenu .p-menuitem-link .p-menuitem-icon,\r\nbody .p-contextmenu .p-menuitem-link .p-menuitem-icon,\r\nbody .p-megamenu .p-menuitem-link .p-menuitem-icon,\r\nbody .p-slidemenu .p-menuitem-link .p-menuitem-icon {\r\n    color: #333333;\r\n    margin-right: 0.5em;\r\n}\r\nbody .p-menu .p-menuitem-link:hover,\r\nbody .p-menubar .p-menuitem-link:hover,\r\nbody .p-tieredmenu .p-menuitem-link:hover,\r\nbody .p-contextmenu .p-menuitem-link:hover,\r\nbody .p-megamenu .p-menuitem-link:hover,\r\nbody .p-slidemenu .p-menuitem-link:hover {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-menu .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-menubar .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-tieredmenu .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-contextmenu .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-megamenu .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-slidemenu .p-menuitem-link:hover .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-menu .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-menubar .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-tieredmenu .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-contextmenu .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-megamenu .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-slidemenu .p-menuitem-link:hover .p-menuitem-icon {\r\n    color: #333333;\r\n}\r\nbody .p-menu .p-menuitem-link:focus,\r\nbody .p-menubar .p-menuitem-link:focus,\r\nbody .p-tieredmenu .p-menuitem-link:focus,\r\nbody .p-contextmenu .p-menuitem-link:focus,\r\nbody .p-megamenu .p-menuitem-link:focus,\r\nbody .p-slidemenu .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-menu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-menu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-menu.p-menu-overlay {\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-menu .p-submenu-header {\r\n    margin: 0;\r\n    padding: 0.714em 0.857em;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    font-weight: 700;\r\n    border: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-menu .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-menubar {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {\r\n    padding: 0.714em 0.857em;\r\n}\r\nbody .p-menubar .p-submenu-list {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-menubar .p-submenu-list .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-menubar .p-submenu-list .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-menubar .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-contextmenu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-contextmenu .p-submenu-list {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-contextmenu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-contextmenu .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-contextmenu .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-tieredmenu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tieredmenu .p-submenu-list {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-tieredmenu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-tieredmenu .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-tieredmenu .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-tieredmenu.p-menu-overlay {\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-slidemenu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-slidemenu .p-submenu-list {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 0 none;\r\n}\r\nbody .p-slidemenu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-slidemenu .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-slidemenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-slidemenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-slidemenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-slidemenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-slidemenu .p-slidemenu-backward {\r\n    margin: 0;\r\n    padding: 0.571em 1em;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    font-weight: 700;\r\n    border: 0 none;\r\n}\r\nbody .p-slidemenu .p-slidemenu-backward:hover {\r\n    background-color: #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-slidemenu .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-slidemenu.p-menu-overlay {\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-tabmenu {\r\n    border: 0 none;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav {\r\n    padding: 0;\r\n    background: transparent;\r\n    border-bottom: 1px solid #c8c8c8;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav:after {\r\n    content: \"\";\r\n    display: table;\r\n    clear: both;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {\r\n    margin-bottom: -1px;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    margin-right: 2px;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {\r\n    color: #848484;\r\n    margin-right: 0.5em;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {\r\n    background-color: #dbdbdb;\r\n    border: 1px solid #dbdbdb;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link .p-menuitem-icon {\r\n    color: #333333;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link .p-menuitem-text {\r\n    color: #ffffff;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link .p-menuitem-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-megamenu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-megamenu .p-megamenu-submenu-header {\r\n    margin: 0;\r\n    padding: 0.571em 1em;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    font-weight: 700;\r\n    border: 0 none;\r\n}\r\nbody .p-megamenu .p-megamenu-panel {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-megamenu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-megamenu .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-megamenu.p-megamenu-vertical .p-megamenu-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-panelmenu .p-icon {\r\n    position: static;\r\n}\r\nbody .p-panelmenu .p-panelmenu-panel .p-panelmenu-header {\r\n    margin-top: 2px;\r\n}\r\nbody .p-panelmenu .p-panelmenu-panel:first-child .p-panelmenu-header {\r\n    margin-top: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header {\r\n    padding: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    padding: 0.714em 0.857em;\r\n    font-weight: 700;\r\n    position: static;\r\n    font-size: 14px;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {\r\n    color: #848484;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon.pi-caret-right:before {\r\n    content: \"\\E901\";\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon.pi-caret-down:before {\r\n    content: \"\\E902\";\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    z-index: 100;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header:not(.p-highlight) > a:hover {\r\n    outline: 0 none;\r\n    border: 1px solid #dbdbdb;\r\n    background-color: #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header:not(.p-highlight) > a:hover .p-panelmenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight {\r\n    margin-bottom: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight > a {\r\n    border: 1px solid #007ad9;\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight > a .p-panelmenu-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight > a:hover {\r\n    outline: 0 none;\r\n    border: 1px solid #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight > a:hover .p-panelmenu-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-panelmenu .p-panelmenu-panel:first-child {\r\n    margin-top: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    margin-top: 0;\r\n    position: static;\r\n    border-top: 0 none;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link {\r\n    padding: 0.714em 0.857em;\r\n    color: #333333;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:hover {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:hover .p-menuitem-icon, body .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:hover .p-panelmenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:hover .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\n\r\nbody .p-progressbar {\r\n    border: 0 none;\r\n    height: 24px;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-progressbar .p-progressbar-value {\r\n    border: 0 none;\r\n    margin: 0;\r\n    background: #007ad9;\r\n}\r\nbody .p-progressbar .p-progressbar-label {\r\n    margin-top: 0;\r\n    color: #333333;\r\n    line-height: 24px;\r\n}\r\nbody .p-galleria .p-galleria-nav-prev,\r\nbody .p-galleria .p-galleria-nav-next {\r\n    -moz-transition: all 0.2s;\r\n    -o-transition: all 0.2s;\r\n    -webkit-transition: all 0.2s;\r\n    transition: all 0.2s;\r\n    position: absolute;\r\n    color: #848484;\r\n}\r\nbody .p-galleria .p-galleria-nav-prev:hover,\r\nbody .p-galleria .p-galleria-nav-next:hover {\r\n    -webkit-transform: scale(1.2);\r\n    -moz-transform: scale(1.2);\r\n    -o-transform: scale(1.2);\r\n    -ms-transform: scale(1.2);\r\n    transform: scale(1.2);\r\n}\r\nbody .p-galleria .p-galleria-nav-prev {\r\n    font-size: 16px;\r\n}\r\nbody .p-galleria .p-galleria-nav-next {\r\n    font-size: 16px;\r\n}\r\nbody .p-terminal {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-terminal .p-terminal-input {\r\n    font-size: 14px;\r\n    \r\n    height: 16px;\r\n}\r\nbody .p-terminal .p-terminal-command {\r\n    height: 16px;\r\n}\r\nbody .p-inplace {\r\n    min-height: 2.357em;\r\n}\r\nbody .p-inplace .p-inplace-display {\r\n    padding: 0.429em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s;\r\n    -o-transition: background-color 0.2s;\r\n    -webkit-transition: background-color 0.2s;\r\n    transition: background-color 0.2s;\r\n}\r\nbody .p-inplace .p-inplace-display:not(.p-disabled):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-fluid .p-inplace.p-inplace-closable .p-inplace-content > :first-child {\r\n    display: inline-block;\r\n    width: calc(100% - 2.357em);\r\n}\r\n\r\n\r\n\r\n\r\n/*TODO tranfer file to resource*/\r\n\r\n.highcharts-credits{\r\n    display: none;\r\n}\r\n/*.subheader-content-container{*/\r\n/*min-width: 310px;*/\r\n/*height: 400px;*/\r\n/*margin: 0 auto;*/\r\n/*width: 50%;*/\r\n/*border: 1px solid #1d7ec1;*/\r\n/*}*/\r\n\r\n/*/////////////////////////*/\r\n\r\n\r\n/**\r\n*\r\n*\tName:\t\t\tIRAN Sans-Serif Font\r\n*\tVersion:\t\t4.0\r\n*\tAuthor:\t\t\tMoslem Ebrahimi (moslemebrahimi.com)\r\n*\tCreated on:\t\tDec 25, 2012\r\n*\tUpdated on:\t\tDec 12, 2015\r\n*\tWebsite:\t\thttp://fontiran.com\r\n*\tCopyright:\t\tCommercial/Proprietary Software\r\n--------------------------------------------------------------------------------------\r\nفونت های ایران سن سریف یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید\r\n--------------------------------------------------------------------------------------\r\nIRAN Sans-serif fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com\r\n--------------------------------------------------------------------------------------\r\nThis set of fonts are used in this project under the license: (.....)\r\n--------------------------------------------------------------------------------------\r\n*\r\n**/\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Bold.eot */ "./resources/fonts/eot/IRANSansWeb_Bold.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Bold.eot */ "./resources/fonts/eot/IRANSansWeb_Bold.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_Bold.woff2 */ "./resources/fonts/woff2/IRANSansWeb_Bold.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_Bold.woff */ "./resources/fonts/woff/IRANSansWeb_Bold.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_Bold.ttf */ "./resources/fonts/ttf/IRANSansWeb_Bold.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: 500;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Medium.eot */ "./resources/fonts/eot/IRANSansWeb_Medium.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Medium.eot */ "./resources/fonts/eot/IRANSansWeb_Medium.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_Medium.woff2 */ "./resources/fonts/woff2/IRANSansWeb_Medium.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_Medium.woff */ "./resources/fonts/woff/IRANSansWeb_Medium.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_Medium.ttf */ "./resources/fonts/ttf/IRANSansWeb_Medium.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: 300;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Light.eot */ "./resources/fonts/eot/IRANSansWeb_Light.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Light.eot */ "./resources/fonts/eot/IRANSansWeb_Light.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_Light.woff2 */ "./resources/fonts/woff2/IRANSansWeb_Light.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_Light.woff */ "./resources/fonts/woff/IRANSansWeb_Light.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_Light.ttf */ "./resources/fonts/ttf/IRANSansWeb_Light.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: 200;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_UltraLight.eot */ "./resources/fonts/eot/IRANSansWeb_UltraLight.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_UltraLight.eot */ "./resources/fonts/eot/IRANSansWeb_UltraLight.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_UltraLight.woff2 */ "./resources/fonts/woff2/IRANSansWeb_UltraLight.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_UltraLight.woff */ "./resources/fonts/woff/IRANSansWeb_UltraLight.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_UltraLight.ttf */ "./resources/fonts/ttf/IRANSansWeb_UltraLight.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb.eot */ "./resources/fonts/eot/IRANSansWeb.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb.eot */ "./resources/fonts/eot/IRANSansWeb.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb.woff2 */ "./resources/fonts/woff2/IRANSansWeb.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb.woff */ "./resources/fonts/woff/IRANSansWeb.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb.ttf */ "./resources/fonts/ttf/IRANSansWeb.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Bold.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Bold.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Bold.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Bold.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_Bold.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_Bold.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_Bold.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_Bold.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_Bold.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_Bold.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: 500;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Medium.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Medium.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Medium.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Medium.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_Medium.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_Medium.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_Medium.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_Medium.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_Medium.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_Medium.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: 300;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Light.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Light.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Light.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Light.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_Light.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_Light.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_Light.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_Light.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_Light.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_Light.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: 200;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_UltraLight.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_UltraLight.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_UltraLight.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_UltraLight.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_UltraLight.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_UltraLight.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_UltraLight.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_UltraLight.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_UltraLight.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_UltraLight.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_.ttf")) + ") format('truetype');\r\n}\r\na{\r\n    text-decoration: none;\r\n    color: inherit;\r\n}\r\n\r\n.rtl{\r\n\r\n    direction: rtl !important;\r\n    text-align: right;\r\n}\r\n\r\n.rtl-faNum{\r\n    font-family: IRANSansFaNum, Tahoma;\r\n    direction: rtl;\r\n    text-align: right;\r\n    padding-left: 50px;\r\n}\r\n.ltr{\r\n    direction: ltr !important;\r\n    text-align: left;\r\n}\r\n.ctr{\r\n    text-align: center;\r\n}\r\n.text-right{\r\n    direction: rtl;\r\n    text-align: right;\r\n    display: inline-block;\r\n}\r\n.bold{\r\n    font-weight: bold;\r\n}\r\n.clear{\r\n    clear: both;\r\n}\r\n.cursor-pointer{\r\n    cursor: pointer;\r\n}\r\n.clearfix{\r\n    display: block;\r\n}\r\n.clearfix:after {\r\n    clear: both;\r\n    content: \".\";\r\n    display: block;\r\n    height: 0;\r\n    visibility: hidden;\r\n}\r\na.read-more-link{\r\n    color: blue;\r\n}\r\ndiv.dataTables_wrapper {\r\n    direction: rtl;\r\n}\r\n.faNum{\r\n    font-family: IRANSansFaNum, IRANSans, Tahoma !important;\r\n}\r\n\r\ninput.input-box[readOnly] {\r\n    background: #D5DBE1;\r\n}\r\n.invisible{\r\n    width: 100%;\r\n    position: absolute;\r\n    top: 0px;\r\n    left: 0;\r\n    opacity: 0;\r\n    z-index: 999999999999999999;\r\n}\r\n\r\n\r\n\r\n/* Ensure that the demo table scrolls */\r\nth, td { white-space: nowrap; }\r\ninput[type=number]::-webkit-inner-spin-button,\r\ninput[type=number]::-webkit-outer-spin-button {\r\n    -webkit-appearance: none;\r\n    margin: 0;\r\n}\r\ndiv.dataTables_wrapper {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n}\r\n.dataTables_wrapper .dataTables_info{\r\n    float: right !important;\r\n}\r\n.dataTables_wrapper .dataTables_paginate{\r\n    float: left !important;\r\n}\r\ntable.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disabled{\r\n    background-position: left center !important;\r\n}\r\n.dataTables_info, .dataTables_wrapper .paginate_button{\r\n    font-family: IRANSansFaNum, IRANSans, Tahoma !important;\r\n}\r\n\r\nhtml, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, hgroup, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    outline: 0;\r\n    font-style: inherit;\r\n    font-family: inherit;\r\n}\r\n\r\nhtml.irliveplan body {\r\n    background: #EBEFF4;\r\n    font: 400 12px/12px IRANSans , Tahoma !important;\r\n\r\n}\r\nbutton:focus,\r\nbutton:hover,\r\ndiv:focus,\r\na:focus{\r\n    border: none;\r\n    outline:inherit;\r\n}\r\n.vjs-picture-in-picture-control.vjs-control.vjs-button{\r\n    display: none;\r\n}\r\n.inner-container{\r\n    background-image: linear-gradient(to bottom, white 0px, white 30px, #EBEFF4 400px);\r\n}\r\n.header-container{\r\n    transform: none;\r\n}\r\n.header-inner-container{\r\n    overflow: visible;\r\n    height: 42px;\r\n    background-image: linear-gradient(to bottom, white 0px, white 30px, #EBEFF4 400px);\r\n    background-attachment: fixed;\r\n}\r\n\r\n.header-items-margin-auto{\r\n    width: 960px;\r\n    margin: auto;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    height: 42px;\r\n    /*irliveplan*/\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: row-reverse;\r\n    flex-direction: row-reverse;\r\n    -webkit-box-align: stretch;\r\n    -ms-flex-align: stretch;\r\n    align-items: stretch;\r\n}\r\n.header-logo-container{\r\n    -ms-flex-item-align: center;\r\n    align-self: center;\r\n}\r\n.header-top-bar-item-container{\r\n    padding: 0 10px;\r\n    margin: 0 10px;\r\n    position: relative;\r\n    direction: rtl;\r\n}\r\n.transition-one-sec{\r\n    cursor: pointer;\r\n    -webkit-transition: color 0.1s;\r\n    transition: color 0.1s;\r\n}\r\n.header-inner-container .transition-one-sec:hover,\r\n.header-inner-container .transition-one-sec:focus{\r\n    color: #72C152;\r\n}\r\n.header-button:focus,\r\n.header-button:hover{\r\n    color: #72C152;\r\n}\r\n\r\n.header-link-container{\r\n    height: 42px;\r\n    width: 100%;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: row;\r\n    flex-direction: row;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    background: transparent;\r\n    border: 0;\r\n    font-family: IRANSans, Tahoma;\r\n    color: #3F484B;\r\n    font-size: 14px;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    text-decoration: none;\r\n}\r\n.header-top-bar-title-drop-down-container{\r\n    position: absolute;\r\n    top: 39px;\r\n    z-index: 1000000;\r\n}\r\n.arrow-up{\r\n    position: absolute;\r\n    top: -12px;\r\n    left: 94px;\r\n    border-width: 6px;\r\n    border-style: solid;\r\n    border-color: transparent transparent #72C152 transparent;\r\n    width: 0;\r\n    height: 0;\r\n    margin: auto;\r\n}\r\n.header-top-bar-title-drop-down-items-container{\r\n    background: white;\r\n    width: 200px;\r\n    min-height: 40px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: column;\r\n    flex-direction: column;\r\n    border-top: 3px solid #72C152;\r\n    border-bottom-left-radius: 4.2px;\r\n    border-bottom-right-radius: 4.2px;\r\n    -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);\r\n    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);\r\n}\r\n.header-top-bar-title-drop-down-section{\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n    font-size: 9pt;\r\n    height: 33.6px;\r\n    line-height: 15px;\r\n    padding: 0 16px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    text-decoration: none;\r\n}\r\n.header-top-bar-title-drop-down-section:first-child {\r\n    margin-top: 6px;\r\n}\r\n.header-top-bar-title-drop-down-section:last-child {\r\n    margin-bottom: 6px;\r\n}\r\n.link-span{\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    max-width: 180px;\r\n}\r\nspan.divider{\r\n    display: block;\r\n    height: 0;\r\n    border-top: 1px dotted #D5DBE1;\r\n    margin: 6px 0;\r\n}\r\n\r\n.overlay-button {\r\n    margin: auto;\r\n    padding: 10px;\r\n    color: #FFFFFF;\r\n    font-size: 12px;\r\n    letter-spacing: 0.4px;\r\n    float: left;\r\n    background-color: #7D8F94;\r\n    border: 1px solid #7D8F94;\r\n    border-radius: 3px;\r\n    line-height: 9px;\r\n    text-decoration: none;\r\n    font-family: IRANSANS, Tahoma;\r\n    white-space: nowrap;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.header-top-bar-title-drop-down-button-container{\r\n    margin: 6px 0;\r\n}\r\n.header-top-bar-title-drop-down-button-container:last-child {\r\n    margin-bottom: 16px;\r\n}\r\n.divider + .header-top-bar-title-drop-down-button-container {\r\n    margin-top: 10px;\r\n}\r\n.overlay-button.enabled {\r\n    cursor: pointer;\r\n}\r\n.overlay-button.primary {\r\n    background-color: #72C152;\r\n    border: 1px solid #72C152;\r\n}\r\n.blank-horizontal-divider{\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n}\r\n.padding-margin-left-zero{\r\n    padding-left: 0;\r\n    margin-left: 0;\r\n}\r\n#header-phone-number{\r\n    font-size: 10pt;\r\n    font-weight: bold;\r\n    color: #A0ADBD\r\n}\r\n.header-top-bar-title-drop-down-container{\r\n    display: none !important;\r\n}\r\n\r\n.content-container{\r\n    width: 960px;\r\n    margin: auto;\r\n}\r\n.nav-container{\r\n    margin: 0;\r\n    height: 47px;\r\n    width: 960px;\r\n    background-color: #3F484B;\r\n    border-top-right-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n}\r\n\r\n.nav-container ul{\r\n    margin: 0;\r\n    padding: 0 30px;\r\n    display: block;\r\n    height: 47px;\r\n    padding-top: 4px;\r\n}\r\n.nav-container ul li{\r\n    float: right;\r\n    color: #FFFFFF;\r\n    list-style: none;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.nav-container ul li h1{\r\n    height: 43px;\r\n}\r\n.nav-container ul li h1.active{\r\n    margin: 0 10px 0 0;\r\n    display: block;\r\n    border-bottom: none;\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    cursor: default;\r\n    background-color: #FFFFFF;\r\n}\r\n.nav-container ul li h1.active a {\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/nav-shapes-active.png */ "./resources/img/nav-shapes-active.png")) + ");\r\n    color: #72C152;\r\n}\r\n.nav-container ul li h1 a {\r\n    color: #D5DBE1;\r\n    font: 600 12px / 43px IRANSans, Tahoma;\r\n    margin: 0;\r\n    padding: 0 35px 0 25px;\r\n    cursor: pointer;\r\n    text-decoration: none;\r\n    display: block;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/nav-shapes.png */ "./resources/img/nav-shapes.png")) + ");\r\n    background-repeat: no-repeat;\r\n}\r\n.nav-container ul li h1 a:hover, .nav-container ul li h1 a:focus {\r\n    color: #72C152;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/nav-shapes-active.png */ "./resources/img/nav-shapes-active.png")) + ");\r\n}\r\n.nav-container ul li.pitch a {\r\n    background-position: right -3.8%;\r\n}\r\n.nav-container ul li.plan a {\r\n    background-position: right 14%;\r\n}\r\n.nav-container ul li.forecast a {\r\n    background-position: right 32.3%;\r\n}\r\n.nav-container ul li.benchmarks a {\r\n    background-position: right 49.8%;\r\n}\r\n.nav-container ul li.schedule a {\r\n    background-position: right 67.8%;\r\n}\r\n.nav-container ul li.scoreboard a {\r\n    background-position: right 85.6%;\r\n}\r\n.nav-container ul li.options a {\r\n    background-position: right 103.5%;\r\n}\r\n.nav-container ul li.options{\r\n    float: left;\r\n}\r\n\r\n\r\n.inner-content-container{\r\n    margin: 0;\r\n    background-color: #FFFFFF;\r\n    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);\r\n    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);\r\n    border-bottom-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n}\r\n.inner-content{\r\n    background-color: #FFFFFF;\r\n}\r\n.upper-tabs-container, .lower-tabs-container{\r\n    border-bottom: 1px solid #D5DBE1;\r\n    width: 100%;\r\n    background: white;\r\n}\r\n.upper-tabs-container ul, .lower-tabs-container ul {\r\n    height: 44px;\r\n    margin: 0;\r\n    padding: 0 30px 0 30px;\r\n    list-style: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    flex-direction: row-reverse;\r\n    -webkit-box-align: stretch;\r\n    -ms-flex-align: stretch;\r\n    align-items: stretch;\r\n}\r\n.tabs-menu-item{\r\n    margin: 0 10px;\r\n    font-weight: 600;\r\n    color: #3F484B;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: column;\r\n    flex-direction: column;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    white-space: nowrap;\r\n    border-bottom: 2px solid transparent;\r\n}\r\n.tabs-menu-item:hover, .tabs-menu-item:focus-within {\r\n    border-bottom: 2px solid #7D8F94;\r\n    cursor: pointer;\r\n}\r\n.tabs-menu-item.active,\r\n.tabs-menu-item.active:hover{\r\n    color: #72C152;\r\n    border-bottom: 2px solid #72C152;\r\n}\r\n.tabs-menu-item-link-container{\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    font-family: IRANSans, Tahoma;\r\n    font-size: 12px;\r\n}\r\n.tabs-vertical-divider {\r\n    pointer-events: none;\r\n    margin: 0 2px;\r\n    border-left: 1px solid #D5DBE1;\r\n    height: 17px;\r\n    -ms-flex-item-align: center;\r\n    align-self: center;\r\n}\r\n.lower-tabs-container a{\r\n    color: #7D8F94;\r\n}\r\n\r\n.inner-content .info-container {\r\n    padding: 30px;\r\n    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);\r\n    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);\r\n    border-bottom-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n}\r\n.info-container .info-heading{\r\n    height: 50px;\r\n}\r\n.info-heading .info-title{\r\n    font: 400 24px/24px IRANSans, Tahoma;\r\n    margin: 0 0 0 20px;\r\n    float: right;\r\n}\r\n.info-container .forecast-header-buttons {\r\n    float: left;\r\n    direction: rtl;\r\n}\r\n.button-type-one{\r\n    display: inline;\r\n    background-color: transparent;\r\n    letter-spacing: 0.4px;\r\n    border-radius: 3px;\r\n    border: 1px solid #D5DBE1;\r\n    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);\r\n    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);\r\n    color: #7D8F94;\r\n    font: 600 12px/12px IRANSans, Tahoma;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n    padding: 10px 10px 10px 10px;\r\n    margin: -5px 0 0 10px;\r\n}\r\n.button-type-one:hover {\r\n    background: #F9F9F9;\r\n    color: #3F484B;\r\n    border: 1px solid #D5DBE1;\r\n}\r\n.button-type-one:focus{\r\n\r\n    border: 1px solid #D5DBE1;\r\n}\r\n.button-type-one.toggle-button{\r\n    padding: 10px 10px 10px 10px;\r\n    width: 165px;\r\n}\r\n.button-type-one.toggle-button span{\r\n    padding-right: 20px;\r\n    background-image:url(" + escape(__webpack_require__(/*! ../img/button-shapes.png */ "./resources/img/button-shapes.png")) + ");\r\n    background-repeat: no-repeat;\r\n}\r\n.button-type-one.video{\r\n    padding: 10px 9px 10px 10px;\r\n    margin-left: 0;\r\n}\r\n.button-type-one.video span{\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/play.svg */ "./resources/img/play.svg")) + ");\r\n    background-size: 18px;\r\n    background-position:  right;\r\n\r\n}\r\n\r\n.button-type-one.instructions.hidden span{\r\n    background-position: right 1px;\r\n}\r\n.button-type-one.instructions.visible span{\r\n\r\n    background-position: right -31px;\r\n}\r\n\r\n.info-container .subheader{\r\n    border-radius:  3px;\r\n    position: relative;\r\n    font-family: IRANSans , Tahoma;\r\n    line-height: 22px;\r\n    margin-bottom: 20px;\r\n}\r\n.info-container .subheader.charts{\r\n    background: #4C9BEE;\r\n}\r\n.subheader.charts .right-chart{\r\n    display: inline-block;\r\n    width: 75%;\r\n}\r\n.subheader.charts .left-chart{\r\n    display: inline-block;\r\n    width: 24%;\r\n}\r\n.info-container .subheader.instructions{\r\n    background: #A4619F;\r\n}\r\n.subheader .back-right-border{\r\n    width: 16px;\r\n    height: 16px;\r\n    position: absolute;\r\n    top: 23px;\r\n    right: 8px;\r\n    background-repeat: no-repeat;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/button-shapes.png */ "./resources/img/button-shapes.png")) + ");\r\n}\r\n.subheader.charts .back-right-border {\r\n    background-position: 0 -225px;\r\n}\r\n.subheader.instructions .back-right-border{\r\n    background-position: 0 -193px;\r\n}\r\n.subheader .subheader-content-container {\r\n    margin-right: 32px;\r\n    padding: 21px;\r\n    background: white;\r\n    border-top: 1px solid #D5DBE1;\r\n    border-left: 1px solid #D5DBE1;\r\n    border-bottom: 1px solid #D5DBE1;\r\n    border-radius: 0 0 0 3px;\r\n    overflow: hidden;\r\n}\r\n.subheader .subheader-content-container h4{\r\n    margin: 0;\r\n    font-size: 18px;\r\n    font-weight: normal;\r\n}\r\n.subheader-content-container p{\r\n    font-size: 14px;\r\n    text-justify: distribute-all-lines;\r\n}\r\n\r\n.details-container{\r\n    position: relative;\r\n}\r\n.details-container .table-container{\r\n    direction: rtl;\r\n    width: 100%;\r\n    position: relative;\r\n\r\n}\r\n.details-container .table-container .border-corrector{\r\n    height: 23.5px;\r\n    width: 1px;\r\n    position: absolute;\r\n    left: 0;\r\n    bottom: 0;\r\n    z-index: 999999;\r\n    background: white;\r\n}\r\n\r\n.details-container .table-container .table{\r\n    direction: rtl;\r\n}\r\n.details-container .table-container .table-names-container{\r\n    float: right;\r\n    width:30%;\r\n    border-right: 1px solid #c8c8c8;\r\n}\r\n.details-container .table-container .table-details-container{\r\n    float: right;\r\n    width: 70%;\r\n    overflow-x: auto;\r\n    position: relative;\r\n    padding-bottom: 10px;\r\n    /*border: 1px solid #c8c8c8;*/\r\n    /*border-top: 0;*/\r\n    /*border-bottom: 0;*/\r\n    border-left: 1px solid #c8c8c8;\r\n}\r\n.details-container .table-container .table-details-container::-webkit-scrollbar {\r\n    width: 10px;\r\n\r\n}\r\n\r\n.details-container .table-container .table-details-container::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.1);\r\n    -webkit-border-radius: 10px;\r\n    border-radius: 10px;\r\n\r\n    background: #f9f9f9;\r\n\r\n}\r\n.details-container .table-container .table-details-container::-webkit-scrollbar-thumb {\r\n    -webkit-border-radius: 10px;\r\n    border-radius: 10px;\r\n    background: #D5DBE1;\r\n    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/\r\n}\r\n.details-container .table-container .table-details-container::-webkit-scrollbar-thumb:hover {\r\n    background: #7D8F94;\r\n    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/\r\n}\r\n\r\n.details-container .table-container .table-details-container::-webkit-scrollbar-thumb:window-inactive {\r\n    background: #D5DBE1;\r\n}\r\n\r\n.details-container .table-container .table-names-container tr > td, .details-container .table-container .table-names-container tr > th{\r\n    border-left: 0 !important;\r\n    border-right: 0 !important;\r\n}\r\n\r\n.details-container .table-container .table-details-container tr > th, .details-container .table-container .table-details-container tr > td{\r\n    /*border: 0 !important;*/\r\n    /*border-bottom: 1px solid #c8c8c8;*/\r\n    /*border-top: 0 !important;*/\r\n    border-right: 0 !important;\r\n    border-left: 0 !important;\r\n    background-color: #fff !important;\r\n    text-align: center !important;\r\n}\r\n\r\n\r\n/*.details-container .table-container .table-details-container tbody tr:hover td {*/\r\n    /*background-color: #F1F1F1 !important;*/\r\n/*}*/\r\n/*.details-container .table-container .table-names-container tbody tr:hover>td:first-child{*/\r\n    /*background-color: #D5DBE1 !important;*/\r\n/*}*/\r\n/*TODO trigger details hover on names hover and V.v*/\r\n\r\n.details-container .table-container .table *:not(.faNum){\r\n    direction: rtl;\r\n    text-align: right;\r\n}\r\n.details-container .table-container .table .open-button{\r\n    float: right;\r\n    padding: 0;\r\n\r\n}\r\n.details-container .table-container .table .open-button .closed{\r\n    -webkit-transform: scaleX(-1);\r\n    transform: scaleX(-1);\r\n}\r\n\r\n.navigation-stripe{\r\n    height: 39px;\r\n    margin-bottom: 30px;\r\n    border-bottom: 1px solid #D5DBE1;\r\n}\r\n.navigation-stripe *{\r\n    font-family: IRANSansFaNum, Tahoma;\r\n}\r\n.navigation-stripe .step-link {\r\n    display: inline-block;\r\n    margin-left: 10px;\r\n    font-size: 13px;\r\n    font-weight: 600;\r\n    cursor: pointer;\r\n    color: #7D8F94;\r\n}\r\n.navigation-stripe .step-link.active, .navigation-stripe .step-link.active:hover {\r\n    color: #72C152;\r\n}\r\n.navigation-stripe .step-link .circle {\r\n    display: inline-block;\r\n    margin-right: 6px;\r\n    font-size: 9px;\r\n    border: 2px solid;\r\n    text-align: center;\r\n    width: 14px;\r\n    height: 14px;\r\n    line-height: 14px;\r\n    border-radius: 50%;\r\n    border-color: #7D8F94;\r\n}\r\n.navigation-stripe .step-link.active .circle, .navigation-stripe .step-link.active:hover .circle {\r\n    border-color: #72C152;\r\n}\r\n.navigation-stripe .step-link:hover {\r\n    color: #3F484B;\r\n}\r\n.navigation-stripe .step-link:hover .circle {\r\n    border-color: #3F484B;\r\n}\r\n.section {\r\n    padding-bottom: 30px;\r\n    width: 100%;\r\n    direction: rtl;\r\n}\r\n.section ul{\r\n    list-style: none;\r\n}\r\n.section .title-top {\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    color: #3F484B;\r\n    margin: 0 0 10px 0;\r\n    font-family: IRANSans, Tahoma;\r\n    font-weight: 700;\r\n    text-align: right;\r\n}\r\n.section .max-length-input-container{\r\n    position: relative;\r\n}\r\n.section .max-length-input-container .count-down-wrapper {\r\n    position: absolute;\r\n    font-size: 13px;\r\n    font-family: IRANSansFaNum, Tahoma;\r\n    top: 9px;\r\n    text-align: center;\r\n    color: white;\r\n    background: #aaa;\r\n    width: 30px;\r\n    height: 20px;\r\n    vertical-align: middle;\r\n    border-radius: 4px;\r\n    left: 5px;\r\n}\r\n.input-box {\r\n    padding: 0 10px;\r\n    font-size: 12px;\r\n    border: 1px solid #D5DBE1;\r\n    border-radius: 3px;\r\n    font-family: IRANSans, Tahoma;\r\n    margin-bottom: 10px;\r\n    background-color: #FFFFFF;\r\n    height: 39px;\r\n    line-height: 39px;\r\n    width: 100%;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n    text-align: right;\r\n\r\n}\r\n.input-box-with-currency{\r\n    padding-left: 35px;\r\n}\r\n.input-box.description {\r\n    width: 100%;\r\n    max-width: 440px;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n.input-box.error {\r\n    border: 1px solid #D83405;\r\n}\r\n.feedback-line {\r\n    background: transparent;\r\n    position: relative;\r\n    margin: 1px;\r\n    padding: 1px;\r\n    clear: both;\r\n}\r\n.feedback-line p {\r\n    color: #D83405;\r\n    font-family: IRANSans, Tahoma;\r\n    font-size: 12px;\r\n}\r\n\r\n.modal-footer-control-container{\r\n    direction: rtl;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n}\r\n.modal-footer-control-container.right{\r\n    -webkit-box-pack: start;\r\n    -ms-flex-pack: start;\r\n    justify-content: flex-start;\r\n}\r\n.modal-footer-control-container.left{\r\n    -webkit-box-pack: end;\r\n    -ms-flex-pack: end;\r\n    justify-content: flex-end;\r\n}\r\n.trashcan, .trashcan-confirm {\r\n    background: url(" + escape(__webpack_require__(/*! ../img/trash_bins.png */ "./resources/img/trash_bins.png")) + ") no-repeat 0 0;\r\n    width: 18px;\r\n    height: 21px;\r\n    float: left;\r\n    margin-top: 4px;\r\n\r\n}\r\n\r\n\r\n.trashcan:hover {\r\n    background-position: -19px 0;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n.trashcan-confirm{\r\n    background-position: -38px 0px;\r\n    float: right;\r\n}\r\n.trash-text-confirm{\r\n    float: right;\r\n    line-height: 14px;\r\n    margin: -2px 25px 0 0;\r\n    font-size: 11px;\r\n    width: 110px;\r\n    font-weight: 700;\r\n    color: #2C2E2F;\r\n}\r\n\r\n.trash-text {\r\n    visibility: hidden;\r\n}\r\n.trashcan:hover .trash-text {\r\n    visibility: visible;\r\n    text-decoration: underline;\r\n    color: #2565C0;\r\n    position: relative;\r\n    font-size: 12px;\r\n    line-height: 12px;\r\n    top: 0;\r\n    padding: 25px;\r\n    font-weight: 700;\r\n    white-space: nowrap;\r\n}\r\n\r\n.trash-text-confirm p{\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 11px;\r\n    line-height: 14px;\r\n    color: #2C2E2F;\r\n}\r\n.trash-text-confirm a {\r\n    text-decoration: underline;\r\n    color: #2565C0;\r\n}\r\n.section a, .section a:hover, .section a:visited, .modal-footer-control-container a:hover {\r\n    text-decoration: none;\r\n    color: #2565C0;\r\n}\r\n\r\n.modal-button {\r\n    margin: 0 10px 0px 0;\r\n    padding: 10px;\r\n    color: #FFFFFF;\r\n    font-size: 12px;\r\n    letter-spacing: 0.4px;\r\n    float: left;\r\n    background-color: #7D8F94;\r\n    border: 1px solid #7D8F94;\r\n    border-radius: 3px;\r\n    line-height: 9px;\r\n    text-decoration: none;\r\n    font-family: IRANSans, Tahome;\r\n    white-space: nowrap;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    outline: unset !important;\r\n    border: unset !important;\r\n}\r\n.modal-button.enabled {\r\n    cursor: pointer;\r\n}\r\n.modal-button.disabled {\r\n    opacity: 0.5;\r\n}\r\n.modal-button.primary {\r\n    background-color: #72C152;\r\n    border: 1px solid #72C152;\r\n}\r\n.modal-button:last-child {\r\n    margin: 0;\r\n}\r\n\r\n.radio-buttons-list .radio-right {\r\n    line-height: 20px;\r\n    float: right;\r\n    margin: 0 0 2px 20px;\r\n}\r\n.radio-buttons-list .radio-style {\r\n    float: right;\r\n    height: 12px;\r\n    margin: 6px 0 0 5px;\r\n    cursor: pointer;\r\n    border-radius: 8px;\r\n    padding: 0;\r\n}\r\n.radio-buttons-list .radio-right label {\r\n    color: #2565C0;\r\n    font-size: 13px;\r\n    font-weight: 600;\r\n    line-height: 21px;\r\n}\r\n.radio-buttons-list .description {\r\n    margin: 0 0 10px 18px;\r\n    line-height: 18px;\r\n    clear: both;\r\n    font-size: 13px;\r\n    color: #7D8F94;\r\n}\r\n.section .title-content {\r\n    font-size: 13px;\r\n    line-height: 18px;\r\n    color: #7D8F94;\r\n    margin: -7px 0 15px 0;\r\n    clear: both;\r\n}\r\n.forecast-item-editor .radio-box {\r\n    margin-bottom: 10px;\r\n}\r\n.financial-year-box {\r\n    clear: both;\r\n    margin: 20px 0 10px 0;\r\n}\r\n.forecast-item-editor .financial-year-box{\r\n    margin: 10px 0 0 0;\r\n\r\n}\r\n.forecast-item-editor .financial-year-box .financial-year-box-container{\r\n    margin: 0 -30px 26px -30px;\r\n    padding: 0 30px;\r\n    background: #F9F9F9;\r\n}\r\n.forecast-item-editor .financial-year-box .financial-year-box-wrapper{\r\n    padding: 10px 0;\r\n}\r\n.financial-year-box .financial-year-box-header{\r\n\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: row;\r\n    flex-direction: row;\r\n}\r\n.financial-year-box .financial-year-box-header p{\r\n    font-size: 13px;\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    font-family: IRANSANS, Tahoma;\r\n    padding: 10px;\r\n\r\n}\r\n.financial-year-box .financial-year-box-header .financial-year-box-header-controls{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: row;\r\n    flex-direction: row;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-box-pack: justify;\r\n    -ms-flex-pack: justify;\r\n    justify-content: space-between;\r\n    width: 210px;\r\n}\r\n.financial-year-box .financial-year-box-header .financial-year-box-header-controls p{\r\n    font-weight: bold;\r\n}\r\n.financial-year-box .financial-year-box-header .financial-year-box-header-controls .overlay-button.primary {\r\n    margin-right: 10px;\r\n}\r\n.financial-year-box .financial-year-chart-container{\r\n    padding-right: 30px;\r\n}\r\n/*.financial-year-box .financial-year-input-container{*/\r\n/*}*/\r\n.financial-year-box .financial-year-input-container ul.labels {\r\n    clear: both;\r\n    margin: 10px -15px 10px 0;\r\n    width: 1005px;\r\n}\r\n.financial-year-box .financial-year-input-container ul li {\r\n    display: inline-block;\r\n    text-align: center;\r\n    width: 72.5px;\r\n    /*margin: 0 0 0 8px;*/\r\n    color: #3F484B;\r\n    font-size: 12px;\r\n}\r\n.financial-year-box .financial-year-input-container ul li input, .financial-year-box-header-controls input{\r\n    direction: ltr;\r\n    text-align: left;\r\n    font-family: IRANSansFaNum, Tahoma;\r\n}\r\n.financial-year-box .financial-year-input-container ul li:nth-child(2) {\r\n    /*margin-right: -10px;*/\r\n}\r\n\r\n\r\n/*.financial-year-box .financial-year-input-container ul.fields li {*/\r\n    /*display: inline;*/\r\n/*}*/\r\n\r\n.radio-box li.horizontal {\r\n    float: right;\r\n    margin-left: 20px;\r\n}\r\n\r\n.radio-box li label {\r\n    cursor: pointer;\r\n    font-size: 13px;\r\n    line-height: 23px;\r\n    color: #3F484B;\r\n}\r\n.radio-box li input {\r\n    float: right;\r\n    height: 12px;\r\n    margin: 6px 0 0 5px;\r\n    cursor: pointer;\r\n}\r\n.radio-box div.clear {\r\n    width: 100%;\r\n    clear: both;\r\n}\r\n.input-box-wrapper {\r\n    position: relative;\r\n    display: inline-block;\r\n    width: 100%;\r\n}\r\n.input-box-wrapper span {\r\n    position: absolute;\r\n    top: 11px;\r\n    pointer-events: none;\r\n    font-size: 13px;\r\n    color: #7D8F94;\r\n\r\n}\r\n.input-with-dropdown .input-box-wrapper span {\r\n    top: 1px;\r\n}\r\n.input-box-wrapper span.currency {\r\n    left: 11px;\r\n}\r\n.forecast-item-editor input {\r\n    margin-bottom: 0 !important;\r\n}\r\n.input-box.medium-cash {\r\n    width: 140px;\r\n}\r\n.input-box.smallPercentage {\r\n    width: 87px;\r\n    padding-left: 30px;\r\n    font-family: IRANSansFaNum, Tahoma;\r\n}\r\n.input-box-wrapper span.percent {\r\n    left: 11px;\r\n}\r\n.input-with-dropdown .input-box, .input-with-dropdown .input-box-wrapper {\r\n    float: right;\r\n    height: 37px;\r\n    line-height: 37px;\r\n}\r\n.input-with-dropdown span.per {\r\n    float: right;\r\n    margin-top: 8px;\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    font-size: 13px;\r\n}\r\n.select-box {\r\n    position: relative;\r\n}\r\n.input-with-dropdown .select-box {\r\n    float: right;\r\n}\r\n.select-box {\r\n    display: inline-block;\r\n}\r\n.select-box .selected-option {\r\n    font-size: 12px;\r\n    border: 1px solid #D5DBE1;\r\n    border-radius: 3px;\r\n    height: 37px;\r\n    line-height: 37px;\r\n    padding: 0 10px 0 26px;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    cursor: pointer;\r\n}\r\n.select-box .selected-option .arrow {\r\n    width: 6px;\r\n    height: 3px;\r\n    background: url(https://d2rdonr34l28sy.cloudfront.net/1vDdW4WVS5.png) right top no-repeat;\r\n    position: absolute;\r\n    top: 50%;\r\n    margin-top: -2px;\r\n    left: 10px;\r\n}\r\n.select-box .options {\r\n    position: absolute;\r\n    top: 39px;\r\n    border: 1px solid #D5DBE1;\r\n    z-index: 10;\r\n    max-height: 170px;\r\n    overflow-y: auto;\r\n}\r\n.select-box .options.right {\r\n    right: 0;\r\n}\r\n.option-div{\r\n    height: 24px;\r\n    line-height: 24px;\r\n    color: #000000;\r\n    background-color: #FFFFFF;\r\n    padding: 0 5px 0 15px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    font-size:12px;\r\n    font-family: IRANSans, Tahoma;\r\n}\r\n.option-div.hovered, .option-div.selected {\r\n    background-color: #ADCDF7;\r\n}\r\n.input-with-dropdown .clear {\r\n    clear: both;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.buttonColor{\r\n    margin: 0 0 0 10px;\r\n    padding: 10px;\r\n    color: #FFFFFF;\r\n    font-size: 12px;\r\n    letter-spacing: 0.4px;\r\n    float: right;\r\n    background-color: #72C152;\r\n    border: 1px solid #72C152;\r\n    border-radius: 3px;\r\n    line-height: 12px;\r\n    font-family: IRANSans, Tahoma;\r\n    cursor: pointer;\r\n}\r\n.controls-container {\r\n    height: 54px;\r\n    border-bottom: 1px solid #D5DBE1;\r\n    margin: 20px 0 20px 0;\r\n    float: right;\r\n    width: 100%;\r\n}\r\n.controls-container .buttonContainerRight {\r\n    float: left;\r\n    display: inline-block;\r\n}\r\n.controls-container .buttonContainerRight div {\r\n    float: right;\r\n    padding: 5px;\r\n}\r\n.controls-container .buttonContainerRight a {\r\n    padding-right: 25px;\r\n    background: #7D8F94 url(https://d2rdonr34l28sy.cloudfront.net/4NpseQLSn6.png) right 8px center no-repeat;\r\n    cursor: ne-resize;\r\n}\r\n.buttonGray {\r\n    padding: 10px;\r\n    color: #FFFFFF;\r\n    font-size: 12px;\r\n    letter-spacing: 0.4px;\r\n    float: right;\r\n    background-color: #7D8F94;\r\n    border: 1px solid #7D8F94;\r\n    border-radius: 3px;\r\n    line-height: 12px;\r\n    margin: 0 10px 0 0;\r\n    font-family: IRANSans, Tahoma;\r\n}\r\n.content-container label{\r\n    font-family: IRANSans, Tahoma;\r\n    font-size: 12px;\r\n}\r\n.subfooter-note {\r\n    margin: 13px 0 0 0;\r\n    border-radius: 3px;\r\n    background-color: #F9F9F9;\r\n    padding: 10px;\r\n    float: right;\r\n    clear: both;\r\n    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);\r\n    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);\r\n    font-size: 12px;\r\n    font-weight: 600 !important;\r\n    font-family: IRANSans, Tahoma;\r\n}\r\n.subfooter-note a {\r\n    color: #2565C0;\r\n    text-decoration: none !important;\r\n    cursor: pointer;\r\n}\r\n.content-container .controlsLeft {\r\n    height: 35px;\r\n    margin: 20px 0 0 0;\r\n    float: left;\r\n}\r\n\r\nfooter{\r\n    direction: rtl;\r\n    width: 960px;\r\n    margin: 0 auto;\r\n    padding: 30px 20px 40px 0;\r\n    height: 10px;\r\n    font: 400 12px/12px IRANSans, Tahoma;\r\n    text-align: right;\r\n    color: #7D8F94;\r\n    box-sizing: border-box;\r\n}\r\nfooter a{\r\n    color: #2565C0;\r\n    cursor: pointer;\r\n}\r\nfooter ul {\r\n    float: left;\r\n    list-style: none;\r\n}\r\nfooter ul li {\r\n    float: right;\r\n    padding: 0 16px 0 0;\r\n}\r\n\r\n\r\n/*PrimeVue Styles*/\r\n.p-treetable .p-component{\r\n    width: fit-content;\r\n}\r\n.p-treetable-tablewrapper{\r\n    direction: rtl;\r\n}\r\n.p-treetable table{\r\n    width: unset;\r\n}\r\n.p-treetable table td{\r\n    position: relative;;\r\n}\r\n.p-treetable td, .p-treetable th{\r\n    height: 35px !important;\r\n}\r\n.p-treetable *:not(.pi){\r\n    font-family: IRANSansFaNum, IRANSans, Tahoma;\r\n    font-size: 12px;\r\n}\r\n\r\n\r\n\r\n.p-treetable td:not(:last-child), .p-treetable th:not(:last-child){\r\n    border-left: 0 !important;\r\n}\r\n.p-treetable td:not(:first-child), .p-treetable th:not(:first-child){\r\n    border-right: 0 !important;\r\n}\r\n.p-treetable .pi{\r\n    margin-top: 5px;\r\n}\r\n.p-treetable thead >tr{\r\n    height: 48px;\r\n}\r\n.p-treetable thead th:first-child,.p-treetable tfoot tr>td:first-child{\r\n    text-align: right !important;\r\n    padding: 0.571em 2.3em !important;\r\n}\r\n.p-treetable tbody tr>td:first-child{\r\n    text-align: right;\r\n}\r\n.p-treetable tbody tr>td:not(:first-child){\r\n    text-align: center;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr > td {\r\n    padding: 0.229em 0.457em;\r\n}\r\n.p-treetable-tablewrapper table{\r\n    direction: rtl;\r\n}\r\n.p-treetable th, .p-treetable tfoot td{\r\n    background: white !important;\r\n}\r\n.p-treetable tr td:first-child, .p-treetable th:first-child{\r\n    background-color: #F9F9F9 !important;\r\n}\r\n/*.p-treetable tbody tr:hover{*/\r\n    /*background-color: #F1F1F1 !important;*/\r\n/*}*/\r\n/*.p-treetable tbody tr:hover>td:first-child{*/\r\n    /*background-color: #D5DBE1 !important;*/\r\n/*}*/\r\n/*.p-treetable tfoot tr:hover{*/\r\n    /*background-color: #F9F9F9 !important;*/\r\n/*}*/\r\n/*TODO correct but inconsistence with monthly table*/\r\n/*MMMMMMMMIIIIIIIIIIIIIIIINNNNNNNNNNNNNNEEEEEEEEEEEEEEEEEE*/\r\n.p-treetable .editable-cell-wrapper{\r\n    display: inline;\r\n}\r\n.p-treetable .editable-cell-wrapper a{\r\n    color: #2565C0;\r\n}\r\n.p-treetable .editable-cell-wrapper a:hover{\r\n    text-decoration: underline;\r\n}\r\n\r\n.p-treetable .row-edit-control {\r\n    display: none;\r\n}\r\n.p-treetable tr:hover .row-edit-control{\r\n    display: inherit;\r\n}\r\n.p-treetable .row-edit-control{\r\n    position: absolute;\r\n    width: 12px;\r\n    height: 13px;\r\n    top: 0.79em;\r\n    cursor: pointer;\r\n}\r\n.p-treetable .row-edit-control.row-edit-edit{\r\n    background: url(" + escape(__webpack_require__(/*! ../img/edit.svg */ "./resources/img/edit.svg")) + ") 0 0 no-repeat;\r\n    left: 4em;\r\n    -webkit-transform: scaleX(-1);\r\n    transform: scaleX(-1);\r\n}\r\n.p-treetable .row-edit-control.row-edit-copy{\r\n    background: url(" + escape(__webpack_require__(/*! ../img/copy.svg */ "./resources/img/copy.svg")) + ") 0 0 no-repeat;\r\n    left: 2.2em;\r\n    -webkit-transform: scaleX(-1);\r\n    transform: scaleX(-1);\r\n}\r\n.p-treetable .row-edit-control.row-edit-move-up{\r\n    background: url(" + escape(__webpack_require__(/*! ../img/move.svg */ "./resources/img/move.svg")) + ") 0 0 no-repeat;\r\n    left: 0.8em;\r\n}\r\n/*.p-treetable .row-edit-control.row-edit-move-down{*/\r\n    /*background: url('../img/move.svg') 0 0 no-repeat;*/\r\n    /*left: 4.4em;*/\r\n/*}*/\r\n/*MMMMMMMMIIIIIIIIIIIIIIIINNNNNNNNNNNNNNEEEEEEEEEEEEEEEEEE*/\r\n\r\n\r\n\r\n.pi-chevron-right:before{\r\n    content: \"\\E900\";\r\n}\r\n.p-dropdown .p-dropdown-trigger{\r\n    left: 0;\r\n    right: unset;\r\n}\r\n.p-dropdown .p-dropdown-label{\r\n    padding: 0.61em 0.61em 0.61em 2em;\r\n}\r\n.p-dropdown-panel .p-dropdown-item{\r\n    text-align: right;\r\n    font-family: IRANSansFaNum, Tahoma;\r\n}\r\n.input-with-dropdown.length-selection .p-dropdown{\r\n    width: 8em;\r\n    height: 37px;\r\n    font-family: IRANSANS, Tahoma;\r\n}\r\n.select-box.period-selection .p-dropdown{\r\n    width: 11em;\r\n    height: 37px;\r\n    font-family: IRANSANSFaNum, Tahoma;\r\n }\r\n.select-box.period-selection label{\r\n    font-family: IRANSANSFaNum, Tahoma;\r\n}\r\n\r\n.p-slider.p-slider-horizontal, .p-slider.p-slider-horizontal .p-slider-range{\r\n    height: 7px !important;\r\n    background: #D5DBE1 !important;\r\n    -webkit-box-shadow: 0 1px 3px 0 #7D8F94 inset !important;\r\n    box-shadow: 0 1px 3px 0 #7D8F94 inset !important;\r\n    border-radius: 3px !important;\r\n\r\n}\r\n\r\n.slider-tooltip {\r\n    z-index: 2;\r\n    position: absolute;\r\n    background-color: #4C9BEE;\r\n    text-align: center;\r\n    color: white;\r\n    display: inline-block;\r\n    font: 600 10px/9px IRANSansFaNum, IRANSans, Tahoma;\r\n    padding: 7px 9px 7px 10px;\r\n    right: 0;\r\n    border-radius: 3px;\r\n    border: 0;\r\n    margin-right: -20px;\r\n    width: 40px;\r\n}\r\n.box-half .slider-component {\r\n    position: relative;\r\n}\r\n.slider-component .slider-tooltip {\r\n    top: 26px;\r\n    cursor: pointer;\r\n}\r\n.slider-tooltip:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 0;\r\n    height: 0;\r\n    border-bottom: 10px solid #4C9BEE;\r\n    border-left: 5px solid transparent;\r\n    border-right: 5px solid transparent;\r\n    bottom: 100%;\r\n    left: 50%;\r\n    margin-left: -5px;\r\n    margin-top: -1px;\r\n}\r\n.slider-ticks-container{\r\n    height: 15px;\r\n    padding-top: 5px;\r\n    width: 400px;\r\n}\r\n.p-slider .p-slider-handle{\r\n    background: #4C9BEE !important;\r\n    border: 0 !important;\r\n}\r\n.slider-tick{\r\n    float: right;\r\n    height: 5px;\r\n    border-right: 1px solid #7d8f9452;\r\n}\r\n.slider-tick:last-child{\r\n    border-left: 1px solid #7d8f9452;\r\n    position: relative;\r\n}\r\n\r\n.slider-tick.tick-percent{\r\n     width: 5%;\r\n }\r\n.slider-tick.tick-18{\r\n    width: 23.45px;\r\n}\r\n.slider-tick.tick-9{\r\n    width: 49.9px;\r\n}\r\n.slider-tick.tick-percent:nth-child(2n+1), .slider-tick.tick-percent:last-child{\r\n    height: 10px;\r\n}\r\n.slider-tick.tick-percent:last-child:after{\r\n    content: \"\";\r\n    position: absolute;\r\n    right: -1px;\r\n    z-index: 100;\r\n    bottom: 0;\r\n    width: 1px;\r\n    height: 50%;\r\n    background: #FFFFFF;\r\n    z-index: -99999999999999999;\r\n}\r\n.slider-component .invisible {\r\n    top: 0;\r\n}\r\n.slider-component .invisible .p-slider .p-slider-handle{\r\n    left: 0;\r\n    height: 49px;\r\n    width: 40px;\r\n    top: 7px;\r\n    margin-left: -20px;\r\n}\r\n.slider-component .invisible .p-slider.p-slider-horizontal ,.p-slider .p-slider-range{\r\n    height: 50px !important;\r\n}\r\n.slider-component .invisible .p-slider .p-slider-handle{\r\n    height: 49px;\r\n    width: 40px;\r\n    top: 7px;\r\n}\r\n.slider-component .slider-levels-container{\r\n    position: relative;\r\n    width: 398px;\r\n}\r\n.slider-component .slider-levels-container .slider-level{\r\n    font-size: 10px;\r\n    color: #7D8F94;\r\n    font-weight: 600;\r\n    position: absolute;\r\n    top:7px;\r\n}\r\n\r\n/*PrimeVue Styles*/\r\n\r\n\r\n/*cash flow assumptions*/\r\n.two-column-boxes .column-left {\r\n    float: left;\r\n}\r\n.two-column-boxes .column-right {\r\n    float: right;\r\n}\r\n\r\n.box-half.naked {\r\n    padding: 0px;\r\n    border: 0px;\r\n}\r\n.box-half {\r\n    width: 440px;\r\n    margin: 0 0 20px;\r\n    padding: 20px;\r\n    border: 1px solid #D5DBE1;\r\n    font-family: IRANSANS;\r\n}\r\n.column-left .box-half:last-child{\r\n    height: 138px;\r\n}\r\n.box-half .box-half-title {\r\n    font-size: 20px;\r\n    line-height: 1em;\r\n    margin-bottom: 20px;\r\n    font-weight: 400;\r\n    color: #2C2E2F;\r\n}\r\n.box-half .box-half-header {\r\n    margin: 0 0 10px;\r\n    height: 20px;\r\n    color: #2C2E2F;\r\n    direction: rtl;\r\n}\r\n.box-half .box-half-header p {\r\n    font-size: 18px;\r\n    margin: 0;\r\n    float: right;\r\n    width: 220px;\r\n    text-align: justify;\r\n\r\n}\r\n.box-half-tip-wrapper .tip-container {\r\n    position: relative;\r\n    margin-bottom: 10px;\r\n    margin-top: 0 !important;\r\n    float: left;\r\n}\r\n.box-half-tip-wrapper .tip-container a {\r\n    width: 20px;\r\n    height: 20px;\r\n    display: block;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/tip.svg */ "./resources/img/tip.svg")) + ");\r\n    background-repeat: no-repeat;\r\n    cursor: pointer;\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box {\r\n    text-align: right;\r\n    background: #F9F9F9;\r\n    border: 1px solid #D5DBE1;\r\n    width: 250px;\r\n    position: absolute;\r\n    z-index: 3;\r\n    right: -260px;\r\n    top: -60px;\r\n    padding: 15px;\r\n    border-radius: 3px;\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box:before, .box-half-tip-wrapper .tip-arrow-box:after {\r\n    top: 70px;\r\n    right: 100%;\r\n    border: solid transparent;\r\n    content: \" \";\r\n    height: 0;\r\n    width: 0;\r\n    position: absolute;\r\n    pointer-events: none;\r\n    -webkit-transform: rotate(270deg);\r\n    -moz-transform: rotate(270deg);\r\n    -ms-transform: rotate(270deg);\r\n    -o-transform: rotate(270deg);\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box:before {\r\n    border-color: rgba(213, 219, 225, 0);\r\n    border-bottom-color: #D5DBE1;\r\n    border-width: 7px;\r\n    margin-top: -7px;\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box:after {\r\n    border-color: rgba(249, 249, 249, 0);\r\n    border-bottom-color: #F9F9F9;\r\n    border-width: 6px;\r\n    margin-top: -7px;\r\n    margin-right: -1px;\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box p {\r\n    font-size: 12px !important;\r\n    line-height: 18px !important;\r\n    -webkit-user-select: none;\r\n    -khtml-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    -o-user-select: none;\r\n    user-select: none;\r\n}\r\n.slider-component {\r\n    height: 50px;\r\n    position: relative;\r\n    top: 15px;\r\n    margin-bottom: 16px;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.box-half .slider-component {\r\n    margin-top: 10px;\r\n}\r\n.box-half .input-box-wrapper{\r\n    margin-left: 10px;\r\n    float: right;\r\n}\r\n.box-half .input-box-wrapper .input-box{\r\n    float: right;\r\n    width: 140px;\r\n}\r\n.box-half .buttonColor{\r\n    height: 39px;\r\n    width: 70px;\r\n}\r\n/*cash flow assumptions*/\r\n", ""]);
+exports.push([module.i, "\r\n* {\r\n    -moz-box-sizing: border-box;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody .p-component {\r\n    \r\n    font-size: 14px;\r\n    text-decoration: none;\r\n}\r\n/*body a {*/\r\n    /*color: #007ad9;*/\r\n    /*text-decoration: none;*/\r\n/*}*/\r\n/*body a:hover {*/\r\n    /*color: #116fbf;*/\r\n/*}*/\r\n/*body a:active {*/\r\n    /*color: #005b9f;*/\r\n/*}*/\r\nbody .p-disabled, body .p-component:disabled {\r\n    opacity: 0.5;\r\n    filter: alpha(opacity=50);\r\n}\r\nbody .pi {\r\n    font-size: 1.25em;\r\n}\r\nbody .p-link {\r\n    font-size: 14px;\r\n    \r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\n\r\nbody {\r\n    /* Validations */\r\n}\r\nbody .p-inputtext {\r\n    font-size: 14px;\r\n    color: #333333;\r\n    background: #ffffff;\r\n    padding: 0.429em;\r\n    border: 1px solid #a6a6a6;\r\n    -moz-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: border-color 0.2s, box-shadow 0.2s;\r\n    transition: border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    appearance: none;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-inputtext:enabled:hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-inputtext:enabled:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-checkbox {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n}\r\nbody .p-checkbox .p-checkbox-box {\r\n    border: 1px solid #a6a6a6;\r\n    background-color: #ffffff;\r\n    width: 20px;\r\n    height: 20px;\r\n    text-align: center;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-checkbox .p-checkbox-box:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-checkbox .p-checkbox-box:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-checkbox .p-checkbox-box.p-highlight {\r\n    border-color: #007ad9;\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled):hover {\r\n    border-color: #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-checkbox .p-checkbox-box .p-checkbox-icon {\r\n    overflow: hidden;\r\n    position: relative;\r\n    font-size: 18px;\r\n}\r\nbody .p-checkbox-label {\r\n    margin: 0 0 0 0.5em;\r\n}\r\nbody .p-radiobutton {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box {\r\n    border: 1px solid #a6a6a6;\r\n    background-color: #ffffff;\r\n    width: 20px;\r\n    height: 20px;\r\n    text-align: center;\r\n    position: relative;\r\n    -moz-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box.p-highlight {\r\n    border-color: #007ad9;\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box.p-highlight .p-radiobutton-icon {\r\n    background-color: #ffffff;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {\r\n    border-color: #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {\r\n    background: transparent;\r\n    width: 10px;\r\n    height: 10px;\r\n    display: inline-block;\r\n    position: absolute;\r\n    left: 50%;\r\n    top: 50%;\r\n    margin-left: -5px;\r\n    margin-top: -5px;\r\n    -moz-transition: background-color 0.2s;\r\n    -o-transition: background-color 0.2s;\r\n    -webkit-transition: background-color 0.2s;\r\n    transition: background-color 0.2s;\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n}\r\nbody .p-radiobutton .p-radiobutton-box .p-radiobutton-icon:before {\r\n    display: none;\r\n}\r\nbody .p-radiobutton-label {\r\n    margin: 0 0 0 0.5em;\r\n}\r\nbody .p-inputswitch {\r\n    width: 3em;\r\n    height: 1.75em;\r\n}\r\nbody .p-inputswitch .p-inputswitch-slider {\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    border-radius: 30px;\r\n    background: #cccccc;\r\n}\r\nbody .p-inputswitch .p-inputswitch-slider:before {\r\n    background-color: #ffffff;\r\n    height: 1.25em;\r\n    width: 1.25em;\r\n    left: 0.25em;\r\n    bottom: 0.25em;\r\n    border-radius: 50%;\r\n    -webkit-transition: 0.2s;\r\n    transition: 0.2s;\r\n}\r\nbody .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {\r\n    -webkit-transform: translateX(1.25em);\r\n    -ms-transform: translateX(1.25em);\r\n    transform: translateX(1.25em);\r\n}\r\nbody .p-inputswitch.p-inputswitch-focus .p-inputswitch-slider {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {\r\n    background-color: #b7b7b7;\r\n}\r\nbody .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {\r\n    background-color: #116fbf;\r\n}\r\nbody .p-autocomplete .p-autocomplete-input {\r\n    padding: 0.429em;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container {\r\n    padding: 0.2145em 0.429em;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token {\r\n    margin: 0;\r\n    padding: 0.2145em 0;\r\n    color: #333333;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-input-token input {\r\n    \r\n    font-size: 14px;\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\nbody .p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container .p-autocomplete-token {\r\n    font-size: 14px;\r\n    padding: 0.2145em 0.429em;\r\n    margin: 0 0.286em 0 0;\r\n    background: #007ad9;\r\n    color: #ffffff;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-autocomplete-panel {\r\n    padding: 0;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items {\r\n    padding: 0;\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-list-item {\r\n    margin: 0;\r\n    padding: 0.429em 0.857em;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-list-item:hover {\r\n    color: #333333;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-list-item.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-group {\r\n    padding: 0.429em 0.857em;\r\n    background-color: #d8dae2;\r\n    color: #333333;\r\n}\r\nbody .p-fluid .p-autocomplete .p-autocomplete-dropdown.p-button {\r\n    width: 2.357em;\r\n}\r\nbody .p-fluid .p-autocomplete.p-autocomplete-multiple.p-autocomplete-dd .p-autocomplete-multiple-container {\r\n    border-right: 0 none;\r\n    width: calc(100% - 2.357em);\r\n}\r\nbody .p-fluid .p-autocomplete.p-autocomplete-dd .p-inputtext {\r\n    border-right: 0 none;\r\n    width: calc(100% - 2.357em);\r\n}\r\nbody .p-chips > ul.p-inputtext {\r\n    padding: 0.2145em 0.429em;\r\n    display: inline-block;\r\n}\r\nbody .p-chips > ul.p-inputtext:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-chips > ul.p-inputtext:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-input-token {\r\n    padding: 0.2145em 0;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-input-token input {\r\n    \r\n    font-size: 14px;\r\n    padding: 0;\r\n    margin: 0;\r\n    color: #333333;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-input-token input:hover {\r\n    border: 0 none;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-input-token input:focus {\r\n    -webkit-box-shadow: none;\r\n    -moz-box-shadow: none;\r\n    box-shadow: none;\r\n    outline: 0 none;\r\n    border: 0 none;\r\n}\r\nbody .p-chips > ul.p-inputtext .p-chips-token {\r\n    font-size: 14px;\r\n    padding: 0.2145em 0.429em;\r\n    margin: 0 0.286em 0 0;\r\n    background: #007ad9;\r\n    color: #ffffff;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-dropdown {\r\n    background: #ffffff;\r\n    border: 1px solid #a6a6a6;\r\n    -moz-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: border-color 0.2s, box-shadow 0.2s;\r\n    transition: border-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-dropdown:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-dropdown:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-dropdown .p-dropdown-label {\r\n    padding-right: 2em;\r\n}\r\nbody .p-dropdown .p-dropdown-label:focus {\r\n    outline: 0 none;\r\n    -webkit-box-shadow: none;\r\n    -moz-box-shadow: none;\r\n    box-shadow: none;\r\n}\r\nbody .p-dropdown .p-dropdown-trigger {\r\n    background-color: #ffffff;\r\n    width: 2em;\r\n    line-height: 2em;\r\n    text-align: center;\r\n    padding: 0;\r\n    color: #848484;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-dropdown .p-dropdown-clear-icon {\r\n    color: #848484;\r\n}\r\nbody .p-dropdown-panel {\r\n    padding: 0;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-dropdown-panel .p-dropdown-filter-container {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border-bottom: 1px solid #eaeaea;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-filter-container .p-dropdown-filter {\r\n    width: 100%;\r\n    padding-right: 2em;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-filter-container .p-dropdown-filter-icon {\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    right: 1.357em;\r\n    color: #007ad9;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-items {\r\n    padding: 0;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-items .p-dropdown-item, body .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {\r\n    margin: 0;\r\n    padding: 0.429em 0.857em;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight, body .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover, body .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group:not(.p-highlight):not(.p-disabled):hover {\r\n    color: #333333;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-multiselect {\r\n    background: #ffffff;\r\n    border: 1px solid #a6a6a6;\r\n    -moz-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: border-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: border-color 0.2s, box-shadow 0.2s;\r\n    transition: border-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-multiselect:not(.p-disabled):hover {\r\n    border-color: #212121;\r\n}\r\nbody .p-multiselect:not(.p-disabled).p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    border-color: #007ad9;\r\n}\r\nbody .p-multiselect .p-multiselect-label {\r\n    padding: 0.429em;\r\n    padding-right: 2em;\r\n    font-weight: 400;\r\n    color: #333333;\r\n}\r\nbody .p-multiselect .p-multiselect-trigger {\r\n    background-color: #ffffff;\r\n    width: 2em;\r\n    line-height: 2em;\r\n    text-align: center;\r\n    padding: 0;\r\n    color: #848484;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-multiselect-panel {\r\n    padding: 0;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border-bottom: 1px solid #eaeaea;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container {\r\n    float: none;\r\n    width: 70%;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin-left: 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext {\r\n    padding: 0.429em;\r\n    padding-right: 2em;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {\r\n    color: #007ad9;\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    right: 0.5em;\r\n    left: auto;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-checkbox {\r\n    margin-right: 0.5em;\r\n    float: none;\r\n    vertical-align: middle;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-header .p-multiselect-close {\r\n    color: #848484;\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items {\r\n    padding: 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item {\r\n    margin: 0;\r\n    padding: 0.429em 0.857em;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {\r\n    color: #333333;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {\r\n    position: static;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin: 0 0.5em 0 0;\r\n}\r\nbody .p-multiselect-panel .p-multiselect-items .p-multiselect-item label {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n}\r\nbody .p-listbox {\r\n    padding: 0;\r\n    min-width: 12em;\r\n    background: #ffffff;\r\n    border: 1px solid #a6a6a6;\r\n}\r\nbody .p-listbox .p-checkbox {\r\n    margin: 0 0.5em 0 0;\r\n}\r\nbody .p-listbox .p-listbox-header {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border-bottom: 1px solid #eaeaea;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-listbox .p-listbox-header .p-listbox-filter-container input {\r\n    padding: 0.429em;\r\n    padding-right: 2em;\r\n}\r\nbody .p-listbox .p-listbox-header .p-listbox-filter-container .p-listbox-filter-icon {\r\n    top: 50%;\r\n    left: auto;\r\n    margin-top: -0.5em;\r\n    right: 0.5em;\r\n    color: #007ad9;\r\n}\r\nbody .p-listbox .p-listbox-list {\r\n    background-color: #ffffff;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item {\r\n    margin: 0;\r\n    padding: 0.429em 0.857em;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item .p-checkbox {\r\n    position: static;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin: 0 0.5em 0 0;\r\n}\r\nbody .p-listbox .p-listbox-list .p-listbox-item label {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n}\r\nbody .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {\r\n    color: #333333;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-listbox.p-disabled .p-checkbox-box:not(.p-disabled):not(.p-highlight):hover {\r\n    border: 1px solid #a6a6a6;\r\n}\r\nbody .p-listbox .p-listbox-footer {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border-top: 1px solid #eaeaea;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n}\r\nbody .p-editor-container .p-editor-toolbar {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n}\r\nbody .p-editor-container .p-editor-content {\r\n    border: 1px solid #c8c8c8;\r\n}\r\nbody .p-editor-container .p-editor-content .ql-editor {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n}\r\nbody .p-editor-container .ql-picker.ql-expanded .ql-picker-label {\r\n    color: #333333;\r\n}\r\nbody .p-editor-container .ql-stroke {\r\n    stroke: #333333;\r\n}\r\nbody .p-editor-container .ql-picker-label {\r\n    color: #333333;\r\n}\r\nbody .p-editor-container .ql-snow.ql-toolbar button:hover,\r\nbody .p-editor-container .ql-snow .ql-toolbar button:hover,\r\nbody .p-editor-container .ql-snow.ql-toolbar button.ql-active,\r\nbody .p-editor-container .ql-snow .ql-toolbar button.ql-active,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected {\r\n    color: #007ad9;\r\n}\r\nbody .p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar button:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar button.ql-active .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,\r\nbody .p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar button:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,\r\nbody .p-editor-container .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {\r\n    stroke: #007ad9;\r\n}\r\nbody .p-rating .p-rating-icon {\r\n    font-size: 20px;\r\n    text-align: center;\r\n    display: inline-block;\r\n    color: #333333;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-rating .p-rating-icon.p-rating-cancel {\r\n    color: #e4018d;\r\n}\r\nbody .p-rating .p-rating-icon:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon:hover {\r\n    color: #007ad9;\r\n}\r\nbody .p-rating:not(.p-disabled):not(.p-rating-readonly) .p-rating-icon.p-rating-cancel:hover {\r\n    color: #b5019f;\r\n}\r\nbody .p-spinner .p-spinner-input {\r\n    padding-right: 2.429em;\r\n}\r\nbody .p-spinner .p-spinner-button {\r\n    width: 2em;\r\n}\r\nbody .p-spinner .p-spinner-button .p-spinner-button-icon {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin-top: -0.5em;\r\n    margin-left: -0.5em;\r\n    width: 1em;\r\n}\r\nbody .p-spinner .p-spinner-button.p-spinner-button {\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-spinner .p-spinner-button.p-spinner-button.p-spinner-button-up {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-spinner .p-spinner-button.p-spinner-button.p-spinner-button-down {\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-spinner .p-spinner-button.p-spinner-button:focus {\r\n    z-index: 1;\r\n}\r\nbody .p-fluid .p-spinner .p-spinner-input {\r\n    padding-right: 2.429em;\r\n}\r\nbody .p-fluid .p-spinner .p-spinner-button {\r\n    width: 2em;\r\n}\r\nbody .p-fluid .p-spinner .p-spinner-button .p-spinner-button-icon {\r\n    left: 50%;\r\n}\r\nbody .p-slider {\r\n    background-color: #c8c8c8;\r\n    border: 0 none;\r\n}\r\nbody .p-slider.p-slider-horizontal {\r\n    height: 0.286em;\r\n}\r\nbody .p-slider.p-slider-horizontal .p-slider-handle {\r\n    top: 50%;\r\n    margin-top: -0.5715em;\r\n}\r\nbody .p-slider.p-slider-vertical {\r\n    width: 0.286em;\r\n}\r\nbody .p-slider.p-slider-vertical .p-slider-handle {\r\n    left: 50%;\r\n    margin-left: -0.5715em;\r\n}\r\nbody .p-slider .p-slider-handle {\r\n    height: 1.143em;\r\n    width: 1.143em;\r\n    background-color: #ffffff;\r\n    border: 2px solid #666666;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    border-radius: 100%;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n}\r\nbody .p-slider .p-slider-handle:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-slider .p-slider-range {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-slider:not(.p-disabled) .p-slider-handle:hover {\r\n    border: 2px solid #007ad9;\r\n}\r\nbody .p-datepicker {\r\n    padding: 0.857em;\r\n    min-width: 20em;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #a6a6a6;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-datepicker:not(.p-datepicker-inline) {\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-datepicker:not(.p-disabled) .p-datepicker-header .p-datepicker-prev:hover,\r\nbody .p-datepicker:not(.p-disabled) .p-datepicker-header .p-datepicker-next:hover {\r\n    color: #007ad9;\r\n}\r\nbody .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-datepicker .p-datepicker-header {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-datepicker .p-datepicker-header .p-datepicker-prev,\r\nbody .p-datepicker .p-datepicker-header .p-datepicker-next {\r\n    cursor: pointer;\r\n    top: 0;\r\n    color: #a6a6a6;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datepicker .p-datepicker-header .p-datepicker-title {\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1;\r\n}\r\nbody .p-datepicker .p-datepicker-header .p-datepicker-title select {\r\n    margin-top: -0.35em;\r\n    margin-bottom: 0;\r\n}\r\nbody .p-datepicker table {\r\n    font-size: 14px;\r\n    margin: 0.857em 0 0 0;\r\n}\r\nbody .p-datepicker table th {\r\n    padding: 0.5em;\r\n}\r\nbody .p-datepicker table td {\r\n    padding: 0.5em;\r\n}\r\nbody .p-datepicker table td > span {\r\n    display: block;\r\n    text-align: center;\r\n    color: #333333;\r\n    cursor: pointer;\r\n    padding: 0.5em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-datepicker table td > span.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-datepicker table td.p-datepicker-today > span {\r\n    background-color: #d0d0d0;\r\n    color: #333333;\r\n}\r\nbody .p-datepicker table td.p-datepicker-today > span.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-datepicker .p-datepicker-buttonbar {\r\n    border-top: 1px solid #d8dae2;\r\n}\r\nbody .p-datepicker .p-timepicker {\r\n    border: 0 none;\r\n    border-top: 1px solid #d8dae2;\r\n    padding: 0.857em;\r\n}\r\nbody .p-datepicker .p-timepicker button {\r\n    color: #a6a6a6;\r\n    font-size: 1.286em;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datepicker .p-timepicker button:hover {\r\n    color: #007ad9;\r\n}\r\nbody .p-datepicker .p-timepicker span {\r\n    font-size: 1.286em;\r\n}\r\nbody .p-datepicker .p-monthpicker .p-monthpicker-month {\r\n    color: #333333;\r\n}\r\nbody .p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n}\r\nbody .p-datepicker.p-datepicker-timeonly {\r\n    padding: 0;\r\n}\r\nbody .p-datepicker.p-datepicker-timeonly .p-timepicker {\r\n    border-top: 0 none;\r\n}\r\nbody .p-datepicker.p-datepicker-multiple-month .p-datepicker-group {\r\n    border-right: 1px solid #d8dae2;\r\n    padding-right: 0.857em;\r\n    padding-left: 0.857em;\r\n    padding-top: 0;\r\n    padding-bottom: 0;\r\n}\r\nbody .p-datepicker.p-datepicker-multiple-month .p-datepicker-group:first-child {\r\n    padding-left: 0;\r\n}\r\nbody .p-datepicker.p-datepicker-multiple-month .p-datepicker-group:last-child {\r\n    padding-right: 0;\r\n    border-right: 0 none;\r\n}\r\nbody .p-calendar.p-calendar-w-btn .p-inputtext {\r\n    -moz-border-radius-topright: 0;\r\n    -webkit-border-top-right-radius: 0;\r\n    border-top-right-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n    border-right: 0 none;\r\n}\r\nbody .p-calendar.p-calendar-w-btn .p-inputtext:enabled:hover:not(.p-error), body .p-calendar.p-calendar-w-btn .p-inputtext:enabled:focus:not(.p-error) {\r\n    border-right: 0 none;\r\n}\r\nbody .p-calendar.p-calendar-w-btn .p-datepicker-trigger.p-button {\r\n    width: 2.357em;\r\n    -moz-border-radius-topleft: 0;\r\n    -webkit-border-top-left-radius: 0;\r\n    border-top-left-radius: 0;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n}\r\nbody .p-fluid .p-calendar.p-calendar-w-btn .p-inputtext {\r\n    width: calc(100% - 2.357em);\r\n}\r\nbody .p-fileupload .p-fileupload-buttonbar {\r\n    background-color: #f4f4f4;\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-fileupload .p-fileupload-buttonbar .p-button {\r\n    margin-right: 8px;\r\n}\r\nbody .p-fileupload .p-fileupload-buttonbar .p-button.p-fileupload-choose.p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-fileupload .p-fileupload-content {\r\n    background-color: #ffffff;\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-fileupload .p-progressbar {\r\n    top: 0;\r\n}\r\nbody .p-fileupload-choose:not(.p-disabled):hover {\r\n    background-color: #116fbf;\r\n    color: #ffffff;\r\n    border-color: #116fbf;\r\n}\r\nbody .p-fileupload-choose:not(.p-disabled):active {\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n    border-color: #005b9f;\r\n}\r\nbody .p-password-panel {\r\n    padding: 12px;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon {\r\n    border-color: #a6a6a6;\r\n    background-color: #eaeaea;\r\n    color: #848484;\r\n    padding: 0.429em;\r\n    min-width: 2em;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon:first-child {\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon:last-child {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon.p-inputgroup-addon-checkbox {\r\n    position: relative;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon.p-inputgroup-addon-checkbox .p-checkbox {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin-left: -10px;\r\n    margin-top: -10px;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon.p-inputgroup-addon-radiobutton {\r\n    position: relative;\r\n}\r\nbody .p-inputgroup .p-inputgroup-addon.p-inputgroup-addon-radiobutton .p-radiobutton {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    margin-left: -10px;\r\n    margin-top: -10px;\r\n}\r\nbody .p-inputgroup .p-button:first-child {\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .p-inputgroup .p-button:last-child {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-inputgroup .p-inputtext:focus {\r\n    z-index: 1;\r\n}\r\nbody .p-fluid .p-inputgroup .p-button {\r\n    width: auto;\r\n}\r\nbody .p-fluid .p-inputgroup .p-button.p-button-icon-only {\r\n    width: 2.357em;\r\n}\r\nbody ::-webkit-input-placeholder {\r\n    color: #666666;\r\n}\r\nbody :-moz-placeholder {\r\n    color: #666666;\r\n}\r\nbody ::-moz-placeholder {\r\n    color: #666666;\r\n}\r\nbody :-ms-input-placeholder {\r\n    color: #666666;\r\n}\r\nbody .p-inputtext.p-error,\r\nbody .p-dropdown.p-error,\r\nbody .p-autocomplete.p-error > .p-inputtext,\r\nbody .p-calendar.p-error > .p-inputtext,\r\nbody .p-chips.p-error > .p-inputtext,\r\nbody .p-checkbox.p-error > .p-checkbox-box,\r\nbody .p-radiobutton.p-error > .p-radiobutton-box,\r\nbody .p-inputswitch.p-error,\r\nbody .p-listbox.p-error,\r\nbody .p-multiselect.p-error,\r\nbody .p-spinner.p-error > .p-inputtext,\r\nbody .p-selectbutton.p-error > .p-button,\r\nbody .p-togglebutton.p-error > .p-button {\r\n    border: 1px solid #a80000;\r\n}\r\n\r\nbody .p-button {\r\n    margin: 0;\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n    font-size: 14px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-button:enabled:hover {\r\n    background-color: #116fbf;\r\n    color: #ffffff;\r\n    border-color: #116fbf;\r\n}\r\nbody .p-button:enabled:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-button:enabled:active {\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n    border-color: #005b9f;\r\n}\r\nbody .p-button.p-button-text-only .p-button-text {\r\n    padding: 0.429em 1em;\r\n}\r\nbody .p-button.p-button-text-icon-left .p-button-text {\r\n    padding: 0.429em 1em 0.429em 2.25em;\r\n}\r\nbody .p-button.p-button-text-icon-right .p-button-text {\r\n    padding: 0.429em 2.25em 0.429em 1em;\r\n}\r\nbody .p-button.p-button-icon-only {\r\n    width: 2.357em;\r\n}\r\nbody .p-button.p-button-icon-only .p-button-text {\r\n    padding: 0.429em;\r\n}\r\nbody .p-button.p-button-raised {\r\n    -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);\r\n    -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);\r\n    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);\r\n}\r\nbody .p-button.p-button-rounded {\r\n    -moz-border-radius: 15px;\r\n    -webkit-border-radius: 15px;\r\n    border-radius: 15px;\r\n}\r\nbody .p-fluid .p-button-icon-only {\r\n    width: 2.357em;\r\n}\r\nbody .p-togglebutton {\r\n    background-color: #dadada;\r\n    border: 1px solid #dadada;\r\n    color: #333333;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-togglebutton .p-button-icon-left {\r\n    color: #666666;\r\n}\r\nbody .p-togglebutton:not(.p-disabled):not(.p-highlight):hover {\r\n    background-color: #c8c8c8;\r\n    border-color: #c8c8c8;\r\n    color: #333333;\r\n}\r\nbody .p-togglebutton:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left {\r\n    color: #212121;\r\n}\r\nbody .p-togglebutton.p-focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-togglebutton.p-highlight {\r\n    background-color: #007ad9;\r\n    border-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-togglebutton.p-highlight .p-button-icon-left {\r\n    color: #ffffff;\r\n}\r\nbody .p-togglebutton.p-highlight:hover {\r\n    background-color: #116fbf;\r\n    border-color: #116fbf;\r\n    color: #ffffff;\r\n}\r\nbody .p-togglebutton.p-highlight:hover .p-button-icon-left {\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button {\r\n    background-color: #dadada;\r\n    border: 1px solid #dadada;\r\n    color: #333333;\r\n    outline: 0 none;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-selectbutton .p-button .p-button-icon-left {\r\n    color: #666666;\r\n}\r\nbody .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {\r\n    background-color: #c8c8c8;\r\n    border-color: #c8c8c8;\r\n    color: #333333;\r\n}\r\nbody .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left {\r\n    color: #212121;\r\n}\r\nbody .p-selectbutton .p-button.p-focus, body .p-selectbutton .p-button:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    z-index: 1;\r\n}\r\nbody .p-selectbutton .p-button.p-highlight {\r\n    background-color: #007ad9;\r\n    border-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button.p-highlight .p-button-icon-left {\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button.p-highlight:not(.p-disabled):hover {\r\n    background-color: #116fbf;\r\n    border-color: #116fbf;\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button.p-highlight:not(.p-disabled):hover .p-button-icon-left {\r\n    color: #ffffff;\r\n}\r\nbody .p-selectbutton .p-button:first-child {\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .p-selectbutton .p-button:last-child {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-button {\r\n    border: 1px solid transparent;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-button:first-child {\r\n    -moz-border-radius-topright: 0;\r\n    -webkit-border-top-right-radius: 0;\r\n    border-top-right-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-button.p-splitbutton-menubutton {\r\n    -moz-border-radius-topleft: 0;\r\n    -webkit-border-top-left-radius: 0;\r\n    border-top-left-radius: 0;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-button:focus {\r\n    z-index: 1;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-menu {\r\n    min-width: 100%;\r\n}\r\nbody .p-splitbutton.p-buttonset .p-splitbutton-menubutton .p-button-icon-left:before {\r\n    content: \"\\E902\";\r\n}\r\nbody .p-button.p-button-secondary, body .p-buttonset.p-button-secondary > .p-button {\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #f4f4f4;\r\n}\r\nbody .p-button.p-button-secondary:enabled:hover, body .p-buttonset.p-button-secondary > .p-button:enabled:hover {\r\n    background-color: #c8c8c8;\r\n    color: #333333;\r\n    border-color: #c8c8c8;\r\n}\r\nbody .p-button.p-button-secondary:enabled:focus, body .p-buttonset.p-button-secondary > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-button.p-button-secondary:enabled:active, body .p-buttonset.p-button-secondary > .p-button:enabled:active {\r\n    background-color: #a0a0a0;\r\n    color: #333333;\r\n    border-color: #a0a0a0;\r\n}\r\nbody .p-button.p-button-info, body .p-buttonset.p-button-info > .p-button {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n}\r\nbody .p-button.p-button-info:enabled:hover, body .p-buttonset.p-button-info > .p-button:enabled:hover {\r\n    background-color: #116fbf;\r\n    color: #ffffff;\r\n    border-color: #116fbf;\r\n}\r\nbody .p-button.p-button-info:enabled:focus, body .p-buttonset.p-button-info > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-button.p-button-info:enabled:active, body .p-buttonset.p-button-info > .p-button:enabled:active {\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n    border-color: #005b9f;\r\n}\r\nbody .p-button.p-button-success, body .p-buttonset.p-button-success > .p-button {\r\n    color: #ffffff;\r\n    background-color: #34A835;\r\n    border: 1px solid #34A835;\r\n}\r\nbody .p-button.p-button-success:enabled:hover, body .p-buttonset.p-button-success > .p-button:enabled:hover {\r\n    background-color: #107D11;\r\n    color: #ffffff;\r\n    border-color: #107D11;\r\n}\r\nbody .p-button.p-button-success:enabled:focus, body .p-buttonset.p-button-success > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #aae5aa;\r\n    -moz-box-shadow: 0 0 0 0.2em #aae5aa;\r\n    box-shadow: 0 0 0 0.2em #aae5aa;\r\n}\r\nbody .p-button.p-button-success:enabled:active, body .p-buttonset.p-button-success > .p-button:enabled:active {\r\n    background-color: #0C6B0D;\r\n    color: #ffffff;\r\n    border-color: #0C6B0D;\r\n}\r\nbody .p-button.p-button-warning, body .p-buttonset.p-button-warning > .p-button {\r\n    color: #333333;\r\n    background-color: #ffba01;\r\n    border: 1px solid #ffba01;\r\n}\r\nbody .p-button.p-button-warning:enabled:hover, body .p-buttonset.p-button-warning > .p-button:enabled:hover {\r\n    background-color: #ED990B;\r\n    color: #333333;\r\n    border-color: #ED990B;\r\n}\r\nbody .p-button.p-button-warning:enabled:focus, body .p-buttonset.p-button-warning > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #ffeab4;\r\n    -moz-box-shadow: 0 0 0 0.2em #ffeab4;\r\n    box-shadow: 0 0 0 0.2em #ffeab4;\r\n}\r\nbody .p-button.p-button-warning:enabled:active, body .p-buttonset.p-button-warning > .p-button:enabled:active {\r\n    background-color: #D38B10;\r\n    color: #333333;\r\n    border-color: #D38B10;\r\n}\r\nbody .p-button.p-button-danger, body .p-buttonset.p-button-danger > .p-button {\r\n    color: #ffffff;\r\n    background-color: #e91224;\r\n    border: 1px solid #e91224;\r\n}\r\nbody .p-button.p-button-danger:enabled:hover, body .p-buttonset.p-button-danger > .p-button:enabled:hover {\r\n    background-color: #c01120;\r\n    color: #ffffff;\r\n    border-color: #c01120;\r\n}\r\nbody .p-button.p-button-danger:enabled:focus, body .p-buttonset.p-button-danger > .p-button:enabled:focus {\r\n    -webkit-box-shadow: 0 0 0 0.2em #f9b4ba;\r\n    -moz-box-shadow: 0 0 0 0.2em #f9b4ba;\r\n    box-shadow: 0 0 0 0.2em #f9b4ba;\r\n}\r\nbody .p-button.p-button-danger:enabled:active, body .p-buttonset.p-button-danger > .p-button:enabled:active {\r\n    background-color: #a90000;\r\n    color: #ffffff;\r\n    border-color: #a90000;\r\n}\r\n\r\nbody .p-panel {\r\n    padding: 0;\r\n    border: 0 none;\r\n}\r\nbody .p-panel .p-panel-titlebar {\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n}\r\nbody .p-panel .p-panel-titlebar .p-panel-title {\r\n    vertical-align: middle;\r\n    font-weight: 700;\r\n}\r\nbody .p-panel .p-panel-titlebar .p-panel-titlebar-icon {\r\n    margin: 0.143em 0 0 0;\r\n    position: relative;\r\n    font-size: 14px;\r\n    color: #848484;\r\n    border: 1px solid transparent;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-panel .p-panel-titlebar .p-panel-titlebar-icon:hover {\r\n    color: #333333;\r\n}\r\nbody .p-panel .p-panel-titlebar .p-panel-titlebar-icon:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-panel .p-panel-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border-top: 0 none;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-panel .p-panel-footer {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border-top: 0 none;\r\n    margin: 0;\r\n}\r\nbody .p-fieldset {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-fieldset .p-fieldset-legend a {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    font-weight: 700;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-fieldset .p-fieldset-legend a .p-fieldset-toggler {\r\n    float: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin-right: 0.5em;\r\n    color: #848484;\r\n}\r\nbody .p-fieldset .p-fieldset-legend a .p-fieldset-legend-text {\r\n    padding: 0;\r\n}\r\nbody .p-fieldset .p-fieldset-legend a:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover {\r\n    background-color: #dbdbdb;\r\n    border: 1px solid #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover .p-fieldset-toggler {\r\n    color: #333333;\r\n}\r\nbody .p-fieldset .p-fieldset-content {\r\n    padding: 0;\r\n}\r\nbody .p-accordion .p-accordion-tab {\r\n    margin-bottom: 2px;\r\n}\r\nbody .p-accordion .p-accordion-header a {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    font-weight: 700;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-accordion .p-accordion-header a .p-accordion-toggle-icon {\r\n    color: #848484;\r\n}\r\nbody .p-accordion .p-accordion-header a .p-accordion-toggle-icon.pi-caret-right:before {\r\n    content: \"\\E901\";\r\n}\r\nbody .p-accordion .p-accordion-header a .p-accordion-toggle-icon.pi-caret-down:before {\r\n    content: \"\\E902\";\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled) a:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover a {\r\n    background-color: #dbdbdb;\r\n    border: 1px solid #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover a .p-accordion-toggle-icon {\r\n    color: #333333;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight {\r\n    margin-bottom: 0;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight a {\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n    color: #ffffff;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight a .p-accordion-toggle-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover a {\r\n    border: 1px solid #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover a .p-accordion-toggle-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-accordion .p-accordion-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    border-top: 0;\r\n    -moz-border-radius-topleft: 0;\r\n    -webkit-border-top-left-radius: 0;\r\n    border-top-left-radius: 0;\r\n    -moz-border-radius-topright: 0;\r\n    -webkit-border-top-right-radius: 0;\r\n    border-top-right-radius: 0;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-tabview.p-tabview-top, body .p-tabview.p-tabview-bottom, body .p-tabview.p-tabview-left, body .p-tabview.p-tabview-right {\r\n    border: 0 none;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav, body .p-tabview.p-tabview-bottom .p-tabview-nav, body .p-tabview.p-tabview-left .p-tabview-nav, body .p-tabview.p-tabview-right .p-tabview-nav {\r\n    padding: 0;\r\n    background: transparent;\r\n    border: 0 none;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a, body .p-tabview.p-tabview-bottom .p-tabview-nav li a, body .p-tabview.p-tabview-left .p-tabview-nav li a, body .p-tabview.p-tabview-right .p-tabview-nav li a {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    float: none;\r\n    display: inline-block;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a .p-tabview-left-icon, body .p-tabview.p-tabview-bottom .p-tabview-nav li a .p-tabview-left-icon, body .p-tabview.p-tabview-left .p-tabview-nav li a .p-tabview-left-icon, body .p-tabview.p-tabview-right .p-tabview-nav li a .p-tabview-left-icon {\r\n    margin-right: 0.5em;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a .p-tabview-right-icon, body .p-tabview.p-tabview-bottom .p-tabview-nav li a .p-tabview-right-icon, body .p-tabview.p-tabview-left .p-tabview-nav li a .p-tabview-right-icon, body .p-tabview.p-tabview-right .p-tabview-nav li a .p-tabview-right-icon {\r\n    margin-left: 0.5em;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a:not(.p-disabled):focus, body .p-tabview.p-tabview-bottom .p-tabview-nav li a:not(.p-disabled):focus, body .p-tabview.p-tabview-left .p-tabview-nav li a:not(.p-disabled):focus, body .p-tabview.p-tabview-right .p-tabview-nav li a:not(.p-disabled):focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li .p-tabview-close, body .p-tabview.p-tabview-bottom .p-tabview-nav li .p-tabview-close, body .p-tabview.p-tabview-left .p-tabview-nav li .p-tabview-close, body .p-tabview.p-tabview-right .p-tabview-nav li .p-tabview-close {\r\n    color: #848484;\r\n    margin: 0 0.5em 0 0;\r\n    vertical-align: middle;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a, body .p-tabview.p-tabview-bottom .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a, body .p-tabview.p-tabview-left .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a, body .p-tabview.p-tabview-right .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover a {\r\n    background-color: #dbdbdb;\r\n    border: 1px solid #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-close, body .p-tabview.p-tabview-bottom .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-close, body .p-tabview.p-tabview-left .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-close, body .p-tabview.p-tabview-right .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-close {\r\n    color: #333333;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight a, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight a {\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight .p-tabview-close, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight .p-tabview-close, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight .p-tabview-close, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight .p-tabview-close {\r\n    color: #ffffff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight:hover a, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight:hover a, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight:hover a, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight:hover a {\r\n    border: 1px solid #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight:hover a .p-tabview-left-icon, body .p-tabview.p-tabview-top .p-tabview-nav li.p-highlight:hover a .p-tabview-right-icon, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight:hover a .p-tabview-left-icon, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-highlight:hover a .p-tabview-right-icon, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight:hover a .p-tabview-left-icon, body .p-tabview.p-tabview-left .p-tabview-nav li.p-highlight:hover a .p-tabview-right-icon, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight:hover a .p-tabview-left-icon, body .p-tabview.p-tabview-right .p-tabview-nav li.p-highlight:hover a .p-tabview-right-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li.p-tabview-selected a, body .p-tabview.p-tabview-bottom .p-tabview-nav li.p-tabview-selected a, body .p-tabview.p-tabview-left .p-tabview-nav li.p-tabview-selected a, body .p-tabview.p-tabview-right .p-tabview-nav li.p-tabview-selected a {\r\n    cursor: pointer;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav {\r\n    margin-bottom: -1px;\r\n}\r\nbody .p-tabview.p-tabview-top .p-tabview-nav li a {\r\n    margin-right: 2px;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-tabview.p-tabview-bottom .p-tabview-nav {\r\n    margin-top: -1px;\r\n}\r\nbody .p-tabview.p-tabview-bottom .p-tabview-nav li a {\r\n    margin-right: 2px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-tabview.p-tabview-left .p-tabview-nav {\r\n    /*margin-right: -px;*/\r\n}\r\nbody .p-tabview.p-tabview-left .p-tabview-nav li a {\r\n    margin-bottom: 2px;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .p-tabview.p-tabview-right .p-tabview-nav {\r\n    margin-right: -1px;\r\n}\r\nbody .p-tabview.p-tabview-right .p-tabview-nav li a {\r\n    margin-bottom: 2px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-tabview .p-tabview-panels {\r\n    background-color: #ffffff;\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-tabview .p-tabview-panels .p-tabview-panel {\r\n    padding: 0;\r\n}\r\nbody .p-toolbar {\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-toolbar button {\r\n    vertical-align: middle;\r\n}\r\nbody .p-toolbar .p-toolbar-separator {\r\n    vertical-align: middle;\r\n    color: #848484;\r\n    margin: 0 0.5em;\r\n}\r\nbody .p-card {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);\r\n    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);\r\n    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\nbody .p-paginator {\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0;\r\n}\r\nbody .p-paginator .p-paginator-first,\r\nbody .p-paginator .p-paginator-prev,\r\nbody .p-paginator .p-paginator-next,\r\nbody .p-paginator .p-paginator-last {\r\n    color: #848484;\r\n    height: 2.286em;\r\n    min-width: 2.286em;\r\n    border: 0 none;\r\n    line-height: 2.286em;\r\n    padding: 0;\r\n    margin: 0;\r\n    vertical-align: top;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,\r\nbody .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,\r\nbody .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,\r\nbody .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {\r\n    background-color: #e0e0e0;\r\n    color: #333333;\r\n}\r\nbody .p-paginator .p-dropdown {\r\n    border: 0 none;\r\n}\r\nbody .p-paginator .p-dropdown .p-dropdown-trigger, body .p-paginator .p-dropdown .p-dropdown-label {\r\n    color: #848484;\r\n}\r\nbody .p-paginator .p-dropdown:hover .p-dropdown-trigger, body .p-paginator .p-dropdown:hover .p-dropdown-label {\r\n    color: #333333;\r\n}\r\nbody .p-paginator .p-paginator-first:before {\r\n    position: relative;\r\n    top: 1px;\r\n}\r\nbody .p-paginator .p-paginator-prev:before {\r\n    position: relative;\r\n}\r\nbody .p-paginator .p-paginator-next:before {\r\n    position: relative;\r\n    top: 1px;\r\n}\r\nbody .p-paginator .p-paginator-last:before {\r\n    position: relative;\r\n    top: 1px;\r\n}\r\nbody .p-paginator .p-paginator-current {\r\n    vertical-align: top;\r\n    display: inline-block;\r\n    height: 2.286em;\r\n    min-width: 2.286em;\r\n    border: 0 none;\r\n    line-height: 2.286em;\r\n}\r\nbody .p-paginator .p-paginator-pages {\r\n    vertical-align: top;\r\n    display: inline-block;\r\n    padding: 0;\r\n}\r\nbody .p-paginator .p-paginator-pages .p-paginator-page {\r\n    color: #848484;\r\n    height: 2.286em;\r\n    min-width: 2.286em;\r\n    border: 0 none;\r\n    line-height: 2.286em;\r\n    padding: 0;\r\n    margin: 0;\r\n    vertical-align: top;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {\r\n    background-color: #e0e0e0;\r\n    color: #333333;\r\n}\r\nbody .p-paginator .p-dropdown {\r\n    margin-left: 0.5em;\r\n    height: 2.286em;\r\n    min-width: auto;\r\n}\r\nbody .p-datatable .p-datatable-header,\r\nbody .p-datatable .p-datatable-footer {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    text-align: center;\r\n}\r\nbody .p-datatable .p-datatable-header {\r\n    border-bottom: 0 none;\r\n    font-weight: 700;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-datatable .p-datatable-footer {\r\n    border-top: 0 none;\r\n    font-weight: 700;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-datatable .p-datatable-thead > tr > th {\r\n    padding: 0.571em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    font-weight: 700;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    text-align: center;\r\n}\r\nbody .p-datatable .p-datatable-tfoot > tr > td {\r\n    padding: 0.571em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    font-weight: 700;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    text-align: center;\r\n}\r\nbody .p-datatable .p-sortable-column {\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datatable .p-sortable-column .p-sortable-column-icon {\r\n    color: #848484;\r\n}\r\nbody .p-datatable .p-sortable-column:not(.p-highlight):hover {\r\n    background-color: #e0e0e0;\r\n    color: #333333;\r\n}\r\nbody .p-datatable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {\r\n    color: #333333;\r\n}\r\nbody .p-datatable .p-sortable-column:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-datatable .p-sortable-column.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-editable-column input {\r\n    font-size: 14px;\r\n    \r\n}\r\nbody .p-datatable .p-datatable-tbody > tr {\r\n    background: #ffffff;\r\n    color: #333333;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr > td {\r\n    background: inherit;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.429em 0.857em;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr > td .p-row-toggler {\r\n    color: #848484;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr > td .p-row-toggler:hover {\r\n    color: #333333;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-highlight .p-row-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-highlight .p-row-toggler:hover {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-highlight-contextmenu {\r\n    background-color: #5ab7ff;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {\r\n    box-shadow: inset 0 2px 0 0 #007ad9;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {\r\n    box-shadow: inset 0 -2px 0 0 #007ad9;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even) {\r\n    background-color: #f9f9f9;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler:hover {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight-contextmenu {\r\n    background-color: #5ab7ff;\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight-contextmenu .p-row-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable .p-datatable-tbody > tr:nth-child(even).p-highlight-contextmenu .p-row-toggler:hover {\r\n    color: #ffffff;\r\n}\r\nbody .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):not(.p-highlight-contextmenu):hover {\r\n    cursor: pointer;\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-datatable .p-column-resizer-helper {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-datatable .p-datatable-scrollable-header,\r\nbody .p-datatable .p-datatable-scrollable-footer {\r\n    background-color: #f4f4f4;\r\n}\r\n@media screen and (max-width: 40em) {\r\n    body .p-datatable.p-datatable-responsive .p-paginator-top {\r\n        border-bottom: 1px solid #c8c8c8;\r\n    }\r\n    body .p-datatable.p-datatable-responsive .p-paginator-bottom {\r\n        border-top: 1px solid #c8c8c8;\r\n    }\r\n    body .p-datatable.p-datatable-responsive .p-datatable-tbody > tr > td {\r\n        border: 0 none;\r\n    }\r\n}\r\nbody .p-datagrid .p-datagrid-header {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-datagrid .p-datagrid-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-datagrid .p-datagrid-footer {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    border-top: 0 none;\r\n}\r\nbody .p-datalist .p-datalist-header {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-datalist .p-datalist-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-datalist .p-datalist-footer {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    border-top: 0 none;\r\n}\r\nbody .p-datascroller .p-datascroller-header {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-datascroller .p-datascroller-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-datascroller .p-datascroller-footer {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    border-top: 0 none;\r\n}\r\nbody .p-dataview .p-dataview-header {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-dataview .p-dataview-content {\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-dataview .p-dataview-footer {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    border-top: 0 none;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .fc th {\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .fc td.ui-widget-content {\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n}\r\nbody .fc td.fc-head-container {\r\n    border: 1px solid #c8c8c8;\r\n}\r\nbody .fc .fc-row {\r\n    border-right: 1px solid #c8c8c8;\r\n}\r\nbody .fc .fc-event {\r\n    background-color: #116fbf;\r\n    border: 1px solid #116fbf;\r\n    color: #ffffff;\r\n}\r\nbody .fc .fc-toolbar .fc-button {\r\n    color: #ffffff;\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n    font-size: 14px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .fc .fc-toolbar .fc-button:enabled:hover {\r\n    background-color: #116fbf;\r\n    color: #ffffff;\r\n    border-color: #116fbf;\r\n}\r\nbody .fc .fc-toolbar .fc-button .fc-icon-chevron-left {\r\n    font-family: \"PrimeIcons\" !important;\r\n    text-indent: 0;\r\n}\r\nbody .fc .fc-toolbar .fc-button .fc-icon-chevron-left:before {\r\n    content: \"\\E900\";\r\n}\r\nbody .fc .fc-toolbar .fc-button .fc-icon-chevron-right {\r\n    font-family: \"PrimeIcons\" !important;\r\n    text-indent: 0;\r\n}\r\nbody .fc .fc-toolbar .fc-button .fc-icon-chevron-right:before {\r\n    content: \"\\E901\";\r\n}\r\nbody .fc .fc-toolbar .fc-button:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .fc .fc-toolbar .fc-button-group .fc-button {\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .fc .fc-toolbar .fc-button-group .fc-button:first-child {\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n}\r\nbody .fc .fc-toolbar .fc-button-group .fc-button:last-child {\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .fc .fc-divider {\r\n    background-color: #f4f4f4;\r\n    border: 1px solid #c8c8c8;\r\n}\r\nbody .p-fluid .fc .fc-toolbar .ui-button {\r\n    width: auto;\r\n}\r\nbody .p-picklist .p-picklist-buttons button {\r\n    font-size: 16px;\r\n}\r\nbody .p-picklist .p-picklist-caption {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-picklist .p-picklist-filter-container {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-picklist .p-picklist-filter-container input {\r\n    width: 100%;\r\n    padding-right: 2em;\r\n    text-indent: 0;\r\n}\r\nbody .p-picklist .p-picklist-filter-container .p-picklist-filter-icon {\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    left: auto;\r\n    right: 1.357em;\r\n    color: #007ad9;\r\n}\r\nbody .p-picklist .p-picklist-buttons {\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-picklist .p-picklist-list {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-item {\r\n    padding: 0.429em 0.857em;\r\n    margin: 0;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-item:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-item.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-picklist .p-picklist-list .p-picklist-droppoint-highlight {\r\n    background-color: #007ad9;\r\n}\r\n@media (max-width: 40em) {\r\n    body .p-picklist.p-picklist-responsive .p-picklist-buttons {\r\n        padding: 0.571em 1em;\r\n    }\r\n}\r\nbody .p-orderlist .p-orderlist-controls {\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-orderlist .p-orderlist-controls button {\r\n    font-size: 16px;\r\n}\r\nbody .p-orderlist .p-orderlist-caption {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-orderlist .p-orderlist-filter-container {\r\n    padding: 0.429em 0.857em 0.429em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    margin: 0;\r\n    border-bottom: 0 none;\r\n}\r\nbody .p-orderlist .p-orderlist-filter-container input {\r\n    width: 100%;\r\n    padding-right: 2em;\r\n    text-indent: 0;\r\n}\r\nbody .p-orderlist .p-orderlist-filter-container .p-orderlist-filter-icon {\r\n    top: 50%;\r\n    margin-top: -0.5em;\r\n    left: auto;\r\n    right: 1.357em;\r\n    color: #007ad9;\r\n}\r\nbody .p-orderlist .p-orderlist-list {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-item {\r\n    padding: 0.429em 0.857em;\r\n    margin: 0;\r\n    border: 0 none;\r\n    color: #333333;\r\n    background-color: transparent;\r\n    -moz-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-item:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-orderlist .p-orderlist-list .p-orderlist-droppoint-highlight {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-tree {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tree .p-tree-container {\r\n    padding: 0.286em;\r\n    margin: 0;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode {\r\n    padding: 0.143em 0;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content {\r\n    padding: 0;\r\n    border: 1px solid transparent;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {\r\n    vertical-align: middle;\r\n    display: inline-block;\r\n    float: none;\r\n    margin: 0 0.286em 0 0;\r\n    color: #848484;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler b .p-tree-toggler-icon {\r\n    line-height: 1.25em;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-treenode-icon {\r\n    vertical-align: middle;\r\n    display: inline-block;\r\n    margin: 0 0.286em 0 0;\r\n    color: #848484;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-treenode-label {\r\n    margin: 0;\r\n    vertical-align: middle;\r\n    display: inline-block;\r\n    padding: 0.286em 0;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox {\r\n    margin: 0 0.286em 0 0;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-tree-toggler,\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-treenode-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-checkbox .p-checkbox-box {\r\n    border-color: #ffffff;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight-contextmenu {\r\n    border: 1px dashed #007ad9;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover .p-treenode-icon {\r\n    color: #333333;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content > span {\r\n    line-height: inherit;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-dragover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-tree .p-tree-container .p-treenode-droppoint.p-treenode-droppoint-active {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-tree.p-tree-horizontal {\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content .p-checkbox .p-icon {\r\n    color: #007ad9;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content .p-treenode-label:not(.p-highlight):hover {\r\n    background-color: inherit;\r\n    color: inherit;\r\n}\r\nbody .p-tree.p-tree-horizontal .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-tree .p-tree-filter-container .p-tree-filter {\r\n    width: 100%;\r\n    padding-right: 2em;\r\n}\r\nbody .p-tree .p-tree-filter-container .p-tree-filter-icon {\r\n    top: 50%;\r\n    left: auto;\r\n    margin-top: -0.5em;\r\n    right: 0.8em;\r\n    color: #007ad9;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content.p-highlight .p-node-toggler i {\r\n    color: #00325a;\r\n}\r\nbody .p-organizationchart .p-organizationchart-line-down {\r\n    background-color: #c8c8c8;\r\n}\r\nbody .p-organizationchart .p-organizationchart-line-left {\r\n    border-right: 1px solid #c8c8c8;\r\n    border-color: #c8c8c8;\r\n}\r\nbody .p-organizationchart .p-organizationchart-line-top {\r\n    border-top: 1px solid #c8c8c8;\r\n    border-color: #c8c8c8;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content .p-node-toggler {\r\n    bottom: -0.7em;\r\n    margin-left: -0.46em;\r\n    color: #848484;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n}\r\nbody .p-organizationchart .p-organizationchart-node-content .p-node-toggler:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-treetable .p-treetable-header,\r\nbody .p-treetable .p-treetable-footer {\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    text-align: center;\r\n}\r\nbody .p-treetable .p-treetable-header {\r\n    border-bottom: 0 none;\r\n    font-weight: 700;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-treetable .p-treetable-footer {\r\n    border-top: 0 none;\r\n    font-weight: 700;\r\n    -moz-border-radius-bottomleft: 3px;\r\n    -webkit-border-bottom-left-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    -moz-border-radius-bottomright: 3px;\r\n    -webkit-border-bottom-right-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\nbody .p-treetable .p-treetable-thead > tr > th {\r\n    padding: 0.571em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    font-weight: 700;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    text-align: center;\r\n}\r\nbody .p-treetable .p-treetable-tfoot > tr > td {\r\n    padding: 0.571em 0.857em;\r\n    border: 1px solid #c8c8c8;\r\n    font-weight: 700;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    text-align: center;\r\n}\r\nbody .p-treetable .p-sortable-column {\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-treetable .p-sortable-column .p-sortable-column-icon {\r\n    color: #848484;\r\n}\r\nbody .p-treetable .p-sortable-column:not(.p-highlight):hover {\r\n    background-color: #e0e0e0;\r\n    color: #333333;\r\n}\r\nbody .p-treetable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {\r\n    color: #333333;\r\n}\r\nbody .p-treetable .p-sortable-column:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-treetable .p-sortable-column.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-sortable-column.p-highlight .p-sortable-column-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-editable-column input {\r\n    font-size: 14px;\r\n    \r\n}\r\nbody .p-treetable .p-treetable-tbody > tr {\r\n    background: #ffffff;\r\n    color: #333333;\r\n    -moz-transition: background-color 0.2s;\r\n    -o-transition: background-color 0.2s;\r\n    -webkit-transition: background-color 0.2s;\r\n    transition: background-color 0.2s;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr > td {\r\n    background: inherit;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.429em 0.857em;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {\r\n    color: #848484;\r\n    vertical-align: middle;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr.p-highlight {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr.p-highlight .p-treetable-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr.p-highlight-contextmenu {\r\n    background-color: #5ab7ff;\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr.p-highlight-contextmenu .p-treetable-toggler {\r\n    color: #ffffff;\r\n}\r\nbody .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):not(.p-highlight-contextmenu):hover {\r\n    cursor: pointer;\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):not(.p-highlight-contextmenu):hover .p-treetable-toggler {\r\n    color: #333333;\r\n}\r\nbody .p-treetable .p-column-resizer-helper {\r\n    background-color: #007ad9;\r\n}\r\nbody .p-treetable .p-treetable-scrollable-header,\r\nbody .p-treetable .p-treetable-scrollable-footer {\r\n    background-color: #f4f4f4;\r\n}\r\nbody .p-carousel .p-carousel-content .p-carousel-prev,\r\nbody .p-carousel .p-carousel-content .p-carousel-next {\r\n    background-color: #ffffff;\r\n    border: solid 1px rgba(178, 193, 205, 0.64);\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n    margin: 0.2em;\r\n    color: #333333;\r\n    -moz-transition: color 0.2s;\r\n    -o-transition: color 0.2s;\r\n    -webkit-transition: color 0.2s;\r\n    transition: color 0.2s;\r\n}\r\nbody .p-carousel .p-carousel-content .p-carousel-prev:not(.p-disabled):hover,\r\nbody .p-carousel .p-carousel-content .p-carousel-next:not(.p-disabled):hover {\r\n    background-color: #ffffff;\r\n    color: #007ad9;\r\n    /*border-color: solid 1px rgba(178, 193, 205, 0.64);*/\r\n}\r\nbody .p-carousel .p-carousel-dots-container .p-carousel-dot-item .p-carousel-dot-icon {\r\n    width: 20px;\r\n    height: 6px;\r\n    background-color: #b2c1cd;\r\n    margin: 0 0.2em;\r\n}\r\nbody .p-carousel .p-carousel-dots-container .p-carousel-dot-item .p-carousel-dot-icon::before {\r\n    content: \" \";\r\n}\r\nbody .p-carousel .p-carousel-dots-container .p-carousel-dot-item.p-highlight .p-carousel-dot-icon {\r\n    background-color: #007ad9;\r\n}\r\n\r\nbody .p-messages {\r\n    margin: 1em 0;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-messages .p-messages-wrapper {\r\n    padding: 1em;\r\n}\r\nbody .p-messages.p-messages-info {\r\n    background-color: #7fbcec;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-info .p-messages-icon {\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-info .p-messages-close {\r\n    background-color: #7fbcec;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-success {\r\n    background-color: #b7d8b7;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-success .p-messages-icon {\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-success .p-messages-close {\r\n    background-color: #b7d8b7;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-warn {\r\n    background-color: #ffe399;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-warn .p-messages-icon {\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-warn .p-messages-close {\r\n    background-color: #ffe399;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-error {\r\n    background-color: #f8b7bd;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-error .p-messages-icon {\r\n    color: #212121;\r\n}\r\nbody .p-messages.p-messages-error .p-messages-close {\r\n    background-color: #f8b7bd;\r\n    color: #212121;\r\n}\r\nbody .p-messages .p-messages-close {\r\n    top: -0.769em;\r\n    right: -0.769em;\r\n    width: 1.538em;\r\n    height: 1.538em;\r\n    line-height: 1.538em;\r\n    text-align: center;\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n}\r\nbody .p-messages .p-messages-close .p-messages-close-icon {\r\n    line-height: inherit;\r\n    font-size: 1.5em;\r\n}\r\nbody .p-messages .p-messages-close:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-messages .p-messages-icon {\r\n    font-size: 2em;\r\n}\r\nbody .p-message {\r\n    padding: 0.429em;\r\n    margin: 0;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-message.p-message-info {\r\n    background-color: #7fbcec;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-info .p-message-icon {\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-success {\r\n    background-color: #b7d8b7;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-success .p-message-icon {\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-warn {\r\n    background-color: #ffe399;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-warn .p-message-icon {\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-error {\r\n    background-color: #f8b7bd;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-message.p-message-error .p-message-icon {\r\n    color: #212121;\r\n}\r\nbody .p-message .p-message-icon {\r\n    font-size: 1.25em;\r\n}\r\nbody .p-message .p-message-text {\r\n    font-size: 1em;\r\n}\r\nbody .p-growl {\r\n    top: 70px;\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\r\n}\r\nbody .p-growl .p-growl-item-container {\r\n    margin: 0 0 1em 0;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-growl .p-growl-item-container .p-growl-item {\r\n    padding: 1em;\r\n}\r\nbody .p-growl .p-growl-item-container .p-growl-item .p-growl-message {\r\n    margin: 0 0 0 4em;\r\n}\r\nbody .p-growl .p-growl-item-container .p-growl-item .p-growl-image {\r\n    font-size: 2.571em;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-info {\r\n    background-color: #7fbcec;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-info .p-growl-image,\r\nbody .p-growl .p-growl-item-container.p-growl-message-info .p-growl-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-success {\r\n    background-color: #b7d8b7;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-success .p-growl-image,\r\nbody .p-growl .p-growl-item-container.p-growl-message-success .p-growl-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-warn {\r\n    background-color: #ffe399;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-warn .p-growl-image,\r\nbody .p-growl .p-growl-item-container.p-growl-message-warn .p-growl-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-error {\r\n    background-color: #f8b7bd;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-growl .p-growl-item-container.p-growl-message-error .p-growl-image,\r\nbody .p-growl .p-growl-item-container.p-growl-message-error .p-growl-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-toast {\r\n    opacity: 0.9;\r\n    filter: alpha(opacity=90);\r\n}\r\nbody .p-toast .p-toast-item-container {\r\n    margin: 0 0 1em 0;\r\n    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-toast .p-toast-item-container .p-toast-item {\r\n    padding: 1em;\r\n}\r\nbody .p-toast .p-toast-item-container .p-toast-item .p-toast-message {\r\n    margin: 0 0 0 4em;\r\n}\r\nbody .p-toast .p-toast-item-container .p-toast-item .p-toast-image {\r\n    font-size: 2.571em;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-info {\r\n    background-color: #7fbcec;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-info .p-toast-image,\r\nbody .p-toast .p-toast-item-container.p-toast-message-info .p-toast-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-success {\r\n    background-color: #b7d8b7;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-success .p-toast-image,\r\nbody .p-toast .p-toast-item-container.p-toast-message-success .p-toast-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-warn {\r\n    background-color: #ffe399;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-warn .p-toast-image,\r\nbody .p-toast .p-toast-item-container.p-toast-message-warn .p-toast-icon-close {\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-error {\r\n    background-color: #f8b7bd;\r\n    border: 0 none;\r\n    color: #212121;\r\n}\r\nbody .p-toast .p-toast-item-container.p-toast-message-error .p-toast-image,\r\nbody .p-toast .p-toast-item-container.p-toast-message-error .p-toast-icon-close {\r\n    color: #212121;\r\n}\r\n\r\nbody .p-component-overlay {\r\n    background-color: rgba(0, 0, 0, 0.4);\r\n}\r\nbody .p-overlaypanel {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-overlaypanel .p-overlaypanel-content {\r\n    padding: 1em;\r\n}\r\nbody .p-overlaypanel .p-overlaypanel-close {\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n    width: 1.538em;\r\n    height: 1.538em;\r\n    line-height: 1.538em;\r\n    text-align: center;\r\n    position: absolute;\r\n    top: -0.769em;\r\n    right: -0.769em;\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-overlaypanel .p-overlaypanel-close:hover {\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-overlaypanel .p-overlaypanel-close > span {\r\n    line-height: inherit;\r\n}\r\nbody .p-overlaypanel:after {\r\n    border-color: rgba(255, 255, 255, 0);\r\n    border-bottom-color: #ffffff;\r\n}\r\nbody .p-overlaypanel:before {\r\n    border-color: rgba(200, 200, 200, 0);\r\n    border-bottom-color: #c8c8c8;\r\n}\r\nbody .p-overlaypanel.p-overlaypanel-flipped:after {\r\n    border-top-color: #ffffff;\r\n}\r\nbody .p-overlaypanel.p-overlaypanel-flipped:before {\r\n    border-top-color: #c8c8c8;\r\n}\r\nbody .p-dialog {\r\n    padding: 0;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-dialog .p-dialog-titlebar {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    padding: 1em;\r\n    font-weight: 700;\r\n    border-bottom: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-dialog .p-dialog-titlebar .p-dialog-title {\r\n    margin: 0;\r\n    float: none;\r\n    font-weight: 700;\r\n}\r\nbody .p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon {\r\n    color: #848484;\r\n    border: 0 none;\r\n    padding: 0;\r\n    margin-left: 0.5em;\r\n    -moz-transition: color 0.2s, box-shadow 0.2s;\r\n    -o-transition: color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: color 0.2s, box-shadow 0.2s;\r\n    transition: color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-dialog .p-dialog-titlebar .p-dialog-titlebar-icon:hover {\r\n    color: #333333;\r\n}\r\nbody .p-dialog .p-dialog-content {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 1em;\r\n}\r\nbody .p-dialog .p-dialog-footer {\r\n    border: 1px solid #c8c8c8;\r\n    border-top: 0 none;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    margin: 0;\r\n    text-align: right;\r\n}\r\nbody .p-dialog .p-dialog-footer button {\r\n    margin: 0 0.5em 0 0;\r\n    width: auto;\r\n}\r\nbody .p-dialog.p-confirm-dialog .p-dialog-content {\r\n    padding: 1.5em;\r\n}\r\nbody .p-dialog.p-confirm-dialog .p-dialog-content > span {\r\n    float: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    line-height: 14px;\r\n    margin: 0;\r\n}\r\nbody .p-dialog.p-confirm-dialog .p-dialog-content > span.p-icon {\r\n    margin-right: 0.35em;\r\n    font-size: 16px;\r\n}\r\nbody .p-sidebar {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-sidebar .p-sidebar-close {\r\n    color: #848484;\r\n}\r\nbody .p-sidebar .p-sidebar-close:hover {\r\n    color: #333333;\r\n}\r\nbody .p-tooltip .p-tooltip-text {\r\n    background-color: #333333;\r\n    color: #ffffff;\r\n    padding: 0.429em;\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tooltip.p-tooltip-right .p-tooltip-arrow {\r\n    border-right-color: #333333;\r\n}\r\nbody .p-tooltip.p-tooltip-left .p-tooltip-arrow {\r\n    border-left-color: #333333;\r\n}\r\nbody .p-tooltip.p-tooltip-top .p-tooltip-arrow {\r\n    border-top-color: #333333;\r\n}\r\nbody .p-tooltip.p-tooltip-bottom .p-tooltip-arrow {\r\n    border-bottom-color: #333333;\r\n}\r\nbody .p-lightbox {\r\n    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-lightbox .p-lightbox-caption {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    font-weight: 700;\r\n}\r\nbody .p-lightbox .p-lightbox-caption .p-lightbox-caption-text {\r\n    color: #333333;\r\n    margin: 0;\r\n}\r\nbody .p-lightbox .p-lightbox-caption .p-lightbox-close {\r\n    padding: 0;\r\n    color: #848484;\r\n    -moz-transition: color 0.2s;\r\n    -o-transition: color 0.2s;\r\n    -webkit-transition: color 0.2s;\r\n    transition: color 0.2s;\r\n}\r\nbody .p-lightbox .p-lightbox-caption .p-lightbox-close:hover {\r\n    color: #333333;\r\n}\r\nbody .p-lightbox .p-lightbox-content-wrapper {\r\n    overflow: hidden;\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 0 none;\r\n    padding: 0;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n}\r\nbody .p-lightbox .p-lightbox-content-wrapper .p-lightbox-nav-left, body .p-lightbox .p-lightbox-content-wrapper .p-lightbox-nav-right {\r\n    -moz-transition: all 0.2s;\r\n    -o-transition: all 0.2s;\r\n    -webkit-transition: all 0.2s;\r\n    transition: all 0.2s;\r\n    font-size: 3em;\r\n    color: #ffffff;\r\n    margin-top: -0.5em;\r\n}\r\nbody .p-lightbox .p-lightbox-content-wrapper .p-lightbox-nav-left:hover, body .p-lightbox .p-lightbox-content-wrapper .p-lightbox-nav-right:hover {\r\n    -webkit-transform: scale(1.2);\r\n    -moz-transform: scale(1.2);\r\n    -o-transform: scale(1.2);\r\n    -ms-transform: scale(1.2);\r\n    transform: scale(1.2);\r\n}\r\nbody .p-lightbox .p-lightbox-content-wrapper .p-lightbox-content.p-lightbox-loading ~ a {\r\n    display: none;\r\n}\r\n\r\nbody .p-breadcrumb {\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-breadcrumb ul li .p-menuitem-link {\r\n    color: #333333;\r\n    margin: 0;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-breadcrumb ul li .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-breadcrumb ul li.p-breadcrumb-chevron {\r\n    margin: 0 0.5em 0 0.5em;\r\n    color: #848484;\r\n}\r\nbody .p-breadcrumb ul li:first-child a {\r\n    color: #848484;\r\n    margin: 0;\r\n}\r\nbody .p-breadcrumb ul li .p-menuitem-icon {\r\n    color: #848484;\r\n}\r\nbody .p-steps {\r\n    position: relative;\r\n}\r\nbody .p-steps .p-steps-item {\r\n    background-color: transparent;\r\n    text-align: center;\r\n}\r\nbody .p-steps .p-steps-item .p-menuitem-link {\r\n    display: inline-block;\r\n    text-align: center;\r\n    background-color: transparent;\r\n    overflow: hidden;\r\n    -moz-transition: box-shadow 0.2s;\r\n    -o-transition: box-shadow 0.2s;\r\n    -webkit-transition: box-shadow 0.2s;\r\n    transition: box-shadow 0.2s;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-steps .p-steps-item .p-menuitem-link .p-steps-number {\r\n    -moz-border-radius: 50%;\r\n    -webkit-border-radius: 50%;\r\n    border-radius: 50%;\r\n    display: inline-block;\r\n    color: #333333;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    position: relative;\r\n    top: 16px;\r\n    margin-bottom: 14px;\r\n    width: 28px;\r\n    height: 28px;\r\n    font-size: 16px;\r\n    line-height: 24px;\r\n    text-align: center;\r\n}\r\nbody .p-steps .p-steps-item .p-menuitem-link .p-steps-title {\r\n    display: block;\r\n    margin-top: 6px;\r\n    color: #848484;\r\n}\r\nbody .p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-steps .p-steps-item.p-highlight .p-steps-number {\r\n    background: #007ad9;\r\n    color: #ffffff;\r\n}\r\nbody .p-steps .p-steps-item.p-highlight .p-steps-title {\r\n    font-weight: 700;\r\n    color: #333333;\r\n}\r\nbody .p-steps .p-steps-item:last-child .p-menuitem-link {\r\n    display: block;\r\n}\r\nbody .p-steps:before {\r\n    content: \" \";\r\n    border-top: 1px solid #c8c8c8;\r\n    width: 100%;\r\n    top: 45%;\r\n    left: 0;\r\n    display: block;\r\n    position: absolute;\r\n}\r\nbody .p-menu .p-menuitem-link,\r\nbody .p-menubar .p-menuitem-link,\r\nbody .p-tieredmenu .p-menuitem-link,\r\nbody .p-contextmenu .p-menuitem-link,\r\nbody .p-megamenu .p-menuitem-link,\r\nbody .p-slidemenu .p-menuitem-link {\r\n    padding: 0.714em 0.857em;\r\n    color: #333333;\r\n    font-weight: normal;\r\n    -moz-border-radius: 0;\r\n    -webkit-border-radius: 0;\r\n    border-radius: 0;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-menu .p-menuitem-link .p-menuitem-text,\r\nbody .p-menubar .p-menuitem-link .p-menuitem-text,\r\nbody .p-tieredmenu .p-menuitem-link .p-menuitem-text,\r\nbody .p-contextmenu .p-menuitem-link .p-menuitem-text,\r\nbody .p-megamenu .p-menuitem-link .p-menuitem-text,\r\nbody .p-slidemenu .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-menu .p-menuitem-link .p-menuitem-icon,\r\nbody .p-menubar .p-menuitem-link .p-menuitem-icon,\r\nbody .p-tieredmenu .p-menuitem-link .p-menuitem-icon,\r\nbody .p-contextmenu .p-menuitem-link .p-menuitem-icon,\r\nbody .p-megamenu .p-menuitem-link .p-menuitem-icon,\r\nbody .p-slidemenu .p-menuitem-link .p-menuitem-icon {\r\n    color: #333333;\r\n    margin-right: 0.5em;\r\n}\r\nbody .p-menu .p-menuitem-link:hover,\r\nbody .p-menubar .p-menuitem-link:hover,\r\nbody .p-tieredmenu .p-menuitem-link:hover,\r\nbody .p-contextmenu .p-menuitem-link:hover,\r\nbody .p-megamenu .p-menuitem-link:hover,\r\nbody .p-slidemenu .p-menuitem-link:hover {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-menu .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-menubar .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-tieredmenu .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-contextmenu .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-megamenu .p-menuitem-link:hover .p-menuitem-text,\r\nbody .p-slidemenu .p-menuitem-link:hover .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-menu .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-menubar .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-tieredmenu .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-contextmenu .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-megamenu .p-menuitem-link:hover .p-menuitem-icon,\r\nbody .p-slidemenu .p-menuitem-link:hover .p-menuitem-icon {\r\n    color: #333333;\r\n}\r\nbody .p-menu .p-menuitem-link:focus,\r\nbody .p-menubar .p-menuitem-link:focus,\r\nbody .p-tieredmenu .p-menuitem-link:focus,\r\nbody .p-contextmenu .p-menuitem-link:focus,\r\nbody .p-megamenu .p-menuitem-link:focus,\r\nbody .p-slidemenu .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-menu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-menu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-menu.p-menu-overlay {\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-menu .p-submenu-header {\r\n    margin: 0;\r\n    padding: 0.714em 0.857em;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    font-weight: 700;\r\n    border: 0 none;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\nbody .p-menu .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-menubar {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {\r\n    padding: 0.714em 0.857em;\r\n}\r\nbody .p-menubar .p-submenu-list {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-menubar .p-submenu-list .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-menubar .p-submenu-list .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-menubar .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-contextmenu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-contextmenu .p-submenu-list {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-contextmenu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-contextmenu .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-contextmenu .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-tieredmenu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-tieredmenu .p-submenu-list {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-tieredmenu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-tieredmenu .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-tieredmenu .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-tieredmenu.p-menu-overlay {\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-slidemenu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-slidemenu .p-submenu-list {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 0 none;\r\n}\r\nbody .p-slidemenu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-slidemenu .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-slidemenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-slidemenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-slidemenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-slidemenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-slidemenu .p-slidemenu-backward {\r\n    margin: 0;\r\n    padding: 0.571em 1em;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    font-weight: 700;\r\n    border: 0 none;\r\n}\r\nbody .p-slidemenu .p-slidemenu-backward:hover {\r\n    background-color: #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-slidemenu .p-menu-separator {\r\n    border: 1px solid #c8c8c8;\r\n    border-width: 1px 0 0 0;\r\n}\r\nbody .p-slidemenu.p-menu-overlay {\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-tabmenu {\r\n    border: 0 none;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav {\r\n    padding: 0;\r\n    background: transparent;\r\n    border-bottom: 1px solid #c8c8c8;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav:after {\r\n    content: \"\";\r\n    display: table;\r\n    clear: both;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {\r\n    margin-bottom: -1px;\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    padding: 0.571em 1em;\r\n    margin-right: 2px;\r\n    -moz-border-radius-topleft: 3px;\r\n    -webkit-border-top-left-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    -webkit-border-top-right-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {\r\n    color: #848484;\r\n    margin-right: 0.5em;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {\r\n    background-color: #dbdbdb;\r\n    border: 1px solid #dbdbdb;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link .p-menuitem-icon {\r\n    color: #333333;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {\r\n    background-color: #007ad9;\r\n    border: 1px solid #007ad9;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link .p-menuitem-text {\r\n    color: #ffffff;\r\n}\r\nbody .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link .p-menuitem-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-megamenu {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n}\r\nbody .p-megamenu .p-megamenu-submenu-header {\r\n    margin: 0;\r\n    padding: 0.571em 1em;\r\n    color: #333333;\r\n    background-color: #f4f4f4;\r\n    font-weight: 700;\r\n    border: 0 none;\r\n}\r\nbody .p-megamenu .p-megamenu-panel {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    -moz-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);\r\n}\r\nbody .p-megamenu .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-megamenu .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, body .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-megamenu.p-megamenu-vertical .p-megamenu-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {\r\n    right: 0.429em;\r\n}\r\nbody .p-panelmenu .p-icon {\r\n    position: static;\r\n}\r\nbody .p-panelmenu .p-panelmenu-panel .p-panelmenu-header {\r\n    margin-top: 2px;\r\n}\r\nbody .p-panelmenu .p-panelmenu-panel:first-child .p-panelmenu-header {\r\n    margin-top: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header {\r\n    padding: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a {\r\n    border: 1px solid #c8c8c8;\r\n    background-color: #f4f4f4;\r\n    color: #333333;\r\n    padding: 0.714em 0.857em;\r\n    font-weight: 700;\r\n    position: static;\r\n    font-size: 14px;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {\r\n    color: #848484;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon.pi-caret-right:before {\r\n    content: \"\\E901\";\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon.pi-caret-down:before {\r\n    content: \"\\E902\";\r\n}\r\nbody .p-panelmenu .p-panelmenu-header > a:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: 0 0 0 0.2em #8dcdff;\r\n    box-shadow: 0 0 0 0.2em #8dcdff;\r\n    z-index: 100;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header:not(.p-highlight) > a:hover {\r\n    outline: 0 none;\r\n    border: 1px solid #dbdbdb;\r\n    background-color: #dbdbdb;\r\n    color: #333333;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header:not(.p-highlight) > a:hover .p-panelmenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight {\r\n    margin-bottom: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight > a {\r\n    border: 1px solid #007ad9;\r\n    background-color: #007ad9;\r\n    color: #ffffff;\r\n    -moz-border-radius-bottomleft: 0;\r\n    -webkit-border-bottom-left-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n    -moz-border-radius-bottomright: 0;\r\n    -webkit-border-bottom-right-radius: 0;\r\n    border-bottom-right-radius: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight > a .p-panelmenu-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight > a:hover {\r\n    outline: 0 none;\r\n    border: 1px solid #005b9f;\r\n    background-color: #005b9f;\r\n    color: #ffffff;\r\n}\r\nbody .p-panelmenu .p-panelmenu-header.p-highlight > a:hover .p-panelmenu-icon {\r\n    color: #ffffff;\r\n}\r\nbody .p-panelmenu .p-panelmenu-panel:first-child {\r\n    margin-top: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content {\r\n    padding: 0;\r\n    background-color: #ffffff;\r\n    border: 1px solid #c8c8c8;\r\n    margin-top: 0;\r\n    position: static;\r\n    border-top: 0 none;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem {\r\n    margin: 0;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link {\r\n    padding: 0.714em 0.857em;\r\n    color: #333333;\r\n    -moz-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -o-transition: background-color 0.2s, box-shadow 0.2s;\r\n    -webkit-transition: background-color 0.2s, box-shadow 0.2s;\r\n    transition: background-color 0.2s, box-shadow 0.2s;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:hover {\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:hover .p-menuitem-icon, body .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:hover .p-panelmenu-icon {\r\n    color: #333333;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:hover .p-menuitem-text {\r\n    color: #333333;\r\n}\r\nbody .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    -webkit-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    -moz-box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n    box-shadow: inset 0 0 0 0.2em #8dcdff;\r\n}\r\n\r\nbody .p-progressbar {\r\n    border: 0 none;\r\n    height: 24px;\r\n    background-color: #eaeaea;\r\n}\r\nbody .p-progressbar .p-progressbar-value {\r\n    border: 0 none;\r\n    margin: 0;\r\n    background: #007ad9;\r\n}\r\nbody .p-progressbar .p-progressbar-label {\r\n    margin-top: 0;\r\n    color: #333333;\r\n    line-height: 24px;\r\n}\r\nbody .p-galleria .p-galleria-nav-prev,\r\nbody .p-galleria .p-galleria-nav-next {\r\n    -moz-transition: all 0.2s;\r\n    -o-transition: all 0.2s;\r\n    -webkit-transition: all 0.2s;\r\n    transition: all 0.2s;\r\n    position: absolute;\r\n    color: #848484;\r\n}\r\nbody .p-galleria .p-galleria-nav-prev:hover,\r\nbody .p-galleria .p-galleria-nav-next:hover {\r\n    -webkit-transform: scale(1.2);\r\n    -moz-transform: scale(1.2);\r\n    -o-transform: scale(1.2);\r\n    -ms-transform: scale(1.2);\r\n    transform: scale(1.2);\r\n}\r\nbody .p-galleria .p-galleria-nav-prev {\r\n    font-size: 16px;\r\n}\r\nbody .p-galleria .p-galleria-nav-next {\r\n    font-size: 16px;\r\n}\r\nbody .p-terminal {\r\n    background-color: #ffffff;\r\n    color: #333333;\r\n    border: 1px solid #c8c8c8;\r\n    padding: 0.571em 1em;\r\n}\r\nbody .p-terminal .p-terminal-input {\r\n    font-size: 14px;\r\n    \r\n    height: 16px;\r\n}\r\nbody .p-terminal .p-terminal-command {\r\n    height: 16px;\r\n}\r\nbody .p-inplace {\r\n    min-height: 2.357em;\r\n}\r\nbody .p-inplace .p-inplace-display {\r\n    padding: 0.429em;\r\n    -moz-border-radius: 3px;\r\n    -webkit-border-radius: 3px;\r\n    border-radius: 3px;\r\n    -moz-transition: background-color 0.2s;\r\n    -o-transition: background-color 0.2s;\r\n    -webkit-transition: background-color 0.2s;\r\n    transition: background-color 0.2s;\r\n}\r\nbody .p-inplace .p-inplace-display:not(.p-disabled):hover {\r\n    background-color: #eaeaea;\r\n    color: #333333;\r\n}\r\nbody .p-fluid .p-inplace.p-inplace-closable .p-inplace-content > :first-child {\r\n    display: inline-block;\r\n    width: calc(100% - 2.357em);\r\n}\r\n\r\n\r\n\r\n\r\n/*TODO tranfer file to resource*/\r\n\r\n.highcharts-credits{\r\n    display: none;\r\n}\r\n/*.subheader-content-container{*/\r\n/*min-width: 310px;*/\r\n/*height: 400px;*/\r\n/*margin: 0 auto;*/\r\n/*width: 50%;*/\r\n/*border: 1px solid #1d7ec1;*/\r\n/*}*/\r\n\r\n/*/////////////////////////*/\r\n\r\n\r\n/**\r\n*\r\n*\tName:\t\t\tIRAN Sans-Serif Font\r\n*\tVersion:\t\t4.0\r\n*\tAuthor:\t\t\tMoslem Ebrahimi (moslemebrahimi.com)\r\n*\tCreated on:\t\tDec 25, 2012\r\n*\tUpdated on:\t\tDec 12, 2015\r\n*\tWebsite:\t\thttp://fontiran.com\r\n*\tCopyright:\t\tCommercial/Proprietary Software\r\n--------------------------------------------------------------------------------------\r\nفونت های ایران سن سریف یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید\r\n--------------------------------------------------------------------------------------\r\nIRAN Sans-serif fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com\r\n--------------------------------------------------------------------------------------\r\nThis set of fonts are used in this project under the license: (.....)\r\n--------------------------------------------------------------------------------------\r\n*\r\n**/\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Bold.eot */ "./resources/fonts/eot/IRANSansWeb_Bold.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Bold.eot */ "./resources/fonts/eot/IRANSansWeb_Bold.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_Bold.woff2 */ "./resources/fonts/woff2/IRANSansWeb_Bold.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_Bold.woff */ "./resources/fonts/woff/IRANSansWeb_Bold.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_Bold.ttf */ "./resources/fonts/ttf/IRANSansWeb_Bold.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: 500;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Medium.eot */ "./resources/fonts/eot/IRANSansWeb_Medium.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Medium.eot */ "./resources/fonts/eot/IRANSansWeb_Medium.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_Medium.woff2 */ "./resources/fonts/woff2/IRANSansWeb_Medium.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_Medium.woff */ "./resources/fonts/woff/IRANSansWeb_Medium.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_Medium.ttf */ "./resources/fonts/ttf/IRANSansWeb_Medium.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: 300;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Light.eot */ "./resources/fonts/eot/IRANSansWeb_Light.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_Light.eot */ "./resources/fonts/eot/IRANSansWeb_Light.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_Light.woff2 */ "./resources/fonts/woff2/IRANSansWeb_Light.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_Light.woff */ "./resources/fonts/woff/IRANSansWeb_Light.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_Light.ttf */ "./resources/fonts/ttf/IRANSansWeb_Light.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: 200;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_UltraLight.eot */ "./resources/fonts/eot/IRANSansWeb_UltraLight.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_UltraLight.eot */ "./resources/fonts/eot/IRANSansWeb_UltraLight.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_UltraLight.woff2 */ "./resources/fonts/woff2/IRANSansWeb_UltraLight.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_UltraLight.woff */ "./resources/fonts/woff/IRANSansWeb_UltraLight.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_UltraLight.ttf */ "./resources/fonts/ttf/IRANSansWeb_UltraLight.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSans;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb.eot */ "./resources/fonts/eot/IRANSansWeb.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb.eot */ "./resources/fonts/eot/IRANSansWeb.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb.woff2 */ "./resources/fonts/woff2/IRANSansWeb.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb.woff */ "./resources/fonts/woff/IRANSansWeb.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb.ttf */ "./resources/fonts/ttf/IRANSansWeb.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Bold.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Bold.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Bold.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Bold.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_Bold.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_Bold.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_Bold.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_Bold.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_Bold.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_Bold.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: 500;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Medium.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Medium.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Medium.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Medium.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_Medium.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_Medium.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_Medium.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_Medium.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_Medium.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_Medium.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: 300;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Light.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Light.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_Light.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_Light.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_Light.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_Light.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_Light.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_Light.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_Light.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_Light.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: 200;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_UltraLight.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_UltraLight.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_UltraLight.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_UltraLight.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_UltraLight.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_UltraLight.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_UltraLight.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_UltraLight.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_UltraLight.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_UltraLight.ttf")) + ") format('truetype');\r\n}\r\n@font-face {\r\n    font-family: IRANSansFaNum;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_.eot")) + ");\r\n    src: url(" + escape(__webpack_require__(/*! ../fonts/eot/IRANSansWeb_FaNum_.eot */ "./resources/fonts/eot/IRANSansWeb_FaNum_.eot")) + "?#iefix) format('embedded-opentype'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff2/IRANSansWeb_FaNum_.woff2 */ "./resources/fonts/woff2/IRANSansWeb_FaNum_.woff2")) + ") format('woff2'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/woff/IRANSansWeb_FaNum_.woff */ "./resources/fonts/woff/IRANSansWeb_FaNum_.woff")) + ") format('woff'),  \r\n    url(" + escape(__webpack_require__(/*! ../fonts/ttf/IRANSansWeb_FaNum_.ttf */ "./resources/fonts/ttf/IRANSansWeb_FaNum_.ttf")) + ") format('truetype');\r\n}\r\na{\r\n    text-decoration: none;\r\n    color: inherit;\r\n}\r\n\r\n.rtl{\r\n\r\n    direction: rtl !important;\r\n    text-align: right;\r\n}\r\n\r\n.rtl-faNum{\r\n    font-family: IRANSansFaNum, Tahoma;\r\n    direction: rtl;\r\n    text-align: right;\r\n    padding-left: 50px;\r\n}\r\n.ltr{\r\n    direction: ltr !important;\r\n    text-align: left;\r\n}\r\n.ctr{\r\n    text-align: center;\r\n}\r\n.text-right{\r\n    direction: rtl;\r\n    text-align: right;\r\n    display: inline-block;\r\n}\r\n.bold{\r\n    font-weight: bold;\r\n}\r\n.clear{\r\n    clear: both;\r\n}\r\n.cursor-pointer{\r\n    cursor: pointer;\r\n}\r\n.clearfix{\r\n    display: block;\r\n}\r\n.clearfix:after {\r\n    clear: both;\r\n    content: \".\";\r\n    display: block;\r\n    height: 0;\r\n    visibility: hidden;\r\n}\r\na.read-more-link{\r\n    color: blue;\r\n}\r\ndiv.dataTables_wrapper {\r\n    direction: rtl;\r\n}\r\n.faNum{\r\n    font-family: IRANSansFaNum, IRANSans, Tahoma !important;\r\n}\r\n\r\ninput.input-box[readOnly] {\r\n    background: #D5DBE1;\r\n}\r\n.invisible{\r\n    width: 100%;\r\n    position: absolute;\r\n    top: 0px;\r\n    left: 0;\r\n    opacity: 0;\r\n    z-index: 999999999999999999;\r\n}\r\n\r\n\r\n\r\n/* Ensure that the demo table scrolls */\r\nth, td { white-space: nowrap; }\r\ninput[type=number]::-webkit-inner-spin-button,\r\ninput[type=number]::-webkit-outer-spin-button {\r\n    -webkit-appearance: none;\r\n    margin: 0;\r\n}\r\ndiv.dataTables_wrapper {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n}\r\n.dataTables_wrapper .dataTables_info{\r\n    float: right !important;\r\n}\r\n.dataTables_wrapper .dataTables_paginate{\r\n    float: left !important;\r\n}\r\ntable.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disabled{\r\n    background-position: left center !important;\r\n}\r\n.dataTables_info, .dataTables_wrapper .paginate_button{\r\n    font-family: IRANSansFaNum, IRANSans, Tahoma !important;\r\n}\r\n\r\nhtml, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, hgroup, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    outline: 0;\r\n    font-style: inherit;\r\n    font-family: inherit;\r\n}\r\n\r\nhtml.irliveplan body {\r\n    background: #EBEFF4;\r\n    font: 400 12px/12px IRANSans , Tahoma !important;\r\n\r\n}\r\nbutton:focus,\r\nbutton:hover,\r\ndiv:focus,\r\na:focus{\r\n    border: none;\r\n    outline:inherit;\r\n}\r\n.vjs-picture-in-picture-control.vjs-control.vjs-button{\r\n    display: none;\r\n}\r\n.inner-container{\r\n    background-image: linear-gradient(to bottom, white 0px, white 30px, #EBEFF4 400px);\r\n}\r\n.header-container{\r\n    transform: none;\r\n}\r\n.header-inner-container{\r\n    overflow: visible;\r\n    height: 42px;\r\n    background-image: linear-gradient(to bottom, white 0px, white 30px, #EBEFF4 400px);\r\n    background-attachment: fixed;\r\n}\r\n\r\n.header-items-margin-auto{\r\n    width: 960px;\r\n    margin: auto;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    height: 42px;\r\n    /*irliveplan*/\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: row-reverse;\r\n    flex-direction: row-reverse;\r\n    -webkit-box-align: stretch;\r\n    -ms-flex-align: stretch;\r\n    align-items: stretch;\r\n}\r\n.header-logo-container{\r\n    -ms-flex-item-align: center;\r\n    align-self: center;\r\n}\r\n.header-top-bar-item-container{\r\n    padding: 0 10px;\r\n    margin: 0 10px;\r\n    position: relative;\r\n    direction: rtl;\r\n}\r\n.transition-one-sec{\r\n    cursor: pointer;\r\n    -webkit-transition: color 0.1s;\r\n    transition: color 0.1s;\r\n}\r\n.header-inner-container .transition-one-sec:hover,\r\n.header-inner-container .transition-one-sec:focus{\r\n    color: #72C152;\r\n}\r\n.header-button:focus,\r\n.header-button:hover{\r\n    color: #72C152;\r\n}\r\n\r\n.header-link-container{\r\n    height: 42px;\r\n    width: 100%;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: row;\r\n    flex-direction: row;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    background: transparent;\r\n    border: 0;\r\n    font-family: IRANSans, Tahoma;\r\n    color: #3F484B;\r\n    font-size: 14px;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    text-decoration: none;\r\n}\r\n.header-top-bar-title-drop-down-container{\r\n    position: absolute;\r\n    top: 39px;\r\n    z-index: 1000000;\r\n}\r\n.arrow-up{\r\n    position: absolute;\r\n    top: -12px;\r\n    left: 94px;\r\n    border-width: 6px;\r\n    border-style: solid;\r\n    border-color: transparent transparent #72C152 transparent;\r\n    width: 0;\r\n    height: 0;\r\n    margin: auto;\r\n}\r\n.header-top-bar-title-drop-down-items-container{\r\n    background: white;\r\n    width: 200px;\r\n    min-height: 40px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: column;\r\n    flex-direction: column;\r\n    border-top: 3px solid #72C152;\r\n    border-bottom-left-radius: 4.2px;\r\n    border-bottom-right-radius: 4.2px;\r\n    -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);\r\n    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);\r\n}\r\n.header-top-bar-title-drop-down-section{\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n    font-size: 9pt;\r\n    height: 33.6px;\r\n    line-height: 15px;\r\n    padding: 0 16px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    text-decoration: none;\r\n}\r\n.header-top-bar-title-drop-down-section:first-child {\r\n    margin-top: 6px;\r\n}\r\n.header-top-bar-title-drop-down-section:last-child {\r\n    margin-bottom: 6px;\r\n}\r\n.link-span{\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    max-width: 180px;\r\n}\r\nspan.divider{\r\n    display: block;\r\n    height: 0;\r\n    border-top: 1px dotted #D5DBE1;\r\n    margin: 6px 0;\r\n}\r\n\r\n.overlay-button {\r\n    margin: auto;\r\n    padding: 10px;\r\n    color: #FFFFFF;\r\n    font-size: 12px;\r\n    letter-spacing: 0.4px;\r\n    float: left;\r\n    background-color: #7D8F94;\r\n    border: 1px solid #7D8F94;\r\n    border-radius: 3px;\r\n    line-height: 9px;\r\n    text-decoration: none;\r\n    font-family: IRANSANS, Tahoma;\r\n    white-space: nowrap;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.header-top-bar-title-drop-down-button-container{\r\n    margin: 6px 0;\r\n}\r\n.header-top-bar-title-drop-down-button-container:last-child {\r\n    margin-bottom: 16px;\r\n}\r\n.divider + .header-top-bar-title-drop-down-button-container {\r\n    margin-top: 10px;\r\n}\r\n.overlay-button.enabled {\r\n    cursor: pointer;\r\n}\r\n.overlay-button.primary {\r\n    background-color: #72C152;\r\n    border: 1px solid #72C152;\r\n}\r\n.blank-horizontal-divider{\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n}\r\n.padding-margin-left-zero{\r\n    padding-left: 0;\r\n    margin-left: 0;\r\n}\r\n#header-phone-number{\r\n    font-size: 10pt;\r\n    font-weight: bold;\r\n    color: #A0ADBD\r\n}\r\n.header-top-bar-title-drop-down-container{\r\n    display: none !important;\r\n}\r\n\r\n.content-container{\r\n    width: 960px;\r\n    margin: auto;\r\n}\r\n.nav-container{\r\n    margin: 0;\r\n    height: 47px;\r\n    width: 960px;\r\n    background-color: #3F484B;\r\n    border-top-right-radius: 3px;\r\n    border-top-left-radius: 3px;\r\n}\r\n\r\n.nav-container ul{\r\n    margin: 0;\r\n    padding: 0 30px;\r\n    display: block;\r\n    height: 47px;\r\n    padding-top: 4px;\r\n}\r\n.nav-container ul li{\r\n    float: right;\r\n    color: #FFFFFF;\r\n    list-style: none;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.nav-container ul li h1{\r\n    height: 43px;\r\n}\r\n.nav-container ul li h1.active{\r\n    margin: 0 10px 0 0;\r\n    display: block;\r\n    border-bottom: none;\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    cursor: default;\r\n    background-color: #FFFFFF;\r\n}\r\n.nav-container ul li h1.active a {\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/nav-shapes-active.png */ "./resources/img/nav-shapes-active.png")) + ");\r\n    color: #72C152;\r\n}\r\n.nav-container ul li h1 a {\r\n    color: #D5DBE1;\r\n    font: 600 12px / 43px IRANSans, Tahoma;\r\n    margin: 0;\r\n    padding: 0 35px 0 25px;\r\n    cursor: pointer;\r\n    text-decoration: none;\r\n    display: block;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/nav-shapes.png */ "./resources/img/nav-shapes.png")) + ");\r\n    background-repeat: no-repeat;\r\n}\r\n.nav-container ul li h1 a:hover, .nav-container ul li h1 a:focus {\r\n    color: #72C152;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/nav-shapes-active.png */ "./resources/img/nav-shapes-active.png")) + ");\r\n}\r\n.nav-container ul li.pitch a {\r\n    background-position: right -3.8%;\r\n}\r\n.nav-container ul li.plan a {\r\n    background-position: right 14%;\r\n}\r\n.nav-container ul li.forecast a {\r\n    background-position: right 32.3%;\r\n}\r\n.nav-container ul li.benchmarks a {\r\n    background-position: right 49.8%;\r\n}\r\n.nav-container ul li.schedule a {\r\n    background-position: right 67.8%;\r\n}\r\n.nav-container ul li.scoreboard a {\r\n    background-position: right 85.6%;\r\n}\r\n.nav-container ul li.options a {\r\n    background-position: right 103.5%;\r\n}\r\n.nav-container ul li.options{\r\n    float: left;\r\n}\r\n\r\n\r\n.inner-content-container{\r\n    margin: 0;\r\n    background-color: #FFFFFF;\r\n    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);\r\n    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);\r\n    border-bottom-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n}\r\n.inner-content{\r\n    background-color: #FFFFFF;\r\n}\r\n.upper-tabs-container, .lower-tabs-container{\r\n    border-bottom: 1px solid #D5DBE1;\r\n    width: 100%;\r\n    background: white;\r\n}\r\n.upper-tabs-container ul, .lower-tabs-container ul {\r\n    height: 44px;\r\n    margin: 0;\r\n    padding: 0 30px 0 30px;\r\n    list-style: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    flex-direction: row-reverse;\r\n    -webkit-box-align: stretch;\r\n    -ms-flex-align: stretch;\r\n    align-items: stretch;\r\n}\r\n.tabs-menu-item{\r\n    margin: 0 10px;\r\n    font-weight: 600;\r\n    color: #3F484B;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: column;\r\n    flex-direction: column;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    white-space: nowrap;\r\n    border-bottom: 2px solid transparent;\r\n}\r\n.tabs-menu-item:hover, .tabs-menu-item:focus-within {\r\n    border-bottom: 2px solid #7D8F94;\r\n    cursor: pointer;\r\n}\r\n.tabs-menu-item.active,\r\n.tabs-menu-item.active:hover{\r\n    color: #72C152;\r\n    border-bottom: 2px solid #72C152;\r\n}\r\n.tabs-menu-item-link-container{\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    font-family: IRANSans, Tahoma;\r\n    font-size: 12px;\r\n}\r\n.tabs-vertical-divider {\r\n    pointer-events: none;\r\n    margin: 0 2px;\r\n    border-left: 1px solid #D5DBE1;\r\n    height: 17px;\r\n    -ms-flex-item-align: center;\r\n    align-self: center;\r\n}\r\n.lower-tabs-container a{\r\n    color: #7D8F94;\r\n}\r\n\r\n.inner-content .info-container {\r\n    padding: 30px;\r\n    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);\r\n    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);\r\n    border-bottom-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n}\r\n.info-container .info-heading{\r\n    height: 50px;\r\n}\r\n.info-heading .info-title{\r\n    font: 400 24px/24px IRANSans, Tahoma;\r\n    margin: 0 0 0 20px;\r\n    float: right;\r\n}\r\n.info-container .forecast-header-buttons {\r\n    float: left;\r\n    direction: rtl;\r\n}\r\n.button-type-one{\r\n    display: inline;\r\n    background-color: transparent;\r\n    letter-spacing: 0.4px;\r\n    border-radius: 3px;\r\n    border: 1px solid #D5DBE1;\r\n    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);\r\n    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);\r\n    color: #7D8F94;\r\n    font: 600 12px/12px IRANSans, Tahoma;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n    padding: 10px 10px 10px 10px;\r\n    margin: -5px 0 0 10px;\r\n}\r\n.button-type-one:hover {\r\n    background: #F9F9F9;\r\n    color: #3F484B;\r\n    border: 1px solid #D5DBE1;\r\n}\r\n.button-type-one:focus{\r\n\r\n    border: 1px solid #D5DBE1;\r\n}\r\n.button-type-one.toggle-button{\r\n    padding: 10px 10px 10px 10px;\r\n    width: 165px;\r\n}\r\n.button-type-one.toggle-button span{\r\n    padding-right: 20px;\r\n    background-image:url(" + escape(__webpack_require__(/*! ../img/button-shapes.png */ "./resources/img/button-shapes.png")) + ");\r\n    background-repeat: no-repeat;\r\n}\r\n.button-type-one.video{\r\n    padding: 10px 9px 10px 10px;\r\n    margin-left: 0;\r\n}\r\n.button-type-one.video span{\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/play.svg */ "./resources/img/play.svg")) + ");\r\n    background-size: 18px;\r\n    background-position:  right;\r\n\r\n}\r\n\r\n.button-type-one.instructions.hidden span{\r\n    background-position: right 1px;\r\n}\r\n.button-type-one.instructions.visible span{\r\n\r\n    background-position: right -31px;\r\n}\r\n\r\n.info-container .subheader{\r\n    border-radius:  3px;\r\n    position: relative;\r\n    font-family: IRANSans , Tahoma;\r\n    line-height: 22px;\r\n    margin-bottom: 20px;\r\n}\r\n.info-container .subheader.charts{\r\n    background: #4C9BEE;\r\n}\r\n.subheader.charts .right-chart{\r\n    display: inline-block;\r\n    width: 75%;\r\n}\r\n.subheader.charts .left-chart{\r\n    display: inline-block;\r\n    width: 24%;\r\n}\r\n.info-container .subheader.instructions{\r\n    background: #A4619F;\r\n}\r\n.subheader .back-right-border{\r\n    width: 16px;\r\n    height: 16px;\r\n    position: absolute;\r\n    top: 23px;\r\n    right: 8px;\r\n    background-repeat: no-repeat;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/button-shapes.png */ "./resources/img/button-shapes.png")) + ");\r\n}\r\n.subheader.charts .back-right-border {\r\n    background-position: 0 -225px;\r\n}\r\n.subheader.instructions .back-right-border{\r\n    background-position: 0 -193px;\r\n}\r\n.subheader .subheader-content-container {\r\n    margin-right: 32px;\r\n    padding: 21px;\r\n    background: white;\r\n    border-top: 1px solid #D5DBE1;\r\n    border-left: 1px solid #D5DBE1;\r\n    border-bottom: 1px solid #D5DBE1;\r\n    border-radius: 0 0 0 3px;\r\n    overflow: hidden;\r\n}\r\n.subheader .subheader-content-container h4{\r\n    margin: 0;\r\n    font-size: 18px;\r\n    font-weight: normal;\r\n}\r\n.subheader-content-container p{\r\n    font-size: 14px;\r\n    text-justify: distribute-all-lines;\r\n}\r\n\r\n.details-container{\r\n    position: relative;\r\n}\r\n.details-container .table-container{\r\n    direction: rtl;\r\n    width: 100%;\r\n    position: relative;\r\n\r\n}\r\n.details-container .table-container .border-corrector{\r\n    height: 23.5px;\r\n    width: 1px;\r\n    position: absolute;\r\n    left: 0;\r\n    bottom: 0;\r\n    z-index: 999999;\r\n    background: white;\r\n}\r\n\r\n.details-container .table-container .table{\r\n    direction: rtl;\r\n}\r\n.details-container .table-container .table-names-container{\r\n    float: right;\r\n    width:30%;\r\n    border-right: 1px solid #c8c8c8;\r\n}\r\n.details-container .table-container .table-details-container{\r\n    float: right;\r\n    width: 70%;\r\n    overflow-x: auto;\r\n    position: relative;\r\n    padding-bottom: 10px;\r\n    /*border: 1px solid #c8c8c8;*/\r\n    /*border-top: 0;*/\r\n    /*border-bottom: 0;*/\r\n    border-left: 1px solid #c8c8c8;\r\n}\r\n.details-container .table-container .table-details-container::-webkit-scrollbar {\r\n    width: 10px;\r\n\r\n}\r\n\r\n.details-container .table-container .table-details-container::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.1);\r\n    -webkit-border-radius: 10px;\r\n    border-radius: 10px;\r\n\r\n    background: #f9f9f9;\r\n\r\n}\r\n.details-container .table-container .table-details-container::-webkit-scrollbar-thumb {\r\n    -webkit-border-radius: 10px;\r\n    border-radius: 10px;\r\n    background: #D5DBE1;\r\n    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/\r\n}\r\n.details-container .table-container .table-details-container::-webkit-scrollbar-thumb:hover {\r\n    background: #7D8F94;\r\n    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/\r\n}\r\n\r\n.details-container .table-container .table-details-container::-webkit-scrollbar-thumb:window-inactive {\r\n    background: #D5DBE1;\r\n}\r\n\r\n.details-container .table-container .table-names-container tr > td, .details-container .table-container .table-names-container tr > th{\r\n    border-left: 0 !important;\r\n    border-right: 0 !important;\r\n}\r\n\r\n.details-container .table-container .table-details-container tr > th, .details-container .table-container .table-details-container tr > td{\r\n    /*border: 0 !important;*/\r\n    /*border-bottom: 1px solid #c8c8c8;*/\r\n    /*border-top: 0 !important;*/\r\n    border-right: 0 !important;\r\n    border-left: 0 !important;\r\n    background-color: #fff !important;\r\n    text-align: center !important;\r\n}\r\n\r\n\r\n/*.details-container .table-container .table-details-container tbody tr:hover td {*/\r\n    /*background-color: #F1F1F1 !important;*/\r\n/*}*/\r\n/*.details-container .table-container .table-names-container tbody tr:hover>td:first-child{*/\r\n    /*background-color: #D5DBE1 !important;*/\r\n/*}*/\r\n/*TODO trigger details hover on names hover and V.v*/\r\n\r\n.details-container .table-container .table *:not(.faNum){\r\n    direction: rtl;\r\n    text-align: right;\r\n}\r\n.details-container .table-container .table .open-button{\r\n    float: right;\r\n    padding: 0;\r\n\r\n}\r\n.details-container .table-container .table .open-button .closed{\r\n    -webkit-transform: scaleX(-1);\r\n    transform: scaleX(-1);\r\n}\r\n\r\n.navigation-stripe{\r\n    height: 39px;\r\n    margin-bottom: 30px;\r\n    border-bottom: 1px solid #D5DBE1;\r\n}\r\n.navigation-stripe *{\r\n    font-family: IRANSansFaNum, Tahoma;\r\n}\r\n.navigation-stripe .step-link {\r\n    display: inline-block;\r\n    margin-left: 10px;\r\n    font-size: 13px;\r\n    font-weight: 600;\r\n    cursor: pointer;\r\n    color: #7D8F94;\r\n}\r\n.navigation-stripe .step-link.active, .navigation-stripe .step-link.active:hover {\r\n    color: #72C152;\r\n}\r\n.navigation-stripe .step-link .circle {\r\n    display: inline-block;\r\n    margin-right: 6px;\r\n    font-size: 9px;\r\n    border: 2px solid;\r\n    text-align: center;\r\n    width: 14px;\r\n    height: 14px;\r\n    line-height: 14px;\r\n    border-radius: 50%;\r\n    border-color: #7D8F94;\r\n}\r\n.navigation-stripe .step-link.active .circle, .navigation-stripe .step-link.active:hover .circle {\r\n    border-color: #72C152;\r\n}\r\n.navigation-stripe .step-link:hover {\r\n    color: #3F484B;\r\n}\r\n.navigation-stripe .step-link:hover .circle {\r\n    border-color: #3F484B;\r\n}\r\n.section {\r\n    padding-bottom: 30px;\r\n    width: 100%;\r\n    direction: rtl;\r\n}\r\n.section ul{\r\n    list-style: none;\r\n}\r\n.section .title-top {\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    color: #3F484B;\r\n    margin: 0 0 10px 0;\r\n    font-family: IRANSans, Tahoma;\r\n    font-weight: 700;\r\n    text-align: right;\r\n}\r\n.section .max-length-input-container{\r\n    position: relative;\r\n}\r\n.section .max-length-input-container .count-down-wrapper {\r\n    position: absolute;\r\n    font-size: 13px;\r\n    font-family: IRANSansFaNum, Tahoma;\r\n    top: 9px;\r\n    text-align: center;\r\n    color: white;\r\n    background: #aaa;\r\n    width: 30px;\r\n    height: 20px;\r\n    vertical-align: middle;\r\n    border-radius: 4px;\r\n    left: 5px;\r\n}\r\n.input-box {\r\n    padding: 0 10px;\r\n    font-size: 12px;\r\n    border: 1px solid #D5DBE1;\r\n    border-radius: 3px;\r\n    font-family: IRANSans, Tahoma;\r\n    margin-bottom: 10px;\r\n    background-color: #FFFFFF;\r\n    height: 39px;\r\n    line-height: 39px;\r\n    width: 100%;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n    text-align: right;\r\n\r\n}\r\n.input-box-with-currency{\r\n    padding-left: 35px;\r\n}\r\n.input-box.description {\r\n    width: 100%;\r\n    max-width: 440px;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n.input-box.error {\r\n    border: 1px solid #D83405;\r\n    outline: 0;\r\n}\r\n\r\n.feedback-line {\r\n    background: transparent;\r\n    position: relative;\r\n    margin: 1px;\r\n    padding: 1px;\r\n    clear: both;\r\n}\r\n.feedback-line p {\r\n    color: #D83405;\r\n    font-family: IRANSans, Tahoma;\r\n    font-size: 12px;\r\n}\r\n\r\n.modal-footer-control-container{\r\n    direction: rtl;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n}\r\n.modal-footer-control-container.right{\r\n    -webkit-box-pack: start;\r\n    -ms-flex-pack: start;\r\n    justify-content: flex-start;\r\n}\r\n.modal-footer-control-container.left{\r\n    -webkit-box-pack: end;\r\n    -ms-flex-pack: end;\r\n    justify-content: flex-end;\r\n}\r\n.trashcan, .trashcan-confirm {\r\n    background: url(" + escape(__webpack_require__(/*! ../img/trash_bins.png */ "./resources/img/trash_bins.png")) + ") no-repeat 0 0;\r\n    width: 18px;\r\n    height: 21px;\r\n    float: left;\r\n    margin-top: 4px;\r\n\r\n}\r\n\r\n\r\n.trashcan:hover {\r\n    background-position: -19px 0;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n.trashcan-confirm{\r\n    background-position: -38px 0px;\r\n    float: right;\r\n}\r\n.trash-text-confirm{\r\n    float: right;\r\n    line-height: 14px;\r\n    margin: -2px 25px 0 0;\r\n    font-size: 11px;\r\n    width: 110px;\r\n    font-weight: 700;\r\n    color: #2C2E2F;\r\n}\r\n\r\n.trash-text {\r\n    visibility: hidden;\r\n}\r\n.trashcan:hover .trash-text {\r\n    visibility: visible;\r\n    text-decoration: underline;\r\n    color: #2565C0;\r\n    position: relative;\r\n    font-size: 12px;\r\n    line-height: 12px;\r\n    top: 0;\r\n    padding: 25px;\r\n    font-weight: 700;\r\n    white-space: nowrap;\r\n}\r\n\r\n.trash-text-confirm p{\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 11px;\r\n    line-height: 14px;\r\n    color: #2C2E2F;\r\n}\r\n.trash-text-confirm a {\r\n    text-decoration: underline;\r\n    color: #2565C0;\r\n    cursor: pointer;\r\n}\r\n.section a, .section a:hover, .section a:visited, .modal-footer-control-container a:hover {\r\n    text-decoration: none;\r\n    color: #2565C0;\r\n}\r\n\r\n.modal-button {\r\n    margin: 0 10px 0px 0;\r\n    padding: 10px;\r\n    color: #FFFFFF;\r\n    font-size: 12px;\r\n    letter-spacing: 0.4px;\r\n    float: left;\r\n    background-color: #7D8F94;\r\n    border: 1px solid #7D8F94;\r\n    border-radius: 3px;\r\n    line-height: 9px;\r\n    text-decoration: none;\r\n    font-family: IRANSans, Tahome;\r\n    white-space: nowrap;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    outline: unset !important;\r\n    border: unset !important;\r\n}\r\n.modal-button.enabled {\r\n    cursor: pointer;\r\n}\r\n.modal-button.disabled {\r\n    opacity: 0.5;\r\n}\r\n.modal-button.primary {\r\n    background-color: #72C152;\r\n    border: 1px solid #72C152;\r\n}\r\n.modal-button:last-child {\r\n    margin: 0;\r\n}\r\n\r\n.radio-buttons-list .radio-right {\r\n    line-height: 20px;\r\n    float: right;\r\n    margin: 0 0 2px 20px;\r\n}\r\n.radio-buttons-list .radio-style {\r\n    float: right;\r\n    height: 12px;\r\n    margin: 6px 0 0 5px;\r\n    cursor: pointer;\r\n    border-radius: 8px;\r\n    padding: 0;\r\n}\r\n.radio-buttons-list .radio-right label {\r\n    color: #2565C0;\r\n    font-size: 13px;\r\n    font-weight: 600;\r\n    line-height: 21px;\r\n}\r\n.radio-buttons-list .description {\r\n    margin: 0 0 10px 18px;\r\n    line-height: 18px;\r\n    clear: both;\r\n    font-size: 13px;\r\n    color: #7D8F94;\r\n}\r\n.section .title-content {\r\n    font-size: 13px;\r\n    line-height: 18px;\r\n    color: #7D8F94;\r\n    margin: -7px 0 15px 0;\r\n    clear: both;\r\n}\r\n.forecast-item-editor .radio-box {\r\n    margin-bottom: 10px;\r\n}\r\n.financial-year-box {\r\n    clear: both;\r\n    margin: 20px 0 10px 0;\r\n}\r\n.forecast-item-editor .financial-year-box{\r\n    margin: 10px 0 0 0;\r\n\r\n}\r\n.forecast-item-editor .financial-year-box .financial-year-box-container{\r\n    margin: 0 -30px 26px -30px;\r\n    padding: 0 30px;\r\n    background: #F9F9F9;\r\n}\r\n.forecast-item-editor .financial-year-box .financial-year-box-wrapper{\r\n    padding: 10px 0;\r\n}\r\n.financial-year-box .financial-year-box-header{\r\n\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: row;\r\n    flex-direction: row;\r\n}\r\n.financial-year-box .financial-year-box-header p{\r\n    font-size: 13px;\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    font-family: IRANSANS, Tahoma;\r\n    padding: 10px;\r\n\r\n}\r\n.financial-year-box .financial-year-box-header .financial-year-box-header-controls{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n    -ms-flex-direction: row;\r\n    flex-direction: row;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-box-pack: justify;\r\n    -ms-flex-pack: justify;\r\n    justify-content: space-between;\r\n    width: 210px;\r\n}\r\n.financial-year-box .financial-year-box-header .financial-year-box-header-controls p{\r\n    font-weight: bold;\r\n}\r\n.financial-year-box .financial-year-box-header .financial-year-box-header-controls .overlay-button.primary {\r\n    margin-right: 10px;\r\n}\r\n.financial-year-box .financial-year-chart-container{\r\n    padding-right: 30px;\r\n}\r\n/*.financial-year-box .financial-year-input-container{*/\r\n/*}*/\r\n.financial-year-box .financial-year-input-container ul.labels {\r\n    clear: both;\r\n    margin: 10px -15px 10px 0;\r\n    width: 1005px;\r\n}\r\n.financial-year-box .financial-year-input-container ul li {\r\n    display: inline-block;\r\n    text-align: center;\r\n    width: 72.5px;\r\n    /*margin: 0 0 0 8px;*/\r\n    color: #3F484B;\r\n    font-size: 12px;\r\n}\r\n.financial-year-box .financial-year-input-container ul li input, .financial-year-box-header-controls input{\r\n    direction: ltr;\r\n    text-align: left;\r\n    font-family: IRANSansFaNum, Tahoma;\r\n}\r\n.financial-year-box .financial-year-input-container ul li:nth-child(2) {\r\n    /*margin-right: -10px;*/\r\n}\r\n\r\n\r\n/*.financial-year-box .financial-year-input-container ul.fields li {*/\r\n    /*display: inline;*/\r\n/*}*/\r\n\r\n.radio-box li.horizontal {\r\n    float: right;\r\n    margin-left: 20px;\r\n}\r\n\r\n.radio-box li label {\r\n    cursor: pointer;\r\n    font-size: 13px;\r\n    line-height: 23px;\r\n    color: #3F484B;\r\n}\r\n.radio-box li input {\r\n    float: right;\r\n    height: 12px;\r\n    margin: 6px 0 0 5px;\r\n    cursor: pointer;\r\n}\r\n.radio-box div.clear {\r\n    width: 100%;\r\n    clear: both;\r\n}\r\n.input-box-wrapper {\r\n    position: relative;\r\n    display: inline-block;\r\n    width: 100%;\r\n}\r\n.input-box-wrapper span {\r\n    position: absolute;\r\n    top: 11px;\r\n    pointer-events: none;\r\n    font-size: 13px;\r\n    color: #7D8F94;\r\n\r\n}\r\n.input-with-dropdown .input-box-wrapper span {\r\n    top: 1px;\r\n}\r\n.input-box-wrapper span.currency {\r\n    left: 11px;\r\n}\r\n.forecast-item-editor input {\r\n    margin-bottom: 0 !important;\r\n}\r\n.input-box.medium-cash {\r\n    width: 140px;\r\n}\r\n.input-box.smallPercentage {\r\n    width: 87px;\r\n    padding-left: 30px;\r\n    font-family: IRANSansFaNum, Tahoma;\r\n}\r\n.input-box-wrapper span.percent {\r\n    left: 11px;\r\n}\r\n.input-with-dropdown .input-box, .input-with-dropdown .input-box-wrapper {\r\n    float: right;\r\n    height: 37px;\r\n    line-height: 37px;\r\n}\r\n.input-with-dropdown span.per {\r\n    float: right;\r\n    margin-top: 8px;\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    font-size: 13px;\r\n}\r\n.select-box {\r\n    position: relative;\r\n}\r\n.input-with-dropdown .select-box {\r\n    float: right;\r\n}\r\n.select-box {\r\n    display: inline-block;\r\n}\r\n.select-box .selected-option {\r\n    font-size: 12px;\r\n    border: 1px solid #D5DBE1;\r\n    border-radius: 3px;\r\n    height: 37px;\r\n    line-height: 37px;\r\n    padding: 0 10px 0 26px;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    cursor: pointer;\r\n}\r\n.select-box .selected-option .arrow {\r\n    width: 6px;\r\n    height: 3px;\r\n    background: url(https://d2rdonr34l28sy.cloudfront.net/1vDdW4WVS5.png) right top no-repeat;\r\n    position: absolute;\r\n    top: 50%;\r\n    margin-top: -2px;\r\n    left: 10px;\r\n}\r\n.select-box .options {\r\n    position: absolute;\r\n    top: 39px;\r\n    border: 1px solid #D5DBE1;\r\n    z-index: 10;\r\n    max-height: 170px;\r\n    overflow-y: auto;\r\n}\r\n.select-box .options.right {\r\n    right: 0;\r\n}\r\n.option-div{\r\n    height: 24px;\r\n    line-height: 24px;\r\n    color: #000000;\r\n    background-color: #FFFFFF;\r\n    padding: 0 5px 0 15px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    font-size:12px;\r\n    font-family: IRANSans, Tahoma;\r\n}\r\n.option-div.hovered, .option-div.selected {\r\n    background-color: #ADCDF7;\r\n}\r\n.input-with-dropdown .clear {\r\n    clear: both;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.buttonColor{\r\n    margin: 0 0 0 10px;\r\n    padding: 10px;\r\n    color: #FFFFFF;\r\n    font-size: 12px;\r\n    letter-spacing: 0.4px;\r\n    float: right;\r\n    background-color: #72C152;\r\n    border: 1px solid #72C152;\r\n    border-radius: 3px;\r\n    line-height: 12px;\r\n    font-family: IRANSans, Tahoma;\r\n    cursor: pointer;\r\n}\r\n.controls-container {\r\n    height: 54px;\r\n    border-bottom: 1px solid #D5DBE1;\r\n    margin: 20px 0 20px 0;\r\n    float: right;\r\n    width: 100%;\r\n}\r\n.controls-container .buttonContainerRight {\r\n    float: left;\r\n    display: inline-block;\r\n}\r\n.controls-container .buttonContainerRight div {\r\n    float: right;\r\n    padding: 5px;\r\n}\r\n.controls-container .buttonContainerRight a {\r\n    padding-right: 25px;\r\n    background: #7D8F94 url(https://d2rdonr34l28sy.cloudfront.net/4NpseQLSn6.png) right 8px center no-repeat;\r\n    cursor: ne-resize;\r\n}\r\n.buttonGray {\r\n    padding: 10px;\r\n    color: #FFFFFF;\r\n    font-size: 12px;\r\n    letter-spacing: 0.4px;\r\n    float: right;\r\n    background-color: #7D8F94;\r\n    border: 1px solid #7D8F94;\r\n    border-radius: 3px;\r\n    line-height: 12px;\r\n    margin: 0 10px 0 0;\r\n    font-family: IRANSans, Tahoma;\r\n}\r\n.content-container label{\r\n    font-family: IRANSans, Tahoma;\r\n    font-size: 12px;\r\n}\r\n.subfooter-note {\r\n    margin: 13px 0 0 0;\r\n    border-radius: 3px;\r\n    background-color: #F9F9F9;\r\n    padding: 10px;\r\n    float: right;\r\n    clear: both;\r\n    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);\r\n    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);\r\n    font-size: 12px;\r\n    font-weight: 600 !important;\r\n    font-family: IRANSans, Tahoma;\r\n}\r\n.subfooter-note a {\r\n    color: #2565C0;\r\n    text-decoration: none !important;\r\n    cursor: pointer;\r\n}\r\n.content-container .controlsLeft {\r\n    height: 35px;\r\n    margin: 20px 0 0 0;\r\n    float: left;\r\n}\r\n\r\nfooter{\r\n    direction: rtl;\r\n    width: 960px;\r\n    margin: 0 auto;\r\n    padding: 30px 20px 40px 0;\r\n    height: 10px;\r\n    font: 400 12px/12px IRANSans, Tahoma;\r\n    text-align: right;\r\n    color: #7D8F94;\r\n    box-sizing: border-box;\r\n}\r\nfooter a{\r\n    color: #2565C0;\r\n    cursor: pointer;\r\n}\r\nfooter ul {\r\n    float: left;\r\n    list-style: none;\r\n}\r\nfooter ul li {\r\n    float: right;\r\n    padding: 0 16px 0 0;\r\n}\r\n\r\n\r\n/*PrimeVue Styles*/\r\n.p-treetable .p-component{\r\n    width: fit-content;\r\n}\r\n.p-treetable-tablewrapper{\r\n    direction: rtl;\r\n}\r\n.p-treetable table{\r\n    width: unset;\r\n}\r\n.p-treetable table td{\r\n    position: relative;;\r\n}\r\n.p-treetable td, .p-treetable th{\r\n    height: 35px !important;\r\n}\r\n.p-treetable *:not(.pi){\r\n    font-family: IRANSansFaNum, IRANSans, Tahoma;\r\n    font-size: 12px;\r\n}\r\n\r\n\r\n\r\n.p-treetable td:not(:last-child), .p-treetable th:not(:last-child){\r\n    border-left: 0 !important;\r\n}\r\n.p-treetable td:not(:first-child), .p-treetable th:not(:first-child){\r\n    border-right: 0 !important;\r\n}\r\n.p-treetable .pi{\r\n    margin-top: 5px;\r\n}\r\n.p-treetable thead >tr{\r\n    height: 48px;\r\n}\r\n.p-treetable thead th:first-child,.p-treetable tfoot tr>td:first-child{\r\n    text-align: right !important;\r\n    padding: 0.571em 2.3em !important;\r\n}\r\n.p-treetable tbody tr>td:first-child{\r\n    text-align: right;\r\n}\r\n.p-treetable tbody tr>td:not(:first-child){\r\n    text-align: center;\r\n}\r\nbody .p-treetable .p-treetable-tbody > tr > td {\r\n    padding: 0.229em 0.457em;\r\n}\r\n.p-treetable-tablewrapper table{\r\n    direction: rtl;\r\n}\r\n.p-treetable th, .p-treetable tfoot td{\r\n    background: white !important;\r\n}\r\n.p-treetable tr td:first-child, .p-treetable th:first-child{\r\n    background-color: #F9F9F9 !important;\r\n}\r\n/*.p-treetable tbody tr:hover{*/\r\n    /*background-color: #F1F1F1 !important;*/\r\n/*}*/\r\n/*.p-treetable tbody tr:hover>td:first-child{*/\r\n    /*background-color: #D5DBE1 !important;*/\r\n/*}*/\r\n/*.p-treetable tfoot tr:hover{*/\r\n    /*background-color: #F9F9F9 !important;*/\r\n/*}*/\r\n/*TODO correct but inconsistence with monthly table*/\r\n/*MMMMMMMMIIIIIIIIIIIIIIIINNNNNNNNNNNNNNEEEEEEEEEEEEEEEEEE*/\r\n.p-treetable .editable-cell-wrapper{\r\n    display: inline;\r\n}\r\n.p-treetable .editable-cell-wrapper a{\r\n    color: #2565C0;\r\n}\r\n.p-treetable .editable-cell-wrapper a:hover{\r\n    text-decoration: underline;\r\n}\r\n\r\n.p-treetable .row-edit-control {\r\n    display: none;\r\n}\r\n.p-treetable tr:hover .row-edit-control{\r\n    display: inherit;\r\n}\r\n.p-treetable .row-edit-control{\r\n    position: absolute;\r\n    width: 12px;\r\n    height: 13px;\r\n    top: 0.79em;\r\n    cursor: pointer;\r\n}\r\n.p-treetable .row-edit-control.row-edit-edit{\r\n    background: url(" + escape(__webpack_require__(/*! ../img/edit.svg */ "./resources/img/edit.svg")) + ") 0 0 no-repeat;\r\n    left: 4em;\r\n    -webkit-transform: scaleX(-1);\r\n    transform: scaleX(-1);\r\n}\r\n.p-treetable .row-edit-control.row-edit-copy{\r\n    background: url(" + escape(__webpack_require__(/*! ../img/copy.svg */ "./resources/img/copy.svg")) + ") 0 0 no-repeat;\r\n    left: 2.2em;\r\n    -webkit-transform: scaleX(-1);\r\n    transform: scaleX(-1);\r\n}\r\n.p-treetable .row-edit-control.row-edit-move-up{\r\n    background: url(" + escape(__webpack_require__(/*! ../img/move.svg */ "./resources/img/move.svg")) + ") 0 0 no-repeat;\r\n    left: 0.8em;\r\n}\r\n/*.p-treetable .row-edit-control.row-edit-move-down{*/\r\n    /*background: url('../img/move.svg') 0 0 no-repeat;*/\r\n    /*left: 4.4em;*/\r\n/*}*/\r\n/*MMMMMMMMIIIIIIIIIIIIIIIINNNNNNNNNNNNNNEEEEEEEEEEEEEEEEEE*/\r\n\r\n\r\n\r\n.pi-chevron-right:before{\r\n    content: \"\\E900\";\r\n}\r\n.p-dropdown .p-dropdown-trigger{\r\n    left: 0;\r\n    right: unset;\r\n}\r\n.p-dropdown .p-dropdown-label{\r\n    padding: 0.61em 0.61em 0.61em 2em;\r\n}\r\n.p-dropdown-panel .p-dropdown-item{\r\n    text-align: right;\r\n    font-family: IRANSansFaNum, Tahoma;\r\n}\r\n.input-with-dropdown.length-selection .p-dropdown{\r\n    width: 8em;\r\n    height: 37px;\r\n    font-family: IRANSANS, Tahoma;\r\n}\r\n.select-box.period-selection .p-dropdown{\r\n    width: 11em;\r\n    height: 37px;\r\n    font-family: IRANSANSFaNum, Tahoma;\r\n }\r\n.select-box.period-selection label{\r\n    font-family: IRANSANSFaNum, Tahoma;\r\n}\r\n\r\n.p-slider.p-slider-horizontal, .p-slider.p-slider-horizontal .p-slider-range{\r\n    height: 7px !important;\r\n    background: #D5DBE1 !important;\r\n    -webkit-box-shadow: 0 1px 3px 0 #7D8F94 inset !important;\r\n    box-shadow: 0 1px 3px 0 #7D8F94 inset !important;\r\n    border-radius: 3px !important;\r\n\r\n}\r\n\r\n.slider-tooltip {\r\n    z-index: 2;\r\n    position: absolute;\r\n    background-color: #4C9BEE;\r\n    text-align: center;\r\n    color: white;\r\n    display: inline-block;\r\n    font: 600 10px/9px IRANSansFaNum, IRANSans, Tahoma;\r\n    padding: 7px 9px 7px 10px;\r\n    right: 0;\r\n    border-radius: 3px;\r\n    border: 0;\r\n    margin-right: -20px;\r\n    width: 40px;\r\n}\r\n.box-half .slider-component {\r\n    position: relative;\r\n}\r\n.slider-component .slider-tooltip {\r\n    top: 26px;\r\n    cursor: pointer;\r\n}\r\n.slider-tooltip:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 0;\r\n    height: 0;\r\n    border-bottom: 10px solid #4C9BEE;\r\n    border-left: 5px solid transparent;\r\n    border-right: 5px solid transparent;\r\n    bottom: 100%;\r\n    left: 50%;\r\n    margin-left: -5px;\r\n    margin-top: -1px;\r\n}\r\n.slider-ticks-container{\r\n    height: 15px;\r\n    padding-top: 5px;\r\n    width: 400px;\r\n}\r\n.p-slider .p-slider-handle{\r\n    background: #4C9BEE !important;\r\n    border: 0 !important;\r\n}\r\n.slider-tick{\r\n    float: right;\r\n    height: 5px;\r\n    border-right: 1px solid #7d8f9452;\r\n}\r\n.slider-tick:last-child{\r\n    border-left: 1px solid #7d8f9452;\r\n    position: relative;\r\n}\r\n\r\n.slider-tick.tick-percent{\r\n     width: 5%;\r\n }\r\n.slider-tick.tick-18{\r\n    width: 23.45px;\r\n}\r\n.slider-tick.tick-9{\r\n    width: 49.9px;\r\n}\r\n.slider-tick.tick-percent:nth-child(2n+1), .slider-tick.tick-percent:last-child{\r\n    height: 10px;\r\n}\r\n.slider-tick.tick-percent:last-child:after{\r\n    content: \"\";\r\n    position: absolute;\r\n    right: -1px;\r\n    z-index: 100;\r\n    bottom: 0;\r\n    width: 1px;\r\n    height: 50%;\r\n    background: #FFFFFF;\r\n    z-index: -99999999999999999;\r\n}\r\n.slider-component .invisible {\r\n    top: 0;\r\n}\r\n.slider-component .invisible .p-slider .p-slider-handle{\r\n    left: 0;\r\n    height: 49px;\r\n    width: 40px;\r\n    top: 7px;\r\n    margin-left: -20px;\r\n}\r\n.slider-component .invisible .p-slider.p-slider-horizontal ,.p-slider .p-slider-range{\r\n    height: 50px !important;\r\n}\r\n.slider-component .invisible .p-slider .p-slider-handle{\r\n    height: 49px;\r\n    width: 40px;\r\n    top: 7px;\r\n}\r\n.slider-component .slider-levels-container{\r\n    position: relative;\r\n    width: 398px;\r\n}\r\n.slider-component .slider-levels-container .slider-level{\r\n    font-size: 10px;\r\n    color: #7D8F94;\r\n    font-weight: 600;\r\n    position: absolute;\r\n    top:7px;\r\n}\r\n\r\n/*PrimeVue Styles*/\r\n\r\n\r\n/*cash flow assumptions*/\r\n.two-column-boxes .column-left {\r\n    float: left;\r\n}\r\n.two-column-boxes .column-right {\r\n    float: right;\r\n}\r\n\r\n.box-half.naked {\r\n    padding: 0px;\r\n    border: 0px;\r\n}\r\n.box-half {\r\n    width: 440px;\r\n    margin: 0 0 20px;\r\n    padding: 20px;\r\n    border: 1px solid #D5DBE1;\r\n    font-family: IRANSANS;\r\n}\r\n.column-left .box-half:last-child{\r\n    height: 138px;\r\n}\r\n.box-half .box-half-title {\r\n    font-size: 20px;\r\n    line-height: 1em;\r\n    margin-bottom: 20px;\r\n    font-weight: 400;\r\n    color: #2C2E2F;\r\n}\r\n.box-half .box-half-header {\r\n    margin: 0 0 10px;\r\n    height: 20px;\r\n    color: #2C2E2F;\r\n    direction: rtl;\r\n}\r\n.box-half .box-half-header p {\r\n    font-size: 18px;\r\n    margin: 0;\r\n    float: right;\r\n    width: 220px;\r\n    text-align: justify;\r\n\r\n}\r\n.box-half-tip-wrapper .tip-container {\r\n    position: relative;\r\n    margin-bottom: 10px;\r\n    margin-top: 0 !important;\r\n    float: left;\r\n}\r\n.box-half-tip-wrapper .tip-container a {\r\n    width: 20px;\r\n    height: 20px;\r\n    display: block;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../img/tip.svg */ "./resources/img/tip.svg")) + ");\r\n    background-repeat: no-repeat;\r\n    cursor: pointer;\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box {\r\n    text-align: right;\r\n    background: #F9F9F9;\r\n    border: 1px solid #D5DBE1;\r\n    width: 250px;\r\n    position: absolute;\r\n    z-index: 3;\r\n    right: -260px;\r\n    top: -60px;\r\n    padding: 15px;\r\n    border-radius: 3px;\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box:before, .box-half-tip-wrapper .tip-arrow-box:after {\r\n    top: 70px;\r\n    right: 100%;\r\n    border: solid transparent;\r\n    content: \" \";\r\n    height: 0;\r\n    width: 0;\r\n    position: absolute;\r\n    pointer-events: none;\r\n    -webkit-transform: rotate(270deg);\r\n    -moz-transform: rotate(270deg);\r\n    -ms-transform: rotate(270deg);\r\n    -o-transform: rotate(270deg);\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box:before {\r\n    border-color: rgba(213, 219, 225, 0);\r\n    border-bottom-color: #D5DBE1;\r\n    border-width: 7px;\r\n    margin-top: -7px;\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box:after {\r\n    border-color: rgba(249, 249, 249, 0);\r\n    border-bottom-color: #F9F9F9;\r\n    border-width: 6px;\r\n    margin-top: -7px;\r\n    margin-right: -1px;\r\n}\r\n.box-half-tip-wrapper .tip-arrow-box p {\r\n    font-size: 12px !important;\r\n    line-height: 18px !important;\r\n    -webkit-user-select: none;\r\n    -khtml-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    -o-user-select: none;\r\n    user-select: none;\r\n}\r\n.slider-component {\r\n    height: 50px;\r\n    position: relative;\r\n    top: 15px;\r\n    margin-bottom: 16px;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.box-half .slider-component {\r\n    margin-top: 10px;\r\n}\r\n.box-half .input-box-wrapper{\r\n    margin-left: 10px;\r\n    float: right;\r\n}\r\n.box-half .input-box-wrapper .input-box{\r\n    float: right;\r\n    width: 140px;\r\n}\r\n.box-half .buttonColor{\r\n    height: 39px;\r\n    width: 70px;\r\n}\r\n/*cash flow assumptions*/\r\n", ""]);
 
 // exports
 
@@ -5958,25 +5781,6 @@ exports.push([module.i, "\n.modal-mask[data-v-baa08afe] {\n    z-index: 11010;\n
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\ninput[type=\"color\"][data-v-30973183]::-webkit-color-swatch-wrapper {\n    padding: 0;\n}\n#colorPicker[data-v-30973183] {\n    border: 0;\n    padding: 0;\n    margin: 0;\n    width: 30px;\n    height: 30px;\n}\n.numberInput[data-v-30973183] {\n    width: 30px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/VideoModal.vue?vue&type=style&index=0&id=1fd86e9d&lang=css&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/VideoModal.vue?vue&type=style&index=0&id=1fd86e9d&lang=css&scoped=true& ***!
@@ -6008,7 +5812,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
 
 // exports
 
@@ -26449,36 +26253,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--5-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--5-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/VideoModal.vue?vue&type=style&index=0&id=1fd86e9d&lang=css&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/VideoModal.vue?vue&type=style&index=0&id=1fd86e9d&lang=css&scoped=true& ***!
@@ -30744,37 +30518,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/About.vue?vue&type=template&id=fb05e49c&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/About.vue?vue&type=template&id=fb05e49c& ***!
-  \********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("v-playback", { attrs: { url: _vm.url } }),
-      _vm._v("\nwdasfasdf\n    ")
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/BaseModal.vue?vue&type=template&id=baa08afe&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/BaseModal.vue?vue&type=template&id=baa08afe&scoped=true& ***!
@@ -30805,7 +30548,6 @@ var render = function() {
                       _vm._v(" "),
                       _c("a", {
                         staticClass: "modal-close-button",
-                        attrs: { href: "#" },
                         on: {
                           click: function($event) {
                             $event.preventDefault()
@@ -30839,280 +30581,6 @@ var render = function() {
         ])
       ])
     : _vm._e()
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chart.vue?vue&type=template&id=30973183&scoped=true&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Chart.vue?vue&type=template&id=30973183&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "chartElem" }, [
-    _c(
-      "div",
-      { staticClass: "row" },
-      [
-        _c("highcharts", {
-          staticClass: "chart",
-          attrs: { options: _vm.chartOptions, updateArgs: _vm.updateArgs }
-        }),
-        _vm._v(" "),
-        _c("div", [
-          _c("h3", [_vm._v("Flexibly change the value of each point:")]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("Points:")]),
-          _vm._v(" "),
-          _c(
-            "form",
-            { staticClass: "row points" },
-            _vm._l(8, function(index) {
-              return _c("div", { key: index }, [
-                _c("p", [_vm._v(_vm._s(index))]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model.number",
-                      value: _vm.points[index - 1],
-                      expression: "points[index-1]",
-                      modifiers: { number: true }
-                    }
-                  ],
-                  staticClass: "numberInput",
-                  attrs: { type: "number" },
-                  domProps: { value: _vm.points[index - 1] },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.points,
-                        index - 1,
-                        _vm._n($event.target.value)
-                      )
-                    },
-                    blur: function($event) {
-                      return _vm.$forceUpdate()
-                    }
-                  }
-                })
-              ])
-            }),
-            0
-          )
-        ])
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { attrs: { id: "title" } }, [
-        _c("h3", [_vm._v("Set chart title dynamically:")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.title,
-              expression: "title"
-            }
-          ],
-          attrs: { type: "text" },
-          domProps: { value: _vm.title },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.title = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "chartType" } }, [
-        _c("h3", [_vm._v("Select chart type:")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.chartType,
-                expression: "chartType"
-              }
-            ],
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.chartType = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", [_vm._v("Spline")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("AreaSpline")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Line")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Scatter")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Column")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Area")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "animationDuration" } }, [
-        _c("h3", [_vm._v("Select update animation duration:")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.animationDuration,
-                expression: "animationDuration"
-              }
-            ],
-            attrs: { type: "number" },
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.animationDuration = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", [_vm._v("0")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("500")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("1000")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2000")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "seriesColor" } }, [
-        _c("h3", [_vm._v("Select color of the series:")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _vm.colorInputIsSupported
-            ? _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.seriesColor,
-                    expression: "seriesColor"
-                  }
-                ],
-                attrs: { id: "colorPicker", type: "color", value: "#6fcd98" },
-                domProps: { value: _vm.seriesColor },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.seriesColor = $event.target.value
-                  }
-                }
-              })
-            : _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.seriesColor,
-                      expression: "seriesColor"
-                    }
-                  ],
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.seriesColor = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    }
-                  }
-                },
-                [
-                  _c("option", [_vm._v("Red")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Green")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Blue")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Pink")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Orange")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Brown")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Black")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Purple")])
-                ]
-              )
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Current color: " + _vm._s(_vm.seriesColor))])
-      ])
-    ])
-  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -31186,98 +30654,6 @@ var render = function() {
         )
       : _vm._e()
   ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Home.vue?vue&type=template&id=f2b6376c&":
-/*!*******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Home.vue?vue&type=template&id=f2b6376c& ***!
-  \*******************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("button", { staticClass: "btn", on: { click: _vm.openModal } }, [
-        _vm._v("Open Modal")
-      ]),
-      _vm._v(" "),
-      _c("video-modal", { attrs: { showModal: _vm.modalOpen } })
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TableTest.vue?vue&type=template&id=787147a5&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TableTest.vue?vue&type=template&id=787147a5&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "tree-table",
-    {
-      attrs: { value: _vm.nodes },
-      scopedSlots: _vm._u([
-        {
-          key: "footer",
-          fn: function() {
-            return [
-              _c("div", { staticStyle: { "text-align": "left" } }, [
-                _c("button", { attrs: { icon: "pi pi-refresh" } })
-              ])
-            ]
-          },
-          proxy: true
-        }
-      ])
-    },
-    [
-      _c("column", {
-        attrs: {
-          headerStyle: "background-color: #F9F9F9;",
-          bodyStyle: "background-color: #F9F9F9;",
-          field: "name",
-          header: "Name",
-          expander: true
-        }
-      }),
-      _vm._v(" "),
-      _c("column", { attrs: { field: "size", header: "Size" } }),
-      _vm._v(" "),
-      _c("column", { attrs: { field: "type", header: "Type" } })
-    ],
-    1
-  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -31396,6 +30772,150 @@ var render = function() {
       2
     )
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/modals/ModalRevenueCrud.vue?vue&type=template&id=cdf721b0&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/modals/ModalRevenueCrud.vue?vue&type=template&id=cdf721b0&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("base-modal", {
+    attrs: { "show-modal": "true" },
+    on: { close: _vm.close },
+    scopedSlots: _vm._u([
+      {
+        key: "header-text",
+        fn: function() {
+          return [
+            _vm.revenue
+              ? _c("p", [
+                  _vm._v(
+                    '\n            درباره"' +
+                      _vm._s(_vm.revenue.title) +
+                      '"\n        '
+                  )
+                ])
+              : _c("p", [
+                  _vm._v("\n            درباره این درآمد بگویید\n        ")
+                ])
+          ]
+        },
+        proxy: true
+      },
+      {
+        key: "footer",
+        fn: function() {
+          return [
+            _c("div", { staticClass: "modal-footer-control-container right" }, [
+              _c("div", [
+                _vm.isDeleting === false
+                  ? _c("div", { staticClass: "trash-delete" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "trashcan",
+                          attrs: { role: "button", "aria-label": "Delete" }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "trash-text",
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.toggleIsDeleting()
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                حذف\n                            "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.isDeleting === true
+                  ? _c(
+                      "div",
+                      {
+                        attrs: { id: "trash-confirm", "aria-live": "assertive" }
+                      },
+                      [
+                        _c("div", { staticClass: "trashcan-confirm" }, [
+                          _c("span", { staticClass: "trash-text-confirm" }, [
+                            _c("p", [_vm._v("آیا اطمینان دارید?")]),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: { role: "button", tabindex: "1" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.deleteRecord()
+                                  }
+                                }
+                              },
+                              [_vm._v("تایید")]
+                            ),
+                            _vm._v(" "),
+                            _c("span", [
+                              _vm._v(
+                                "\n                                    یا\n                                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: { role: "button", tabindex: "2" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.toggleIsDeleting()
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    لغو\n                                "
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  : _vm._e()
+              ])
+            ])
+          ]
+        },
+        proxy: true
+      }
+    ])
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -34904,4528 +34424,15 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
       _vm.isModalVisible(1)
-        ? _c("base-modal", {
-            attrs: { showModal: _vm.isModalVisible(1) },
+        ? _c("modal-revenue-crud", {
             on: {
               "close-modal": function($event) {
                 return _vm.toggleModalVisibility(1)
               }
-            },
-            scopedSlots: _vm._u(
-              [
-                {
-                  key: "header-text",
-                  fn: function() {
-                    return [
-                      _vm.currentModalData.title
-                        ? _c("p", [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(_vm.currentModalData.title) +
-                                "\n            "
-                            )
-                          ])
-                        : _c("p", [
-                            _vm._v(
-                              "\n                درباره این درآمد بگویید\n            "
-                            )
-                          ])
-                    ]
-                  },
-                  proxy: true
-                },
-                {
-                  key: "content",
-                  fn: function() {
-                    return [
-                      _c("ul", { staticClass: "navigation-stripe" }, [
-                        _c(
-                          "li",
-                          {
-                            class: [
-                              "step-link",
-                              { active: _vm.currentModalTab === 0 }
-                            ],
-                            attrs: { tabindex: "0", "aria-selected": "true" },
-                            on: {
-                              click: function($event) {
-                                return _vm.setModalTab(0)
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "span",
-                              {
-                                staticClass: "circle",
-                                attrs: { "aria-label": "step 1:" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        1\n                    "
-                                )
-                              ]
-                            ),
-                            _vm._v(
-                              "\n                    نام\n                "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "li",
-                          {
-                            class: [
-                              "step-link",
-                              { active: _vm.currentModalTab === 1 }
-                            ],
-                            attrs: { tabindex: "1" },
-                            on: {
-                              click: function($event) {
-                                return _vm.setModalTab(1)
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "span",
-                              {
-                                staticClass: "circle",
-                                attrs: { "aria-label": "step 2:" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        2\n                    "
-                                )
-                              ]
-                            ),
-                            _vm._v(
-                              "\n                    نوع\n                "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm.getModalState(1) === 20
-                          ? _c(
-                              "li",
-                              {
-                                class: [
-                                  "step-link",
-                                  { active: _vm.currentModalTab === 2 }
-                                ],
-                                attrs: { tabindex: "2" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.setModalTab(2)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "circle",
-                                    attrs: { "aria-label": "step 3:" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        3\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                    تعداد فروش\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.getModalState(1) === 20
-                          ? _c(
-                              "li",
-                              {
-                                class: [
-                                  "step-link",
-                                  { active: _vm.currentModalTab === 3 }
-                                ],
-                                attrs: { tabindex: "3" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.setModalTab(3)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "circle",
-                                    attrs: { "aria-label": "step 4:" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        4\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                    قیمت واحد\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.getModalState(1) === 21
-                          ? _c(
-                              "li",
-                              {
-                                class: [
-                                  "step-link",
-                                  { active: _vm.currentModalTab === 2 }
-                                ],
-                                attrs: { tabindex: "2" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.setModalTab(2)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "circle",
-                                    attrs: { "aria-label": "step 3:" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        3\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                    پرداخت ساعتی\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.getModalState(1) === 21
-                          ? _c(
-                              "li",
-                              {
-                                class: [
-                                  "step-link",
-                                  { active: _vm.currentModalTab === 3 }
-                                ],
-                                attrs: { tabindex: "3" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.setModalTab(3)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "circle",
-                                    attrs: { "aria-label": "step 4:" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        4\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                    نرخ پرداخت ساعتی\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.getModalState(1) === 22
-                          ? _c(
-                              "li",
-                              {
-                                class: [
-                                  "step-link",
-                                  { active: _vm.currentModalTab === 2 }
-                                ],
-                                attrs: { tabindex: "2" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.setModalTab(2)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "circle",
-                                    attrs: { "aria-label": "step 3:" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        3\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                    ثبت نام ها\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.getModalState(1) === 22
-                          ? _c(
-                              "li",
-                              {
-                                class: [
-                                  "step-link",
-                                  { active: _vm.currentModalTab === 3 }
-                                ],
-                                attrs: { tabindex: "3" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.setModalTab(3)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "circle",
-                                    attrs: { "aria-label": "step 4:" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        4\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                    شارژ دوره ای\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.getModalState(1) === 22
-                          ? _c(
-                              "li",
-                              {
-                                class: [
-                                  "step-link",
-                                  { active: _vm.currentModalTab === 4 }
-                                ],
-                                attrs: { tabindex: "4" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.setModalTab(4)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "circle",
-                                    attrs: { "aria-label": "step 4:" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        5\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                    churn rate\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.getModalState(1) === 23
-                          ? _c(
-                              "li",
-                              {
-                                class: [
-                                  "step-link",
-                                  { active: _vm.currentModalTab === 2 }
-                                ],
-                                attrs: { tabindex: "2" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.setModalTab(2)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "circle",
-                                    attrs: { "aria-label": "step 3:" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        3\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                    منبع مالی\n                "
-                                )
-                              ]
-                            )
-                          : _vm._e()
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", [
-                          _vm.currentModalTab === 0
-                            ? _c("div", { staticClass: "section" }, [
-                                _c("div", { staticClass: "title-top" }, [
-                                  _vm._v(
-                                    "\n                            نام آن چیست؟\n                        "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "error" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass: "max-length-input-container"
-                                    },
-                                    [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.newRevenueName,
-                                            expression: "newRevenueName"
-                                          }
-                                        ],
-                                        staticClass:
-                                          "input-box description error",
-                                        attrs: {
-                                          type: "text",
-                                          placeholder: "لورم لورم"
-                                        },
-                                        domProps: { value: _vm.newRevenueName },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.newRevenueName =
-                                              $event.target.value
-                                          }
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "count-down-wrapper" },
-                                        [
-                                          _vm._v(
-                                            "\n                                        " +
-                                              _vm._s(
-                                                255 - _vm.newRevenueName.length
-                                              ) +
-                                              "\n                                    "
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "feedback-line" },
-                                        _vm._l(_vm.errors.name, function(
-                                          err,
-                                          i
-                                        ) {
-                                          return _c("p", [
-                                            _vm._v(
-                                              "\n                                            " +
-                                                _vm._s(err) +
-                                                "\n                                        "
-                                            )
-                                          ])
-                                        }),
-                                        0
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.currentModalTab === 1
-                            ? _c("div", { staticClass: "section" }, [
-                                _c("div", { staticClass: "title-top" }, [
-                                  _vm._v("نوع درآمد؟")
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "radio-buttons-list rtl",
-                                    attrs: { tabindex: "0", role: "radiogroup" }
-                                  },
-                                  [
-                                    _c("p", { staticClass: "radio-right" }, [
-                                      _c("input", {
-                                        staticClass: "radio-style",
-                                        attrs: {
-                                          type: "radio",
-                                          name: "revenueType",
-                                          id: "emp0",
-                                          value: "on"
-                                        },
-                                        domProps: {
-                                          checked: _vm.getModalState(1) === 20
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.setModalState(1, 20)
-                                          }
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("label", { attrs: { for: "emp0" } }, [
-                                        _vm._v("تعداد فروش")
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "description" }, [
-                                      _vm._v(
-                                        "\n                                Best for products that are sold in individual units or set quantities\n                            "
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "radio-right" }, [
-                                      _c("input", {
-                                        staticClass: "radio-style",
-                                        attrs: {
-                                          type: "radio",
-                                          name: "revenueType",
-                                          id: "emp1",
-                                          value: "on"
-                                        },
-                                        domProps: {
-                                          checked: _vm.getModalState(1) === 21
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.setModalState(1, 21)
-                                          }
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("label", { attrs: { for: "emp1" } }, [
-                                        _vm._v(
-                                          "\n                                    Billable hours\n                                "
-                                        )
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "description" }, [
-                                      _vm._v(
-                                        "\n                                Best for services that are priced on a per-hour basis\n                            "
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "radio-right" }, [
-                                      _c("input", {
-                                        staticClass: "radio-style",
-                                        attrs: {
-                                          type: "radio",
-                                          name: "revenueType",
-                                          id: "emp2",
-                                          value: "on"
-                                        },
-                                        domProps: {
-                                          checked: _vm.getModalState(1) === 22
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.setModalState(1, 22)
-                                          }
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("label", { attrs: { for: "emp2" } }, [
-                                        _vm._v(
-                                          "\n                                    Recurring charges\n                                "
-                                        )
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "description" }, [
-                                      _vm._v(
-                                        "\n                                Best for subscriptions, memberships, rentals, web apps, or other offerings with monthly or periodic\n                            "
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "radio-right" }, [
-                                      _c("input", {
-                                        staticClass: "radio-style",
-                                        attrs: {
-                                          type: "radio",
-                                          name: "revenueType",
-                                          id: "emp3",
-                                          value: "on"
-                                        },
-                                        domProps: {
-                                          checked: _vm.getModalState(1) === 23
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.setModalState(1, 23)
-                                          }
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("label", { attrs: { for: "emp3" } }, [
-                                        _vm._v(
-                                          "\n                                    Revenue only\n                                "
-                                        )
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "description" }, [
-                                      _vm._v(
-                                        "\n                                If none of the models above are applicable, or you already have a detailed forecast in Excel or elsewhere, choose this option to just enter overall revenue values without any detail\n                            "
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.getModalState(1) === 20 &&
-                          _vm.currentModalTab === 2
-                            ? _c(
-                                "div",
-                                { staticClass: "forecast-item-editor" },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    How many units will you sell?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "title-content" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "radio-box CONSTANT",
-                                            attrs: {
-                                              role: "radiogroup",
-                                              tabindex: "-1",
-                                              "aria-orientation": "horizontal"
-                                            }
-                                          },
-                                          [
-                                            _c("ul", [
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      directives: [
-                                                        {
-                                                          name: "model",
-                                                          rawName: "v-model",
-                                                          value:
-                                                            _vm.unitSalesTypeIsConstant,
-                                                          expression:
-                                                            "unitSalesTypeIsConstant"
-                                                        }
-                                                      ],
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name: "sales-unit-type",
-                                                        value: "1"
-                                                      },
-                                                      domProps: {
-                                                        checked: _vm._q(
-                                                          _vm.unitSalesTypeIsConstant,
-                                                          "1"
-                                                        )
-                                                      },
-                                                      on: {
-                                                        change: function(
-                                                          $event
-                                                        ) {
-                                                          _vm.unitSalesTypeIsConstant =
-                                                            "1"
-                                                        }
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _vm._v("لورم")
-                                                  ])
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      directives: [
-                                                        {
-                                                          name: "model",
-                                                          rawName: "v-model",
-                                                          value:
-                                                            _vm.unitSalesTypeIsConstant,
-                                                          expression:
-                                                            "unitSalesTypeIsConstant"
-                                                        }
-                                                      ],
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name: "sales-unit-type",
-                                                        value: "0"
-                                                      },
-                                                      domProps: {
-                                                        checked: _vm._q(
-                                                          _vm.unitSalesTypeIsConstant,
-                                                          "0"
-                                                        )
-                                                      },
-                                                      on: {
-                                                        change: function(
-                                                          $event
-                                                        ) {
-                                                          _vm.unitSalesTypeIsConstant =
-                                                            "0"
-                                                        }
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _vm._v(
-                                                      "Varying amounts over time"
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("div", { staticClass: "clear" })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm.unitSalesTypeIsConstant === "1"
-                                          ? _c("div", [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "input-with-dropdown length-selection"
-                                                },
-                                                [
-                                                  _c("input", {
-                                                    staticClass:
-                                                      "faNum input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
-                                                    attrs: {
-                                                      type: "text",
-                                                      value: "",
-                                                      "aria-describedby":
-                                                        "value-control-2",
-                                                      "aria-invalid": "true"
-                                                    }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    [
-                                                      _c(
-                                                        "span",
-                                                        { staticClass: "per" },
-                                                        [_vm._v("به ازای  ")]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c("drop-down", {
-                                                        attrs: {
-                                                          options:
-                                                            _vm.lengthOptions,
-                                                          optionLabel: "title",
-                                                          optionValue: "code",
-                                                          scrollHeight: "100px"
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            _vm.selectedLength,
-                                                          callback: function(
-                                                            $$v
-                                                          ) {
-                                                            _vm.selectedLength = $$v
-                                                          },
-                                                          expression:
-                                                            "selectedLength"
-                                                        }
-                                                      })
-                                                    ],
-                                                    1
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "clear"
-                                                  })
-                                                ]
-                                              )
-                                            ])
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _vm.unitSalesTypeIsConstant === "0"
-                                          ? _c("div", [
-                                              _vm._v(
-                                                "\n\n                                    variable\n                                    "
-                                              ),
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "financial-year-box",
-                                                  attrs: { role: "grid" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "financial-year-box-container"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "financial-year-box-wrapper",
-                                                          staticStyle: {
-                                                            height: "400px",
-                                                            width: "964px"
-                                                          }
-                                                        },
-                                                        [
-                                                          _c("div", [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "financial-year-box-header"
-                                                              },
-                                                              [
-                                                                _c("p", [
-                                                                  _c(
-                                                                    "strong",
-                                                                    {
-                                                                      staticClass:
-                                                                        "faNum"
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        "1398 - "
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  _vm._v(
-                                                                    "\n                                                            فلان فلان فلان\n                                                        "
-                                                                  )
-                                                                ]),
-                                                                _vm._v(" "),
-                                                                _c("div", [
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "financial-year-box-header-controls"
-                                                                    },
-                                                                    [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "تغییرات"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            {
-                                                                              staticClass:
-                                                                                "input-box-wrapper _2fhqByVVd1xIFl73q95wYl",
-                                                                              staticStyle: {
-                                                                                width:
-                                                                                  "87px"
-                                                                              }
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "span",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "percent",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "%"
-                                                                                  )
-                                                                                ]
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model",
-                                                                                      value:
-                                                                                        _vm.annualSalesUnitShiftPercent,
-                                                                                      expression:
-                                                                                        "annualSalesUnitShiftPercent"
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm.annualSalesUnitShiftPercent
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      if (
-                                                                                        $event
-                                                                                          .target
-                                                                                          .composing
-                                                                                      ) {
-                                                                                        return
-                                                                                      }
-                                                                                      _vm.annualSalesUnitShiftPercent =
-                                                                                        $event.target.value
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      ),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "button",
-                                                                        {
-                                                                          staticClass:
-                                                                            "overlay-button primary",
-                                                                          attrs: {
-                                                                            tabindex:
-                                                                              "-1"
-                                                                          },
-                                                                          on: {
-                                                                            click: function(
-                                                                              $event
-                                                                            ) {
-                                                                              return _vm.shiftAnnualSalesUnitChart()
-                                                                            }
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _vm._v(
-                                                                            "اعمال"
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]
-                                                                  )
-                                                                ])
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "financial-year-chart-container"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "highcharts",
-                                                                  {
-                                                                    staticClass:
-                                                                      "chart",
-                                                                    attrs: {
-                                                                      options:
-                                                                        _vm.annualUnitSalesChartOptions,
-                                                                      updateArgs:
-                                                                        _vm.updateArgs
-                                                                    },
-                                                                    on: {
-                                                                      redraw: function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.consolelog()
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                )
-                                                              ],
-                                                              1
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "financial-year-input-container"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "ul",
-                                                                  {
-                                                                    staticClass:
-                                                                      "labels faNum"
-                                                                  },
-                                                                  [
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "1398"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number",
-                                                                                    disabled:
-                                                                                      "",
-                                                                                    readOnly:
-                                                                                      ""
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm.currentYearAnnualUnitSales
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[0],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[0]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[0]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          0,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          0
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "اردیبهشت"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[1],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[1]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[1]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          1,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          1
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "خرداد"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[2],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[2]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[2]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          2,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          2
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[3],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[3]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[3]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          3,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          3
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[4],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[4]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[4]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          4,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          4
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[5],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[5]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[5]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          5,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          5
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[6],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[6]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[6]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          6,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          6
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[7],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[7]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[7]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          7,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          7
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[8],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[8]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[8]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          8,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          8
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[9],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[9]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[9]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          9,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          9
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "فروردین"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[10],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[10]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[10]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          10,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          10
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "اسفند"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model.number",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .annualSalesUnitPeriodsData[11],
-                                                                                      expression:
-                                                                                        "annualSalesUnitPeriodsData[11]",
-                                                                                      modifiers: {
-                                                                                        number: true
-                                                                                      }
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "number"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .annualSalesUnitPeriodsData[11]
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: [
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        if (
-                                                                                          $event
-                                                                                            .target
-                                                                                            .composing
-                                                                                        ) {
-                                                                                          return
-                                                                                        }
-                                                                                        _vm.$set(
-                                                                                          _vm.annualSalesUnitPeriodsData,
-                                                                                          11,
-                                                                                          _vm._n(
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        )
-                                                                                      },
-                                                                                      function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.updateAnnualSalesUnitChart(
-                                                                                          $event
-                                                                                            .target
-                                                                                            .value,
-                                                                                          11
-                                                                                        )
-                                                                                      }
-                                                                                    ],
-                                                                                    blur: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      return _vm.$forceUpdate()
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "1399"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c("li", [
-                                                                      _c("p", [
-                                                                        _vm._v(
-                                                                          "1340"
-                                                                        )
-                                                                      ]),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "valid"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "text",
-                                                                                    value:
-                                                                                      ""
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fillRightDots",
-                                                                                  attrs: {
-                                                                                    "aria-hidden":
-                                                                                      "true"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n                                                                             \n                                                                        "
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ])
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            )
-                                                          ])
-                                                        ]
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ])
-                                          : _vm._e()
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _vm.unitSalesTypeIsConstant === "1"
-                                      ? _c(
-                                          "div",
-                                          {
-                                            staticClass: "section",
-                                            staticStyle: {
-                                              "margin-bottom": "30px"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "title-top" },
-                                              [
-                                                _vm._v(
-                                                  "\n                                    When will this revenue start?\n                                "
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "select-box period-selection"
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "valid" },
-                                                  [
-                                                    _c("drop-down", {
-                                                      attrs: {
-                                                        options:
-                                                          _vm.periodOptions,
-                                                        optionLabel: "title",
-                                                        optionValue: "code",
-                                                        scrollHeight: "150px"
-                                                      },
-                                                      model: {
-                                                        value:
-                                                          _vm.selectedPeriod,
-                                                        callback: function(
-                                                          $$v
-                                                        ) {
-                                                          _vm.selectedPeriod = $$v
-                                                        },
-                                                        expression:
-                                                          "selectedPeriod"
-                                                      }
-                                                    })
-                                                  ],
-                                                  1
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e()
-                                  ])
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.getModalState(1) === 20 &&
-                          _vm.currentModalTab === 3
-                            ? _c(
-                                "div",
-                                { staticClass: "forecast-item-editor" },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    What price will you charge for each unit?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "title-content" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "radio-box CONSTANT",
-                                            attrs: {
-                                              role: "radiogroup",
-                                              tabindex: "-1",
-                                              "aria-orientation": "horizontal"
-                                            }
-                                          },
-                                          [
-                                            _c("ul", [
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(
-                                                      "\n                                                لورم\n                                            "
-                                                    )
-                                                  ])
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(
-                                                      "\n                                                Varying amounts over time\n                                            "
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("div", { staticClass: "clear" })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "input-with-dropdown"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "input-box-wrapper ",
-                                                  staticStyle: {
-                                                    width: "140px"
-                                                  }
-                                                },
-                                                [
-                                                  _c("input", {
-                                                    staticClass:
-                                                      "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                                                    attrs: { type: "text" }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass: "currency",
-                                                      attrs: {
-                                                        "aria-hidden": "true"
-                                                      }
-                                                    },
-                                                    [_vm._v("ریال")]
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("span"),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "clear"
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ]
-                                    )
-                                  ])
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.getModalState(1) === 21 &&
-                          _vm.currentModalTab === 2
-                            ? _c(
-                                "div",
-                                { staticClass: "forecast-item-editor" },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    How many units will you sell?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "title-content" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "radio-box CONSTANT",
-                                            attrs: {
-                                              role: "radiogroup",
-                                              tabindex: "-1",
-                                              "aria-orientation": "horizontal"
-                                            }
-                                          },
-                                          [
-                                            _c("ul", [
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _vm._v("لورم")
-                                                  ])
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _vm._v(
-                                                      "Varying amounts over time"
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("div", { staticClass: "clear" })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "input-with-dropdown"
-                                            },
-                                            [
-                                              _c("input", {
-                                                staticClass:
-                                                  "input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
-                                                attrs: {
-                                                  type: "text",
-                                                  value: "",
-                                                  "aria-describedby":
-                                                    "value-control-2",
-                                                  "aria-invalid": "true"
-                                                }
-                                              }),
-                                              _vm._v(" "),
-                                              _c("div", [
-                                                _c(
-                                                  "span",
-                                                  { staticClass: "per" },
-                                                  [_vm._v("به ازای  ")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass: "select-box",
-                                                    staticStyle: {
-                                                      "max-width": "999999px",
-                                                      width: "89px"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "selected-option",
-                                                        attrs: {
-                                                          tabindex: "0",
-                                                          role: "button"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v("لورم"),
-                                                        _vm._v(" "),
-                                                        _c("div", {
-                                                          staticClass: "arrow"
-                                                        })
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "options right",
-                                                        staticStyle: {
-                                                          width: "88px"
-                                                        },
-                                                        attrs: {
-                                                          tabindex: "-1",
-                                                          role: "listbox"
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "option-div",
-                                                            attrs: {
-                                                              role: "option",
-                                                              tabindex: "-1"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                                        Month\n                                                    "
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "selected option-div hovered",
-                                                            attrs: {
-                                                              role: "option",
-                                                              tabindex: "-1"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                                        Year\n                                                    "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "clear"
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    When will this revenue start?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "select-box" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "valid" },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "selected-option",
-                                                    attrs: {
-                                                      tabindex: "0",
-                                                      role: "button"
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v("Jan 2019"),
-                                                    _vm._v(" "),
-                                                    _c("div", {
-                                                      staticClass: "arrow"
-                                                    })
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "options right",
-                                                    staticStyle: {
-                                                      width: "88px"
-                                                    },
-                                                    attrs: {
-                                                      tabindex: "-1",
-                                                      role: "listbox"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "option-div",
-                                                        attrs: {
-                                                          role: "option",
-                                                          tabindex: "-1"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                                Month\n                                            "
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "selected option-div hovered",
-                                                        attrs: {
-                                                          role: "option",
-                                                          tabindex: "-1"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                                Year\n                                            "
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.getModalState(1) === 21 &&
-                          _vm.currentModalTab === 3
-                            ? _c(
-                                "div",
-                                { staticClass: "forecast-item-editor" },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    What price will you charge for each unit?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "title-content" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "radio-box CONSTANT",
-                                            attrs: {
-                                              role: "radiogroup",
-                                              tabindex: "-1",
-                                              "aria-orientation": "horizontal"
-                                            }
-                                          },
-                                          [
-                                            _c("ul", [
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(
-                                                      "\n                                                لورم\n                                            "
-                                                    )
-                                                  ])
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(
-                                                      "\n                                                Varying amounts over time\n                                            "
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("div", { staticClass: "clear" })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "input-with-dropdown"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "input-box-wrapper ",
-                                                  staticStyle: {
-                                                    width: "140px"
-                                                  }
-                                                },
-                                                [
-                                                  _c("input", {
-                                                    staticClass:
-                                                      "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                                                    attrs: { type: "text" }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass: "currency",
-                                                      attrs: {
-                                                        "aria-hidden": "true"
-                                                      }
-                                                    },
-                                                    [_vm._v("ریال")]
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("span"),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "clear"
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ]
-                                    )
-                                  ])
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.getModalState(1) === 22 &&
-                          _vm.currentModalTab === 2
-                            ? _c(
-                                "div",
-                                { staticClass: "forecast-item-editor" },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    When will this revenue start?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "select-box" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "valid" },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "selected-option",
-                                                    attrs: {
-                                                      tabindex: "0",
-                                                      role: "button"
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v("Jan 2019"),
-                                                    _vm._v(" "),
-                                                    _c("div", {
-                                                      staticClass: "arrow"
-                                                    })
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "options right",
-                                                    staticStyle: {
-                                                      width: "88px"
-                                                    },
-                                                    attrs: {
-                                                      tabindex: "-1",
-                                                      role: "listbox"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "option-div",
-                                                        attrs: {
-                                                          role: "option",
-                                                          tabindex: "-1"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                                Month\n                                            "
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "selected option-div hovered",
-                                                        attrs: {
-                                                          role: "option",
-                                                          tabindex: "-1"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                                Year\n                                            "
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    How many units will you sell?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "title-content" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "radio-box CONSTANT",
-                                            attrs: {
-                                              role: "radiogroup",
-                                              tabindex: "-1",
-                                              "aria-orientation": "horizontal"
-                                            }
-                                          },
-                                          [
-                                            _c("ul", [
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _vm._v("لورم")
-                                                  ])
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _vm._v(
-                                                      "Varying amounts over time"
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("div", { staticClass: "clear" })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "input-with-dropdown"
-                                            },
-                                            [
-                                              _c("input", {
-                                                staticClass:
-                                                  "input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
-                                                attrs: {
-                                                  type: "text",
-                                                  value: "",
-                                                  "aria-describedby":
-                                                    "value-control-2",
-                                                  "aria-invalid": "true"
-                                                }
-                                              }),
-                                              _vm._v(" "),
-                                              _c("div", [
-                                                _c(
-                                                  "span",
-                                                  { staticClass: "per" },
-                                                  [_vm._v(" در ماه")]
-                                                )
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "clear"
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ]
-                                    )
-                                  ])
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.getModalState(1) === 22 &&
-                          _vm.currentModalTab === 3
-                            ? _c("div", [
-                                _c(
-                                  "div",
-                                  { staticClass: "forecast-item-editor" },
-                                  [
-                                    _c("div", [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "section",
-                                          staticStyle: {
-                                            "margin-bottom": "30px"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "title-top" },
-                                            [
-                                              _vm._v(
-                                                "\n                                        What price will you charge for each unit?\n                                    "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "p",
-                                            { staticClass: "title-content" },
-                                            [
-                                              _vm._v(
-                                                "\n                                        Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "radio-box CONSTANT",
-                                              attrs: {
-                                                role: "radiogroup",
-                                                tabindex: "-1",
-                                                "aria-orientation": "horizontal"
-                                              }
-                                            },
-                                            [
-                                              _c("ul", [
-                                                _c(
-                                                  "li",
-                                                  { staticClass: "horizontal" },
-                                                  [
-                                                    _c("label", [
-                                                      _c("input", {
-                                                        attrs: {
-                                                          type: "radio",
-                                                          name:
-                                                            "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                          value: "on"
-                                                        }
-                                                      }),
-                                                      _vm._v(
-                                                        "\n                                                    لورم\n                                                "
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "li",
-                                                  { staticClass: "horizontal" },
-                                                  [
-                                                    _c("label", [
-                                                      _c("input", {
-                                                        attrs: {
-                                                          type: "radio",
-                                                          name:
-                                                            "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                          value: "on"
-                                                        }
-                                                      }),
-                                                      _vm._v(
-                                                        "\n                                                    Varying amounts over time\n                                                "
-                                                      )
-                                                    ])
-                                                  ]
-                                                )
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "clear"
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("div", [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "input-with-dropdown"
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "input-box-wrapper ",
-                                                    staticStyle: {
-                                                      width: "140px"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("input", {
-                                                      staticClass:
-                                                        "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                                                      attrs: { type: "text" }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass: "currency",
-                                                        attrs: {
-                                                          "aria-hidden": "true"
-                                                        }
-                                                      },
-                                                      [_vm._v("ریال")]
-                                                    )
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("span"),
-                                                _vm._v(" "),
-                                                _c("div", {
-                                                  staticClass: "clear"
-                                                })
-                                              ]
-                                            )
-                                          ])
-                                        ]
-                                      )
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "forecast-item-editor" },
-                                  [
-                                    _c("div", [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "section",
-                                          staticStyle: {
-                                            "margin-bottom": "30px"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "title-top" },
-                                            [
-                                              _vm._v(
-                                                "\n                                        What price will you charge for each unit?\n                                    "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "p",
-                                            { staticClass: "title-content" },
-                                            [
-                                              _vm._v(
-                                                "\n                                        Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "radio-box CONSTANT",
-                                              attrs: {
-                                                role: "radiogroup",
-                                                tabindex: "-1",
-                                                "aria-orientation": "horizontal"
-                                              }
-                                            },
-                                            [
-                                              _c("ul", [
-                                                _c(
-                                                  "li",
-                                                  { staticClass: "horizontal" },
-                                                  [
-                                                    _c("label", [
-                                                      _c("input", {
-                                                        attrs: {
-                                                          type: "radio",
-                                                          name:
-                                                            "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                          value: "on"
-                                                        }
-                                                      }),
-                                                      _vm._v(
-                                                        "\n                                                    لورم\n                                                "
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "li",
-                                                  { staticClass: "horizontal" },
-                                                  [
-                                                    _c("label", [
-                                                      _c("input", {
-                                                        attrs: {
-                                                          type: "radio",
-                                                          name:
-                                                            "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                          value: "on"
-                                                        }
-                                                      }),
-                                                      _vm._v(
-                                                        "\n                                                    Varying amounts over time\n                                                "
-                                                      )
-                                                    ])
-                                                  ]
-                                                )
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "clear"
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("div", [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "input-with-dropdown"
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "input-box-wrapper ",
-                                                    staticStyle: {
-                                                      width: "140px"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("input", {
-                                                      staticClass:
-                                                        "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                                                      attrs: { type: "text" }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass: "currency",
-                                                        attrs: {
-                                                          "aria-hidden": "true"
-                                                        }
-                                                      },
-                                                      [_vm._v("ریال")]
-                                                    )
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("span"),
-                                                _vm._v(" "),
-                                                _c("div", {
-                                                  staticClass: "clear"
-                                                })
-                                              ]
-                                            )
-                                          ])
-                                        ]
-                                      )
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "forecast-item-editor" },
-                                  [
-                                    _c("div", [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "section",
-                                          staticStyle: {
-                                            "margin-bottom": "30px"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "title-top" },
-                                            [
-                                              _vm._v(
-                                                "\n                                        How often is this charge assessed?\n                                    "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "select-box" },
-                                            [
-                                              _c(
-                                                "div",
-                                                { staticClass: "valid" },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "selected-option",
-                                                      attrs: {
-                                                        tabindex: "0",
-                                                        role: "button"
-                                                      }
-                                                    },
-                                                    [
-                                                      _vm._v("Jan 2019"),
-                                                      _vm._v(" "),
-                                                      _c("div", {
-                                                        staticClass: "arrow"
-                                                      })
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "options right",
-                                                      staticStyle: {
-                                                        width: "88px"
-                                                      },
-                                                      attrs: {
-                                                        tabindex: "-1",
-                                                        role: "listbox"
-                                                      }
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "option-div",
-                                                          attrs: {
-                                                            role: "option",
-                                                            tabindex: "-1"
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            "\n                                                    Month\n                                                "
-                                                          )
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "selected option-div hovered",
-                                                          attrs: {
-                                                            role: "option",
-                                                            tabindex: "-1"
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            "\n                                                    Year\n                                                "
-                                                          )
-                                                        ]
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.getModalState(1) === 22 &&
-                          _vm.currentModalTab === 4
-                            ? _c("div", [
-                                _c(
-                                  "div",
-                                  { staticClass: "forecast-item-editor" },
-                                  [
-                                    _c("div", [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "section",
-                                          staticStyle: {
-                                            "margin-bottom": "30px"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "title-top" },
-                                            [
-                                              _vm._v(
-                                                "\n                                        What price will you charge for each unit?\n                                    "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "p",
-                                            { staticClass: "title-content" },
-                                            [
-                                              _vm._v(
-                                                "\n                                        Enter your average selling price (excluding sales tax) for each unit of this product or service. You can vary prices over time, if necessary, to reflect seasonal changes in demand, planned increases, or scheduled discount promotions.                                    "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "radio-box CONSTANT",
-                                              attrs: {
-                                                role: "radiogroup",
-                                                tabindex: "-1",
-                                                "aria-orientation": "horizontal"
-                                              }
-                                            },
-                                            [
-                                              _c("ul", [
-                                                _c(
-                                                  "li",
-                                                  { staticClass: "horizontal" },
-                                                  [
-                                                    _c("label", [
-                                                      _c("input", {
-                                                        attrs: {
-                                                          type: "radio",
-                                                          name:
-                                                            "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                          value: "on"
-                                                        }
-                                                      }),
-                                                      _vm._v(
-                                                        "\n                                                    لورم\n                                                "
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "li",
-                                                  { staticClass: "horizontal" },
-                                                  [
-                                                    _c("label", [
-                                                      _c("input", {
-                                                        attrs: {
-                                                          type: "radio",
-                                                          name:
-                                                            "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                          value: "on"
-                                                        }
-                                                      }),
-                                                      _vm._v(
-                                                        "\n                                                    Varying amounts over time\n                                                "
-                                                      )
-                                                    ])
-                                                  ]
-                                                )
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "clear"
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("div", [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "input-with-dropdown"
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "input-box-wrapper ",
-                                                    staticStyle: {
-                                                      width: "140px"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("input", {
-                                                      staticClass:
-                                                        "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                                                      attrs: { type: "text" }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass: "currency",
-                                                        attrs: {
-                                                          "aria-hidden": "true"
-                                                        }
-                                                      },
-                                                      [_vm._v("ریال")]
-                                                    )
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("span"),
-                                                _vm._v(" "),
-                                                _c("div", {
-                                                  staticClass: "clear"
-                                                })
-                                              ]
-                                            )
-                                          ])
-                                        ]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.getModalState(1) === 23 &&
-                          _vm.currentModalTab === 2
-                            ? _c(
-                                "div",
-                                { staticClass: "forecast-item-editor" },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    How many units will you sell?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "title-content" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    How best to define a 'unit' depends on what you sell. If you offer widgets, just enter the quantity of those widgets (shirts or computers or whatever) you think you'll sell. For other offerings, you might want to use units to mean consulting engagements or fixed-price contracts or pallets of low-value materials. Do what makes sense for your business.\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "radio-box CONSTANT",
-                                            attrs: {
-                                              role: "radiogroup",
-                                              tabindex: "-1",
-                                              "aria-orientation": "horizontal"
-                                            }
-                                          },
-                                          [
-                                            _c("ul", [
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _vm._v("لورم")
-                                                  ])
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "li",
-                                                { staticClass: "horizontal" },
-                                                [
-                                                  _c("label", [
-                                                    _c("input", {
-                                                      attrs: {
-                                                        type: "radio",
-                                                        name:
-                                                          "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                                                        value: "on"
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _vm._v(
-                                                      "Varying amounts over time"
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("div", { staticClass: "clear" })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "input-with-dropdown"
-                                            },
-                                            [
-                                              _c("input", {
-                                                staticClass:
-                                                  "input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
-                                                attrs: {
-                                                  type: "text",
-                                                  value: "",
-                                                  "aria-describedby":
-                                                    "value-control-2",
-                                                  "aria-invalid": "true"
-                                                }
-                                              }),
-                                              _vm._v(" "),
-                                              _c("div", [
-                                                _c(
-                                                  "span",
-                                                  { staticClass: "per" },
-                                                  [_vm._v("به ازای  ")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass: "select-box",
-                                                    staticStyle: {
-                                                      "max-width": "999999px",
-                                                      width: "89px"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "selected-option",
-                                                        attrs: {
-                                                          tabindex: "0",
-                                                          role: "button"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v("لورم"),
-                                                        _vm._v(" "),
-                                                        _c("div", {
-                                                          staticClass: "arrow"
-                                                        })
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "options right",
-                                                        staticStyle: {
-                                                          width: "88px"
-                                                        },
-                                                        attrs: {
-                                                          tabindex: "-1",
-                                                          role: "listbox"
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "option-div",
-                                                            attrs: {
-                                                              role: "option",
-                                                              tabindex: "-1"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                                        Month\n                                                    "
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "selected option-div hovered",
-                                                            attrs: {
-                                                              role: "option",
-                                                              tabindex: "-1"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                                        Year\n                                                    "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "clear"
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "section",
-                                        staticStyle: { "margin-bottom": "30px" }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "title-top" },
-                                          [
-                                            _vm._v(
-                                              "\n                                    When will this revenue start?\n                                "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "select-box" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "valid" },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "selected-option",
-                                                    attrs: {
-                                                      tabindex: "0",
-                                                      role: "button"
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v("Jan 2019"),
-                                                    _vm._v(" "),
-                                                    _c("div", {
-                                                      staticClass: "arrow"
-                                                    })
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "options right",
-                                                    staticStyle: {
-                                                      width: "88px"
-                                                    },
-                                                    attrs: {
-                                                      tabindex: "-1",
-                                                      role: "listbox"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "option-div",
-                                                        attrs: {
-                                                          role: "option",
-                                                          tabindex: "-1"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                                Month\n                                            "
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "selected option-div hovered",
-                                                        attrs: {
-                                                          role: "option",
-                                                          tabindex: "-1"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                                Year\n                                            "
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                ]
-                              )
-                            : _vm._e()
-                        ])
-                      ])
-                    ]
-                  },
-                  proxy: true
-                },
-                {
-                  key: "footer",
-                  fn: function() {
-                    return [
-                      _c(
-                        "div",
-                        { staticClass: "modal-footer-control-container right" },
-                        [
-                          _c("div", [
-                            _vm.modals[1].isDeleting === false
-                              ? _c("div", { staticClass: "trash-delete" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "trashcan",
-                                      attrs: {
-                                        href: "#",
-                                        role: "button",
-                                        "aria-label": "Delete"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass: "trash-text",
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.toggleModalIsDeleting(
-                                                1
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                حذف\n                            "
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.modals[1].isDeleting === true
-                              ? _c(
-                                  "div",
-                                  {
-                                    attrs: {
-                                      id: "trash-confirm",
-                                      "aria-live": "assertive"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      { staticClass: "trashcan-confirm" },
-                                      [
-                                        _c(
-                                          "span",
-                                          { staticClass: "trash-text-confirm" },
-                                          [
-                                            _c("p", [
-                                              _vm._v("آیا اطمینان دارید?")
-                                            ]),
-                                            _vm._v(" "),
-                                            _c(
-                                              "a",
-                                              {
-                                                attrs: {
-                                                  href: "#close",
-                                                  role: "button",
-                                                  tabindex: "1"
-                                                },
-                                                on: {
-                                                  click: function($event) {
-                                                    return _vm.deleteEntry(1)
-                                                  }
-                                                }
-                                              },
-                                              [_vm._v("تایید")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c("span", [
-                                              _vm._v(
-                                                "\n                                    یا\n                                "
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c(
-                                              "a",
-                                              {
-                                                attrs: {
-                                                  href: "#",
-                                                  role: "button",
-                                                  tabindex: "2"
-                                                },
-                                                on: {
-                                                  click: function($event) {
-                                                    return _vm.toggleModalIsDeleting(
-                                                      1
-                                                    )
-                                                  }
-                                                }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                    لغو\n                                "
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "modal-footer-controls-container left" },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "modal-button primary disabled",
-                              attrs: { tabindex: "0" }
-                            },
-                            [_vm._v("بعدی")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "modal-button enabled",
-                              attrs: { tabindex: "0" }
-                            },
-                            [_vm._v("ذخیره و افزودن مورد دیگر")]
-                          )
-                        ]
-                      )
-                    ]
-                  },
-                  proxy: true
-                }
-              ],
-              null,
-              false,
-              467798385
-            )
+            }
           })
         : _vm._e()
     ],
@@ -54446,6 +49453,1932 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/vuelidate/lib/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/vuelidate/lib/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Vuelidate = Vuelidate;
+Object.defineProperty(exports, "withParams", {
+  enumerable: true,
+  get: function get() {
+    return _params.withParams;
+  }
+});
+exports.default = exports.validationMixin = void 0;
+
+var _vval = __webpack_require__(/*! ./vval */ "./node_modules/vuelidate/lib/vval.js");
+
+var _params = __webpack_require__(/*! ./params */ "./node_modules/vuelidate/lib/params.js");
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var NIL = function NIL() {
+  return null;
+};
+
+var buildFromKeys = function buildFromKeys(keys, fn, keyFn) {
+  return keys.reduce(function (build, key) {
+    build[keyFn ? keyFn(key) : key] = fn(key);
+    return build;
+  }, {});
+};
+
+function isFunction(val) {
+  return typeof val === 'function';
+}
+
+function isObject(val) {
+  return val !== null && (_typeof(val) === 'object' || isFunction(val));
+}
+
+function isPromise(object) {
+  return isObject(object) && isFunction(object.then);
+}
+
+var getPath = function getPath(ctx, obj, path, fallback) {
+  if (typeof path === 'function') {
+    return path.call(ctx, obj, fallback);
+  }
+
+  path = Array.isArray(path) ? path : path.split('.');
+
+  for (var i = 0; i < path.length; i++) {
+    if (obj && _typeof(obj) === 'object') {
+      obj = obj[path[i]];
+    } else {
+      return fallback;
+    }
+  }
+
+  return typeof obj === 'undefined' ? fallback : obj;
+};
+
+var __isVuelidateAsyncVm = '__isVuelidateAsyncVm';
+
+function makePendingAsyncVm(Vue, promise) {
+  var asyncVm = new Vue({
+    data: {
+      p: true,
+      v: false
+    }
+  });
+  promise.then(function (value) {
+    asyncVm.p = false;
+    asyncVm.v = value;
+  }, function (error) {
+    asyncVm.p = false;
+    asyncVm.v = false;
+    throw error;
+  });
+  asyncVm[__isVuelidateAsyncVm] = true;
+  return asyncVm;
+}
+
+var validationGetters = {
+  $invalid: function $invalid() {
+    var _this = this;
+
+    var proxy = this.proxy;
+    return this.nestedKeys.some(function (nested) {
+      return _this.refProxy(nested).$invalid;
+    }) || this.ruleKeys.some(function (rule) {
+      return !proxy[rule];
+    });
+  },
+  $dirty: function $dirty() {
+    var _this2 = this;
+
+    if (this.dirty) {
+      return true;
+    }
+
+    if (this.nestedKeys.length === 0) {
+      return false;
+    }
+
+    return this.nestedKeys.every(function (key) {
+      return _this2.refProxy(key).$dirty;
+    });
+  },
+  $anyDirty: function $anyDirty() {
+    var _this3 = this;
+
+    if (this.dirty) {
+      return true;
+    }
+
+    if (this.nestedKeys.length === 0) {
+      return false;
+    }
+
+    return this.nestedKeys.some(function (key) {
+      return _this3.refProxy(key).$anyDirty;
+    });
+  },
+  $error: function $error() {
+    return this.$dirty && !this.$pending && this.$invalid;
+  },
+  $anyError: function $anyError() {
+    return this.$anyDirty && !this.$pending && this.$invalid;
+  },
+  $pending: function $pending() {
+    var _this4 = this;
+
+    return this.ruleKeys.some(function (key) {
+      return _this4.getRef(key).$pending;
+    }) || this.nestedKeys.some(function (key) {
+      return _this4.refProxy(key).$pending;
+    });
+  },
+  $params: function $params() {
+    var _this5 = this;
+
+    var vals = this.validations;
+    return _objectSpread({}, buildFromKeys(this.nestedKeys, function (key) {
+      return vals[key] && vals[key].$params || null;
+    }), buildFromKeys(this.ruleKeys, function (key) {
+      return _this5.getRef(key).$params;
+    }));
+  }
+};
+
+function setDirtyRecursive(newState) {
+  this.dirty = newState;
+  var proxy = this.proxy;
+  var method = newState ? '$touch' : '$reset';
+  this.nestedKeys.forEach(function (key) {
+    proxy[key][method]();
+  });
+}
+
+var validationMethods = {
+  $touch: function $touch() {
+    setDirtyRecursive.call(this, true);
+  },
+  $reset: function $reset() {
+    setDirtyRecursive.call(this, false);
+  },
+  $flattenParams: function $flattenParams() {
+    var proxy = this.proxy;
+    var params = [];
+
+    for (var key in this.$params) {
+      if (this.isNested(key)) {
+        var childParams = proxy[key].$flattenParams();
+
+        for (var j = 0; j < childParams.length; j++) {
+          childParams[j].path.unshift(key);
+        }
+
+        params = params.concat(childParams);
+      } else {
+        params.push({
+          path: [],
+          name: key,
+          params: this.$params[key]
+        });
+      }
+    }
+
+    return params;
+  }
+};
+var getterNames = Object.keys(validationGetters);
+var methodNames = Object.keys(validationMethods);
+var _cachedComponent = null;
+
+var getComponent = function getComponent(Vue) {
+  if (_cachedComponent) {
+    return _cachedComponent;
+  }
+
+  var VBase = Vue.extend({
+    computed: {
+      refs: function refs() {
+        var oldVval = this._vval;
+        this._vval = this.children;
+        (0, _vval.patchChildren)(oldVval, this._vval);
+        var refs = {};
+
+        this._vval.forEach(function (c) {
+          refs[c.key] = c.vm;
+        });
+
+        return refs;
+      }
+    },
+    beforeCreate: function beforeCreate() {
+      this._vval = null;
+    },
+    beforeDestroy: function beforeDestroy() {
+      if (this._vval) {
+        (0, _vval.patchChildren)(this._vval);
+        this._vval = null;
+      }
+    },
+    methods: {
+      getModel: function getModel() {
+        return this.lazyModel ? this.lazyModel(this.prop) : this.model;
+      },
+      getModelKey: function getModelKey(key) {
+        var model = this.getModel();
+
+        if (model) {
+          return model[key];
+        }
+      },
+      hasIter: function hasIter() {
+        return false;
+      }
+    }
+  });
+  var ValidationRule = VBase.extend({
+    data: function data() {
+      return {
+        rule: null,
+        lazyModel: null,
+        model: null,
+        lazyParentModel: null,
+        rootModel: null
+      };
+    },
+    methods: {
+      runRule: function runRule(parent) {
+        var model = this.getModel();
+        (0, _params.pushParams)();
+        var rawOutput = this.rule.call(this.rootModel, model, parent);
+        var output = isPromise(rawOutput) ? makePendingAsyncVm(Vue, rawOutput) : rawOutput;
+        var rawParams = (0, _params.popParams)();
+        var params = rawParams && rawParams.$sub ? rawParams.$sub.length > 1 ? rawParams : rawParams.$sub[0] : null;
+        return {
+          output: output,
+          params: params
+        };
+      }
+    },
+    computed: {
+      run: function run() {
+        var _this6 = this;
+
+        var parent = this.lazyParentModel();
+
+        var isArrayDependant = Array.isArray(parent) && parent.__ob__;
+
+        if (isArrayDependant) {
+          var arrayDep = parent.__ob__.dep;
+          arrayDep.depend();
+          var target = arrayDep.constructor.target;
+
+          if (!this._indirectWatcher) {
+            var Watcher = target.constructor;
+            this._indirectWatcher = new Watcher(this, function () {
+              return _this6.runRule(parent);
+            }, null, {
+              lazy: true
+            });
+          }
+
+          var model = this.getModel();
+
+          if (!this._indirectWatcher.dirty && this._lastModel === model) {
+            this._indirectWatcher.depend();
+
+            return target.value;
+          }
+
+          this._lastModel = model;
+
+          this._indirectWatcher.evaluate();
+
+          this._indirectWatcher.depend();
+        } else if (this._indirectWatcher) {
+          this._indirectWatcher.teardown();
+
+          this._indirectWatcher = null;
+        }
+
+        return this._indirectWatcher ? this._indirectWatcher.value : this.runRule(parent);
+      },
+      $params: function $params() {
+        return this.run.params;
+      },
+      proxy: function proxy() {
+        var output = this.run.output;
+
+        if (output[__isVuelidateAsyncVm]) {
+          return !!output.v;
+        }
+
+        return !!output;
+      },
+      $pending: function $pending() {
+        var output = this.run.output;
+
+        if (output[__isVuelidateAsyncVm]) {
+          return output.p;
+        }
+
+        return false;
+      }
+    },
+    destroyed: function destroyed() {
+      if (this._indirectWatcher) {
+        this._indirectWatcher.teardown();
+
+        this._indirectWatcher = null;
+      }
+    }
+  });
+  var Validation = VBase.extend({
+    data: function data() {
+      return {
+        dirty: false,
+        validations: null,
+        lazyModel: null,
+        model: null,
+        prop: null,
+        lazyParentModel: null,
+        rootModel: null
+      };
+    },
+    methods: _objectSpread({}, validationMethods, {
+      refProxy: function refProxy(key) {
+        return this.getRef(key).proxy;
+      },
+      getRef: function getRef(key) {
+        return this.refs[key];
+      },
+      isNested: function isNested(key) {
+        return typeof this.validations[key] !== 'function';
+      }
+    }),
+    computed: _objectSpread({}, validationGetters, {
+      nestedKeys: function nestedKeys() {
+        return this.keys.filter(this.isNested);
+      },
+      ruleKeys: function ruleKeys() {
+        var _this7 = this;
+
+        return this.keys.filter(function (k) {
+          return !_this7.isNested(k);
+        });
+      },
+      keys: function keys() {
+        return Object.keys(this.validations).filter(function (k) {
+          return k !== '$params';
+        });
+      },
+      proxy: function proxy() {
+        var _this8 = this;
+
+        var keyDefs = buildFromKeys(this.keys, function (key) {
+          return {
+            enumerable: true,
+            configurable: true,
+            get: function get() {
+              return _this8.refProxy(key);
+            }
+          };
+        });
+        var getterDefs = buildFromKeys(getterNames, function (key) {
+          return {
+            enumerable: true,
+            configurable: true,
+            get: function get() {
+              return _this8[key];
+            }
+          };
+        });
+        var methodDefs = buildFromKeys(methodNames, function (key) {
+          return {
+            enumerable: false,
+            configurable: true,
+            get: function get() {
+              return _this8[key];
+            }
+          };
+        });
+        var iterDefs = this.hasIter() ? {
+          $iter: {
+            enumerable: true,
+            value: Object.defineProperties({}, _objectSpread({}, keyDefs))
+          }
+        } : {};
+        return Object.defineProperties({}, _objectSpread({}, keyDefs, iterDefs, {
+          $model: {
+            enumerable: true,
+            get: function get() {
+              var parent = _this8.lazyParentModel();
+
+              if (parent != null) {
+                return parent[_this8.prop];
+              } else {
+                return null;
+              }
+            },
+            set: function set(value) {
+              var parent = _this8.lazyParentModel();
+
+              if (parent != null) {
+                parent[_this8.prop] = value;
+
+                _this8.$touch();
+              }
+            }
+          }
+        }, getterDefs, methodDefs));
+      },
+      children: function children() {
+        var _this9 = this;
+
+        return _toConsumableArray(this.nestedKeys.map(function (key) {
+          return renderNested(_this9, key);
+        })).concat(_toConsumableArray(this.ruleKeys.map(function (key) {
+          return renderRule(_this9, key);
+        }))).filter(Boolean);
+      }
+    })
+  });
+  var GroupValidation = Validation.extend({
+    methods: {
+      isNested: function isNested(key) {
+        return typeof this.validations[key]() !== 'undefined';
+      },
+      getRef: function getRef(key) {
+        var vm = this;
+        return {
+          get proxy() {
+            return vm.validations[key]() || false;
+          }
+
+        };
+      }
+    }
+  });
+  var EachValidation = Validation.extend({
+    computed: {
+      keys: function keys() {
+        var model = this.getModel();
+
+        if (isObject(model)) {
+          return Object.keys(model);
+        } else {
+          return [];
+        }
+      },
+      tracker: function tracker() {
+        var _this10 = this;
+
+        var trackBy = this.validations.$trackBy;
+        return trackBy ? function (key) {
+          return "".concat(getPath(_this10.rootModel, _this10.getModelKey(key), trackBy));
+        } : function (x) {
+          return "".concat(x);
+        };
+      },
+      getModelLazy: function getModelLazy() {
+        var _this11 = this;
+
+        return function () {
+          return _this11.getModel();
+        };
+      },
+      children: function children() {
+        var _this12 = this;
+
+        var def = this.validations;
+        var model = this.getModel();
+
+        var validations = _objectSpread({}, def);
+
+        delete validations['$trackBy'];
+        var usedTracks = {};
+        return this.keys.map(function (key) {
+          var track = _this12.tracker(key);
+
+          if (usedTracks.hasOwnProperty(track)) {
+            return null;
+          }
+
+          usedTracks[track] = true;
+          return (0, _vval.h)(Validation, track, {
+            validations: validations,
+            prop: key,
+            lazyParentModel: _this12.getModelLazy,
+            model: model[key],
+            rootModel: _this12.rootModel
+          });
+        }).filter(Boolean);
+      }
+    },
+    methods: {
+      isNested: function isNested() {
+        return true;
+      },
+      getRef: function getRef(key) {
+        return this.refs[this.tracker(key)];
+      },
+      hasIter: function hasIter() {
+        return true;
+      }
+    }
+  });
+
+  var renderNested = function renderNested(vm, key) {
+    if (key === '$each') {
+      return (0, _vval.h)(EachValidation, key, {
+        validations: vm.validations[key],
+        lazyParentModel: vm.lazyParentModel,
+        prop: key,
+        lazyModel: vm.getModel,
+        rootModel: vm.rootModel
+      });
+    }
+
+    var validations = vm.validations[key];
+
+    if (Array.isArray(validations)) {
+      var root = vm.rootModel;
+      var refVals = buildFromKeys(validations, function (path) {
+        return function () {
+          return getPath(root, root.$v, path);
+        };
+      }, function (v) {
+        return Array.isArray(v) ? v.join('.') : v;
+      });
+      return (0, _vval.h)(GroupValidation, key, {
+        validations: refVals,
+        lazyParentModel: NIL,
+        prop: key,
+        lazyModel: NIL,
+        rootModel: root
+      });
+    }
+
+    return (0, _vval.h)(Validation, key, {
+      validations: validations,
+      lazyParentModel: vm.getModel,
+      prop: key,
+      lazyModel: vm.getModelKey,
+      rootModel: vm.rootModel
+    });
+  };
+
+  var renderRule = function renderRule(vm, key) {
+    return (0, _vval.h)(ValidationRule, key, {
+      rule: vm.validations[key],
+      lazyParentModel: vm.lazyParentModel,
+      lazyModel: vm.getModel,
+      rootModel: vm.rootModel
+    });
+  };
+
+  _cachedComponent = {
+    VBase: VBase,
+    Validation: Validation
+  };
+  return _cachedComponent;
+};
+
+var _cachedVue = null;
+
+function getVue(rootVm) {
+  if (_cachedVue) return _cachedVue;
+  var Vue = rootVm.constructor;
+
+  while (Vue.super) {
+    Vue = Vue.super;
+  }
+
+  _cachedVue = Vue;
+  return Vue;
+}
+
+var validateModel = function validateModel(model, validations) {
+  var Vue = getVue(model);
+
+  var _getComponent = getComponent(Vue),
+      Validation = _getComponent.Validation,
+      VBase = _getComponent.VBase;
+
+  var root = new VBase({
+    computed: {
+      children: function children() {
+        var vals = typeof validations === 'function' ? validations.call(model) : validations;
+        return [(0, _vval.h)(Validation, '$v', {
+          validations: vals,
+          lazyParentModel: NIL,
+          prop: '$v',
+          model: model,
+          rootModel: model
+        })];
+      }
+    }
+  });
+  return root;
+};
+
+var validationMixin = {
+  data: function data() {
+    var vals = this.$options.validations;
+
+    if (vals) {
+      this._vuelidate = validateModel(this, vals);
+    }
+
+    return {};
+  },
+  beforeCreate: function beforeCreate() {
+    var options = this.$options;
+    var vals = options.validations;
+    if (!vals) return;
+    if (!options.computed) options.computed = {};
+    if (options.computed.$v) return;
+
+    options.computed.$v = function () {
+      return this._vuelidate ? this._vuelidate.refs.$v.proxy : null;
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this._vuelidate) {
+      this._vuelidate.$destroy();
+
+      this._vuelidate = null;
+    }
+  }
+};
+exports.validationMixin = validationMixin;
+
+function Vuelidate(Vue) {
+  Vue.mixin(validationMixin);
+}
+
+var _default = Vuelidate;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/params.js":
+/*!**********************************************!*\
+  !*** ./node_modules/vuelidate/lib/params.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.pushParams = pushParams;
+exports.popParams = popParams;
+exports.withParams = withParams;
+exports._setTarget = exports.target = void 0;
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var stack = [];
+var target = null;
+exports.target = target;
+
+var _setTarget = function _setTarget(x) {
+  exports.target = target = x;
+};
+
+exports._setTarget = _setTarget;
+
+function pushParams() {
+  if (target !== null) {
+    stack.push(target);
+  }
+
+  exports.target = target = {};
+}
+
+function popParams() {
+  var lastTarget = target;
+  var newTarget = exports.target = target = stack.pop() || null;
+
+  if (newTarget) {
+    if (!Array.isArray(newTarget.$sub)) {
+      newTarget.$sub = [];
+    }
+
+    newTarget.$sub.push(lastTarget);
+  }
+
+  return lastTarget;
+}
+
+function addParams(params) {
+  if (_typeof(params) === 'object' && !Array.isArray(params)) {
+    exports.target = target = _objectSpread({}, target, params);
+  } else {
+    throw new Error('params must be an object');
+  }
+}
+
+function withParamsDirect(params, validator) {
+  return withParamsClosure(function (add) {
+    return function () {
+      add(params);
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      return validator.apply(this, args);
+    };
+  });
+}
+
+function withParamsClosure(closure) {
+  var validator = closure(addParams);
+  return function () {
+    pushParams();
+
+    try {
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
+      }
+
+      return validator.apply(this, args);
+    } finally {
+      popParams();
+    }
+  };
+}
+
+function withParams(paramsOrClosure, maybeValidator) {
+  if (_typeof(paramsOrClosure) === 'object' && maybeValidator !== undefined) {
+    return withParamsDirect(paramsOrClosure, maybeValidator);
+  }
+
+  return withParamsClosure(paramsOrClosure);
+}
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/alpha.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/alpha.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = (0, _common.regex)('alpha', /^[a-zA-Z]*$/);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/alphaNum.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/alphaNum.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = (0, _common.regex)('alphaNum', /^[a-zA-Z0-9]*$/);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/and.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/and.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default() {
+  for (var _len = arguments.length, validators = new Array(_len), _key = 0; _key < _len; _key++) {
+    validators[_key] = arguments[_key];
+  }
+
+  return (0, _common.withParams)({
+    type: 'and'
+  }, function () {
+    var _this = this;
+
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return validators.length > 0 && validators.reduce(function (valid, fn) {
+      return valid && fn.apply(_this, args);
+    }, true);
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/between.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/between.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(min, max) {
+  return (0, _common.withParams)({
+    type: 'between',
+    min: min,
+    max: max
+  }, function (value) {
+    return !(0, _common.req)(value) || (!/\s/.test(value) || value instanceof Date) && +min <= +value && +max >= +value;
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/common.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/common.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "withParams", {
+  enumerable: true,
+  get: function get() {
+    return _withParams.default;
+  }
+});
+exports.regex = exports.ref = exports.len = exports.req = void 0;
+
+var _withParams = _interopRequireDefault(__webpack_require__(/*! ../withParams */ "./node_modules/vuelidate/lib/withParams.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var req = function req(value) {
+  if (Array.isArray(value)) return !!value.length;
+
+  if (value === undefined || value === null) {
+    return false;
+  }
+
+  if (value === false) {
+    return true;
+  }
+
+  if (value instanceof Date) {
+    return !isNaN(value.getTime());
+  }
+
+  if (_typeof(value) === 'object') {
+    for (var _ in value) {
+      return true;
+    }
+
+    return false;
+  }
+
+  return !!String(value).length;
+};
+
+exports.req = req;
+
+var len = function len(value) {
+  if (Array.isArray(value)) return value.length;
+
+  if (_typeof(value) === 'object') {
+    return Object.keys(value).length;
+  }
+
+  return String(value).length;
+};
+
+exports.len = len;
+
+var ref = function ref(reference, vm, parentVm) {
+  return typeof reference === 'function' ? reference.call(vm, parentVm) : parentVm[reference];
+};
+
+exports.ref = ref;
+
+var regex = function regex(type, expr) {
+  return (0, _withParams.default)({
+    type: type
+  }, function (value) {
+    return !req(value) || expr.test(value);
+  });
+};
+
+exports.regex = regex;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/decimal.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/decimal.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = (0, _common.regex)('decimal', /^[-]?\d*(\.\d+)?$/);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/email.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/email.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var emailRegex = /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/;
+
+var _default = (0, _common.regex)('email', emailRegex);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "alpha", {
+  enumerable: true,
+  get: function get() {
+    return _alpha.default;
+  }
+});
+Object.defineProperty(exports, "alphaNum", {
+  enumerable: true,
+  get: function get() {
+    return _alphaNum.default;
+  }
+});
+Object.defineProperty(exports, "numeric", {
+  enumerable: true,
+  get: function get() {
+    return _numeric.default;
+  }
+});
+Object.defineProperty(exports, "between", {
+  enumerable: true,
+  get: function get() {
+    return _between.default;
+  }
+});
+Object.defineProperty(exports, "email", {
+  enumerable: true,
+  get: function get() {
+    return _email.default;
+  }
+});
+Object.defineProperty(exports, "ipAddress", {
+  enumerable: true,
+  get: function get() {
+    return _ipAddress.default;
+  }
+});
+Object.defineProperty(exports, "macAddress", {
+  enumerable: true,
+  get: function get() {
+    return _macAddress.default;
+  }
+});
+Object.defineProperty(exports, "maxLength", {
+  enumerable: true,
+  get: function get() {
+    return _maxLength.default;
+  }
+});
+Object.defineProperty(exports, "minLength", {
+  enumerable: true,
+  get: function get() {
+    return _minLength.default;
+  }
+});
+Object.defineProperty(exports, "required", {
+  enumerable: true,
+  get: function get() {
+    return _required.default;
+  }
+});
+Object.defineProperty(exports, "requiredIf", {
+  enumerable: true,
+  get: function get() {
+    return _requiredIf.default;
+  }
+});
+Object.defineProperty(exports, "requiredUnless", {
+  enumerable: true,
+  get: function get() {
+    return _requiredUnless.default;
+  }
+});
+Object.defineProperty(exports, "sameAs", {
+  enumerable: true,
+  get: function get() {
+    return _sameAs.default;
+  }
+});
+Object.defineProperty(exports, "url", {
+  enumerable: true,
+  get: function get() {
+    return _url.default;
+  }
+});
+Object.defineProperty(exports, "or", {
+  enumerable: true,
+  get: function get() {
+    return _or.default;
+  }
+});
+Object.defineProperty(exports, "and", {
+  enumerable: true,
+  get: function get() {
+    return _and.default;
+  }
+});
+Object.defineProperty(exports, "not", {
+  enumerable: true,
+  get: function get() {
+    return _not.default;
+  }
+});
+Object.defineProperty(exports, "minValue", {
+  enumerable: true,
+  get: function get() {
+    return _minValue.default;
+  }
+});
+Object.defineProperty(exports, "maxValue", {
+  enumerable: true,
+  get: function get() {
+    return _maxValue.default;
+  }
+});
+Object.defineProperty(exports, "integer", {
+  enumerable: true,
+  get: function get() {
+    return _integer.default;
+  }
+});
+Object.defineProperty(exports, "decimal", {
+  enumerable: true,
+  get: function get() {
+    return _decimal.default;
+  }
+});
+exports.helpers = void 0;
+
+var _alpha = _interopRequireDefault(__webpack_require__(/*! ./alpha */ "./node_modules/vuelidate/lib/validators/alpha.js"));
+
+var _alphaNum = _interopRequireDefault(__webpack_require__(/*! ./alphaNum */ "./node_modules/vuelidate/lib/validators/alphaNum.js"));
+
+var _numeric = _interopRequireDefault(__webpack_require__(/*! ./numeric */ "./node_modules/vuelidate/lib/validators/numeric.js"));
+
+var _between = _interopRequireDefault(__webpack_require__(/*! ./between */ "./node_modules/vuelidate/lib/validators/between.js"));
+
+var _email = _interopRequireDefault(__webpack_require__(/*! ./email */ "./node_modules/vuelidate/lib/validators/email.js"));
+
+var _ipAddress = _interopRequireDefault(__webpack_require__(/*! ./ipAddress */ "./node_modules/vuelidate/lib/validators/ipAddress.js"));
+
+var _macAddress = _interopRequireDefault(__webpack_require__(/*! ./macAddress */ "./node_modules/vuelidate/lib/validators/macAddress.js"));
+
+var _maxLength = _interopRequireDefault(__webpack_require__(/*! ./maxLength */ "./node_modules/vuelidate/lib/validators/maxLength.js"));
+
+var _minLength = _interopRequireDefault(__webpack_require__(/*! ./minLength */ "./node_modules/vuelidate/lib/validators/minLength.js"));
+
+var _required = _interopRequireDefault(__webpack_require__(/*! ./required */ "./node_modules/vuelidate/lib/validators/required.js"));
+
+var _requiredIf = _interopRequireDefault(__webpack_require__(/*! ./requiredIf */ "./node_modules/vuelidate/lib/validators/requiredIf.js"));
+
+var _requiredUnless = _interopRequireDefault(__webpack_require__(/*! ./requiredUnless */ "./node_modules/vuelidate/lib/validators/requiredUnless.js"));
+
+var _sameAs = _interopRequireDefault(__webpack_require__(/*! ./sameAs */ "./node_modules/vuelidate/lib/validators/sameAs.js"));
+
+var _url = _interopRequireDefault(__webpack_require__(/*! ./url */ "./node_modules/vuelidate/lib/validators/url.js"));
+
+var _or = _interopRequireDefault(__webpack_require__(/*! ./or */ "./node_modules/vuelidate/lib/validators/or.js"));
+
+var _and = _interopRequireDefault(__webpack_require__(/*! ./and */ "./node_modules/vuelidate/lib/validators/and.js"));
+
+var _not = _interopRequireDefault(__webpack_require__(/*! ./not */ "./node_modules/vuelidate/lib/validators/not.js"));
+
+var _minValue = _interopRequireDefault(__webpack_require__(/*! ./minValue */ "./node_modules/vuelidate/lib/validators/minValue.js"));
+
+var _maxValue = _interopRequireDefault(__webpack_require__(/*! ./maxValue */ "./node_modules/vuelidate/lib/validators/maxValue.js"));
+
+var _integer = _interopRequireDefault(__webpack_require__(/*! ./integer */ "./node_modules/vuelidate/lib/validators/integer.js"));
+
+var _decimal = _interopRequireDefault(__webpack_require__(/*! ./decimal */ "./node_modules/vuelidate/lib/validators/decimal.js"));
+
+var helpers = _interopRequireWildcard(__webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js"));
+
+exports.helpers = helpers;
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/integer.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/integer.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = (0, _common.regex)('integer', /^-?[0-9]*$/);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/ipAddress.js":
+/*!************************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/ipAddress.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = (0, _common.withParams)({
+  type: 'ipAddress'
+}, function (value) {
+  if (!(0, _common.req)(value)) {
+    return true;
+  }
+
+  if (typeof value !== 'string') {
+    return false;
+  }
+
+  var nibbles = value.split('.');
+  return nibbles.length === 4 && nibbles.every(nibbleValid);
+});
+
+exports.default = _default;
+
+var nibbleValid = function nibbleValid(nibble) {
+  if (nibble.length > 3 || nibble.length === 0) {
+    return false;
+  }
+
+  if (nibble[0] === '0' && nibble !== '0') {
+    return false;
+  }
+
+  if (!nibble.match(/^\d+$/)) {
+    return false;
+  }
+
+  var numeric = +nibble | 0;
+  return numeric >= 0 && numeric <= 255;
+};
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/macAddress.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/macAddress.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default() {
+  var separator = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ':';
+  return (0, _common.withParams)({
+    type: 'macAddress'
+  }, function (value) {
+    if (!(0, _common.req)(value)) {
+      return true;
+    }
+
+    if (typeof value !== 'string') {
+      return false;
+    }
+
+    var parts = typeof separator === 'string' && separator !== '' ? value.split(separator) : value.length === 12 || value.length === 16 ? value.match(/.{2}/g) : null;
+    return parts !== null && (parts.length === 6 || parts.length === 8) && parts.every(hexValid);
+  });
+};
+
+exports.default = _default;
+
+var hexValid = function hexValid(hex) {
+  return hex.toLowerCase().match(/^[0-9a-f]{2}$/);
+};
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/maxLength.js":
+/*!************************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/maxLength.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(length) {
+  return (0, _common.withParams)({
+    type: 'maxLength',
+    max: length
+  }, function (value) {
+    return !(0, _common.req)(value) || (0, _common.len)(value) <= length;
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/maxValue.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/maxValue.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(max) {
+  return (0, _common.withParams)({
+    type: 'maxValue',
+    max: max
+  }, function (value) {
+    return !(0, _common.req)(value) || (!/\s/.test(value) || value instanceof Date) && +value <= +max;
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/minLength.js":
+/*!************************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/minLength.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(length) {
+  return (0, _common.withParams)({
+    type: 'minLength',
+    min: length
+  }, function (value) {
+    return !(0, _common.req)(value) || (0, _common.len)(value) >= length;
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/minValue.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/minValue.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(min) {
+  return (0, _common.withParams)({
+    type: 'minValue',
+    min: min
+  }, function (value) {
+    return !(0, _common.req)(value) || (!/\s/.test(value) || value instanceof Date) && +value >= +min;
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/not.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/not.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(validator) {
+  return (0, _common.withParams)({
+    type: 'not'
+  }, function (value, vm) {
+    return !(0, _common.req)(value) || !validator.call(this, value, vm);
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/numeric.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/numeric.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = (0, _common.regex)('numeric', /^[0-9]*$/);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/or.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/or.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default() {
+  for (var _len = arguments.length, validators = new Array(_len), _key = 0; _key < _len; _key++) {
+    validators[_key] = arguments[_key];
+  }
+
+  return (0, _common.withParams)({
+    type: 'or'
+  }, function () {
+    var _this = this;
+
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return validators.length > 0 && validators.reduce(function (valid, fn) {
+      return valid || fn.apply(_this, args);
+    }, false);
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/required.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/required.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = (0, _common.withParams)({
+  type: 'required'
+}, _common.req);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/requiredIf.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/requiredIf.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(prop) {
+  return (0, _common.withParams)({
+    type: 'requiredIf',
+    prop: prop
+  }, function (value, parentVm) {
+    return (0, _common.ref)(prop, this, parentVm) ? (0, _common.req)(value) : true;
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/requiredUnless.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/requiredUnless.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(prop) {
+  return (0, _common.withParams)({
+    type: 'requiredUnless',
+    prop: prop
+  }, function (value, parentVm) {
+    return !(0, _common.ref)(prop, this, parentVm) ? (0, _common.req)(value) : true;
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/sameAs.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/sameAs.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var _default = function _default(equalTo) {
+  return (0, _common.withParams)({
+    type: 'sameAs',
+    eq: equalTo
+  }, function (value, parentVm) {
+    return value === (0, _common.ref)(equalTo, this, parentVm);
+  });
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/validators/url.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vuelidate/lib/validators/url.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
+
+var urlRegex = /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i;
+
+var _default = (0, _common.regex)('url', urlRegex);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/vval.js":
+/*!********************************************!*\
+  !*** ./node_modules/vuelidate/lib/vval.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.patchChildren = patchChildren;
+exports.h = h;
+
+function isUndef(v) {
+  return v === null || v === undefined;
+}
+
+function isDef(v) {
+  return v !== null && v !== undefined;
+}
+
+function sameVval(oldVval, vval) {
+  return vval.tag === oldVval.tag && vval.key === oldVval.key;
+}
+
+function createVm(vval) {
+  var Vm = vval.tag;
+  vval.vm = new Vm({
+    data: vval.args
+  });
+}
+
+function updateVval(vval) {
+  var keys = Object.keys(vval.args);
+
+  for (var i = 0; i < keys.length; i++) {
+    keys.forEach(function (k) {
+      vval.vm[k] = vval.args[k];
+    });
+  }
+}
+
+function createKeyToOldIdx(children, beginIdx, endIdx) {
+  var i, key;
+  var map = {};
+
+  for (i = beginIdx; i <= endIdx; ++i) {
+    key = children[i].key;
+    if (isDef(key)) map[key] = i;
+  }
+
+  return map;
+}
+
+function updateChildren(oldCh, newCh) {
+  var oldStartIdx = 0;
+  var newStartIdx = 0;
+  var oldEndIdx = oldCh.length - 1;
+  var oldStartVval = oldCh[0];
+  var oldEndVval = oldCh[oldEndIdx];
+  var newEndIdx = newCh.length - 1;
+  var newStartVval = newCh[0];
+  var newEndVval = newCh[newEndIdx];
+  var oldKeyToIdx, idxInOld, elmToMove;
+
+  while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+    if (isUndef(oldStartVval)) {
+      oldStartVval = oldCh[++oldStartIdx];
+    } else if (isUndef(oldEndVval)) {
+      oldEndVval = oldCh[--oldEndIdx];
+    } else if (sameVval(oldStartVval, newStartVval)) {
+      patchVval(oldStartVval, newStartVval);
+      oldStartVval = oldCh[++oldStartIdx];
+      newStartVval = newCh[++newStartIdx];
+    } else if (sameVval(oldEndVval, newEndVval)) {
+      patchVval(oldEndVval, newEndVval);
+      oldEndVval = oldCh[--oldEndIdx];
+      newEndVval = newCh[--newEndIdx];
+    } else if (sameVval(oldStartVval, newEndVval)) {
+      patchVval(oldStartVval, newEndVval);
+      oldStartVval = oldCh[++oldStartIdx];
+      newEndVval = newCh[--newEndIdx];
+    } else if (sameVval(oldEndVval, newStartVval)) {
+      patchVval(oldEndVval, newStartVval);
+      oldEndVval = oldCh[--oldEndIdx];
+      newStartVval = newCh[++newStartIdx];
+    } else {
+      if (isUndef(oldKeyToIdx)) oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx);
+      idxInOld = isDef(newStartVval.key) ? oldKeyToIdx[newStartVval.key] : null;
+
+      if (isUndef(idxInOld)) {
+        createVm(newStartVval);
+        newStartVval = newCh[++newStartIdx];
+      } else {
+        elmToMove = oldCh[idxInOld];
+
+        if (sameVval(elmToMove, newStartVval)) {
+          patchVval(elmToMove, newStartVval);
+          oldCh[idxInOld] = undefined;
+          newStartVval = newCh[++newStartIdx];
+        } else {
+          createVm(newStartVval);
+          newStartVval = newCh[++newStartIdx];
+        }
+      }
+    }
+  }
+
+  if (oldStartIdx > oldEndIdx) {
+    addVvals(newCh, newStartIdx, newEndIdx);
+  } else if (newStartIdx > newEndIdx) {
+    removeVvals(oldCh, oldStartIdx, oldEndIdx);
+  }
+}
+
+function addVvals(vvals, startIdx, endIdx) {
+  for (; startIdx <= endIdx; ++startIdx) {
+    createVm(vvals[startIdx]);
+  }
+}
+
+function removeVvals(vvals, startIdx, endIdx) {
+  for (; startIdx <= endIdx; ++startIdx) {
+    var ch = vvals[startIdx];
+
+    if (isDef(ch)) {
+      ch.vm.$destroy();
+      ch.vm = null;
+    }
+  }
+}
+
+function patchVval(oldVval, vval) {
+  if (oldVval === vval) {
+    return;
+  }
+
+  vval.vm = oldVval.vm;
+  updateVval(vval);
+}
+
+function patchChildren(oldCh, ch) {
+  if (isDef(oldCh) && isDef(ch)) {
+    if (oldCh !== ch) updateChildren(oldCh, ch);
+  } else if (isDef(ch)) {
+    addVvals(ch, 0, ch.length - 1);
+  } else if (isDef(oldCh)) {
+    removeVvals(oldCh, 0, oldCh.length - 1);
+  }
+}
+
+function h(tag, key, args) {
+  return {
+    tag: tag,
+    key: key,
+    args: args
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/withParams.js":
+/*!**************************************************!*\
+  !*** ./node_modules/vuelidate/lib/withParams.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var withParams = process.env.BUILD === 'web' ? __webpack_require__(/*! ./withParamsBrowser */ "./node_modules/vuelidate/lib/withParamsBrowser.js").withParams : __webpack_require__(/*! ./params */ "./node_modules/vuelidate/lib/params.js").withParams;
+var _default = withParams;
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/vuelidate/lib/withParamsBrowser.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/vuelidate/lib/withParamsBrowser.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.withParams = void 0;
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var root = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : {};
+
+var fakeWithParams = function fakeWithParams(paramsOrClosure, maybeValidator) {
+  if (_typeof(paramsOrClosure) === 'object' && maybeValidator !== undefined) {
+    return maybeValidator;
+  }
+
+  return paramsOrClosure(function () {});
+};
+
+var withParams = root.vuelidate ? root.vuelidate.withParams : fakeWithParams;
+exports.withParams = withParams;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -55080,18 +52013,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var highcharts_modules_draggable_points__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(highcharts_modules_draggable_points__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var v_playback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! v-playback */ "./node_modules/v-playback/dist/v-playback.js");
 /* harmony import */ var v_playback__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(v_playback__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var primevue_treetable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primevue/treetable */ "./node_modules/primevue/treetable.js");
-/* harmony import */ var primevue_treetable__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(primevue_treetable__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var primevue_column__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primevue/column */ "./node_modules/primevue/column.js");
-/* harmony import */ var primevue_column__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(primevue_column__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var primevue_dropdown__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primevue/dropdown */ "./node_modules/primevue/dropdown.js");
-/* harmony import */ var primevue_dropdown__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(primevue_dropdown__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var primevue_resources_primevue_min_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primevue/resources/primevue.min.css */ "./node_modules/primevue/resources/primevue.min.css");
-/* harmony import */ var primevue_resources_primevue_min_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(primevue_resources_primevue_min_css__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var primeicons_primeicons_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeicons/primeicons.css */ "./node_modules/primeicons/primeicons.css");
-/* harmony import */ var primeicons_primeicons_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeicons_primeicons_css__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _js_views_App__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/js/views/App */ "./resources/js/views/App.vue");
+/* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuelidate */ "./node_modules/vuelidate/lib/index.js");
+/* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vuelidate__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var primevue_treetable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primevue/treetable */ "./node_modules/primevue/treetable.js");
+/* harmony import */ var primevue_treetable__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(primevue_treetable__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var primevue_column__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primevue/column */ "./node_modules/primevue/column.js");
+/* harmony import */ var primevue_column__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(primevue_column__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var primevue_dropdown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primevue/dropdown */ "./node_modules/primevue/dropdown.js");
+/* harmony import */ var primevue_dropdown__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(primevue_dropdown__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var primevue_resources_primevue_min_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primevue/resources/primevue.min.css */ "./node_modules/primevue/resources/primevue.min.css");
+/* harmony import */ var primevue_resources_primevue_min_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primevue_resources_primevue_min_css__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var primeicons_primeicons_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeicons/primeicons.css */ "./node_modules/primeicons/primeicons.css");
+/* harmony import */ var primeicons_primeicons_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeicons_primeicons_css__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _js_views_App__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/js/views/App */ "./resources/js/views/App.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -55110,14 +52046,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 highcharts_modules_draggable_points__WEBPACK_IMPORTED_MODULE_4___default()(highcharts__WEBPACK_IMPORTED_MODULE_3___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(highcharts_vue__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_playback__WEBPACK_IMPORTED_MODULE_5___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tree-table', primevue_treetable__WEBPACK_IMPORTED_MODULE_6___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('column', primevue_column__WEBPACK_IMPORTED_MODULE_7___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('drop-down', primevue_dropdown__WEBPACK_IMPORTED_MODULE_8___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuelidate__WEBPACK_IMPORTED_MODULE_6___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tree-table', primevue_treetable__WEBPACK_IMPORTED_MODULE_7___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('column', primevue_column__WEBPACK_IMPORTED_MODULE_8___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('drop-down', primevue_dropdown__WEBPACK_IMPORTED_MODULE_9___default.a);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: _js_routes_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   render: function render(h) {
-    return h(_js_views_App__WEBPACK_IMPORTED_MODULE_11__["default"]);
+    return h(_js_views_App__WEBPACK_IMPORTED_MODULE_12__["default"]);
   }
 });
 
@@ -55165,75 +52102,6 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/components/About.vue":
-/*!*******************************************!*\
-  !*** ./resources/js/components/About.vue ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _About_vue_vue_type_template_id_fb05e49c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./About.vue?vue&type=template&id=fb05e49c& */ "./resources/js/components/About.vue?vue&type=template&id=fb05e49c&");
-/* harmony import */ var _About_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./About.vue?vue&type=script&lang=js& */ "./resources/js/components/About.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _About_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _About_vue_vue_type_template_id_fb05e49c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _About_vue_vue_type_template_id_fb05e49c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/About.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/About.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/About.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./About.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/About.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/About.vue?vue&type=template&id=fb05e49c&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/About.vue?vue&type=template&id=fb05e49c& ***!
-  \**************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_template_id_fb05e49c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./About.vue?vue&type=template&id=fb05e49c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/About.vue?vue&type=template&id=fb05e49c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_template_id_fb05e49c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_template_id_fb05e49c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 
@@ -55324,93 +52192,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Chart.vue":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Chart.vue ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Chart_vue_vue_type_template_id_30973183_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Chart.vue?vue&type=template&id=30973183&scoped=true& */ "./resources/js/components/Chart.vue?vue&type=template&id=30973183&scoped=true&");
-/* harmony import */ var _Chart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Chart.vue?vue&type=script&lang=js& */ "./resources/js/components/Chart.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Chart_vue_vue_type_style_index_0_id_30973183_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css& */ "./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Chart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Chart_vue_vue_type_template_id_30973183_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Chart_vue_vue_type_template_id_30973183_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "30973183",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Chart.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/Chart.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/Chart.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Chart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chart.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css&":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css& ***!
-  \****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_style_index_0_id_30973183_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--5-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--5-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chart.vue?vue&type=style&index=0&id=30973183&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_style_index_0_id_30973183_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_style_index_0_id_30973183_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_style_index_0_id_30973183_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_style_index_0_id_30973183_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_style_index_0_id_30973183_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Chart.vue?vue&type=template&id=30973183&scoped=true&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/Chart.vue?vue&type=template&id=30973183&scoped=true& ***!
-  \**************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_template_id_30973183_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Chart.vue?vue&type=template&id=30973183&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chart.vue?vue&type=template&id=30973183&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_template_id_30973183_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_template_id_30973183_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/DashboardTabsBarItem.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/DashboardTabsBarItem.vue ***!
@@ -55475,144 +52256,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardTabsBarItem_vue_vue_type_template_id_064e141f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardTabsBarItem_vue_vue_type_template_id_064e141f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Home.vue":
-/*!******************************************!*\
-  !*** ./resources/js/components/Home.vue ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Home_vue_vue_type_template_id_f2b6376c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=f2b6376c& */ "./resources/js/components/Home.vue?vue&type=template&id=f2b6376c&");
-/* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/components/Home.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Home_vue_vue_type_template_id_f2b6376c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Home_vue_vue_type_template_id_f2b6376c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Home.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/Home.vue?vue&type=script&lang=js&":
-/*!*******************************************************************!*\
-  !*** ./resources/js/components/Home.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Home.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Home.vue?vue&type=template&id=f2b6376c&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/Home.vue?vue&type=template&id=f2b6376c& ***!
-  \*************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_f2b6376c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=template&id=f2b6376c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Home.vue?vue&type=template&id=f2b6376c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_f2b6376c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_f2b6376c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/TableTest.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/components/TableTest.vue ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _TableTest_vue_vue_type_template_id_787147a5_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableTest.vue?vue&type=template&id=787147a5&scoped=true& */ "./resources/js/components/TableTest.vue?vue&type=template&id=787147a5&scoped=true&");
-/* harmony import */ var _TableTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TableTest.vue?vue&type=script&lang=js& */ "./resources/js/components/TableTest.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _TableTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _TableTest_vue_vue_type_template_id_787147a5_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _TableTest_vue_vue_type_template_id_787147a5_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "787147a5",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/TableTest.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/TableTest.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/TableTest.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TableTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TableTest.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TableTest.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TableTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/TableTest.vue?vue&type=template&id=787147a5&scoped=true&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/TableTest.vue?vue&type=template&id=787147a5&scoped=true& ***!
-  \******************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TableTest_vue_vue_type_template_id_787147a5_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TableTest.vue?vue&type=template&id=787147a5&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TableTest.vue?vue&type=template&id=787147a5&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TableTest_vue_vue_type_template_id_787147a5_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TableTest_vue_vue_type_template_id_787147a5_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -55786,6 +52429,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheDashboardContainer_vue_vue_type_template_id_c714f42c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheDashboardContainer_vue_vue_type_template_id_c714f42c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/modals/ModalRevenueCrud.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/modals/ModalRevenueCrud.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ModalRevenueCrud_vue_vue_type_template_id_cdf721b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ModalRevenueCrud.vue?vue&type=template&id=cdf721b0&scoped=true& */ "./resources/js/modals/ModalRevenueCrud.vue?vue&type=template&id=cdf721b0&scoped=true&");
+/* harmony import */ var _ModalRevenueCrud_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalRevenueCrud.vue?vue&type=script&lang=js& */ "./resources/js/modals/ModalRevenueCrud.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ModalRevenueCrud_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ModalRevenueCrud_vue_vue_type_template_id_cdf721b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ModalRevenueCrud_vue_vue_type_template_id_cdf721b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "cdf721b0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/modals/ModalRevenueCrud.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/modals/ModalRevenueCrud.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/modals/ModalRevenueCrud.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalRevenueCrud_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ModalRevenueCrud.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/modals/ModalRevenueCrud.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalRevenueCrud_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/modals/ModalRevenueCrud.vue?vue&type=template&id=cdf721b0&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/modals/ModalRevenueCrud.vue?vue&type=template&id=cdf721b0&scoped=true& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalRevenueCrud_vue_vue_type_template_id_cdf721b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ModalRevenueCrud.vue?vue&type=template&id=cdf721b0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/modals/ModalRevenueCrud.vue?vue&type=template&id=cdf721b0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalRevenueCrud_vue_vue_type_template_id_cdf721b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalRevenueCrud_vue_vue_type_template_id_cdf721b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -56079,29 +52791,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue");
-/* harmony import */ var _components_About_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/About.vue */ "./resources/js/components/About.vue");
-/* harmony import */ var _components_Chart_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Chart.vue */ "./resources/js/components/Chart.vue");
-/* harmony import */ var _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Dashboard.vue */ "./resources/js/views/Dashboard.vue");
-/* harmony import */ var _views_DashboardForecast_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/DashboardForecast.vue */ "./resources/js/views/DashboardForecast.vue");
-/* harmony import */ var _views_DashboardForecastFinancialTables_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/DashboardForecastFinancialTables.vue */ "./resources/js/views/DashboardForecastFinancialTables.vue");
-/* harmony import */ var _views_DashboardForecastProfitAndLoss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/DashboardForecastProfitAndLoss */ "./resources/js/views/DashboardForecastProfitAndLoss.vue");
-/* harmony import */ var _views_DashboardForecastBalanceSheet__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/DashboardForecastBalanceSheet */ "./resources/js/views/DashboardForecastBalanceSheet.vue");
-/* harmony import */ var _views_DashboardForecastCashFlow__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/DashboardForecastCashFlow */ "./resources/js/views/DashboardForecastCashFlow.vue");
-/* harmony import */ var _views_DashboardForecastRevenue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/DashboardForecastRevenue */ "./resources/js/views/DashboardForecastRevenue.vue");
-/* harmony import */ var _views_DashboardForecastDirectCosts__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/DashboardForecastDirectCosts */ "./resources/js/views/DashboardForecastDirectCosts.vue");
-/* harmony import */ var _views_DashboardForecastPersonnel__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/DashboardForecastPersonnel */ "./resources/js/views/DashboardForecastPersonnel.vue");
-/* harmony import */ var _views_DashboardForecastExpenses__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/DashboardForecastExpenses */ "./resources/js/views/DashboardForecastExpenses.vue");
-/* harmony import */ var _views_DashboardForecastAssets__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/DashboardForecastAssets */ "./resources/js/views/DashboardForecastAssets.vue");
-/* harmony import */ var _views_DashboardForecastTaxes__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/DashboardForecastTaxes */ "./resources/js/views/DashboardForecastTaxes.vue");
-/* harmony import */ var _views_DashboardForecastDividends__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/DashboardForecastDividends */ "./resources/js/views/DashboardForecastDividends.vue");
-/* harmony import */ var _views_DashboardForecastCashFlowAssumptions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/DashboardForecastCashFlowAssumptions */ "./resources/js/views/DashboardForecastCashFlowAssumptions.vue");
-/* harmony import */ var _views_DashboardForecastFinancing__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/DashboardForecastFinancing */ "./resources/js/views/DashboardForecastFinancing.vue");
-/* harmony import */ var _components_TableTest__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/TableTest */ "./resources/js/components/TableTest.vue");
-
-
-
-
+/* harmony import */ var _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Dashboard.vue */ "./resources/js/views/Dashboard.vue");
+/* harmony import */ var _views_DashboardForecast_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/DashboardForecast.vue */ "./resources/js/views/DashboardForecast.vue");
+/* harmony import */ var _views_DashboardForecastFinancialTables_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/DashboardForecastFinancialTables.vue */ "./resources/js/views/DashboardForecastFinancialTables.vue");
+/* harmony import */ var _views_DashboardForecastProfitAndLoss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/DashboardForecastProfitAndLoss */ "./resources/js/views/DashboardForecastProfitAndLoss.vue");
+/* harmony import */ var _views_DashboardForecastBalanceSheet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/DashboardForecastBalanceSheet */ "./resources/js/views/DashboardForecastBalanceSheet.vue");
+/* harmony import */ var _views_DashboardForecastCashFlow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/DashboardForecastCashFlow */ "./resources/js/views/DashboardForecastCashFlow.vue");
+/* harmony import */ var _views_DashboardForecastRevenue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/DashboardForecastRevenue */ "./resources/js/views/DashboardForecastRevenue.vue");
+/* harmony import */ var _views_DashboardForecastDirectCosts__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/DashboardForecastDirectCosts */ "./resources/js/views/DashboardForecastDirectCosts.vue");
+/* harmony import */ var _views_DashboardForecastPersonnel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/DashboardForecastPersonnel */ "./resources/js/views/DashboardForecastPersonnel.vue");
+/* harmony import */ var _views_DashboardForecastExpenses__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/DashboardForecastExpenses */ "./resources/js/views/DashboardForecastExpenses.vue");
+/* harmony import */ var _views_DashboardForecastAssets__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/DashboardForecastAssets */ "./resources/js/views/DashboardForecastAssets.vue");
+/* harmony import */ var _views_DashboardForecastTaxes__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/DashboardForecastTaxes */ "./resources/js/views/DashboardForecastTaxes.vue");
+/* harmony import */ var _views_DashboardForecastDividends__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/DashboardForecastDividends */ "./resources/js/views/DashboardForecastDividends.vue");
+/* harmony import */ var _views_DashboardForecastCashFlowAssumptions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/DashboardForecastCashFlowAssumptions */ "./resources/js/views/DashboardForecastCashFlowAssumptions.vue");
+/* harmony import */ var _views_DashboardForecastFinancing__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/DashboardForecastFinancing */ "./resources/js/views/DashboardForecastFinancing.vue");
 
 
 
@@ -56123,84 +52827,68 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
-    path: '/',
-    name: 'home',
-    component: _components_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }, {
-    path: '/about',
-    name: 'about',
-    component: _components_About_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }, {
-    path: '/chart',
-    name: 'chart',
-    component: _components_Chart_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }, {
-    path: '/table',
-    name: 'table',
-    component: _components_TableTest__WEBPACK_IMPORTED_MODULE_20__["default"]
-  }, {
     path: '/dashboard',
     name: 'dashboard.index',
-    component: _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    component: _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     children: [{
       path: '/dashboard/forecast',
-      component: _views_DashboardForecast_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+      component: _views_DashboardForecast_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
       name: 'dashboard.forecast',
       children: [{
         path: '/dashboard/forecast/financial-tables',
-        component: _views_DashboardForecastFinancialTables_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+        component: _views_DashboardForecastFinancialTables_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
         name: 'dashboard.forecast.financialTables',
         redirect: {
           name: 'dashboard.forecast.financialTables.revenue'
         },
         children: [{
           path: 'revenue',
-          component: _views_DashboardForecastRevenue__WEBPACK_IMPORTED_MODULE_11__["default"],
+          component: _views_DashboardForecastRevenue__WEBPACK_IMPORTED_MODULE_8__["default"],
           name: 'dashboard.forecast.financialTables.revenue'
         }, {
           path: 'direct-costs',
-          component: _views_DashboardForecastDirectCosts__WEBPACK_IMPORTED_MODULE_12__["default"],
+          component: _views_DashboardForecastDirectCosts__WEBPACK_IMPORTED_MODULE_9__["default"],
           name: 'dashboard.forecast.financialTables.direct-costs'
         }, {
           path: 'personnel',
-          component: _views_DashboardForecastPersonnel__WEBPACK_IMPORTED_MODULE_13__["default"],
+          component: _views_DashboardForecastPersonnel__WEBPACK_IMPORTED_MODULE_10__["default"],
           name: 'dashboard.forecast.financialTables.personnel'
         }, {
           path: 'expenses',
-          component: _views_DashboardForecastExpenses__WEBPACK_IMPORTED_MODULE_14__["default"],
+          component: _views_DashboardForecastExpenses__WEBPACK_IMPORTED_MODULE_11__["default"],
           name: 'dashboard.forecast.financialTables.expenses'
         }, {
           path: 'assets',
-          component: _views_DashboardForecastAssets__WEBPACK_IMPORTED_MODULE_15__["default"],
+          component: _views_DashboardForecastAssets__WEBPACK_IMPORTED_MODULE_12__["default"],
           name: 'dashboard.forecast.financialTables.assets'
         }, {
           path: 'taxes',
-          component: _views_DashboardForecastTaxes__WEBPACK_IMPORTED_MODULE_16__["default"],
+          component: _views_DashboardForecastTaxes__WEBPACK_IMPORTED_MODULE_13__["default"],
           name: 'dashboard.forecast.financialTables.taxes'
         }, {
           path: 'dividends',
-          component: _views_DashboardForecastDividends__WEBPACK_IMPORTED_MODULE_17__["default"],
+          component: _views_DashboardForecastDividends__WEBPACK_IMPORTED_MODULE_14__["default"],
           name: 'dashboard.forecast.financialTables.dividends'
         }, {
           path: 'cash-flow-assumptions',
-          component: _views_DashboardForecastCashFlowAssumptions__WEBPACK_IMPORTED_MODULE_18__["default"],
+          component: _views_DashboardForecastCashFlowAssumptions__WEBPACK_IMPORTED_MODULE_15__["default"],
           name: 'dashboard.forecast.financialTables.cashFlowAssumptions'
         }, {
           path: 'financing',
-          component: _views_DashboardForecastFinancing__WEBPACK_IMPORTED_MODULE_19__["default"],
+          component: _views_DashboardForecastFinancing__WEBPACK_IMPORTED_MODULE_16__["default"],
           name: 'dashboard.forecast.financialTables.financing'
         }]
       }, {
         path: 'profit-and-loss',
-        component: _views_DashboardForecastProfitAndLoss__WEBPACK_IMPORTED_MODULE_8__["default"],
+        component: _views_DashboardForecastProfitAndLoss__WEBPACK_IMPORTED_MODULE_5__["default"],
         name: 'dashboard.forecast.profitAndLoss'
       }, {
         path: 'balance-sheet',
-        component: _views_DashboardForecastBalanceSheet__WEBPACK_IMPORTED_MODULE_9__["default"],
+        component: _views_DashboardForecastBalanceSheet__WEBPACK_IMPORTED_MODULE_6__["default"],
         name: 'dashboard.forecast.balanceSheet'
       }, {
         path: 'cash-flow',
-        component: _views_DashboardForecastCashFlow__WEBPACK_IMPORTED_MODULE_10__["default"],
+        component: _views_DashboardForecastCashFlow__WEBPACK_IMPORTED_MODULE_7__["default"],
         name: 'dashboard.forecast.cashFlow'
       }]
     }]

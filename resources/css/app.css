@@ -4881,7 +4881,9 @@ span.divider{
 }
 .input-box.error {
     border: 1px solid #D83405;
+    outline: 0;
 }
+
 .feedback-line {
     background: transparent;
     position: relative;
@@ -4972,6 +4974,7 @@ span.divider{
 .trash-text-confirm a {
     text-decoration: underline;
     color: #2565C0;
+    cursor: pointer;
 }
 .section a, .section a:hover, .section a:visited, .modal-footer-control-container a:hover {
     text-decoration: none;

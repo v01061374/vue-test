@@ -1,6 +1,5 @@
 <template>
     <div v-if="showModal">
-
             <div class="modal-mask">
                 <div class="modal-wrapper">
                     <div class="modal-container">
@@ -11,7 +10,7 @@
                                     <!--<button tabindex="0" role="button" aria-label="close" class="base-modal-header-close-button" @click="close()">-->
                                         <!---->
                                     <!--</button>-->
-                                    <a href="#" class="modal-close-button" @click.prevent="close"></a>
+                                    <a class="modal-close-button" @click.prevent="close"></a>
                                 </div>
                             </div>
                             <div role="group">
@@ -41,7 +40,7 @@
         },
         methods: {
             close() {
-                this.$emit('close-modal');
+                this.$emit('close');
             }
         },
 

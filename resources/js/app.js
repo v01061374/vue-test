@@ -6,6 +6,7 @@ import HighchartsVue from 'highcharts-vue';
 import Highcharts from 'highcharts';
 import draggable from 'highcharts/modules/draggable-points'
 import vPlayBack from 'v-playback';
+import Vuelidate from 'vuelidate'
 
 
 import TreeTable from 'primevue/treetable';
@@ -24,6 +25,8 @@ import App from '@/js/views/App';
 draggable(Highcharts);
 Vue.use(HighchartsVue);
 Vue.use(vPlayBack);
+Vue.use(Vuelidate);
+
 
 Vue.component('tree-table', TreeTable);
 Vue.component('column', Column);
