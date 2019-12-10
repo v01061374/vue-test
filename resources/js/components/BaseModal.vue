@@ -6,10 +6,7 @@
                         <div class="base-modal-body">
                             <div class="base-modal-header-wrapper">
                                 <div class="base-modal-header">
-                                    <slot name="header-text"></slot>
-                                    <!--<button tabindex="0" role="button" aria-label="close" class="base-modal-header-close-button" @click="close()">-->
-                                        <!---->
-                                    <!--</button>-->
+                                    <slot name="header"></slot>
                                     <a class="modal-close-button" @click.prevent="close"></a>
                                 </div>
                             </div>
