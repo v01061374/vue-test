@@ -4893,7 +4893,7 @@ span.divider{
 }
 .feedback-line p {
     color: #D83405;
-    font-family: IRANSans, Tahoma;
+    font-family: IRANSansFaNum, Tahoma;
     font-size: 12px;
 }
 
@@ -5052,6 +5052,13 @@ span.divider{
 }
 .forecast-item-editor .radio-box {
     margin-bottom: 10px;
+}
+.forecast-item-editor .little-drop-down{
+    float: right;
+
+}
+.forecast-item-editor .little-drop-down .p-dropdown{
+    width: 5em !important;
 }
 .financial-year-box {
     clear: both;
@@ -5497,6 +5504,7 @@ body .p-treetable .p-treetable-tbody > tr > td {
 }
 .p-dropdown .p-dropdown-label{
     padding: 0.61em 0.61em 0.61em 2em;
+    font-family: IRANSansFaNum, Tahoma;
 }
 .p-dropdown-panel .p-dropdown-item{
     text-align: right;

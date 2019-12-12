@@ -666,6 +666,11 @@
 
                                 </div>
                             </div>
+                            <!--TODO sths not tranfered yet-->
+
+
+
+
                             <div class="forecast-item-editor" v-if="getModalState(1)===20 && currentModalTab===3">
                                 <div>
                                     <div class="section" style="margin-bottom: 30px">
