@@ -5053,6 +5053,24 @@ var _1400 = 14;
           _1399: '',
           _1400: ''
         },
+        customerCountType: MEASURE_TYPE_CONSTANT,
+        constantCustomerCount: '',
+        customerCountPerPeriod: {
+          FAR_1398: '',
+          ORD_1398: '',
+          KHO_1398: '',
+          TIR_1398: '',
+          MOR_1398: '',
+          SHAH_1398: '',
+          MEHR_1398: '',
+          ABA_1398: '',
+          AZAR_1398: '',
+          DEY_1398: '',
+          BAH_1398: '',
+          ESF_1398: '',
+          _1399: '',
+          _1400: ''
+        },
         upFrontFeeMeasureType: MEASURE_TYPE_FREE,
         constantUpFrontFee: '',
         upFrontFeePerPeriod: {
@@ -5278,11 +5296,11 @@ var _1400 = 14;
       if (typeof this.revenue !== 'undefined') {
         return this.revenue.type;
       } else {
-        return this.tempRevenueType;
+        return this.currentRevenue.type;
       }
     },
     setRevenueType: function setRevenueType(revenueType) {
-      this.tempRevenueType = revenueType;
+      this.currentRevenue.type = revenueType;
     },
     handleTabChange: function handleTabChange(to) {
       var $this = this;
@@ -5409,6 +5427,31 @@ var _1400 = 14;
               return true;
             }
           }
+        },
+        constantCustomerCount: '',
+        customerCountPerPeriod: {
+          FAR_1398: '',
+          ORD_1398: '',
+          KHO_1398: '',
+          TIR_1398: '',
+          MOR_1398: '',
+          SHAH_1398: '',
+          MEHR_1398: '',
+          ABA_1398: '',
+          AZAR_1398: '',
+          DEY_1398: '',
+          BAH_1398: '',
+          ESF_1398: '',
+          _1399: '',
+          _1400: ''
+        },
+        customerCountType: {
+          required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
+          between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
+        },
+        constantCustomerCountPeriod: {
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.unitSalesCountType === MEASURE_TYPE_CONSTANT),
+          between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(LENGTH_MONTH, LENGTH_YEAR)
         },
         upFrontFeeMeasureType: {
           required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
@@ -5589,35 +5632,35 @@ var _1400 = 14;
       switch (this.currentTab) {
         case 0:
           {
-            return [this.$v.tempRevenueName];
+            return [this.$v.currentRevenue.name];
           }
 
         case 1:
           {
-            return [this.$v.tempRevenueType];
+            return [this.$v.currentRevenue.type];
           }
 
         case 2:
           {
-            switch (this.tempRevenueType) {
+            switch (this.currentRevenue.type) {
               case REVENUE_TYPE_UNIT_SALES:
                 {
-                  return [this.$v.tempConstantServiceCount, this.$v.tempServiceCountPerPeriod, this.$v.tempConstantServicePeriod, this.$v.revenueStart];
+                  return [this.$v.currentRevenue.unitSalesCountType, this.$v.currentRevenue.unitSalesPerPeriod, this.$v.currentRevenue.constantUnitSales, this.$v.currentRevenue.constantUnitSalesPeriod, this.$v.currentRevenue.start];
                 }
 
               case REVENUE_TYPE_BILLABLE_HOURS:
                 {
-                  return [this.$v.tempConstantServiceCount, this.$v.tempServiceCountPerPeriod, this.$v.tempConstantServicePeriod, this.$v.revenueStart];
+                  return [this.$v.currentRevenue.billableHoursCountType, this.$v.currentRevenue.billableHoursPerPeriod, this.$v.currentRevenue.constantBillableHours, this.$v.currentRevenue.constantBillableHoursPeriod, this.$v.currentRevenue.start];
                 }
 
               case REVENUE_TYPE_RECURRING_CHANGES:
                 {
-                  return [this.$v.tempConstantServiceCount, this.$v.tempServiceCountPerPeriod, this.$v.revenueStart];
+                  return [this.$v.currentRevenue.customerCountType, this.$v.currentRevenue.constantCustomerCount, this.$v.currentRevenue.constantCustomerCountPeriod, this.$v.currentRevenue.start];
                 }
 
               case REVENUE_TYPE_REVENUE_ONLY:
                 {
-                  return [this.$v.tempConstantRevenueStream, this.$v.tempConstantRevenueStream, this.$v.revenueStart];
+                  return [this.$v.currentRevenue.revenueStreamType, this.$v.currentRevenue.constantRevenueStream, this.$v.currentRevenue.constantRevenueStreamPeriod, this.$v.currentRevenue.start];
                 }
 
               default:
@@ -5627,27 +5670,27 @@ var _1400 = 14;
 
         case 3:
           {
-            switch (this.tempRevenueType) {
+            switch (this.currentRevenue.type) {
               case REVENUE_TYPE_UNIT_SALES:
                 {
-                  return [this.$v.tempConstantUnitPrice, this.$v.tempUnitPricePerPeriod];
+                  return [this.$v.currentRevenue.unitPriceMeasureType, this.$v.currentRevenue.constantUnitPrice, this.$v.currentRevenue.unitPricePerPeriod];
                 }
 
               case REVENUE_TYPE_BILLABLE_HOURS:
                 {
-                  return [this.$v.tempConstantUnitPrice, this.$v.tempUnitPricePerPeriod];
+                  return [this.$v.currentRevenue.hourPriceMeasureType, this.$v.currentRevenue.constantHourPrice, this.$v.currentRevenue.hourPricePerPeriod];
                 }
 
               case REVENUE_TYPE_RECURRING_CHANGES:
                 {
-                  return [this.$v.tempConstantUpFrontFee, this.$v.tempUpFrontFeePerPeriod, this.$v.tempRecurringChargeMonthFrequency];
+                  return [this.$v.currentRevenue.upFrontFeeMeasureType, this.$v.currentRevenue.constantUpFrontFee, this.$v.currentRevenue.upFrontFeePerPeriod, this.$v.currentRevenue.recurringChargeMeasureType, this.$v.currentRevenue.constantRecurringCharge, this.$v.currentRevenue.recurringChargePerPeriod, this.$v.currentRevenue.recurringChargeMonthFrequency];
                 }
             }
           }
 
         case 4:
           {
-            return [this.$v.tempConstantChurnRate, this.$v.tempChurnRatePerPeriod];
+            return [this.$v.currentRevenue.churnRateMeasureType, this.$v.currentRevenue.constantChurnRate, this.$v.currentRevenue.churnRatePerPeriod];
           }
       }
     }
@@ -34433,15 +34476,15 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model.trim",
-                                  value: _vm.$v.tempRevenueName.$model,
-                                  expression: "$v.tempRevenueName.$model",
+                                  value: _vm.$v.currentRevenue.name.$model,
+                                  expression: "$v.currentRevenue.name.$model",
                                   modifiers: { trim: true }
                                 }
                               ],
                               class: [
                                 "input-box",
                                 "description",
-                                _vm.$v.tempRevenueName.$error ? "error" : ""
+                                _vm.$v.currentRevenue.name.$error ? "error" : ""
                               ],
                               attrs: {
                                 type: "text",
@@ -34449,7 +34492,7 @@ var render = function() {
                                 maxlength: 255
                               },
                               domProps: {
-                                value: _vm.$v.tempRevenueName.$model
+                                value: _vm.$v.currentRevenue.name.$model
                               },
                               on: {
                                 focusin: function($event) {
@@ -34463,7 +34506,7 @@ var render = function() {
                                     return
                                   }
                                   _vm.$set(
-                                    _vm.$v.tempRevenueName,
+                                    _vm.$v.currentRevenue.name,
                                     "$model",
                                     $event.target.value.trim()
                                   )
@@ -34491,8 +34534,8 @@ var render = function() {
                                 _vm._v(
                                   "\n                                " +
                                     _vm._s(
-                                      255 - _vm.tempRevenueName.length >= 0
-                                        ? 255 - _vm.tempRevenueName.length
+                                      255 - _vm.currentRevenue.name.length >= 0
+                                        ? 255 - _vm.currentRevenue.name.length
                                         : 0
                                     ) +
                                     "\n                            "
@@ -34501,8 +34544,8 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("div", { staticClass: "feedback-line" }, [
-                              _vm.$v.tempRevenueName.$error &&
-                              !_vm.$v.tempRevenueName.required
+                              _vm.$v.currentRevenue.name.$error &&
+                              !_vm.$v.currentRevenue.name.required
                                 ? _c("p", [
                                     _vm._v(
                                       "\n                                    مقداری را وارد کنید\n                                "
@@ -34510,8 +34553,8 @@ var render = function() {
                                   ])
                                 : _vm._e(),
                               _vm._v(" "),
-                              _vm.$v.tempRevenueName.$error &&
-                              !_vm.$v.tempRevenueName.maxLength
+                              _vm.$v.currentRevenue.name.$error &&
+                              !_vm.$v.currentRevenue.name.maxLength
                                 ? _c("p", [
                                     _vm._v(
                                       "\n                                    حداکثر طول 255 کاراکتر است.\n                                "
@@ -34519,9 +34562,9 @@ var render = function() {
                                   ])
                                 : _vm._e(),
                               _vm._v(" "),
-                              _vm.$v.tempRevenueName.$error &&
-                              _vm.$v.tempRevenueName.required &&
-                              !_vm.$v.tempRevenueName.test
+                              _vm.$v.currentRevenue.name.$error &&
+                              _vm.$v.currentRevenue.name.required &&
+                              !_vm.$v.currentRevenue.name.test
                                 ? _c("p", [
                                     _vm._v(
                                       "\n                                    ارور چک با دیتابیس\n                                "
@@ -34554,8 +34597,8 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.$v.tempRevenueType.$model,
-                                  expression: "$v.tempRevenueType.$model"
+                                  value: _vm.$v.currentRevenue.type.$model,
+                                  expression: "$v.currentRevenue.type.$model"
                                 }
                               ],
                               staticClass: "radio-style",
@@ -34563,14 +34606,14 @@ var render = function() {
                               domProps: {
                                 value: _vm.REVENUE_TYPE_UNIT_SALES,
                                 checked: _vm._q(
-                                  _vm.$v.tempRevenueType.$model,
+                                  _vm.$v.currentRevenue.type.$model,
                                   _vm.REVENUE_TYPE_UNIT_SALES
                                 )
                               },
                               on: {
                                 change: function($event) {
                                   return _vm.$set(
-                                    _vm.$v.tempRevenueType,
+                                    _vm.$v.currentRevenue.type,
                                     "$model",
                                     _vm.REVENUE_TYPE_UNIT_SALES
                                   )
@@ -34593,8 +34636,8 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.$v.tempRevenueType.$model,
-                                  expression: "$v.tempRevenueType.$model"
+                                  value: _vm.$v.currentRevenue.type.$model,
+                                  expression: "$v.currentRevenue.type.$model"
                                 }
                               ],
                               staticClass: "radio-style",
@@ -34602,14 +34645,14 @@ var render = function() {
                               domProps: {
                                 value: _vm.REVENUE_TYPE_BILLABLE_HOURS,
                                 checked: _vm._q(
-                                  _vm.$v.tempRevenueType.$model,
+                                  _vm.$v.currentRevenue.type.$model,
                                   _vm.REVENUE_TYPE_BILLABLE_HOURS
                                 )
                               },
                               on: {
                                 change: function($event) {
                                   return _vm.$set(
-                                    _vm.$v.tempRevenueType,
+                                    _vm.$v.currentRevenue.type,
                                     "$model",
                                     _vm.REVENUE_TYPE_BILLABLE_HOURS
                                   )
@@ -34636,8 +34679,8 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.$v.tempRevenueType.$model,
-                                  expression: "$v.tempRevenueType.$model"
+                                  value: _vm.$v.currentRevenue.type.$model,
+                                  expression: "$v.currentRevenue.type.$model"
                                 }
                               ],
                               staticClass: "radio-style",
@@ -34645,14 +34688,14 @@ var render = function() {
                               domProps: {
                                 value: _vm.REVENUE_TYPE_RECURRING_CHANGES,
                                 checked: _vm._q(
-                                  _vm.$v.tempRevenueType.$model,
+                                  _vm.$v.currentRevenue.type.$model,
                                   _vm.REVENUE_TYPE_RECURRING_CHANGES
                                 )
                               },
                               on: {
                                 change: function($event) {
                                   return _vm.$set(
-                                    _vm.$v.tempRevenueType,
+                                    _vm.$v.currentRevenue.type,
                                     "$model",
                                     _vm.REVENUE_TYPE_RECURRING_CHANGES
                                   )
@@ -34679,8 +34722,8 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.$v.tempRevenueType.$model,
-                                  expression: "$v.tempRevenueType.$model"
+                                  value: _vm.$v.currentRevenue.type.$model,
+                                  expression: "$v.currentRevenue.type.$model"
                                 }
                               ],
                               staticClass: "radio-style",
@@ -34688,14 +34731,14 @@ var render = function() {
                               domProps: {
                                 value: _vm.REVENUE_TYPE_REVENUE_ONLY,
                                 checked: _vm._q(
-                                  _vm.$v.tempRevenueType.$model,
+                                  _vm.$v.currentRevenue.type.$model,
                                   _vm.REVENUE_TYPE_REVENUE_ONLY
                                 )
                               },
                               on: {
                                 change: function($event) {
                                   return _vm.$set(
-                                    _vm.$v.tempRevenueType,
+                                    _vm.$v.currentRevenue.type,
                                     "$model",
                                     _vm.REVENUE_TYPE_REVENUE_ONLY
                                   )
@@ -34762,8 +34805,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempUnitPriceType,
-                                            expression: "tempUnitPriceType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .unitSalesCountType,
+                                            expression:
+                                              "currentRevenue.unitSalesCountType"
                                           }
                                         ],
                                         attrs: {
@@ -34773,14 +34819,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_CONSTANT,
                                           checked: _vm._q(
-                                            _vm.tempUnitPriceType,
+                                            _vm.currentRevenue
+                                              .unitSalesCountType,
                                             _vm.MEASURE_TYPE_CONSTANT
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempUnitPriceType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "unitSalesCountType",
                                               _vm.MEASURE_TYPE_CONSTANT
+                                            )
                                           }
                                         }
                                       }),
@@ -34796,8 +34846,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempUnitPriceType,
-                                            expression: "tempUnitPriceType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .unitSalesCountType,
+                                            expression:
+                                              "currentRevenue.unitSalesCountType"
                                           }
                                         ],
                                         attrs: {
@@ -34807,14 +34860,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_VARIABLE,
                                           checked: _vm._q(
-                                            _vm.tempUnitPriceType,
+                                            _vm.currentRevenue
+                                              .unitSalesCountType,
                                             _vm.MEASURE_TYPE_VARIABLE
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempUnitPriceType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "unitSalesCountType",
                                               _vm.MEASURE_TYPE_VARIABLE
+                                            )
                                           }
                                         }
                                       }),
@@ -34830,7 +34887,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm.tempServiceCountType ===
+                            _vm.currentRevenue.unitSalesCountType ===
                             _vm.MEASURE_TYPE_CONSTANT
                               ? _c("div", [
                                   _c(
@@ -34846,10 +34903,10 @@ var render = function() {
                                             name: "model",
                                             rawName: "v-model.trim",
                                             value:
-                                              _vm.$v.tempConstantServiceCount
-                                                .$model,
+                                              _vm.$v.currentRevenue
+                                                .constantUnitSales.$model,
                                             expression:
-                                              "$v.tempConstantServiceCount.$model",
+                                              "$v.currentRevenue.constantUnitSales.$model",
                                             modifiers: { trim: true }
                                           }
                                         ],
@@ -34858,15 +34915,16 @@ var render = function() {
                                           "input-box",
                                           "_36slfUixQ4wAFF1EUIGq5f",
                                           "medium-cash",
-                                          _vm.$v.tempConstantServiceCount.$error
+                                          _vm.$v.currentRevenue
+                                            .constantUnitSales.$error
                                             ? "error"
                                             : ""
                                         ],
                                         attrs: { type: "number", min: "1" },
                                         domProps: {
                                           value:
-                                            _vm.$v.tempConstantServiceCount
-                                              .$model
+                                            _vm.$v.currentRevenue
+                                              .constantUnitSales.$model
                                         },
                                         on: {
                                           input: function($event) {
@@ -34874,7 +34932,8 @@ var render = function() {
                                               return
                                             }
                                             _vm.$set(
-                                              _vm.$v.tempConstantServiceCount,
+                                              _vm.$v.currentRevenue
+                                                .constantUnitSales,
                                               "$model",
                                               $event.target.value.trim()
                                             )
@@ -34901,12 +34960,17 @@ var render = function() {
                                             },
                                             model: {
                                               value:
-                                                _vm.tempConstantServicePeriod,
+                                                _vm.currentRevenue
+                                                  .constantUnitSalesPeriod,
                                               callback: function($$v) {
-                                                _vm.tempConstantServicePeriod = $$v
+                                                _vm.$set(
+                                                  _vm.currentRevenue,
+                                                  "constantUnitSalesPeriod",
+                                                  $$v
+                                                )
                                               },
                                               expression:
-                                                "tempConstantServicePeriod"
+                                                "currentRevenue.constantUnitSalesPeriod"
                                             }
                                           })
                                         ],
@@ -34919,9 +34983,9 @@ var render = function() {
                                         "div",
                                         { staticClass: "feedback-line" },
                                         [
-                                          _vm.$v.tempConstantServiceCount
-                                            .$error &&
-                                          !_vm.$v.tempRevenueName.required
+                                          _vm.$v.currentRevenue
+                                            .constantUnitSales.$error &&
+                                          !_vm.$v.currentRevenue.name.required
                                             ? _c("p", [
                                                 _vm._v(
                                                   "\n                                            مقداری (بیش از 0) را وارد کنید\n                                        "
@@ -34935,7 +34999,7 @@ var render = function() {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.tempServiceCountType ===
+                            _vm.currentRevenue.unitSalesCountType ===
                             _vm.MEASURE_TYPE_VARIABLE
                               ? _c("div", [
                                   _vm._v(
@@ -34946,7 +35010,8 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm.tempUnitPriceType === _vm.MEASURE_TYPE_CONSTANT
+                        _vm.currentRevenue.unitSalesCountType ===
+                        _vm.MEASURE_TYPE_CONSTANT
                           ? _c(
                               "div",
                               {
@@ -34978,11 +35043,15 @@ var render = function() {
                                             scrollHeight: "150px"
                                           },
                                           model: {
-                                            value: _vm.revenueStart,
+                                            value: _vm.currentRevenue.start,
                                             callback: function($$v) {
-                                              _vm.revenueStart = $$v
+                                              _vm.$set(
+                                                _vm.currentRevenue,
+                                                "start",
+                                                $$v
+                                              )
                                             },
-                                            expression: "revenueStart"
+                                            expression: "currentRevenue.start"
                                           }
                                         })
                                       ],
@@ -35039,8 +35108,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempUnitPriceType,
-                                            expression: "tempUnitPriceType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .unitPriceMeasureType,
+                                            expression:
+                                              "currentRevenue.unitPriceMeasureType"
                                           }
                                         ],
                                         attrs: {
@@ -35050,14 +35122,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_CONSTANT,
                                           checked: _vm._q(
-                                            _vm.tempUnitPriceType,
+                                            _vm.currentRevenue
+                                              .unitPriceMeasureType,
                                             _vm.MEASURE_TYPE_CONSTANT
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempUnitPriceType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "unitPriceMeasureType",
                                               _vm.MEASURE_TYPE_CONSTANT
+                                            )
                                           }
                                         }
                                       }),
@@ -35073,8 +35149,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempUnitPriceType,
-                                            expression: "tempUnitPriceType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .unitPriceMeasureType,
+                                            expression:
+                                              "currentRevenue.unitPriceMeasureType"
                                           }
                                         ],
                                         attrs: {
@@ -35084,14 +35163,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_VARIABLE,
                                           checked: _vm._q(
-                                            _vm.tempUnitPriceType,
+                                            _vm.currentRevenue
+                                              .unitPriceMeasureType,
                                             _vm.MEASURE_TYPE_VARIABLE
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempUnitPriceType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "unitPriceMeasureType",
                                               _vm.MEASURE_TYPE_VARIABLE
+                                            )
                                           }
                                         }
                                       }),
@@ -35107,7 +35190,8 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm.tempUnitPriceType === _vm.MEASURE_TYPE_CONSTANT
+                            _vm.currentRevenue.unitPriceMeasureType ===
+                            _vm.MEASURE_TYPE_CONSTANT
                               ? _c("div", [
                                   _c(
                                     "div",
@@ -35126,10 +35210,10 @@ var render = function() {
                                                 name: "model",
                                                 rawName: "v-model.trim",
                                                 value:
-                                                  _vm.$v.tempConstantUnitPrice
-                                                    .$model,
+                                                  _vm.$v.currentRevenue
+                                                    .constantUnitPrice.$model,
                                                 expression:
-                                                  "$v.tempConstantUnitPrice.$model",
+                                                  "$v.currentRevenue.constantUnitPrice.$model",
                                                 modifiers: { trim: true }
                                               }
                                             ],
@@ -35140,16 +35224,16 @@ var render = function() {
                                               "_36slfUixQ4wAFF1EUIGq5f",
                                               "medium-cash",
                                               "_3nXdR_fo3j0MwFs8AZWYc5",
-                                              _vm.$v.tempConstantUnitPrice
-                                                .$error
+                                              _vm.$v.currentRevenue
+                                                .constantUnitPrice.$error
                                                 ? "error"
                                                 : ""
                                             ],
                                             attrs: { type: "number", min: "1" },
                                             domProps: {
                                               value:
-                                                _vm.$v.tempConstantUnitPrice
-                                                  .$model
+                                                _vm.$v.currentRevenue
+                                                  .constantUnitPrice.$model
                                             },
                                             on: {
                                               input: function($event) {
@@ -35157,7 +35241,8 @@ var render = function() {
                                                   return
                                                 }
                                                 _vm.$set(
-                                                  _vm.$v.tempConstantUnitPrice,
+                                                  _vm.$v.currentRevenue
+                                                    .constantUnitPrice,
                                                   "$model",
                                                   $event.target.value.trim()
                                                 )
@@ -35187,8 +35272,10 @@ var render = function() {
                                         "div",
                                         { staticClass: "feedback-line" },
                                         [
-                                          _vm.$v.tempConstantUnitPrice.$error &&
-                                          !_vm.$v.tempConstantUnitPrice.required
+                                          _vm.$v.currentRevenue
+                                            .constantUnitPrice.$error &&
+                                          !_vm.$v.currentRevenue
+                                            .constantUnitPrice.required
                                             ? _c("p", [
                                                 _vm._v(
                                                   "\n                                            مقداری (بیش از 0) را وارد کنید\n                                        "
@@ -35202,7 +35289,8 @@ var render = function() {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.tempUnitPriceType === _vm.MEASURE_TYPE_VARIABLE
+                            _vm.currentRevenue.unitPriceMeasureType ===
+                            _vm.MEASURE_TYPE_VARIABLE
                               ? _c("div", [
                                   _vm._v(
                                     "\n                                variable\n                                "
@@ -35257,8 +35345,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempServiceCountType,
-                                            expression: "tempServiceCountType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .billableHoursCountType,
+                                            expression:
+                                              "currentRevenue.billableHoursCountType"
                                           }
                                         ],
                                         attrs: {
@@ -35268,14 +35359,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_CONSTANT,
                                           checked: _vm._q(
-                                            _vm.tempServiceCountType,
+                                            _vm.currentRevenue
+                                              .billableHoursCountType,
                                             _vm.MEASURE_TYPE_CONSTANT
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempServiceCountType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "billableHoursCountType",
                                               _vm.MEASURE_TYPE_CONSTANT
+                                            )
                                           }
                                         }
                                       }),
@@ -35291,8 +35386,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempServiceCountType,
-                                            expression: "tempServiceCountType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .billableHoursCountType,
+                                            expression:
+                                              "currentRevenue.billableHoursCountType"
                                           }
                                         ],
                                         attrs: {
@@ -35302,14 +35400,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_VARIABLE,
                                           checked: _vm._q(
-                                            _vm.tempServiceCountType,
+                                            _vm.currentRevenue
+                                              .billableHoursCountType,
                                             _vm.MEASURE_TYPE_VARIABLE
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempServiceCountType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "billableHoursCountType",
                                               _vm.MEASURE_TYPE_VARIABLE
+                                            )
                                           }
                                         }
                                       }),
@@ -35325,7 +35427,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm.tempServiceCountType ===
+                            _vm.currentRevenue.billableHoursCountType ===
                             _vm.MEASURE_TYPE_CONSTANT
                               ? _c("div", [
                                   _c(
@@ -35341,10 +35443,10 @@ var render = function() {
                                             name: "model",
                                             rawName: "v-model.trim",
                                             value:
-                                              _vm.$v.tempConstantServiceCount
-                                                .$model,
+                                              _vm.$v.currentRevenue
+                                                .constantBillableHours.$model,
                                             expression:
-                                              "$v.tempConstantServiceCount.$model",
+                                              "$v.currentRevenue.constantBillableHours.$model",
                                             modifiers: { trim: true }
                                           }
                                         ],
@@ -35353,15 +35455,16 @@ var render = function() {
                                           "input-box",
                                           "_36slfUixQ4wAFF1EUIGq5f",
                                           "medium-cash",
-                                          _vm.$v.tempConstantServiceCount.$error
+                                          _vm.$v.currentRevenue
+                                            .constantBillableHours.$error
                                             ? "error"
                                             : ""
                                         ],
                                         attrs: { type: "number", min: "1" },
                                         domProps: {
                                           value:
-                                            _vm.$v.tempConstantServiceCount
-                                              .$model
+                                            _vm.$v.currentRevenue
+                                              .constantBillableHours.$model
                                         },
                                         on: {
                                           input: function($event) {
@@ -35369,7 +35472,8 @@ var render = function() {
                                               return
                                             }
                                             _vm.$set(
-                                              _vm.$v.tempConstantServiceCount,
+                                              _vm.$v.currentRevenue
+                                                .constantBillableHours,
                                               "$model",
                                               $event.target.value.trim()
                                             )
@@ -35396,12 +35500,17 @@ var render = function() {
                                             },
                                             model: {
                                               value:
-                                                _vm.tempConstantServicePeriod,
+                                                _vm.currentRevenue
+                                                  .constantBillableHoursPeriod,
                                               callback: function($$v) {
-                                                _vm.tempConstantServicePeriod = $$v
+                                                _vm.$set(
+                                                  _vm.currentRevenue,
+                                                  "constantBillableHoursPeriod",
+                                                  $$v
+                                                )
                                               },
                                               expression:
-                                                "tempConstantServicePeriod"
+                                                "currentRevenue.constantBillableHoursPeriod"
                                             }
                                           })
                                         ],
@@ -35414,9 +35523,9 @@ var render = function() {
                                         "div",
                                         { staticClass: "feedback-line" },
                                         [
-                                          _vm.$v.tempConstantServiceCount
-                                            .$error &&
-                                          !_vm.$v.tempRevenueName.required
+                                          _vm.$v.currentRevenue
+                                            .constantBillableHours.$error &&
+                                          !_vm.$v.currentRevenue.name.required
                                             ? _c("p", [
                                                 _vm._v(
                                                   "\n                                            مقداری (بیش از 0) را وارد کنید\n                                        "
@@ -35430,7 +35539,7 @@ var render = function() {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.tempServiceCountType ===
+                            _vm.currentRevenue.billableHoursCountType ===
                             _vm.MEASURE_TYPE_VARIABLE
                               ? _c("div", [
                                   _vm._v(
@@ -35441,7 +35550,8 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm.tempServiceCountType === _vm.MEASURE_TYPE_CONSTANT
+                        _vm.currentRevenue.billableHoursCountType ===
+                        _vm.MEASURE_TYPE_CONSTANT
                           ? _c(
                               "div",
                               {
@@ -35473,11 +35583,15 @@ var render = function() {
                                             scrollHeight: "150px"
                                           },
                                           model: {
-                                            value: _vm.revenueStart,
+                                            value: _vm.currentRevenue.start,
                                             callback: function($$v) {
-                                              _vm.revenueStart = $$v
+                                              _vm.$set(
+                                                _vm.currentRevenue,
+                                                "start",
+                                                $$v
+                                              )
                                             },
-                                            expression: "revenueStart"
+                                            expression: "currentRevenue.start"
                                           }
                                         })
                                       ],
@@ -35534,8 +35648,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempUnitPriceType,
-                                            expression: "tempUnitPriceType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .hourPriceMeasureType,
+                                            expression:
+                                              "currentRevenue.hourPriceMeasureType"
                                           }
                                         ],
                                         attrs: {
@@ -35545,14 +35662,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_CONSTANT,
                                           checked: _vm._q(
-                                            _vm.tempUnitPriceType,
+                                            _vm.currentRevenue
+                                              .hourPriceMeasureType,
                                             _vm.MEASURE_TYPE_CONSTANT
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempUnitPriceType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "hourPriceMeasureType",
                                               _vm.MEASURE_TYPE_CONSTANT
+                                            )
                                           }
                                         }
                                       }),
@@ -35568,8 +35689,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempUnitPriceType,
-                                            expression: "tempUnitPriceType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .hourPriceMeasureType,
+                                            expression:
+                                              "currentRevenue.hourPriceMeasureType"
                                           }
                                         ],
                                         attrs: {
@@ -35579,14 +35703,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_VARIABLE,
                                           checked: _vm._q(
-                                            _vm.tempUnitPriceType,
+                                            _vm.currentRevenue
+                                              .hourPriceMeasureType,
                                             _vm.MEASURE_TYPE_VARIABLE
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempUnitPriceType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "hourPriceMeasureType",
                                               _vm.MEASURE_TYPE_VARIABLE
+                                            )
                                           }
                                         }
                                       }),
@@ -35602,7 +35730,8 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm.tempUnitPriceType === _vm.MEASURE_TYPE_CONSTANT
+                            _vm.currentRevenue.hourPriceMeasureType ===
+                            _vm.MEASURE_TYPE_CONSTANT
                               ? _c("div", [
                                   _c(
                                     "div",
@@ -35621,10 +35750,10 @@ var render = function() {
                                                 name: "model",
                                                 rawName: "v-model.trim",
                                                 value:
-                                                  _vm.$v.tempConstantUnitPrice
-                                                    .$model,
+                                                  _vm.$v.currentRevenue
+                                                    .constantHourPrice.$model,
                                                 expression:
-                                                  "$v.tempConstantUnitPrice.$model",
+                                                  "$v.currentRevenue.constantHourPrice.$model",
                                                 modifiers: { trim: true }
                                               }
                                             ],
@@ -35635,16 +35764,16 @@ var render = function() {
                                               "_36slfUixQ4wAFF1EUIGq5f",
                                               "medium-cash",
                                               "_3nXdR_fo3j0MwFs8AZWYc5",
-                                              _vm.$v.tempConstantUnitPrice
-                                                .$error
+                                              _vm.$v.currentRevenue
+                                                .constantHourPrice.$error
                                                 ? "error"
                                                 : ""
                                             ],
                                             attrs: { type: "number", min: "1" },
                                             domProps: {
                                               value:
-                                                _vm.$v.tempConstantUnitPrice
-                                                  .$model
+                                                _vm.$v.currentRevenue
+                                                  .constantHourPrice.$model
                                             },
                                             on: {
                                               input: function($event) {
@@ -35652,7 +35781,8 @@ var render = function() {
                                                   return
                                                 }
                                                 _vm.$set(
-                                                  _vm.$v.tempConstantUnitPrice,
+                                                  _vm.$v.currentRevenue
+                                                    .constantHourPrice,
                                                   "$model",
                                                   $event.target.value.trim()
                                                 )
@@ -35682,8 +35812,10 @@ var render = function() {
                                         "div",
                                         { staticClass: "feedback-line" },
                                         [
-                                          _vm.$v.tempConstantUnitPrice.$error &&
-                                          !_vm.$v.tempConstantUnitPrice.required
+                                          _vm.$v.currentRevenue
+                                            .constantHourPrice.$error &&
+                                          !_vm.$v.currentRevenue
+                                            .constantHourPrice.required
                                             ? _c("p", [
                                                 _vm._v(
                                                   "\n                                            مقداری (بیش از 0) را وارد کنید\n                                        "
@@ -35697,7 +35829,8 @@ var render = function() {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.tempUnitPriceType === _vm.MEASURE_TYPE_VARIABLE
+                            _vm.currentRevenue.hourPriceMeasureType ===
+                            _vm.MEASURE_TYPE_VARIABLE
                               ? _c("div", [
                                   _vm._v(
                                     "\n                                variable\n                                "
@@ -35743,11 +35876,15 @@ var render = function() {
                                         scrollHeight: "150px"
                                       },
                                       model: {
-                                        value: _vm.revenueStart,
+                                        value: _vm.currentRevenue.start,
                                         callback: function($$v) {
-                                          _vm.revenueStart = $$v
+                                          _vm.$set(
+                                            _vm.currentRevenue,
+                                            "start",
+                                            $$v
+                                          )
                                         },
-                                        expression: "revenueStart"
+                                        expression: "currentRevenue.start"
                                       }
                                     })
                                   ],
@@ -35796,8 +35933,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempServiceCountType,
-                                            expression: "tempServiceCountType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .customerCountType,
+                                            expression:
+                                              "currentRevenue.customerCountType"
                                           }
                                         ],
                                         attrs: {
@@ -35807,14 +35947,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_CONSTANT,
                                           checked: _vm._q(
-                                            _vm.tempServiceCountType,
+                                            _vm.currentRevenue
+                                              .customerCountType,
                                             _vm.MEASURE_TYPE_CONSTANT
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempServiceCountType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "customerCountType",
                                               _vm.MEASURE_TYPE_CONSTANT
+                                            )
                                           }
                                         }
                                       }),
@@ -35830,8 +35974,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempServiceCountType,
-                                            expression: "tempServiceCountType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .customerCountType,
+                                            expression:
+                                              "currentRevenue.customerCountType"
                                           }
                                         ],
                                         attrs: {
@@ -35841,14 +35988,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_VARIABLE,
                                           checked: _vm._q(
-                                            _vm.tempServiceCountType,
+                                            _vm.currentRevenue
+                                              .customerCountType,
                                             _vm.MEASURE_TYPE_VARIABLE
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempServiceCountType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "customerCountType",
                                               _vm.MEASURE_TYPE_VARIABLE
+                                            )
                                           }
                                         }
                                       }),
@@ -35864,7 +36015,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm.tempServiceCountType ===
+                            _vm.currentRevenue.customerCountType ===
                             _vm.MEASURE_TYPE_CONSTANT
                               ? _c("div", [
                                   _c(
@@ -35880,10 +36031,10 @@ var render = function() {
                                             name: "model",
                                             rawName: "v-model.trim",
                                             value:
-                                              _vm.$v.tempConstantServiceCount
-                                                .$model,
+                                              _vm.$v.currentRevenue
+                                                .constantCustomerCount.$model,
                                             expression:
-                                              "$v.tempConstantServiceCount.$model",
+                                              "$v.currentRevenue.constantCustomerCount.$model",
                                             modifiers: { trim: true }
                                           }
                                         ],
@@ -35892,15 +36043,16 @@ var render = function() {
                                           "input-box",
                                           "_36slfUixQ4wAFF1EUIGq5f",
                                           "medium-cash",
-                                          _vm.$v.tempConstantServiceCount.$error
+                                          _vm.$v.currentRevenue
+                                            .constantCustomerCount.$error
                                             ? "error"
                                             : ""
                                         ],
                                         attrs: { type: "number", min: "1" },
                                         domProps: {
                                           value:
-                                            _vm.$v.tempConstantServiceCount
-                                              .$model
+                                            _vm.$v.currentRevenue
+                                              .constantCustomerCount.$model
                                         },
                                         on: {
                                           input: function($event) {
@@ -35908,7 +36060,8 @@ var render = function() {
                                               return
                                             }
                                             _vm.$set(
-                                              _vm.$v.tempConstantServiceCount,
+                                              _vm.$v.currentRevenue
+                                                .constantCustomerCount,
                                               "$model",
                                               $event.target.value.trim()
                                             )
@@ -35935,12 +36088,17 @@ var render = function() {
                                             },
                                             model: {
                                               value:
-                                                _vm.tempConstantServicePeriod,
+                                                _vm.currentRevenue
+                                                  .constantCustomerCountPeriod,
                                               callback: function($$v) {
-                                                _vm.tempConstantServicePeriod = $$v
+                                                _vm.$set(
+                                                  _vm.currentRevenue,
+                                                  "constantCustomerCountPeriod",
+                                                  $$v
+                                                )
                                               },
                                               expression:
-                                                "tempConstantServicePeriod"
+                                                "currentRevenue.constantCustomerCountPeriod"
                                             }
                                           })
                                         ],
@@ -35953,9 +36111,10 @@ var render = function() {
                                         "div",
                                         { staticClass: "feedback-line" },
                                         [
-                                          _vm.$v.tempConstantServiceCount
-                                            .$error &&
-                                          !_vm.$v.tempRevenueName.required
+                                          _vm.$v.currentRevenue
+                                            .constantCustomerCount.$error &&
+                                          !_vm.$v.currentRevenue
+                                            .constantCustomerCount.required
                                             ? _c("p", [
                                                 _vm._v(
                                                   "\n                                            مقداری (بیش از 0) را وارد کنید\n                                        "
@@ -35969,7 +36128,7 @@ var render = function() {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.tempServiceCountType ===
+                            _vm.currentRevenue.customerCountType ===
                             _vm.MEASURE_TYPE_VARIABLE
                               ? _c("div", [
                                   _vm._v(
@@ -36026,8 +36185,11 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.tempUpFrontFeeType,
-                                              expression: "tempUpFrontFeeType"
+                                              value:
+                                                _vm.currentRevenue
+                                                  .upFrontFeeMeasureType,
+                                              expression:
+                                                "currentRevenue.upFrontFeeMeasureType"
                                             }
                                           ],
                                           attrs: {
@@ -36037,14 +36199,18 @@ var render = function() {
                                           domProps: {
                                             value: _vm.MEASURE_TYPE_FREE,
                                             checked: _vm._q(
-                                              _vm.tempUpFrontFeeType,
+                                              _vm.currentRevenue
+                                                .upFrontFeeMeasureType,
                                               _vm.MEASURE_TYPE_FREE
                                             )
                                           },
                                           on: {
                                             change: function($event) {
-                                              _vm.tempUpFrontFeeType =
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "upFrontFeeMeasureType",
                                                 _vm.MEASURE_TYPE_FREE
+                                              )
                                             }
                                           }
                                         }),
@@ -36060,8 +36226,11 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.tempUpFrontFeeType,
-                                              expression: "tempUpFrontFeeType"
+                                              value:
+                                                _vm.currentRevenue
+                                                  .upFrontFeeMeasureType,
+                                              expression:
+                                                "currentRevenue.upFrontFeeMeasureType"
                                             }
                                           ],
                                           attrs: {
@@ -36071,14 +36240,18 @@ var render = function() {
                                           domProps: {
                                             value: _vm.MEASURE_TYPE_CONSTANT,
                                             checked: _vm._q(
-                                              _vm.tempUpFrontFeeType,
+                                              _vm.currentRevenue
+                                                .upFrontFeeMeasureType,
                                               _vm.MEASURE_TYPE_CONSTANT
                                             )
                                           },
                                           on: {
                                             change: function($event) {
-                                              _vm.tempUpFrontFeeType =
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "upFrontFeeMeasureType",
                                                 _vm.MEASURE_TYPE_CONSTANT
+                                              )
                                             }
                                           }
                                         }),
@@ -36094,8 +36267,11 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.tempUpFrontFeeType,
-                                              expression: "tempUpFrontFeeType"
+                                              value:
+                                                _vm.currentRevenue
+                                                  .upFrontFeeMeasureType,
+                                              expression:
+                                                "currentRevenue.upFrontFeeMeasureType"
                                             }
                                           ],
                                           attrs: {
@@ -36105,14 +36281,18 @@ var render = function() {
                                           domProps: {
                                             value: _vm.MEASURE_TYPE_VARIABLE,
                                             checked: _vm._q(
-                                              _vm.tempUpFrontFeeType,
+                                              _vm.currentRevenue
+                                                .upFrontFeeMeasureType,
                                               _vm.MEASURE_TYPE_VARIABLE
                                             )
                                           },
                                           on: {
                                             change: function($event) {
-                                              _vm.tempUpFrontFeeType =
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "upFrontFeeMeasureType",
                                                 _vm.MEASURE_TYPE_VARIABLE
+                                              )
                                             }
                                           }
                                         }),
@@ -36128,7 +36308,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm.tempUpFrontFeeType ===
+                              _vm.currentRevenue.upFrontFeeMeasureType ===
                               _vm.MEASURE_TYPE_CONSTANT
                                 ? _c("div", [
                                     _c(
@@ -36148,11 +36328,11 @@ var render = function() {
                                                   name: "model",
                                                   rawName: "v-model.trim",
                                                   value:
-                                                    _vm.$v
-                                                      .tempConstantUpFrontFee
+                                                    _vm.$v.currentRevenue
+                                                      .constantUpFrontFee
                                                       .$model,
                                                   expression:
-                                                    "$v.tempConstantUpFrontFee.$model",
+                                                    "$v.currentRevenue.constantUpFrontFee.$model",
                                                   modifiers: { trim: true }
                                                 }
                                               ],
@@ -36163,8 +36343,8 @@ var render = function() {
                                                 "_36slfUixQ4wAFF1EUIGq5f",
                                                 "medium-cash",
                                                 "_3nXdR_fo3j0MwFs8AZWYc5",
-                                                _vm.$v.tempConstantUpFrontFee
-                                                  .$error
+                                                _vm.$v.currentRevenue
+                                                  .constantUpFrontFee.$error
                                                   ? "error"
                                                   : ""
                                               ],
@@ -36174,8 +36354,8 @@ var render = function() {
                                               },
                                               domProps: {
                                                 value:
-                                                  _vm.$v.tempConstantUpFrontFee
-                                                    .$model
+                                                  _vm.$v.currentRevenue
+                                                    .constantUpFrontFee.$model
                                               },
                                               on: {
                                                 input: function($event) {
@@ -36183,8 +36363,8 @@ var render = function() {
                                                     return
                                                   }
                                                   _vm.$set(
-                                                    _vm.$v
-                                                      .tempConstantUpFrontFee,
+                                                    _vm.$v.currentRevenue
+                                                      .constantUpFrontFee,
                                                     "$model",
                                                     $event.target.value.trim()
                                                   )
@@ -36214,10 +36394,10 @@ var render = function() {
                                           "div",
                                           { staticClass: "feedback-line" },
                                           [
-                                            _vm.$v.tempConstantUpFrontFee
-                                              .$error &&
-                                            !_vm.$v.tempConstantUpFrontFee
-                                              .required
+                                            _vm.$v.currentRevenue
+                                              .constantUpFrontFee.$error &&
+                                            !_vm.$v.currentRevenue
+                                              .constantUpFrontFee.required
                                               ? _c("p", [
                                                   _vm._v(
                                                     "\n                                                مقداری (بیش از 0) را وارد کنید\n                                            "
@@ -36272,9 +36452,10 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value:
-                                                _vm.tempRecurringChargeType,
+                                                _vm.currentRevenue
+                                                  .recurringChargeMeasureType,
                                               expression:
-                                                "tempRecurringChargeType"
+                                                "currentRevenue.recurringChargeMeasureType"
                                             }
                                           ],
                                           attrs: {
@@ -36284,14 +36465,18 @@ var render = function() {
                                           domProps: {
                                             value: _vm.MEASURE_TYPE_CONSTANT,
                                             checked: _vm._q(
-                                              _vm.tempRecurringChargeType,
+                                              _vm.currentRevenue
+                                                .recurringChargeMeasureType,
                                               _vm.MEASURE_TYPE_CONSTANT
                                             )
                                           },
                                           on: {
                                             change: function($event) {
-                                              _vm.tempRecurringChargeType =
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "recurringChargeMeasureType",
                                                 _vm.MEASURE_TYPE_CONSTANT
+                                              )
                                             }
                                           }
                                         }),
@@ -36308,9 +36493,10 @@ var render = function() {
                                               name: "model",
                                               rawName: "v-model",
                                               value:
-                                                _vm.tempRecurringChargeType,
+                                                _vm.currentRevenue
+                                                  .recurringChargeMeasureType,
                                               expression:
-                                                "tempRecurringChargeType"
+                                                "currentRevenue.recurringChargeMeasureType"
                                             }
                                           ],
                                           attrs: {
@@ -36320,14 +36506,18 @@ var render = function() {
                                           domProps: {
                                             value: _vm.MEASURE_TYPE_VARIABLE,
                                             checked: _vm._q(
-                                              _vm.tempRecurringChargeType,
+                                              _vm.currentRevenue
+                                                .recurringChargeMeasureType,
                                               _vm.MEASURE_TYPE_VARIABLE
                                             )
                                           },
                                           on: {
                                             change: function($event) {
-                                              _vm.tempRecurringChargeType =
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "recurringChargeMeasureType",
                                                 _vm.MEASURE_TYPE_VARIABLE
+                                              )
                                             }
                                           }
                                         }),
@@ -36343,7 +36533,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm.tempRecurringChargeType ===
+                              _vm.currentRevenue.recurringChargeMeasureType ===
                               _vm.MEASURE_TYPE_CONSTANT
                                 ? _c("div", [
                                     _c(
@@ -36363,11 +36553,11 @@ var render = function() {
                                                   name: "model",
                                                   rawName: "v-model.trim",
                                                   value:
-                                                    _vm.$v
-                                                      .tempConstantRecurringCharge
+                                                    _vm.$v.currentRevenue
+                                                      .constantRecurringCharge
                                                       .$model,
                                                   expression:
-                                                    "$v.tempConstantRecurringCharge.$model",
+                                                    "$v.currentRevenue.constantRecurringCharge.$model",
                                                   modifiers: { trim: true }
                                                 }
                                               ],
@@ -36378,8 +36568,8 @@ var render = function() {
                                                 "_36slfUixQ4wAFF1EUIGq5f",
                                                 "medium-cash",
                                                 "_3nXdR_fo3j0MwFs8AZWYc5",
-                                                _vm.$v
-                                                  .tempConstantRecurringCharge
+                                                _vm.$v.currentRevenue
+                                                  .constantRecurringCharge
                                                   .$error
                                                   ? "error"
                                                   : ""
@@ -36390,8 +36580,8 @@ var render = function() {
                                               },
                                               domProps: {
                                                 value:
-                                                  _vm.$v
-                                                    .tempConstantRecurringCharge
+                                                  _vm.$v.currentRevenue
+                                                    .constantRecurringCharge
                                                     .$model
                                               },
                                               on: {
@@ -36400,8 +36590,8 @@ var render = function() {
                                                     return
                                                   }
                                                   _vm.$set(
-                                                    _vm.$v
-                                                      .tempConstantRecurringCharge,
+                                                    _vm.$v.currentRevenue
+                                                      .constantRecurringCharge,
                                                     "$model",
                                                     $event.target.value.trim()
                                                   )
@@ -36431,10 +36621,10 @@ var render = function() {
                                           "div",
                                           { staticClass: "feedback-line" },
                                           [
-                                            _vm.$v.tempConstantRecurringCharge
-                                              .$error &&
-                                            !_vm.$v.tempConstantRecurringCharge
-                                              .required
+                                            _vm.$v.currentRevenue
+                                              .constantRecurringCharge.$error &&
+                                            !_vm.$v.currentRevenue
+                                              .constantRecurringCharge.required
                                               ? _c("p", [
                                                   _vm._v(
                                                     "\n                                                مقداری (بیش از 0) را وارد کنید\n                                            "
@@ -36488,19 +36678,25 @@ var render = function() {
                                         _c("drop-down", {
                                           attrs: {
                                             options:
-                                              _vm.tempRecurringChargeMonthFrequencyOptions,
+                                              _vm.currentRevenue
+                                                .recurringChargeMonthFrequencyOptions,
                                             optionLabel: "title",
                                             optionValue: "code",
                                             scrollHeight: "100px"
                                           },
                                           model: {
                                             value:
-                                              _vm.tempRecurringChargeMonthFrequency,
+                                              _vm.currentRevenue
+                                                .recurringChargeMonthFrequency,
                                             callback: function($$v) {
-                                              _vm.tempRecurringChargeMonthFrequency = $$v
+                                              _vm.$set(
+                                                _vm.currentRevenue,
+                                                "recurringChargeMonthFrequency",
+                                                $$v
+                                              )
                                             },
                                             expression:
-                                              "tempRecurringChargeMonthFrequency"
+                                              "currentRevenue.recurringChargeMonthFrequency"
                                           }
                                         })
                                       ],
@@ -36565,8 +36761,11 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.tempChurnRateType,
-                                              expression: "tempChurnRateType"
+                                              value:
+                                                _vm.currentRevenue
+                                                  .churnRateMeasureType,
+                                              expression:
+                                                "currentRevenue.churnRateMeasureType"
                                             }
                                           ],
                                           attrs: {
@@ -36576,14 +36775,18 @@ var render = function() {
                                           domProps: {
                                             value: _vm.MEASURE_TYPE_CONSTANT,
                                             checked: _vm._q(
-                                              _vm.tempChurnRateType,
+                                              _vm.currentRevenue
+                                                .churnRateMeasureType,
                                               _vm.MEASURE_TYPE_CONSTANT
                                             )
                                           },
                                           on: {
                                             change: function($event) {
-                                              _vm.tempChurnRateType =
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "churnRateMeasureType",
                                                 _vm.MEASURE_TYPE_CONSTANT
+                                              )
                                             }
                                           }
                                         }),
@@ -36599,8 +36802,11 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.tempChurnRateType,
-                                              expression: "tempChurnRateType"
+                                              value:
+                                                _vm.currentRevenue
+                                                  .churnRateMeasureType,
+                                              expression:
+                                                "currentRevenue.churnRateMeasureType"
                                             }
                                           ],
                                           attrs: {
@@ -36610,14 +36816,18 @@ var render = function() {
                                           domProps: {
                                             value: _vm.MEASURE_TYPE_VARIABLE,
                                             checked: _vm._q(
-                                              _vm.tempChurnRateType,
+                                              _vm.currentRevenue
+                                                .churnRateMeasureType,
                                               _vm.MEASURE_TYPE_VARIABLE
                                             )
                                           },
                                           on: {
                                             change: function($event) {
-                                              _vm.tempChurnRateType =
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "churnRateMeasureType",
                                                 _vm.MEASURE_TYPE_VARIABLE
+                                              )
                                             }
                                           }
                                         }),
@@ -36633,7 +36843,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm.tempChurnRateType ===
+                              _vm.currentRevenue.churnRateMeasureType ===
                               _vm.MEASURE_TYPE_CONSTANT
                                 ? _c("div", [
                                     _c(
@@ -36657,9 +36867,11 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.tempConstantChurnRate,
+                                              value:
+                                                _vm.currentRevenue
+                                                  .constantChurnRate,
                                               expression:
-                                                "tempConstantChurnRate"
+                                                "currentRevenue.constantChurnRate"
                                             }
                                           ],
                                           class: [
@@ -36667,21 +36879,27 @@ var render = function() {
                                             "_1v965moXRbti5zqLRSk3wE",
                                             "smallPercentage",
                                             "_3nXdR_fo3j0MwFs8AZWYc5",
-                                            _vm.$v.tempConstantChurnRate.$error
+                                            _vm.$v.currentRevenue
+                                              .constantChurnRate.$error
                                               ? "error"
                                               : ""
                                           ],
                                           attrs: { type: "number" },
                                           domProps: {
-                                            value: _vm.tempConstantChurnRate
+                                            value:
+                                              _vm.currentRevenue
+                                                .constantChurnRate
                                           },
                                           on: {
                                             input: function($event) {
                                               if ($event.target.composing) {
                                                 return
                                               }
-                                              _vm.tempConstantChurnRate =
+                                              _vm.$set(
+                                                _vm.currentRevenue,
+                                                "constantChurnRate",
                                                 $event.target.value
+                                              )
                                             }
                                           }
                                         }),
@@ -36692,10 +36910,10 @@ var render = function() {
                                           "div",
                                           { staticClass: "feedback-line" },
                                           [
-                                            _vm.$v.tempConstantChurnRate
-                                              .$error &&
-                                            !_vm.$v.tempConstantChurnRate
-                                              .required
+                                            _vm.$v.currentRevenue
+                                              .constantChurnRate.$error &&
+                                            !_vm.$v.currentRevenue
+                                              .constantChurnRate.required
                                               ? _c("p", [
                                                   _vm._v(
                                                     "\n                                                مقداری را وارد کنید\n                                            "
@@ -36709,7 +36927,7 @@ var render = function() {
                                   ])
                                 : _vm._e(),
                               _vm._v(" "),
-                              _vm.tempChurnRateType ===
+                              _vm.currentRevenue.churnRateMeasureType ===
                               _vm.MEASURE_TYPE_VARIABLE
                                 ? _c("div", [
                                     _vm._v(
@@ -36766,8 +36984,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempRevenueStreamType,
-                                            expression: "tempRevenueStreamType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .revenueStreamType,
+                                            expression:
+                                              "currentRevenue.revenueStreamType"
                                           }
                                         ],
                                         attrs: {
@@ -36777,14 +36998,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_CONSTANT,
                                           checked: _vm._q(
-                                            _vm.tempRevenueStreamType,
+                                            _vm.currentRevenue
+                                              .revenueStreamType,
                                             _vm.MEASURE_TYPE_CONSTANT
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempRevenueStreamType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "revenueStreamType",
                                               _vm.MEASURE_TYPE_CONSTANT
+                                            )
                                           }
                                         }
                                       }),
@@ -36800,8 +37025,11 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.tempRevenueStreamType,
-                                            expression: "tempRevenueStreamType"
+                                            value:
+                                              _vm.currentRevenue
+                                                .revenueStreamType,
+                                            expression:
+                                              "currentRevenue.revenueStreamType"
                                           }
                                         ],
                                         attrs: {
@@ -36811,14 +37039,18 @@ var render = function() {
                                         domProps: {
                                           value: _vm.MEASURE_TYPE_VARIABLE,
                                           checked: _vm._q(
-                                            _vm.tempRevenueStreamType,
+                                            _vm.currentRevenue
+                                              .revenueStreamType,
                                             _vm.MEASURE_TYPE_VARIABLE
                                           )
                                         },
                                         on: {
                                           change: function($event) {
-                                            _vm.tempRevenueStreamType =
+                                            return _vm.$set(
+                                              _vm.currentRevenue,
+                                              "revenueStreamType",
                                               _vm.MEASURE_TYPE_VARIABLE
+                                            )
                                           }
                                         }
                                       }),
@@ -36834,7 +37066,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm.tempRevenueStreamType ===
+                            _vm.currentRevenue.revenueStreamType ===
                             _vm.MEASURE_TYPE_CONSTANT
                               ? _c("div", [
                                   _c(
@@ -36850,10 +37082,10 @@ var render = function() {
                                             name: "model",
                                             rawName: "v-model.trim",
                                             value:
-                                              _vm.$v.tempConstantRevenueStream
-                                                .$model,
+                                              _vm.$v.currentRevenue
+                                                .constantRevenueStream.$model,
                                             expression:
-                                              "$v.tempConstantRevenueStream.$model",
+                                              "$v.currentRevenue.constantRevenueStream.$model",
                                             modifiers: { trim: true }
                                           }
                                         ],
@@ -36862,16 +37094,16 @@ var render = function() {
                                           "input-box",
                                           "_36slfUixQ4wAFF1EUIGq5f",
                                           "medium-cash",
-                                          _vm.$v.tempConstantRevenueStream
-                                            .$error
+                                          _vm.$v.currentRevenue
+                                            .constantRevenueStream.$error
                                             ? "error"
                                             : ""
                                         ],
                                         attrs: { type: "number", min: "1" },
                                         domProps: {
                                           value:
-                                            _vm.$v.tempConstantRevenueStream
-                                              .$model
+                                            _vm.$v.currentRevenue
+                                              .constantRevenueStream.$model
                                         },
                                         on: {
                                           input: function($event) {
@@ -36879,7 +37111,8 @@ var render = function() {
                                               return
                                             }
                                             _vm.$set(
-                                              _vm.$v.tempConstantRevenueStream,
+                                              _vm.$v.currentRevenue
+                                                .constantRevenueStream,
                                               "$model",
                                               $event.target.value.trim()
                                             )
@@ -36906,12 +37139,17 @@ var render = function() {
                                             },
                                             model: {
                                               value:
-                                                _vm.tempConstantRevenueStreamPeriod,
+                                                _vm.currentRevenue
+                                                  .constantRevenueStreamPeriod,
                                               callback: function($$v) {
-                                                _vm.tempConstantRevenueStreamPeriod = $$v
+                                                _vm.$set(
+                                                  _vm.currentRevenue,
+                                                  "constantRevenueStreamPeriod",
+                                                  $$v
+                                                )
                                               },
                                               expression:
-                                                "tempConstantRevenueStreamPeriod"
+                                                "currentRevenue.constantRevenueStreamPeriod"
                                             }
                                           })
                                         ],
@@ -36924,10 +37162,10 @@ var render = function() {
                                         "div",
                                         { staticClass: "feedback-line" },
                                         [
-                                          _vm.$v.tempConstantRevenueStream
-                                            .$error &&
-                                          !_vm.$v.tempConstantRevenueStream
-                                            .required
+                                          _vm.$v.currentRevenue
+                                            .constantRevenueStream.$error &&
+                                          !_vm.$v.currentRevenue
+                                            .constantRevenueStream.required
                                             ? _c("p", [
                                                 _vm._v(
                                                   "\n                                            مقداری (بیش از 0) را وارد کنید\n                                        "
@@ -36941,7 +37179,7 @@ var render = function() {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.tempRevenueStreamType ===
+                            _vm.currentRevenue.revenueStreamType ===
                             _vm.MEASURE_TYPE_VARIABLE
                               ? _c("div", [
                                   _vm._v(
@@ -36952,7 +37190,8 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm.tempUnitPriceType === _vm.MEASURE_TYPE_CONSTANT
+                        _vm.currentRevenue.revenueStreamType ===
+                        _vm.MEASURE_TYPE_CONSTANT
                           ? _c(
                               "div",
                               {
@@ -36984,11 +37223,15 @@ var render = function() {
                                             scrollHeight: "150px"
                                           },
                                           model: {
-                                            value: _vm.revenueStart,
+                                            value: _vm.currentRevenue.start,
                                             callback: function($$v) {
-                                              _vm.revenueStart = $$v
+                                              _vm.$set(
+                                                _vm.currentRevenue,
+                                                "start",
+                                                $$v
+                                              )
                                             },
-                                            expression: "revenueStart"
+                                            expression: "currentRevenue.start"
                                           }
                                         })
                                       ],
@@ -37137,7 +37380,7 @@ var render = function() {
                   "div",
                   { staticClass: "modal-footer-controls-container left" },
                   [
-                    !_vm.$v.tempRevenueType.$invalid
+                    !_vm.$v.currentRevenue.type.$invalid
                       ? _c(
                           "button",
                           {

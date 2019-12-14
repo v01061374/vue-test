@@ -88,21 +88,21 @@
                         <div class="error">
                             <div class="max-length-input-container">
                                 <input type="text"
-                                       :class="['input-box', 'description' , $v.tempRevenueName.$error ? 'error' : '']"
+                                       :class="['input-box', 'description' , $v.currentRevenue.name.$error ? 'error' : '']"
                                        placeholder="لورم لورم"
-                                       v-model.trim="$v.tempRevenueName.$model" :maxlength="255"
+                                       v-model.trim="$v.currentRevenue.name.$model" :maxlength="255"
                                        @focusin="nameCounterVisible=true" @focusout="nameCounterVisible=false" >
                                 <span class="count-down-wrapper" v-show="nameCounterVisible">
-                                    {{(255 - tempRevenueName.length >= 0)? 255 - tempRevenueName.length : 0}}
+                                    {{(255 - currentRevenue.name.length >= 0)? 255 - currentRevenue.name.length : 0}}
                                 </span>
                                 <div class="feedback-line">
-                                    <p v-if="$v.tempRevenueName.$error && !$v.tempRevenueName.required">
+                                    <p v-if="$v.currentRevenue.name.$error && !$v.currentRevenue.name.required">
                                         مقداری را وارد کنید
                                     </p>
-                                    <p v-if="$v.tempRevenueName.$error && !$v.tempRevenueName.maxLength">
+                                    <p v-if="$v.currentRevenue.name.$error && !$v.currentRevenue.name.maxLength">
                                         حداکثر طول 255 کاراکتر است.
                                     </p>
-                                    <p v-if="$v.tempRevenueName.$error && $v.tempRevenueName.required && !$v.tempRevenueName.test">
+                                    <p v-if="$v.currentRevenue.name.$error && $v.currentRevenue.name.required && !$v.currentRevenue.name.test">
                                         ارور چک با دیتابیس
                                     </p>
                                 </div>
@@ -115,7 +115,7 @@
                         <div class="title-top">نوع درآمد؟</div>
                         <div class="radio-buttons-list rtl" tabindex="0" role="radiogroup">
                             <p class="radio-right">
-                                <input  v-model="$v.tempRevenueType.$model"
+                                <input  v-model="$v.currentRevenue.type.$model"
                                        type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_UNIT_SALES">
                                 <label>تعداد فروش</label>
                             </p>
@@ -123,7 +123,7 @@
                                 Best for products that are sold in individual units or set quantities
                             </p>
                             <p class="radio-right">
-                                <input  v-model="$v.tempRevenueType.$model"
+                                <input  v-model="$v.currentRevenue.type.$model"
                                        type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_BILLABLE_HOURS">
                                 <label>
                                     Billable hours
@@ -133,7 +133,7 @@
                                 Best for services that are priced on a per-hour basis
                             </p>
                             <p class="radio-right">
-                                <input  v-model="$v.tempRevenueType.$model"
+                                <input  v-model="$v.currentRevenue.type.$model"
                                        type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_RECURRING_CHANGES">
                                 <label>
                                     Recurring charges
@@ -144,7 +144,7 @@
                                 monthly or periodic
                             </p>
                             <p class="radio-right">
-                                <input v-model="$v.tempRevenueType.$model"
+                                <input v-model="$v.currentRevenue.type.$model"
                                        type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_REVENUE_ONLY">
                                 <label>
                                     Revenue only
@@ -178,14 +178,14 @@
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                       v-model="tempUnitPriceType">
+                                                       v-model="currentRevenue.unitSalesCountType">
                                                 <!-- react-text: 131 -->لورم<!-- /react-text -->
                                             </label>
                                         </li>
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                       v-model="tempUnitPriceType">
+                                                       v-model="currentRevenue.unitSalesCountType">
                                                 <!-- react-text: 135 -->Varying amounts over time
                                                 <!-- /react-text -->
                                             </label>
@@ -195,27 +195,27 @@
 
                                 </div>
                                 <!--TODO constant amount selected (delete this todo-->
-                                <div v-if="tempServiceCountType===MEASURE_TYPE_CONSTANT">
+                                <div v-if="currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT">
                                     <div class="input-with-dropdown length-selection">
                                         <input type="number"
                                                :class="['faNum','input-box', '_36slfUixQ4wAFF1EUIGq5f','medium-cash',
-                                                $v.tempConstantServiceCount.$error ? 'error' : '' ]"
-                                               v-model.trim="$v.tempConstantServiceCount.$model" min="1">
+                                                $v.currentRevenue.constantUnitSales.$error ? 'error' : '' ]"
+                                               v-model.trim="$v.currentRevenue.constantUnitSales.$model" min="1">
                                         <div>
                                             <span class="per">به ازای</span>
-                                            <drop-down v-model="tempConstantServicePeriod" :options="periodsOptions"
+                                            <drop-down v-model="currentRevenue.constantUnitSalesPeriod" :options="periodsOptions"
                                                        optionLabel="title" optionValue="code"
                                                        scrollHeight="100px"/>
                                         </div>
                                         <div class="clear"></div>
                                         <div class="feedback-line">
-                                            <p v-if="$v.tempConstantServiceCount.$error && !$v.tempRevenueName.required">
+                                            <p v-if="$v.currentRevenue.constantUnitSales.$error && !$v.currentRevenue.name.required">
                                                 مقداری (بیش از 0) را وارد کنید
                                             </p>
                                         </div>
                                     </div><!-- react-empty: 148 -->
                                 </div>
-                                <div v-if="tempServiceCountType===MEASURE_TYPE_VARIABLE">
+                                <div v-if="currentRevenue.unitSalesCountType===MEASURE_TYPE_VARIABLE">
                                     variable
                                     <!--<div class="financial-year-box" role="grid">-->
                                         <!--<div class="financial-year-box-container">-->
@@ -491,13 +491,13 @@
 
                             <!--TODO constant amount selected (delete this todo-->
                             <div class="section" style="margin-bottom: 30px"
-                                 v-if="tempUnitPriceType===MEASURE_TYPE_CONSTANT">
+                                 v-if="currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT">
                                 <div class="title-top">
                                     When will this revenue start?
                                 </div>
                                 <div class="select-box period-selection">
                                     <div class="valid">
-                                        <drop-down v-model="revenueStart" :options="startOptions"
+                                        <drop-down v-model="currentRevenue.start" :options="startOptions"
                                                    optionLabel="title" optionValue="code" scrollHeight="150px"/>
                                     </div>
                                 </div>
@@ -527,14 +527,14 @@
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                       v-model="tempUnitPriceType">
+                                                       v-model="currentRevenue.unitPriceMeasureType">
                                                 <!-- react-text: 131 -->لورم<!-- /react-text -->
                                             </label>
                                         </li>
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                       v-model="tempUnitPriceType">
+                                                       v-model="currentRevenue.unitPriceMeasureType">
                                                 <!-- react-text: 135 -->Varying amounts over time
                                                 <!-- /react-text -->
                                             </label>
@@ -545,25 +545,25 @@
 
                                 </div>
                                 <!--TODO constant amount selected (delete this todo-->
-                                <div v-if="tempUnitPriceType===MEASURE_TYPE_CONSTANT">
+                                <div v-if="currentRevenue.unitPriceMeasureType===MEASURE_TYPE_CONSTANT">
                                     <div class="input-with-dropdown">
                                         <div class="input-box-wrapper " style="width: 140px;">
                                             <input type="number"
                                                    :class="['faNum','input-box', ' input-box-with-currency', '_36slfUixQ4wAFF1EUIGq5f','medium-cash', '_3nXdR_fo3j0MwFs8AZWYc5',
-                                                $v.tempConstantUnitPrice.$error ? 'error' : '' ]"
-                                                   v-model.trim="$v.tempConstantUnitPrice.$model" min="1">
+                                                $v.currentRevenue.constantUnitPrice.$error ? 'error' : '' ]"
+                                                   v-model.trim="$v.currentRevenue.constantUnitPrice.$model" min="1">
                                             <span aria-hidden="true" class="currency">ریال</span>
                                         </div>
                                         <span></span>
                                         <div class="clear"></div>
                                         <div class="feedback-line">
-                                            <p v-if="$v.tempConstantUnitPrice.$error && !$v.tempConstantUnitPrice.required">
+                                            <p v-if="$v.currentRevenue.constantUnitPrice.$error && !$v.currentRevenue.constantUnitPrice.required">
                                                 مقداری (بیش از 0) را وارد کنید
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div v-if="tempUnitPriceType===MEASURE_TYPE_VARIABLE">
+                                <div v-if="currentRevenue.unitPriceMeasureType===MEASURE_TYPE_VARIABLE">
                                     variable
                                     <!--<div class="financial-year-box" role="grid">-->
                                     <!--<div class="financial-year-box-container">-->
@@ -861,14 +861,14 @@
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                       v-model="tempServiceCountType">
+                                                       v-model="currentRevenue.billableHoursCountType">
                                                 <!-- react-text: 131 -->لورم<!-- /react-text -->
                                             </label>
                                         </li>
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                       v-model="tempServiceCountType">
+                                                       v-model="currentRevenue.billableHoursCountType">
                                                 <!-- react-text: 135 -->Varying amounts over time
                                                 <!-- /react-text -->
                                             </label>
@@ -878,27 +878,27 @@
 
                                 </div>
                                 <!--TODO constant amount selected (delete this todo-->
-                                <div v-if="tempServiceCountType===MEASURE_TYPE_CONSTANT">
+                                <div v-if="currentRevenue.billableHoursCountType===MEASURE_TYPE_CONSTANT">
                                     <div class="input-with-dropdown length-selection">
                                         <input type="number"
                                                :class="['faNum','input-box', '_36slfUixQ4wAFF1EUIGq5f','medium-cash',
-                                                $v.tempConstantServiceCount.$error ? 'error' : '' ]"
-                                               v-model.trim="$v.tempConstantServiceCount.$model" min="1">
+                                                $v.currentRevenue.constantBillableHours.$error ? 'error' : '' ]"
+                                               v-model.trim="$v.currentRevenue.constantBillableHours.$model" min="1">
                                         <div>
                                             <span class="per">به ازای</span>
-                                            <drop-down v-model="tempConstantServicePeriod" :options="periodsOptions"
+                                            <drop-down v-model="currentRevenue.constantBillableHoursPeriod" :options="periodsOptions"
                                                        optionLabel="title" optionValue="code"
                                                        scrollHeight="100px"/>
                                         </div>
                                         <div class="clear"></div>
                                         <div class="feedback-line">
-                                            <p v-if="$v.tempConstantServiceCount.$error && !$v.tempRevenueName.required">
+                                            <p v-if="$v.currentRevenue.constantBillableHours.$error && !$v.currentRevenue.name.required">
                                                 مقداری (بیش از 0) را وارد کنید
                                             </p>
                                         </div>
                                     </div><!-- react-empty: 148 -->
                                 </div>
-                                <div v-if="tempServiceCountType===MEASURE_TYPE_VARIABLE">
+                                <div v-if="currentRevenue.billableHoursCountType===MEASURE_TYPE_VARIABLE">
                                     variable
                                     <!--<div class="financial-year-box" role="grid">-->
                                     <!--<div class="financial-year-box-container">-->
@@ -1174,13 +1174,13 @@
 
                             <!--TODO constant amount selected (delete this todo-->
                             <div class="section" style="margin-bottom: 30px"
-                                 v-if="tempServiceCountType===MEASURE_TYPE_CONSTANT">
+                                 v-if="currentRevenue.billableHoursCountType===MEASURE_TYPE_CONSTANT">
                                 <div class="title-top">
                                     When will this revenue start?
                                 </div>
                                 <div class="select-box period-selection">
                                     <div class="valid">
-                                        <drop-down v-model="revenueStart" :options="startOptions"
+                                        <drop-down v-model="currentRevenue.start" :options="startOptions"
                                                    optionLabel="title" optionValue="code" scrollHeight="150px"/>
                                     </div>
                                 </div>
@@ -1210,14 +1210,14 @@
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                       v-model="tempUnitPriceType">
+                                                       v-model="currentRevenue.hourPriceMeasureType">
                                                 <!-- react-text: 131 -->لورم<!-- /react-text -->
                                             </label>
                                         </li>
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                       v-model="tempUnitPriceType">
+                                                       v-model="currentRevenue.hourPriceMeasureType">
                                                 <!-- react-text: 135 -->Varying amounts over time
                                                 <!-- /react-text -->
                                             </label>
@@ -1228,25 +1228,25 @@
 
                                 </div>
                                 <!--TODO constant amount selected (delete this todo-->
-                                <div v-if="tempUnitPriceType===MEASURE_TYPE_CONSTANT">
+                                <div v-if="currentRevenue.hourPriceMeasureType===MEASURE_TYPE_CONSTANT">
                                     <div class="input-with-dropdown">
                                         <div class="input-box-wrapper " style="width: 140px;">
                                             <input type="number"
                                                    :class="['faNum','input-box', ' input-box-with-currency', '_36slfUixQ4wAFF1EUIGq5f','medium-cash', '_3nXdR_fo3j0MwFs8AZWYc5',
-                                                $v.tempConstantUnitPrice.$error ? 'error' : '' ]"
-                                                   v-model.trim="$v.tempConstantUnitPrice.$model" min="1">
+                                                $v.currentRevenue.constantHourPrice.$error ? 'error' : '' ]"
+                                                   v-model.trim="$v.currentRevenue.constantHourPrice.$model" min="1">
                                             <span aria-hidden="true" class="currency">ریال</span>
                                         </div>
                                         <span></span>
                                         <div class="clear"></div>
                                         <div class="feedback-line">
-                                            <p v-if="$v.tempConstantUnitPrice.$error && !$v.tempConstantUnitPrice.required">
+                                            <p v-if="$v.currentRevenue.constantHourPrice.$error && !$v.currentRevenue.constantHourPrice.required">
                                                 مقداری (بیش از 0) را وارد کنید
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div v-if="tempUnitPriceType===MEASURE_TYPE_VARIABLE">
+                                <div v-if="currentRevenue.hourPriceMeasureType===MEASURE_TYPE_VARIABLE">
                                     variable
                                     <!--<div class="financial-year-box" role="grid">-->
                                     <!--<div class="financial-year-box-container">-->
@@ -1535,7 +1535,7 @@
                                 </div>
                                 <div class="select-box period-selection">
                                     <div class="valid">
-                                        <drop-down v-model="revenueStart" :options="startOptions"
+                                        <drop-down v-model="currentRevenue.start" :options="startOptions"
                                                    optionLabel="title" optionValue="code" scrollHeight="150px"/>
                                     </div>
                                 </div>
@@ -1558,14 +1558,14 @@
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                       v-model="tempServiceCountType">
+                                                       v-model="currentRevenue.customerCountType">
                                                 <!-- react-text: 131 -->لورم<!-- /react-text -->
                                             </label>
                                         </li>
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                       v-model="tempServiceCountType">
+                                                       v-model="currentRevenue.customerCountType">
                                                 <!-- react-text: 135 -->Varying amounts over time
                                                 <!-- /react-text -->
                                             </label>
@@ -1575,27 +1575,27 @@
 
                                 </div>
                                 <!--TODO constant amount selected (delete this todo-->
-                                <div v-if="tempServiceCountType===MEASURE_TYPE_CONSTANT">
+                                <div v-if="currentRevenue.customerCountType===MEASURE_TYPE_CONSTANT">
                                     <div class="input-with-dropdown length-selection">
                                         <input type="number"
                                                :class="['faNum','input-box', '_36slfUixQ4wAFF1EUIGq5f','medium-cash',
-                                                $v.tempConstantServiceCount.$error ? 'error' : '' ]"
-                                               v-model.trim="$v.tempConstantServiceCount.$model" min="1">
+                                                $v.currentRevenue.constantCustomerCount.$error ? 'error' : '' ]"
+                                               v-model.trim="$v.currentRevenue.constantCustomerCount.$model" min="1">
                                         <div>
                                             <span class="per">به ازای</span>
-                                            <drop-down v-model="tempConstantServicePeriod" :options="periodsOptions"
+                                            <drop-down v-model="currentRevenue.constantCustomerCountPeriod" :options="periodsOptions"
                                                        optionLabel="title" optionValue="code"
                                                        scrollHeight="100px"/>
                                         </div>
                                         <div class="clear"></div>
                                         <div class="feedback-line">
-                                            <p v-if="$v.tempConstantServiceCount.$error && !$v.tempRevenueName.required">
+                                            <p v-if="$v.currentRevenue.constantCustomerCount.$error && !$v.currentRevenue.constantCustomerCount.required">
                                                 مقداری (بیش از 0) را وارد کنید
                                             </p>
                                         </div>
                                     </div><!-- react-empty: 148 -->
                                 </div>
-                                <div v-if="tempServiceCountType===MEASURE_TYPE_VARIABLE">
+                                <div v-if="currentRevenue.customerCountType===MEASURE_TYPE_VARIABLE">
                                     variable
                                     <!--<div class="financial-year-box" role="grid">-->
                                     <!--<div class="financial-year-box-container">-->
@@ -1890,21 +1890,21 @@
                                             <li class="horizontal">
                                                 <label>
                                                     <input type="radio" name="sales-unit-types" :value="MEASURE_TYPE_FREE"
-                                                           v-model="tempUpFrontFeeType">
+                                                           v-model="currentRevenue.upFrontFeeMeasureType">
                                                     <!-- react-text: 131 -->free<!-- /react-text -->
                                                 </label>
                                             </li>
                                             <li class="horizontal">
                                                 <label>
                                                     <input type="radio" name="sales-unit-types" :value="MEASURE_TYPE_CONSTANT"
-                                                           v-model="tempUpFrontFeeType">
+                                                           v-model="currentRevenue.upFrontFeeMeasureType">
                                                     <!-- react-text: 131 -->لورم<!-- /react-text -->
                                                 </label>
                                             </li>
                                             <li class="horizontal">
                                                 <label>
                                                     <input type="radio" name="sales-unit-types" :value="MEASURE_TYPE_VARIABLE"
-                                                           v-model="tempUpFrontFeeType">
+                                                           v-model="currentRevenue.upFrontFeeMeasureType">
                                                     <!-- react-text: 135 -->Varying amounts over time
                                                     <!-- /react-text -->
                                                 </label>
@@ -1913,19 +1913,19 @@
                                         <div class="clear"></div>
                                     </div>
                                     <!--TODO constant amount selected (delete this todo-->
-                                    <div v-if="tempUpFrontFeeType===MEASURE_TYPE_CONSTANT">
+                                    <div v-if="currentRevenue.upFrontFeeMeasureType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-with-dropdown">
                                             <div class="input-box-wrapper " style="width: 140px;">
                                                 <input type="number"
                                                        :class="['faNum','input-box', ' input-box-with-currency', '_36slfUixQ4wAFF1EUIGq5f','medium-cash', '_3nXdR_fo3j0MwFs8AZWYc5',
-                                                $v.tempConstantUpFrontFee.$error ? 'error' : '' ]"
-                                                       v-model.trim="$v.tempConstantUpFrontFee.$model" min="1">
+                                                $v.currentRevenue.constantUpFrontFee.$error ? 'error' : '' ]"
+                                                       v-model.trim="$v.currentRevenue.constantUpFrontFee.$model" min="1">
                                                 <span aria-hidden="true" class="currency">ریال</span>
                                             </div>
                                             <span></span>
                                             <div class="clear"></div>
                                             <div class="feedback-line">
-                                                <p v-if="$v.tempConstantUpFrontFee.$error && !$v.tempConstantUpFrontFee.required">
+                                                <p v-if="$v.currentRevenue.constantUpFrontFee.$error && !$v.currentRevenue.constantUpFrontFee.required">
                                                     مقداری (بیش از 0) را وارد کنید
                                                 </p>
                                             </div>
@@ -1950,14 +1950,14 @@
                                             <li class="horizontal">
                                                 <label>
                                                     <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                           v-model="tempRecurringChargeType">
+                                                           v-model="currentRevenue.recurringChargeMeasureType">
                                                     <!-- react-text: 131 -->لورم<!-- /react-text -->
                                                 </label>
                                             </li>
                                             <li class="horizontal">
                                                 <label>
                                                     <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                           v-model="tempRecurringChargeType">
+                                                           v-model="currentRevenue.recurringChargeMeasureType">
                                                     <!-- react-text: 135 -->Varying amounts over time
                                                     <!-- /react-text -->
                                                 </label>
@@ -1966,19 +1966,19 @@
                                         <div class="clear"></div>
                                     </div>
                                     <!--TODO constant amount selected (delete this todo-->
-                                    <div v-if="tempRecurringChargeType===MEASURE_TYPE_CONSTANT">
+                                    <div v-if="currentRevenue.recurringChargeMeasureType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-with-dropdown">
                                             <div class="input-box-wrapper " style="width: 140px;">
                                                 <input type="number"
                                                        :class="['faNum','input-box', ' input-box-with-currency', '_36slfUixQ4wAFF1EUIGq5f','medium-cash', '_3nXdR_fo3j0MwFs8AZWYc5',
-                                                $v.tempConstantRecurringCharge.$error ? 'error' : '' ]"
-                                                       v-model.trim="$v.tempConstantRecurringCharge.$model" min="1">
+                                                $v.currentRevenue.constantRecurringCharge.$error ? 'error' : '' ]"
+                                                       v-model.trim="$v.currentRevenue.constantRecurringCharge.$model" min="1">
                                                 <span aria-hidden="true" class="currency">ریال</span>
                                             </div>
                                             <span></span>
                                             <div class="clear"></div>
                                             <div class="feedback-line">
-                                                <p v-if="$v.tempConstantRecurringCharge.$error && !$v.tempConstantRecurringCharge.required">
+                                                <p v-if="$v.currentRevenue.constantRecurringCharge.$error && !$v.currentRevenue.constantRecurringCharge.required">
                                                     مقداری (بیش از 0) را وارد کنید
                                                 </p>
                                             </div>
@@ -2001,7 +2001,7 @@
                                         <div>
                                             <span class="per">هر</span>
                                             <span class="little-drop-down">
-                                                <drop-down v-model="tempRecurringChargeMonthFrequency" :options="tempRecurringChargeMonthFrequencyOptions"
+                                                <drop-down v-model="currentRevenue.recurringChargeMonthFrequency" :options="currentRevenue.recurringChargeMonthFrequencyOptions"
                                                            optionLabel="title" optionValue="code"
                                                            scrollHeight="100px"/>
                                             </span>
@@ -2034,14 +2034,14 @@
                                             <li class="horizontal">
                                                 <label>
                                                     <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                           v-model="tempChurnRateType">
+                                                           v-model="currentRevenue.churnRateMeasureType">
                                                     <!-- react-text: 131 -->لورم<!-- /react-text -->
                                                 </label>
                                             </li>
                                             <li class="horizontal">
                                                 <label>
                                                     <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                           v-model="tempChurnRateType">
+                                                           v-model="currentRevenue.churnRateMeasureType">
                                                     <!-- react-text: 135 -->Varying amounts over time
                                                     <!-- /react-text -->
                                                 </label>
@@ -2051,24 +2051,24 @@
 
                                     </div>
                                     <!--TODO constant amount selected (delete this todo-->
-                                    <div v-if="tempChurnRateType===MEASURE_TYPE_CONSTANT">
+                                    <div v-if="currentRevenue.churnRateMeasureType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-box-wrapper" style="width: unset;">
                                             <span aria-hidden="true"
                                             class="percent">%</span>
                                             <input :class="['input-box', '_1v965moXRbti5zqLRSk3wE','smallPercentage',
-                                            '_3nXdR_fo3j0MwFs8AZWYc5', $v.tempConstantChurnRate.$error? 'error' : '']"
+                                            '_3nXdR_fo3j0MwFs8AZWYc5', $v.currentRevenue.constantChurnRate.$error? 'error' : '']"
                                                    type="number"
-                                                   v-model="tempConstantChurnRate">
+                                                   v-model="currentRevenue.constantChurnRate">
 
                                             <div class="clear"></div>
                                             <div class="feedback-line">
-                                                <p v-if="$v.tempConstantChurnRate.$error && !$v.tempConstantChurnRate.required">
+                                                <p v-if="$v.currentRevenue.constantChurnRate.$error && !$v.currentRevenue.constantChurnRate.required">
                                                     مقداری را وارد کنید
                                                 </p>
                                             </div>
                                         </div><!-- react-empty: 148 -->
                                     </div>
-                                    <div v-if="tempChurnRateType===MEASURE_TYPE_VARIABLE">
+                                    <div v-if="currentRevenue.churnRateMeasureType===MEASURE_TYPE_VARIABLE">
                                         variable
                                         <!--<div class="financial-year-box" role="grid">-->
                                         <!--<div class="financial-year-box-container">-->
@@ -2364,14 +2364,14 @@
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                       v-model="tempRevenueStreamType">
+                                                       v-model="currentRevenue.revenueStreamType">
                                                 <!-- react-text: 131 -->لورم<!-- /react-text -->
                                             </label>
                                         </li>
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                       v-model="tempRevenueStreamType">
+                                                       v-model="currentRevenue.revenueStreamType">
                                                 <!-- react-text: 135 -->Varying amounts over time
                                                 <!-- /react-text -->
                                             </label>
@@ -2381,27 +2381,27 @@
 
                                 </div>
                                 <!--TODO constant amount selected (delete this todo-->
-                                <div v-if="tempRevenueStreamType===MEASURE_TYPE_CONSTANT">
+                                <div v-if="currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT">
                                     <div class="input-with-dropdown length-selection">
                                         <input type="number"
                                                :class="['faNum','input-box', '_36slfUixQ4wAFF1EUIGq5f','medium-cash',
-                                                $v.tempConstantRevenueStream.$error ? 'error' : '' ]"
-                                               v-model.trim="$v.tempConstantRevenueStream.$model" min="1">
+                                                $v.currentRevenue.constantRevenueStream.$error ? 'error' : '' ]"
+                                               v-model.trim="$v.currentRevenue.constantRevenueStream.$model" min="1">
                                         <div>
                                             <span class="per">به ازای</span>
-                                            <drop-down v-model="tempConstantRevenueStreamPeriod" :options="periodsOptions"
+                                            <drop-down v-model="currentRevenue.constantRevenueStreamPeriod" :options="periodsOptions"
                                                        optionLabel="title" optionValue="code"
                                                        scrollHeight="100px"/>
                                         </div>
                                         <div class="clear"></div>
                                         <div class="feedback-line">
-                                            <p v-if="$v.tempConstantRevenueStream.$error && !$v.tempConstantRevenueStream.required">
+                                            <p v-if="$v.currentRevenue.constantRevenueStream.$error && !$v.currentRevenue.constantRevenueStream.required">
                                                 مقداری (بیش از 0) را وارد کنید
                                             </p>
                                         </div>
                                     </div><!-- react-empty: 148 -->
                                 </div>
-                                <div v-if="tempRevenueStreamType===MEASURE_TYPE_VARIABLE">
+                                <div v-if="currentRevenue.revenueStreamType===MEASURE_TYPE_VARIABLE">
                                     variable
                                     <!--<div class="financial-year-box" role="grid">-->
                                     <!--<div class="financial-year-box-container">-->
@@ -2677,13 +2677,13 @@
 
                             <!--TODO constant amount selected (delete this todo-->
                             <div class="section" style="margin-bottom: 30px"
-                                 v-if="tempUnitPriceType===MEASURE_TYPE_CONSTANT">
+                                 v-if="currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT">
                                 <div class="title-top">
                                     When will this revenue start?
                                 </div>
                                 <div class="select-box period-selection">
                                     <div class="valid">
-                                        <drop-down v-model="revenueStart" :options="startOptions"
+                                        <drop-down v-model="currentRevenue.start" :options="startOptions"
                                                    optionLabel="title" optionValue="code" scrollHeight="150px"/>
                                     </div>
                                 </div>
@@ -2726,7 +2726,7 @@
                 <button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>
             </div>
             <div class="modal-footer-controls-container left" v-if="currentTab===1">
-                <button :class="['modal-button','primary']" tabindex="0" v-if="!$v.tempRevenueType.$invalid" @click="handleTabChange(2)">بعدی</button>
+                <button :class="['modal-button','primary']" tabindex="0" v-if="!$v.currentRevenue.type.$invalid" @click="handleTabChange(2)">بعدی</button>
                 <button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>
             </div>
             <!--<div class="modal-footer-controls-container left" v-if="currentTab===2">-->
@@ -2862,6 +2862,13 @@
                         _1399: '', _1400: ''
                     },
 
+                    customerCountType: MEASURE_TYPE_CONSTANT,
+                    constantCustomerCount: '',
+                    customerCountPerPeriod: {
+                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
+                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
+                        _1399: '', _1400: ''
+                    },
 
                     upFrontFeeMeasureType: MEASURE_TYPE_FREE,
                     constantUpFrontFee: '',
@@ -2978,11 +2985,11 @@
                     return this.revenue.type;
                 }
                 else{
-                    return this.tempRevenueType;
+                    return this.currentRevenue.type;
                 }
             },
             setRevenueType: function (revenueType) {
-                this.tempRevenueType = revenueType;
+                this.currentRevenue.type = revenueType;
             },
             
             handleTabChange(to){
@@ -3114,6 +3121,20 @@
                                 return true;
                             }
                         }
+                    },
+                    constantCustomerCount: '',
+                    customerCountPerPeriod: {
+                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
+                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
+                        _1399: '', _1400: ''
+                    },
+                    customerCountType: {
+                        required,
+                        between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
+                    },
+                    constantCustomerCountPeriod: {
+                        required: requiredIf(this.currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT),
+                        between: between(LENGTH_MONTH,LENGTH_YEAR)
                     },
                     upFrontFeeMeasureType: {
                         required,
@@ -3299,37 +3320,41 @@
             currentTabValidators: function () {
                 switch (this.currentTab) {
                     case 0: {
-                        return [this.$v.tempRevenueName];
+                        return [this.$v.currentRevenue.name];
                     }
                     case 1:{
-                        return [this.$v.tempRevenueType];
+                        return [this.$v.currentRevenue.type];
                     }
                     case 2:{
-                        switch (this.tempRevenueType) {
+                        switch (this.currentRevenue.type) {
                             case REVENUE_TYPE_UNIT_SALES:{
-                                return [this.$v.tempConstantServiceCount,
-                                    this.$v.tempServiceCountPerPeriod,
-                                    this.$v.tempConstantServicePeriod,
-                                    this.$v.revenueStart];
+                                return [this.$v.currentRevenue.unitSalesCountType,
+                                    this.$v.currentRevenue.unitSalesPerPeriod,
+                                    this.$v.currentRevenue.constantUnitSales,
+                                    this.$v.currentRevenue.constantUnitSalesPeriod,
+                                    this.$v.currentRevenue.start];
                                 
                             }
                             case REVENUE_TYPE_BILLABLE_HOURS:{
-                                return [this.$v.tempConstantServiceCount,
-                                    this.$v.tempServiceCountPerPeriod,
-                                    this.$v.tempConstantServicePeriod,
-                                    this.$v.revenueStart];
+                                return [this.$v.currentRevenue.billableHoursCountType,
+                                    this.$v.currentRevenue.billableHoursPerPeriod,
+                                    this.$v.currentRevenue.constantBillableHours,
+                                    this.$v.currentRevenue.constantBillableHoursPeriod,
+                                    this.$v.currentRevenue.start];
                                 
                             }
                             case REVENUE_TYPE_RECURRING_CHANGES:{
-                                return [this.$v.tempConstantServiceCount,
-                                    this.$v.tempServiceCountPerPeriod,
-                                    this.$v.revenueStart];
+                                return [this.$v.currentRevenue.customerCountType,
+                                    this.$v.currentRevenue.constantCustomerCount,
+                                    this.$v.currentRevenue.constantCustomerCountPeriod,
+                                    this.$v.currentRevenue.start];
                                 
                             }
                             case REVENUE_TYPE_REVENUE_ONLY:{
-                                return [this.$v.tempConstantRevenueStream,
-                                    this.$v.tempConstantRevenueStream,
-                                    this.$v.revenueStart]
+                                return [this.$v.currentRevenue.revenueStreamType,
+                                    this.$v.currentRevenue.constantRevenueStream,
+                                    this.$v.currentRevenue.constantRevenueStreamPeriod,
+                                    this.$v.currentRevenue.start];
                                 
                             }
                             default:{
@@ -3338,30 +3363,26 @@
                         }
                     }
                     case 3:{
-                        switch (this.tempRevenueType){
+                        switch (this.currentRevenue.type){
                             case REVENUE_TYPE_UNIT_SALES:{
-                                return [this.$v.tempConstantUnitPrice, this.$v.tempUnitPricePerPeriod];
+                                return [this.$v.currentRevenue.unitPriceMeasureType, this.$v.currentRevenue.constantUnitPrice, this.$v.currentRevenue.unitPricePerPeriod];
                                 
                             }
                             case REVENUE_TYPE_BILLABLE_HOURS:{
-                                return [this.$v.tempConstantUnitPrice, this.$v.tempUnitPricePerPeriod];
+                                return [this.$v.currentRevenue.hourPriceMeasureType, this.$v.currentRevenue.constantHourPrice, this.$v.currentRevenue.hourPricePerPeriod];
                                 
                             }
                             case REVENUE_TYPE_RECURRING_CHANGES:{
-                                return [this.$v.tempConstantUpFrontFee,
-                                    this.$v.tempUpFrontFeePerPeriod,
-                                    this.$v.tempRecurringChargeMonthFrequency
-                                ];
+                                return [this.$v.currentRevenue.upFrontFeeMeasureType, this.$v.currentRevenue.constantUpFrontFee, this.$v.currentRevenue.upFrontFeePerPeriod,
+                                        this.$v.currentRevenue.recurringChargeMeasureType, this.$v.currentRevenue.constantRecurringCharge, this.$v.currentRevenue.recurringChargePerPeriod,
+                                        this.$v.currentRevenue.recurringChargeMonthFrequency];
                                 
                             }
 
                         }
                     }
                     case 4:{
-                        return [
-                            this.$v.tempConstantChurnRate,
-                            this.$v.tempChurnRatePerPeriod
-                        ];
+                        return [this.$v.currentRevenue.churnRateMeasureType, this.$v.currentRevenue.constantChurnRate, this.$v.currentRevenue.churnRatePerPeriod];
                         
                     }
                 }
