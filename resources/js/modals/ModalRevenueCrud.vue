@@ -251,10 +251,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="financial-year-chart-container">
+                                                    <div class="financial-year-chart-container" id="unit-sales-chart">
                                                         <highcharts class="chart"
                                                                     :options="getChartOptions(currentRevenue.unitSalesPerPeriod, UNIT_COUNT)"
-                                                                    :updateArgs="chartUpdateArgs"></highcharts>
+                                                                    :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
                                                     </div>
                                                     <div class="financial-year-input-container">
                                                         <ul class="labels faNum">
@@ -2777,12 +2777,14 @@
 
     import BaseModal from './../components/BaseModal';
     import { required, integer, between, maxLength, numeric, minValue, requiredIf } from 'vuelidate/lib/validators';
-    import { EventBus } from "@/js/event-bus.js"
+    import { EventBus } from "@/js/event-bus.js";
+    import Highcharts from 'highcharts';
 
     export default {
         name: "ModalRevenueCrud",
         data: function(){
             return {
+                hc: Highcharts,
                 nameCounterVisible: false,
                 NOT_SELECTED : -1, REVENUE_TYPE_UNIT_SALES : 0, REVENUE_TYPE_BILLABLE_HOURS : 1, REVENUE_TYPE_RECURRING_CHANGES : 2, 
                 REVENUE_TYPE_REVENUE_ONLY : 3, MEASURE_TYPE_FREE : 0, MEASURE_TYPE_CONSTANT : 1, MEASURE_TYPE_VARIABLE : 2,
@@ -2837,11 +2839,13 @@
                     unitSalesCountType: MEASURE_TYPE_CONSTANT,
                     constantUnitSalesPeriod: LENGTH_MONTH,
                     constantUnitSales: '',
-                    unitSalesPerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
+                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0]
+                    //     {
+                    //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
+                    //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
+                    //     _1399: '', _1400: ''
+                    // }
+                    ,
                     unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
                     constantUnitPrice: '',
                     unitPricePerPeriod: {
@@ -3038,6 +3042,9 @@
                 }
             },
             getChartOptions: function (data, ref) {
+                let $this = this;
+                // console.log(window.document.getElementById('unit-sales-chart').self);
+
                 return {
                         chart: {
                             type: 'line',
@@ -3061,38 +3068,56 @@
                                     else{
                                         x = Math.round(x);
                                     }
-                                    this.series[0].data[x].y = y;
-                                    this.series[0].setData(this.series[0].data, true, true, true);
+
+                                    $this.updateRevenueFromChart(ref, x, y);
+
+
                                 },
-                                'redraw': function(e) {
-                                    let output = {'ref': ref, 'series' : []};
-                                    for (let i = 0; i< 12 ; i++ ){
-                                        output.series[i] = Math.round(this.series[0].data[i].y);
-                                    }
-                                    EventBus.$emit('modal-chart-redraw', output);
-                                }
+
+                                // 'redraw': function(e) {
+                                //     // let output = {'ref': ref, 'series' : []};
+                                //     // for (let i = 0; i < 12 ; i++ ){
+                                //     //     output.series[i] = Math.round(this.series[0].data[i].y);
+                                //     // }
+                                //     // // $this.currentRevenue.unitSalesPerPeriod = output.series;
+                                //     //
+                                //     // // EventBus.$emit('modal-chart-redraw', output);
+                                // }
                             },
                         },
 
                         series: [{
                             name: 'unit-sales',
-                            data: Object.keys(data).map(function(key) {
-                                return data[key]? data[key] : 0;
-                                // TODO solve totally null chart problem
-                            }).slice(0,12),
+                            data:
+                                data
+                            //     Object.keys(data).map(function(key) {
+                            //     return data[key]? data[key] : 0;
+                            //     // TODO solve totally null chart problem
+                            // })
+                                    .slice(0,12),
 
                         }],
                         plotOptions: {
                             series: {
-                                animation: false,
+                                animation: true,
                                 stickyTracking: false,
                                 dragDrop: {
                                     draggableY: true,
                                     liveRedraw: false,
                                     animation: false,
+
                                     // TODO add mouse movement addition
                                     // TODO improve range and animation smoothness
                                 },
+                                point:{
+                                    events:{
+                                        'drop': function (e) {
+                                            let x = e.target.x;
+                                            let y = e.newPoint.y;
+                                            $this.updateRevenueFromChart(ref, x, y);
+                                        }
+                                    }
+                                }
                             },
 
                             line: {
@@ -3110,14 +3135,15 @@
                         yAxis:{
                             opposite: true,
                             className: 'faNum',
-                            softMin: -100,
-                            softMax: 100,
+                            softMin: -1000,
+                            softMax: 1000,
+                            // tickInterval: 100,
                             title: {
                                 text: null
                             },
                             allowDecimals: false,
-                            minPadding: 2,
-                            maxPadding: 2,
+                            // minPadding: 2,
+                            // maxPadding: 10,
                             // TODO handle automatic y-axis
                         },
                         legend: {
@@ -3191,106 +3217,108 @@
 
                 }
                 let sum = 0;
-                for(let p in series){
-                    if (!series.hasOwnProperty(p)){continue}
+                // for(let p in series){
+                //     if (!series.hasOwnProperty(p)){continue}
+                //     else{
+                //         if(!series[p] && series[p]!==0){}
+                //         else{
+                //             sum = sum + series[p];
+                //         }
+                //     }
+                //
+                // }
+                series.forEach(function(item, i){
+                    if(!item && item!==0){}
                     else{
-                        if(!series[p] && series[p]!==0){}
-                        else{
-                            sum = sum + series[p];
-                        }
+                        sum = sum + item;
                     }
-
-                }
+                });
                 return sum;
-            },
+            }, //ok
             updateChartFromInput(value,ref,index){
                 // if(!value){
-                //     this.annualSalesUnitPeriodsData[index] = 0;
+                //     this.currentRevenue.unitSalesPerPeriod[index] = 0;
                 // }
                 // this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
             },
-            updateRevenueFromChart: function (data) {
-                let ref = data['ref'];
-                let series = data['series'];
-                let $this = this;
+            updateRevenueFromChart: function (ref, x, y) {
                 switch(this.currentRevenue.type){
                     case REVENUE_TYPE_UNIT_SALES: {
-                        console.log('ref', ref);
-
                         switch (ref) {
                             case UNIT_COUNT:{
-                                series.forEach(function (el, i) {
-                                    console.log('$this.currentRevenue.unitSalesPerPeriod.i',$this.currentRevenue.unitSalesPerPeriod.i);
-                                    $this.currentRevenue.unitSalesPerPeriod.i = el;
-                                });
+                                this.$set(this.currentRevenue.unitSalesPerPeriod,x, Math.round(y));
+                                // series.forEach(function (el, i) {
+                                //     console.log('$this.currentRevenue.unitSalesPerPeriod.i',$this.currentRevenue.unitSalesPerPeriod.i);
+                                //     $this.currentRevenue.unitSalesPerPeriod.i = el;
+                                // });
                                 break;
                             }
-                            case UNIT_PRICE:{
-                                series.forEach(function (el, i) {
-                                    $this.currentRevenue.unitPricePerPeriod.i = el;
-                                });
-                                break;
-                            }
+                            // case UNIT_PRICE:{
+                            //     series.forEach(function (el, i) {
+                            //         $this.currentRevenue.unitPricePerPeriod.i = el;
+                            //     });
+                            //     break;
+                            // }
                         }
                         break;
                     }
-                    case REVENUE_TYPE_BILLABLE_HOURS: {
-                        switch (ref) {
-                            case UNIT_COUNT:{
-                                series.forEach(function (el, i) {
-                                    $this.currentRevenue.billableHoursPerPeriod.i = el;
-                                });
-                                break;
-                            }
-                            case UNIT_PRICE:{
-                                series.forEach(function (el, i) {
-                                    $this.currentRevenue.hourPricePerPeriod.i = el;
-                                });
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                    case REVENUE_TYPE_RECURRING_CHANGES:{
-                        switch (ref) {
-                            case UNIT_COUNT:{
-                                series.forEach(function (el, i) {
-                                    $this.currentRevenue.customerCountPerPeriod.i = el;
-                                });
-                                break;
-                            }
-                            case UNIT_PRICE:{
-                                series.forEach(function (el, i) {
-                                    $this.currentRevenue.recurringChargePerPeriod.i = el;
-                                });
-                                break;
-                            }
-                            case UP_FEE:{
-                                series.forEach(function (el, i) {
-                                    $this.currentRevenue.upFrontFeePerPeriod.i = el;
-                                });
-                                break;
-                            }
-                            case CHURN_RATE:{
-                                series.forEach(function (el, i) {
-                                    $this.currentRevenue.churnRatePerPeriod.i = el;
-                                });
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                    case REVENUE_TYPE_REVENUE_ONLY:{
-                        switch (ref) {
-                            case REVENUE_STREAM:{
-                                series.forEach(function (el, i) {
-                                    $this.currentRevenue.revenueStreamPerPeriod.i = el;
-                                });
-                                break;
-                            }
-                        }
-                        break;
-                    }
+                    // case REVENUE_TYPE_BILLABLE_HOURS: {
+                    //     switch (ref) {
+                    //         case UNIT_COUNT:{
+                    //             series.forEach(function (el, i) {
+                    //                 $this.currentRevenue.billableHoursPerPeriod.i = el;
+                    //             });
+                    //             break;
+                    //         }
+                    //         case UNIT_PRICE:{
+                    //             series.forEach(function (el, i) {
+                    //                 $this.currentRevenue.hourPricePerPeriod.i = el;
+                    //             });
+                    //             break;
+                    //         }
+                    //     }
+                    //     break;
+                    // }
+                    // case REVENUE_TYPE_RECURRING_CHANGES:{
+                    //     switch (ref) {
+                    //         case UNIT_COUNT:{
+                    //             series.forEach(function (el, i) {
+                    //                 $this.currentRevenue.customerCountPerPeriod.i = el;
+                    //             });
+                    //             break;
+                    //         }
+                    //         case UNIT_PRICE:{
+                    //             series.forEach(function (el, i) {
+                    //                 $this.currentRevenue.recurringChargePerPeriod.i = el;
+                    //             });
+                    //             break;
+                    //         }
+                    //         case UP_FEE:{
+                    //             series.forEach(function (el, i) {
+                    //                 $this.currentRevenue.upFrontFeePerPeriod.i = el;
+                    //             });
+                    //             break;
+                    //         }
+                    //         case CHURN_RATE:{
+                    //             series.forEach(function (el, i) {
+                    //                 $this.currentRevenue.churnRatePerPeriod.i = el;
+                    //             });
+                    //             break;
+                    //         }
+                    //     }
+                    //     break;
+                    // }
+                    // case REVENUE_TYPE_REVENUE_ONLY:{
+                    //     switch (ref) {
+                    //         case REVENUE_STREAM:{
+                    //             series.forEach(function (el, i) {
+                    //                 $this.currentRevenue.revenueStreamPerPeriod.i = el;
+                    //             });
+                    //             break;
+                    //         }
+                    //     }
+                    //     break;
+                    // }
 
                 }
 
@@ -3715,6 +3743,11 @@
         },
         components:{
             BaseModal,
+        },
+        watch:{
+            currentRevenue:{
+
+            }
         }
     }
 </script>

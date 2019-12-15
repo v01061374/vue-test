@@ -2064,6 +2064,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _js_event_bus_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/js/event-bus.js */ "./resources/js/event-bus.js");
+/* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! highcharts */ "./node_modules/highcharts/highcharts.js");
+/* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(highcharts__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -4865,10 +4867,12 @@ var REVENUE_STREAM = 4;
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ModalRevenueCrud",
   data: function data() {
     return {
+      hc: highcharts__WEBPACK_IMPORTED_MODULE_3___default.a,
       nameCounterVisible: false,
       NOT_SELECTED: -1,
       REVENUE_TYPE_UNIT_SALES: 0,
@@ -5000,22 +5004,12 @@ var REVENUE_STREAM = 4;
         unitSalesCountType: MEASURE_TYPE_CONSTANT,
         constantUnitSalesPeriod: LENGTH_MONTH,
         constantUnitSales: '',
-        unitSalesPerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        },
+        unitSalesPerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] //     {
+        //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
+        //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
+        //     _1399: '', _1400: ''
+        // }
+        ,
         unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
         constantUnitPrice: '',
         unitPricePerPeriod: {
@@ -5365,6 +5359,8 @@ var REVENUE_STREAM = 4;
       }
     },
     getChartOptions: function getChartOptions(data, ref) {
+      var $this = this; // console.log(window.document.getElementById('unit-sales-chart').self);
+
       return {
         chart: {
           type: 'line',
@@ -5385,32 +5381,30 @@ var REVENUE_STREAM = 4;
                 x = Math.round(x);
               }
 
-              this.series[0].data[x].y = y;
-              this.series[0].setData(this.series[0].data, true, true, true);
-            },
-            'redraw': function redraw(e) {
-              var output = {
-                'ref': ref,
-                'series': []
-              };
+              $this.updateRevenueFromChart(ref, x, y);
+            } // 'redraw': function(e) {
+            //     // let output = {'ref': ref, 'series' : []};
+            //     // for (let i = 0; i < 12 ; i++ ){
+            //     //     output.series[i] = Math.round(this.series[0].data[i].y);
+            //     // }
+            //     // // $this.currentRevenue.unitSalesPerPeriod = output.series;
+            //     //
+            //     // // EventBus.$emit('modal-chart-redraw', output);
+            // }
 
-              for (var i = 0; i < 12; i++) {
-                output.series[i] = Math.round(this.series[0].data[i].y);
-              }
-
-              _js_event_bus_js__WEBPACK_IMPORTED_MODULE_2__["EventBus"].$emit('modal-chart-redraw', output);
-            }
           }
         },
         series: [{
           name: 'unit-sales',
-          data: Object.keys(data).map(function (key) {
-            return data[key] ? data[key] : 0; // TODO solve totally null chart problem
-          }).slice(0, 12)
+          data: data //     Object.keys(data).map(function(key) {
+          //     return data[key]? data[key] : 0;
+          //     // TODO solve totally null chart problem
+          // })
+          .slice(0, 12)
         }],
         plotOptions: {
           series: {
-            animation: false,
+            animation: true,
             stickyTracking: false,
             dragDrop: {
               draggableY: true,
@@ -5418,6 +5412,15 @@ var REVENUE_STREAM = 4;
               animation: false // TODO add mouse movement addition
               // TODO improve range and animation smoothness
 
+            },
+            point: {
+              events: {
+                'drop': function drop(e) {
+                  var x = e.target.x;
+                  var y = e.newPoint.y;
+                  $this.updateRevenueFromChart(ref, x, y);
+                }
+              }
             }
           },
           line: {
@@ -5436,14 +5439,15 @@ var REVENUE_STREAM = 4;
         yAxis: {
           opposite: true,
           className: 'faNum',
-          softMin: -100,
-          softMax: 100,
+          softMin: -1000,
+          softMax: 1000,
+          // tickInterval: 100,
           title: {
             text: null
           },
-          allowDecimals: false,
-          minPadding: 2,
-          maxPadding: 2 // TODO handle automatic y-axis
+          allowDecimals: false // minPadding: 2,
+          // maxPadding: 10,
+          // TODO handle automatic y-axis
 
         },
         legend: {
@@ -5542,133 +5546,111 @@ var REVENUE_STREAM = 4;
           }
       }
 
-      var sum = 0;
+      var sum = 0; // for(let p in series){
+      //     if (!series.hasOwnProperty(p)){continue}
+      //     else{
+      //         if(!series[p] && series[p]!==0){}
+      //         else{
+      //             sum = sum + series[p];
+      //         }
+      //     }
+      //
+      // }
 
-      for (var p in series) {
-        if (!series.hasOwnProperty(p)) {
-          continue;
-        } else {
-          if (!series[p] && series[p] !== 0) {} else {
-            sum = sum + series[p];
-          }
+      series.forEach(function (item, i) {
+        if (!item && item !== 0) {} else {
+          sum = sum + item;
         }
-      }
-
+      });
       return sum;
     },
+    //ok
     updateChartFromInput: function updateChartFromInput(value, ref, index) {// if(!value){
-      //     this.annualSalesUnitPeriodsData[index] = 0;
+      //     this.currentRevenue.unitSalesPerPeriod[index] = 0;
       // }
       // this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
     },
-    updateRevenueFromChart: function updateRevenueFromChart(data) {
-      var ref = data['ref'];
-      var series = data['series'];
-      var $this = this;
-
+    updateRevenueFromChart: function updateRevenueFromChart(ref, x, y) {
       switch (this.currentRevenue.type) {
         case REVENUE_TYPE_UNIT_SALES:
           {
-            console.log('ref', ref);
-
             switch (ref) {
               case UNIT_COUNT:
                 {
-                  series.forEach(function (el, i) {
-                    console.log('$this.currentRevenue.unitSalesPerPeriod.i', $this.currentRevenue.unitSalesPerPeriod.i);
-                    $this.currentRevenue.unitSalesPerPeriod.i = el;
-                  });
-                  break;
-                }
+                  this.$set(this.currentRevenue.unitSalesPerPeriod, x, Math.round(y)); // series.forEach(function (el, i) {
+                  //     console.log('$this.currentRevenue.unitSalesPerPeriod.i',$this.currentRevenue.unitSalesPerPeriod.i);
+                  //     $this.currentRevenue.unitSalesPerPeriod.i = el;
+                  // });
 
-              case UNIT_PRICE:
-                {
-                  series.forEach(function (el, i) {
-                    $this.currentRevenue.unitPricePerPeriod.i = el;
-                  });
                   break;
                 }
+              // case UNIT_PRICE:{
+              //     series.forEach(function (el, i) {
+              //         $this.currentRevenue.unitPricePerPeriod.i = el;
+              //     });
+              //     break;
+              // }
             }
 
             break;
           }
-
-        case REVENUE_TYPE_BILLABLE_HOURS:
-          {
-            switch (ref) {
-              case UNIT_COUNT:
-                {
-                  series.forEach(function (el, i) {
-                    $this.currentRevenue.billableHoursPerPeriod.i = el;
-                  });
-                  break;
-                }
-
-              case UNIT_PRICE:
-                {
-                  series.forEach(function (el, i) {
-                    $this.currentRevenue.hourPricePerPeriod.i = el;
-                  });
-                  break;
-                }
-            }
-
-            break;
-          }
-
-        case REVENUE_TYPE_RECURRING_CHANGES:
-          {
-            switch (ref) {
-              case UNIT_COUNT:
-                {
-                  series.forEach(function (el, i) {
-                    $this.currentRevenue.customerCountPerPeriod.i = el;
-                  });
-                  break;
-                }
-
-              case UNIT_PRICE:
-                {
-                  series.forEach(function (el, i) {
-                    $this.currentRevenue.recurringChargePerPeriod.i = el;
-                  });
-                  break;
-                }
-
-              case UP_FEE:
-                {
-                  series.forEach(function (el, i) {
-                    $this.currentRevenue.upFrontFeePerPeriod.i = el;
-                  });
-                  break;
-                }
-
-              case CHURN_RATE:
-                {
-                  series.forEach(function (el, i) {
-                    $this.currentRevenue.churnRatePerPeriod.i = el;
-                  });
-                  break;
-                }
-            }
-
-            break;
-          }
-
-        case REVENUE_TYPE_REVENUE_ONLY:
-          {
-            switch (ref) {
-              case REVENUE_STREAM:
-                {
-                  series.forEach(function (el, i) {
-                    $this.currentRevenue.revenueStreamPerPeriod.i = el;
-                  });
-                  break;
-                }
-            }
-
-            break;
-          }
+        // case REVENUE_TYPE_BILLABLE_HOURS: {
+        //     switch (ref) {
+        //         case UNIT_COUNT:{
+        //             series.forEach(function (el, i) {
+        //                 $this.currentRevenue.billableHoursPerPeriod.i = el;
+        //             });
+        //             break;
+        //         }
+        //         case UNIT_PRICE:{
+        //             series.forEach(function (el, i) {
+        //                 $this.currentRevenue.hourPricePerPeriod.i = el;
+        //             });
+        //             break;
+        //         }
+        //     }
+        //     break;
+        // }
+        // case REVENUE_TYPE_RECURRING_CHANGES:{
+        //     switch (ref) {
+        //         case UNIT_COUNT:{
+        //             series.forEach(function (el, i) {
+        //                 $this.currentRevenue.customerCountPerPeriod.i = el;
+        //             });
+        //             break;
+        //         }
+        //         case UNIT_PRICE:{
+        //             series.forEach(function (el, i) {
+        //                 $this.currentRevenue.recurringChargePerPeriod.i = el;
+        //             });
+        //             break;
+        //         }
+        //         case UP_FEE:{
+        //             series.forEach(function (el, i) {
+        //                 $this.currentRevenue.upFrontFeePerPeriod.i = el;
+        //             });
+        //             break;
+        //         }
+        //         case CHURN_RATE:{
+        //             series.forEach(function (el, i) {
+        //                 $this.currentRevenue.churnRatePerPeriod.i = el;
+        //             });
+        //             break;
+        //         }
+        //     }
+        //     break;
+        // }
+        // case REVENUE_TYPE_REVENUE_ONLY:{
+        //     switch (ref) {
+        //         case REVENUE_STREAM:{
+        //             series.forEach(function (el, i) {
+        //                 $this.currentRevenue.revenueStreamPerPeriod.i = el;
+        //             });
+        //             break;
+        //         }
+        //     }
+        //     break;
+        // }
       }
     }
   },
@@ -6085,6 +6067,9 @@ var REVENUE_STREAM = 4;
   },
   components: {
     BaseModal: _components_BaseModal__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  watch: {
+    currentRevenue: {}
   }
 });
 
@@ -35472,7 +35457,10 @@ var render = function() {
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "financial-year-chart-container"
+                                                      "financial-year-chart-container",
+                                                    attrs: {
+                                                      id: "unit-sales-chart"
+                                                    }
                                                   },
                                                   [
                                                     _c("highcharts", {
@@ -35484,7 +35472,8 @@ var render = function() {
                                                           _vm.UNIT_COUNT
                                                         ),
                                                         updateArgs:
-                                                          _vm.chartUpdateArgs
+                                                          _vm.chartUpdateArgs,
+                                                        highcharts: _vm.hc
                                                       }
                                                     })
                                                   ],
