@@ -4831,6 +4831,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var NOT_SELECTED = -1;
 var REVENUE_TYPE_UNIT_SALES = 0;
 var REVENUE_TYPE_BILLABLE_HOURS = 1;
@@ -5275,7 +5276,8 @@ var _1400 = 14;
         ESF_1398: '',
         _1399: '',
         _1400: ''
-      }
+      } // currentTabValidators: [],
+
     };
   },
   methods: {
@@ -5304,17 +5306,25 @@ var _1400 = 14;
     },
     handleTabChange: function handleTabChange(to) {
       var $this = this;
+      var hasError = false;
 
-      if (this.currentTabValidators.length) {
-        this.currentTabValidators.forEach(function (validator, i) {
-          validator.$touch();
+      if (to > this.currentTab) {
+        if (this.currentTabValidators.length) {
+          this.currentTabValidators.forEach(function (validator, i) {
+            validator.$touch();
 
-          if (validator.$error) {
-            return;
+            if (validator.$error) {
+              console.log('error');
+              hasError = true;
+            }
+          });
+
+          if (!hasError) {
+            this.currentTab = to;
           }
-
+        } else {
           $this.currentTab = to;
-        });
+        }
       } else {
         $this.currentTab = to;
       }
@@ -5353,7 +5363,9 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(LENGTH_MONTH, LENGTH_YEAR)
         },
         constantUnitSales: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.unitSalesCountType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.unitSalesCountType === MEASURE_TYPE_CONSTANT;
+          }),
           numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
           minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
         },
@@ -5372,7 +5384,9 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         constantUnitPrice: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.unitPriceMeasureType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.unitPriceMeasureType === MEASURE_TYPE_CONSTANT;
+          }),
           numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
           minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
         },
@@ -5391,11 +5405,15 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         constantBillableHoursPeriod: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.billableHoursCountType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.billableHoursCountType === MEASURE_TYPE_CONSTANT;
+          }),
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(LENGTH_MONTH, LENGTH_YEAR)
         },
         constantBillableHours: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.billableHoursCountType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.billableHoursCountType === MEASURE_TYPE_CONSTANT;
+          }),
           numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
           minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
         },
@@ -5414,7 +5432,9 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         constantHourPrice: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.hourPriceMeasureType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.hourPriceMeasureType === MEASURE_TYPE_CONSTANT;
+          }),
           numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
           minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
         },
@@ -5450,7 +5470,9 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         constantCustomerCountPeriod: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.unitSalesCountType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.unitSalesCountType === MEASURE_TYPE_CONSTANT;
+          }),
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(LENGTH_MONTH, LENGTH_YEAR)
         },
         upFrontFeeMeasureType: {
@@ -5458,7 +5480,9 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_FREE, MEASURE_TYPE_VARIABLE)
         },
         constantUpFrontFee: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.upFrontFeeMeasureType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.upFrontFeeMeasureType === MEASURE_TYPE_CONSTANT;
+          }),
           numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
           minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
         },
@@ -5477,7 +5501,9 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         constantRecurringCharge: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.recurringChargeMeasureType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.recurringChargeMeasureType === MEASURE_TYPE_CONSTANT;
+          }),
           numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
           minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
         },
@@ -5500,7 +5526,9 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         constantChurnRate: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.churnRateMeasureType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.churnRateMeasureType === MEASURE_TYPE_CONSTANT;
+          }),
           numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
           minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
         },
@@ -5519,12 +5547,16 @@ var _1400 = 14;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         constantRevenueStream: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.revenueStreamType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.revenueStreamType === MEASURE_TYPE_CONSTANT;
+          }),
           numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
           minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
         },
         constantRevenueStreamPeriod: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.revenueStreamType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.revenueStreamType === MEASURE_TYPE_CONSTANT;
+          }),
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         revenueStreamPerPeriod: {
@@ -5695,7 +5727,6 @@ var _1400 = 14;
       }
     }
   },
-  watch: {},
   props: {
     revenue: {
       type: Object
@@ -34206,7 +34237,7 @@ var render = function() {
                   attrs: { tabindex: "0", "aria-selected": "true" },
                   on: {
                     click: function($event) {
-                      return _vm.setCurrentTab(0)
+                      return _vm.handleTabChange(0)
                     }
                   }
                 },
@@ -34230,7 +34261,7 @@ var render = function() {
                   attrs: { tabindex: "1" },
                   on: {
                     click: function($event) {
-                      return _vm.setCurrentTab(1)
+                      return _vm.handleTabChange(1)
                     }
                   }
                 },
@@ -34255,7 +34286,7 @@ var render = function() {
                       attrs: { tabindex: "2" },
                       on: {
                         click: function($event) {
-                          return _vm.setCurrentTab(2)
+                          return _vm.handleTabChange(2)
                         }
                       }
                     },
@@ -34281,7 +34312,7 @@ var render = function() {
                       attrs: { tabindex: "3" },
                       on: {
                         click: function($event) {
-                          return _vm.setCurrentTab(3)
+                          return _vm.handleTabChange(3)
                         }
                       }
                     },
@@ -34307,7 +34338,7 @@ var render = function() {
                       attrs: { tabindex: "2" },
                       on: {
                         click: function($event) {
-                          return _vm.setCurrentTab(2)
+                          return _vm.handleTabChange(2)
                         }
                       }
                     },
@@ -34333,7 +34364,7 @@ var render = function() {
                       attrs: { tabindex: "3" },
                       on: {
                         click: function($event) {
-                          return _vm.setCurrentTab(3)
+                          return _vm.handleTabChange(3)
                         }
                       }
                     },
@@ -34359,7 +34390,7 @@ var render = function() {
                       attrs: { tabindex: "2" },
                       on: {
                         click: function($event) {
-                          return _vm.setCurrentTab(2)
+                          return _vm.handleTabChange(2)
                         }
                       }
                     },
@@ -34385,7 +34416,7 @@ var render = function() {
                       attrs: { tabindex: "3" },
                       on: {
                         click: function($event) {
-                          return _vm.setCurrentTab(3)
+                          return _vm.handleTabChange(3)
                         }
                       }
                     },
@@ -34411,7 +34442,7 @@ var render = function() {
                       attrs: { tabindex: "4" },
                       on: {
                         click: function($event) {
-                          return _vm.setCurrentTab(4)
+                          return _vm.handleTabChange(4)
                         }
                       }
                     },
@@ -34437,7 +34468,7 @@ var render = function() {
                       attrs: { tabindex: "2" },
                       on: {
                         click: function($event) {
-                          return _vm.setCurrentTab(2)
+                          return _vm.handleTabChange(2)
                         }
                       }
                     },
@@ -34825,13 +34856,17 @@ var render = function() {
                                           )
                                         },
                                         on: {
-                                          change: function($event) {
-                                            return _vm.$set(
-                                              _vm.currentRevenue,
-                                              "unitSalesCountType",
-                                              _vm.MEASURE_TYPE_CONSTANT
-                                            )
-                                          }
+                                          change: [
+                                            function($event) {
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "unitSalesCountType",
+                                                _vm.MEASURE_TYPE_CONSTANT
+                                              )
+                                            },
+                                            _vm.$v.currentRevenue
+                                              .constantUnitSales.$reset
+                                          ]
                                         }
                                       }),
                                       _vm._v(" "),
@@ -34866,13 +34901,17 @@ var render = function() {
                                           )
                                         },
                                         on: {
-                                          change: function($event) {
-                                            return _vm.$set(
-                                              _vm.currentRevenue,
-                                              "unitSalesCountType",
-                                              _vm.MEASURE_TYPE_VARIABLE
-                                            )
-                                          }
+                                          change: [
+                                            function($event) {
+                                              return _vm.$set(
+                                                _vm.currentRevenue,
+                                                "unitSalesCountType",
+                                                _vm.MEASURE_TYPE_VARIABLE
+                                              )
+                                            },
+                                            _vm.$v.currentRevenue
+                                              .constantUnitSales.$reset
+                                          ]
                                         }
                                       }),
                                       _vm._v(" "),
@@ -34985,7 +35024,8 @@ var render = function() {
                                         [
                                           _vm.$v.currentRevenue
                                             .constantUnitSales.$error &&
-                                          !_vm.$v.currentRevenue.name.required
+                                          !_vm.$v.currentRevenue
+                                            .constantUnitSales.required
                                             ? _c("p", [
                                                 _vm._v(
                                                   "\n                                            مقداری (بیش از 0) را وارد کنید\n                                        "

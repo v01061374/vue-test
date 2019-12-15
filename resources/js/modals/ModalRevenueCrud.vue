@@ -10,25 +10,25 @@
         </template>
         <template #content>
             <ul class="navigation-stripe">
-                <li :class="['step-link', {'active': currentTab === 0 }]" tabindex="0" aria-selected="true" @click="setCurrentTab(0)">
+                <li :class="['step-link', {'active': currentTab === 0 }]" tabindex="0" aria-selected="true" @click="handleTabChange(0)">
             <span class="circle" aria-label="step 1:">
             1
             </span>
                     نام
                 </li>
-                <li :class="['step-link', {'active': currentTab === 1 }]" tabindex="1" @click="setCurrentTab(1)">
+                <li :class="['step-link', {'active': currentTab === 1 }]" tabindex="1" @click="handleTabChange(1)">
             <span class="circle" aria-label="step 2:">
             2
             </span>
                     نوع
                 </li>
-                <li v-if="getRevenueType()===REVENUE_TYPE_UNIT_SALES" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="setCurrentTab(2)">
+                <li v-if="getRevenueType()===REVENUE_TYPE_UNIT_SALES" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="handleTabChange(2)">
                     <span class="circle" aria-label="step 3:">
                     3
                     </span>
                     تعداد فروش
                 </li>
-                <li  v-if="getRevenueType()===REVENUE_TYPE_UNIT_SALES" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="setCurrentTab(3)">
+                <li  v-if="getRevenueType()===REVENUE_TYPE_UNIT_SALES" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="handleTabChange(3)">
                     <span class="circle" aria-label="step 4:">
                     4
                     </span>
@@ -36,13 +36,13 @@
                 </li>
 
 
-                <li v-if="getRevenueType()===REVENUE_TYPE_BILLABLE_HOURS" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="setCurrentTab(2)">
+                <li v-if="getRevenueType()===REVENUE_TYPE_BILLABLE_HOURS" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="handleTabChange(2)">
                     <span class="circle" aria-label="step 3:">
                     3
                     </span>
                     پرداخت ساعتی
                 </li>
-                <li v-if="getRevenueType()===REVENUE_TYPE_BILLABLE_HOURS" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="setCurrentTab(3)">
+                <li v-if="getRevenueType()===REVENUE_TYPE_BILLABLE_HOURS" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="handleTabChange(3)">
                     <span class="circle" aria-label="step 4:">
                     4
                     </span>
@@ -50,26 +50,26 @@
                 </li>
 
 
-                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="setCurrentTab(2)">
+                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="handleTabChange(2)">
                     <span class="circle" aria-label="step 3:">
                     3
                     </span>
                     ثبت نام ها
                 </li>
-                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="setCurrentTab(3)">
+                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 3 }]" tabindex="3" @click="handleTabChange(3)">
                     <span class="circle" aria-label="step 4:">
                     4
                     </span>
                     شارژ دوره ای
                 </li>
-                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 4 }]" tabindex="4" @click="setCurrentTab(4)">
+                <li v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES" :class="['step-link', {'active': currentTab === 4 }]" tabindex="4" @click="handleTabChange(4)">
                     <span class="circle" aria-label="step 4:">
                     5
                     </span>
                     churn rate
                 </li>
                 <!--TODO IMPORTANT: get translations-->
-                <li v-if="getRevenueType()===REVENUE_TYPE_REVENUE_ONLY" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="setCurrentTab(2)">
+                <li v-if="getRevenueType()===REVENUE_TYPE_REVENUE_ONLY" :class="['step-link', {'active': currentTab === 2 }]" tabindex="2" @click="handleTabChange(2)">
                     <span class="circle" aria-label="step 3:">
                     3
                     </span>
@@ -178,14 +178,14 @@
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
-                                                       v-model="currentRevenue.unitSalesCountType">
+                                                       v-model="currentRevenue.unitSalesCountType" @change="$v.currentRevenue.constantUnitSales.$reset">
                                                 <!-- react-text: 131 -->لورم<!-- /react-text -->
                                             </label>
                                         </li>
                                         <li class="horizontal">
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_VARIABLE"
-                                                       v-model="currentRevenue.unitSalesCountType">
+                                                       v-model="currentRevenue.unitSalesCountType" @change="$v.currentRevenue.constantUnitSales.$reset">
                                                 <!-- react-text: 135 -->Varying amounts over time
                                                 <!-- /react-text -->
                                             </label>
@@ -202,6 +202,7 @@
                                                 $v.currentRevenue.constantUnitSales.$error ? 'error' : '' ]"
                                                v-model.trim="$v.currentRevenue.constantUnitSales.$model" min="1">
                                         <div>
+
                                             <span class="per">به ازای</span>
                                             <drop-down v-model="currentRevenue.constantUnitSalesPeriod" :options="periodsOptions"
                                                        optionLabel="title" optionValue="code"
@@ -209,7 +210,7 @@
                                         </div>
                                         <div class="clear"></div>
                                         <div class="feedback-line">
-                                            <p v-if="$v.currentRevenue.constantUnitSales.$error && !$v.currentRevenue.name.required">
+                                            <p v-if="$v.currentRevenue.constantUnitSales.$error && !$v.currentRevenue.constantUnitSales.required">
                                                 مقداری (بیش از 0) را وارد کنید
                                             </p>
                                         </div>
@@ -2961,6 +2962,7 @@
                     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
                     _1399: '', _1400: ''
                 },
+                // currentTabValidators: [],
 
 
             }
@@ -2994,17 +2996,28 @@
             
             handleTabChange(to){
                 let $this = this;
-                if(this.currentTabValidators.length){
-                    this.currentTabValidators.forEach(function (validator, i) {
-                        validator.$touch();
-                        if(validator.$error){
-                            return;
+                let hasError = false;
+                if(to > this.currentTab){
+                    if(this.currentTabValidators.length){
+                        this.currentTabValidators.forEach(function (validator, i) {
+                            validator.$touch();
+                            if(validator.$error){
+                                console.log('error');
+                                hasError = true;
+                            }
+                        });
+                        if(!hasError){
+                            this.currentTab = to;
                         }
+                    }
+                    else{
                         $this.currentTab=to;
-                    });
+
+                    }
                 }
                 else{
                     $this.currentTab=to;
+
                 }
             },
 
@@ -3042,9 +3055,12 @@
                         between: between(LENGTH_MONTH,LENGTH_YEAR)
                     },
                     constantUnitSales:{
-                        required: requiredIf(this.currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT;
+                        }),
                         numeric,
                         minValue: minValue(1)
+
                     },
                     unitSalesPerPeriod:{
                         filled: function (array) {
@@ -3062,7 +3078,9 @@
                         between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
                     },
                     constantUnitPrice: {
-                        required: requiredIf(this.currentRevenue.unitPriceMeasureType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.unitPriceMeasureType===MEASURE_TYPE_CONSTANT;
+                        }),
                         numeric,
                         minValue: minValue(1)
 
@@ -3083,11 +3101,15 @@
                         between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
                     },
                     constantBillableHoursPeriod:{
-                        required: requiredIf(this.currentRevenue.billableHoursCountType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.billableHoursCountType===MEASURE_TYPE_CONSTANT;
+                        }),
                         between: between(LENGTH_MONTH,LENGTH_YEAR)
                     },
                     constantBillableHours: {
-                        required: requiredIf(this.currentRevenue.billableHoursCountType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.billableHoursCountType===MEASURE_TYPE_CONSTANT;
+                        }),
                         numeric,
                         minValue: minValue(1)
                     },
@@ -3107,7 +3129,9 @@
                         between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
                     },
                     constantHourPrice: {
-                        required: requiredIf(this.currentRevenue.hourPriceMeasureType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.hourPriceMeasureType===MEASURE_TYPE_CONSTANT;
+                        }),
                         numeric,
                         minValue: minValue(1)
                     },
@@ -3133,7 +3157,9 @@
                         between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
                     },
                     constantCustomerCountPeriod: {
-                        required: requiredIf(this.currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT;
+                        }),
                         between: between(LENGTH_MONTH,LENGTH_YEAR)
                     },
                     upFrontFeeMeasureType: {
@@ -3141,7 +3167,9 @@
                         between: between(MEASURE_TYPE_FREE, MEASURE_TYPE_VARIABLE)
                     },
                     constantUpFrontFee: {
-                        required: requiredIf(this.currentRevenue.upFrontFeeMeasureType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.upFrontFeeMeasureType===MEASURE_TYPE_CONSTANT;
+                        }),
                         numeric,
                         minValue: minValue(1)
                     },
@@ -3161,7 +3189,9 @@
                         between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
                     },
                     constantRecurringCharge: {
-                        required: requiredIf(this.currentRevenue.recurringChargeMeasureType===MEASURE_TYPE_CONSTANT),
+                        required:requiredIf(function () {
+                            return this.currentRevenue.recurringChargeMeasureType===MEASURE_TYPE_CONSTANT;
+                        }),
                         numeric,
                         minValue: minValue(1)
                     },
@@ -3185,7 +3215,9 @@
                         between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
                     },
                     constantChurnRate: {
-                        required: requiredIf(this.currentRevenue.churnRateMeasureType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.churnRateMeasureType===MEASURE_TYPE_CONSTANT;
+                        }),
                         numeric,
                         minValue: minValue(1)
                     },
@@ -3205,12 +3237,16 @@
                         between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
                     },
                     constantRevenueStream: {
-                        required: requiredIf(this.currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT;
+                        }),
                         numeric,
                         minValue: minValue(1)
                     },
                     constantRevenueStreamPeriod: {
-                        required: requiredIf(this.currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT;
+                        }),
                         between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
                     },
                     revenueStreamPerPeriod: {
@@ -3333,7 +3369,7 @@
                                     this.$v.currentRevenue.constantUnitSales,
                                     this.$v.currentRevenue.constantUnitSalesPeriod,
                                     this.$v.currentRevenue.start];
-                                
+
                             }
                             case REVENUE_TYPE_BILLABLE_HOURS:{
                                 return [this.$v.currentRevenue.billableHoursCountType,
@@ -3341,21 +3377,21 @@
                                     this.$v.currentRevenue.constantBillableHours,
                                     this.$v.currentRevenue.constantBillableHoursPeriod,
                                     this.$v.currentRevenue.start];
-                                
+
                             }
                             case REVENUE_TYPE_RECURRING_CHANGES:{
                                 return [this.$v.currentRevenue.customerCountType,
                                     this.$v.currentRevenue.constantCustomerCount,
                                     this.$v.currentRevenue.constantCustomerCountPeriod,
                                     this.$v.currentRevenue.start];
-                                
+
                             }
                             case REVENUE_TYPE_REVENUE_ONLY:{
                                 return [this.$v.currentRevenue.revenueStreamType,
                                     this.$v.currentRevenue.constantRevenueStream,
                                     this.$v.currentRevenue.constantRevenueStreamPeriod,
                                     this.$v.currentRevenue.start];
-                                
+
                             }
                             default:{
 
@@ -3366,30 +3402,27 @@
                         switch (this.currentRevenue.type){
                             case REVENUE_TYPE_UNIT_SALES:{
                                 return [this.$v.currentRevenue.unitPriceMeasureType, this.$v.currentRevenue.constantUnitPrice, this.$v.currentRevenue.unitPricePerPeriod];
-                                
+
                             }
                             case REVENUE_TYPE_BILLABLE_HOURS:{
                                 return [this.$v.currentRevenue.hourPriceMeasureType, this.$v.currentRevenue.constantHourPrice, this.$v.currentRevenue.hourPricePerPeriod];
-                                
+
                             }
                             case REVENUE_TYPE_RECURRING_CHANGES:{
                                 return [this.$v.currentRevenue.upFrontFeeMeasureType, this.$v.currentRevenue.constantUpFrontFee, this.$v.currentRevenue.upFrontFeePerPeriod,
                                         this.$v.currentRevenue.recurringChargeMeasureType, this.$v.currentRevenue.constantRecurringCharge, this.$v.currentRevenue.recurringChargePerPeriod,
                                         this.$v.currentRevenue.recurringChargeMonthFrequency];
-                                
+
                             }
 
                         }
                     }
                     case 4:{
                         return [this.$v.currentRevenue.churnRateMeasureType, this.$v.currentRevenue.constantChurnRate, this.$v.currentRevenue.churnRatePerPeriod];
-                        
+
                     }
                 }
             }
-        },
-        watch:{
-            
         },
         props: {
             revenue: {
