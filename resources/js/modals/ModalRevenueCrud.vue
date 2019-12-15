@@ -134,7 +134,7 @@
                             </p>
                             <p class="radio-right">
                                 <input  v-model="$v.currentRevenue.type.$model"
-                                       type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_RECURRING_CHANGES">
+                                       type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_RECURRING_CHANGES" @change="resetValidators()">
                                 <label>
                                     Recurring charges
                                 </label>
@@ -145,7 +145,7 @@
                             </p>
                             <p class="radio-right">
                                 <input v-model="$v.currentRevenue.type.$model"
-                                       type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_REVENUE_ONLY">
+                                       type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_REVENUE_ONLY" @change="resetValidators()">
                                 <label>
                                     Revenue only
                                 </label>
@@ -2998,6 +2998,9 @@
             },
             updateHeaderName(){
                 this.currentRevenue.headerName = this.currentRevenue.name;
+            },
+            resetValidators(){
+                this.$v.$reset();
             },
             handleTabChange(to){
                 let $this = this;

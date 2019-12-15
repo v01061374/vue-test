@@ -5310,6 +5310,9 @@ var _1400 = 14;
     updateHeaderName: function updateHeaderName() {
       this.currentRevenue.headerName = this.currentRevenue.name;
     },
+    resetValidators: function resetValidators() {
+      this.$v.$reset();
+    },
     handleTabChange: function handleTabChange(to) {
       var $this = this;
       var hasError = false;
@@ -34752,13 +34755,18 @@ var render = function() {
                                 )
                               },
                               on: {
-                                change: function($event) {
-                                  return _vm.$set(
-                                    _vm.$v.currentRevenue.type,
-                                    "$model",
-                                    _vm.REVENUE_TYPE_RECURRING_CHANGES
-                                  )
-                                }
+                                change: [
+                                  function($event) {
+                                    return _vm.$set(
+                                      _vm.$v.currentRevenue.type,
+                                      "$model",
+                                      _vm.REVENUE_TYPE_RECURRING_CHANGES
+                                    )
+                                  },
+                                  function($event) {
+                                    return _vm.resetValidators()
+                                  }
+                                ]
                               }
                             }),
                             _vm._v(" "),
@@ -34795,13 +34803,18 @@ var render = function() {
                                 )
                               },
                               on: {
-                                change: function($event) {
-                                  return _vm.$set(
-                                    _vm.$v.currentRevenue.type,
-                                    "$model",
-                                    _vm.REVENUE_TYPE_REVENUE_ONLY
-                                  )
-                                }
+                                change: [
+                                  function($event) {
+                                    return _vm.$set(
+                                      _vm.$v.currentRevenue.type,
+                                      "$model",
+                                      _vm.REVENUE_TYPE_REVENUE_ONLY
+                                    )
+                                  },
+                                  function($event) {
+                                    return _vm.resetValidators()
+                                  }
+                                ]
                               }
                             }),
                             _vm._v(" "),
