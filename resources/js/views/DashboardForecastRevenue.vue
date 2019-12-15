@@ -1824,7 +1824,6 @@
 
                 instructionVisibility:true,
                 moreInstructionVisibility: false,
-
                 modals: { //list of modals (except video modal)
                     // TODO resolve state change scroll bug
                     1:{
