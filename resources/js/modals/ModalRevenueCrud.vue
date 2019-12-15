@@ -1,8 +1,8 @@
 <template>
     <base-modal show-modal="true" @close="close">
         <template #header>
-            <p v-if="revenue">
-                درباره"{{revenue.title}}"
+            <p v-if="currentRevenue.headerName.length">
+                درباره"{{currentRevenue.headerName}}"
             </p>
             <p v-else>
                 درباره این درآمد بگویید
@@ -116,7 +116,7 @@
                         <div class="radio-buttons-list rtl" tabindex="0" role="radiogroup">
                             <p class="radio-right">
                                 <input  v-model="$v.currentRevenue.type.$model"
-                                       type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_UNIT_SALES">
+                                       type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_UNIT_SALES" @change="resetValidators()">
                                 <label>تعداد فروش</label>
                             </p>
                             <p class="description">
@@ -124,7 +124,7 @@
                             </p>
                             <p class="radio-right">
                                 <input  v-model="$v.currentRevenue.type.$model"
-                                       type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_BILLABLE_HOURS">
+                                       type="radio" name="revenueType" class="radio-style" :value="REVENUE_TYPE_BILLABLE_HOURS" @change="resetValidators()">
                                 <label>
                                     Billable hours
                                 </label>
@@ -179,6 +179,7 @@
                                             <label>
                                                 <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
                                                        v-model="currentRevenue.unitSalesCountType" @change="$v.currentRevenue.constantUnitSales.$reset">
+                                                <!--TODO add this reset to all radios-->
                                                 <!-- react-text: 131 -->لورم<!-- /react-text -->
                                             </label>
                                         </li>
@@ -2826,9 +2827,11 @@
                     {title: '11', code: 11},
                     {title: '12', code: 12}
                 ],
+                headerName : "",
                 currentRevenue:{
                     start: FAR_1398,
                     name: '',
+                    headerName: '',
                     type: NOT_SELECTED,
 
                     unitSalesCountType: MEASURE_TYPE_CONSTANT,
@@ -2993,7 +2996,9 @@
             setRevenueType: function (revenueType) {
                 this.currentRevenue.type = revenueType;
             },
-            
+            updateHeaderName(){
+                this.currentRevenue.headerName = this.currentRevenue.name;
+            },
             handleTabChange(to){
                 let $this = this;
                 let hasError = false;
@@ -3007,15 +3012,24 @@
                             }
                         });
                         if(!hasError){
+                            if(this.currentTab === 0){
+                                $this.updateHeaderName();
+                            }
                             this.currentTab = to;
                         }
                     }
                     else{
+                        if(this.currentTab === 0){
+                            $this.updateHeaderName();
+                        }
                         $this.currentTab=to;
 
                     }
                 }
                 else{
+                    if(this.currentTab === 0){
+                        $this.updateHeaderName();
+                    }
                     $this.currentTab=to;
 
                 }

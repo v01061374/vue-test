@@ -4832,6 +4832,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var NOT_SELECTED = -1;
 var REVENUE_TYPE_UNIT_SALES = 0;
 var REVENUE_TYPE_BILLABLE_HOURS = 1;
@@ -4976,9 +4977,11 @@ var _1400 = 14;
         title: '12',
         code: 12
       }],
+      headerName: "",
       currentRevenue: {
         start: FAR_1398,
         name: '',
+        headerName: '',
         type: NOT_SELECTED,
         unitSalesCountType: MEASURE_TYPE_CONSTANT,
         constantUnitSalesPeriod: LENGTH_MONTH,
@@ -5304,6 +5307,9 @@ var _1400 = 14;
     setRevenueType: function setRevenueType(revenueType) {
       this.currentRevenue.type = revenueType;
     },
+    updateHeaderName: function updateHeaderName() {
+      this.currentRevenue.headerName = this.currentRevenue.name;
+    },
     handleTabChange: function handleTabChange(to) {
       var $this = this;
       var hasError = false;
@@ -5320,12 +5326,24 @@ var _1400 = 14;
           });
 
           if (!hasError) {
+            if (this.currentTab === 0) {
+              $this.updateHeaderName();
+            }
+
             this.currentTab = to;
           }
         } else {
+          if (this.currentTab === 0) {
+            $this.updateHeaderName();
+          }
+
           $this.currentTab = to;
         }
       } else {
+        if (this.currentTab === 0) {
+          $this.updateHeaderName();
+        }
+
         $this.currentTab = to;
       }
     }
@@ -34210,11 +34228,11 @@ var render = function() {
         key: "header",
         fn: function() {
           return [
-            _vm.revenue
+            _vm.currentRevenue.headerName.length
               ? _c("p", [
                   _vm._v(
                     '\n            درباره"' +
-                      _vm._s(_vm.revenue.title) +
+                      _vm._s(_vm.currentRevenue.headerName) +
                       '"\n        '
                   )
                 ])
@@ -34642,13 +34660,18 @@ var render = function() {
                                 )
                               },
                               on: {
-                                change: function($event) {
-                                  return _vm.$set(
-                                    _vm.$v.currentRevenue.type,
-                                    "$model",
-                                    _vm.REVENUE_TYPE_UNIT_SALES
-                                  )
-                                }
+                                change: [
+                                  function($event) {
+                                    return _vm.$set(
+                                      _vm.$v.currentRevenue.type,
+                                      "$model",
+                                      _vm.REVENUE_TYPE_UNIT_SALES
+                                    )
+                                  },
+                                  function($event) {
+                                    return _vm.resetValidators()
+                                  }
+                                ]
                               }
                             }),
                             _vm._v(" "),
@@ -34681,13 +34704,18 @@ var render = function() {
                                 )
                               },
                               on: {
-                                change: function($event) {
-                                  return _vm.$set(
-                                    _vm.$v.currentRevenue.type,
-                                    "$model",
-                                    _vm.REVENUE_TYPE_BILLABLE_HOURS
-                                  )
-                                }
+                                change: [
+                                  function($event) {
+                                    return _vm.$set(
+                                      _vm.$v.currentRevenue.type,
+                                      "$model",
+                                      _vm.REVENUE_TYPE_BILLABLE_HOURS
+                                    )
+                                  },
+                                  function($event) {
+                                    return _vm.resetValidators()
+                                  }
+                                ]
                               }
                             }),
                             _vm._v(" "),
