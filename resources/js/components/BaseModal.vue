@@ -2,7 +2,7 @@
     <div v-if="showModal">
             <div class="modal-mask">
                 <div class="modal-wrapper">
-                    <div class="modal-container">
+                    <div :class="['modal-container', wider ? 'wide-container' : '']">
                         <div class="base-modal-body">
                             <div class="base-modal-header-wrapper">
                                 <div class="base-modal-header">
@@ -32,6 +32,10 @@
         props: {
             showModal: {
                 required: true,
+                default: false
+            },
+            wider: {
+                required: false,
                 default: false
             }
         },
@@ -95,7 +99,10 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
         font-family: Helvetica, Arial, sans-serif;
     }
+    .modal-container.wide-container{
+        width: 1024px;
 
+    }
     .modal-header h3 {
         margin-top: 0;
         color: #42b983;

@@ -1872,6 +1872,10 @@ __webpack_require__.r(__webpack_exports__);
     showModal: {
       required: true,
       "default": false
+    },
+    wider: {
+      required: false,
+      "default": false
     }
   },
   methods: {
@@ -4815,26 +4819,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var NOT_SELECTED = -1;
 var REVENUE_TYPE_UNIT_SALES = 0;
 var REVENUE_TYPE_BILLABLE_HOURS = 1;
@@ -4864,6 +4848,8 @@ var UNIT_PRICE = 1;
 var UP_FEE = 2;
 var CHURN_RATE = 3;
 var REVENUE_STREAM = 4;
+var MODAL_WIDTH_WIDE = true;
+var MODAL_WIDTH_NARROW = false;
 
 
 
@@ -5012,283 +4998,34 @@ var REVENUE_STREAM = 4;
         ,
         unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
         constantUnitPrice: '',
-        unitPricePerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        },
+        unitPricePerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         billableHoursCountType: MEASURE_TYPE_CONSTANT,
         constantBillableHoursPeriod: LENGTH_MONTH,
         constantBillableHours: '',
-        billableHoursPerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        },
+        billableHoursPerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
         constantHourPrice: '',
-        hourPricePerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        },
+        hourPricePerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         customerCountType: MEASURE_TYPE_CONSTANT,
         constantCustomerCount: '',
-        customerCountPerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        },
+        customerCountPerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         upFrontFeeMeasureType: MEASURE_TYPE_FREE,
         constantUpFrontFee: '',
-        upFrontFeePerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        },
+        upFrontFeePerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
         constantRecurringCharge: '',
-        recurringChargePerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        },
+        recurringChargePerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         recurringChargeMonthFrequency: 1,
         // type 2 - tab 4
         churnRateMeasureType: MEASURE_TYPE_CONSTANT,
         constantChurnRate: '',
-        churnRatePerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        },
+        churnRatePerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         revenueStreamType: MEASURE_TYPE_CONSTANT,
         constantRevenueStream: '',
         constantRevenueStreamPeriod: LENGTH_MONTH,
-        revenueStreamPerPeriod: {
-          FAR_1398: '',
-          ORD_1398: '',
-          KHO_1398: '',
-          TIR_1398: '',
-          MOR_1398: '',
-          SHAH_1398: '',
-          MEHR_1398: '',
-          ABA_1398: '',
-          AZAR_1398: '',
-          DEY_1398: '',
-          BAH_1398: '',
-          ESF_1398: '',
-          _1399: '',
-          _1400: ''
-        }
-      },
-      revenueStart: FAR_1398,
-      //
-      // tab 0
-      tempRevenueName: '',
-      //
-      // tab 1
-      tempRevenueType: NOT_SELECTED,
-      //
-      //type 0 - tab 2 && type 1 - tab 2 && && type 2 - tab 2 && type 3 - tab 1
-      tempServiceCountType: MEASURE_TYPE_CONSTANT,
-      //
-      tempConstantServicePeriod: LENGTH_MONTH,
-      // for type 2 = LENGTH_MONTH//
-      tempConstantServiceCount: '',
-      //
-      tempServiceCountPerPeriod: {
-        //
-        FAR_1398: '',
-        ORD_1398: '',
-        KHO_1398: '',
-        TIR_1398: '',
-        MOR_1398: '',
-        SHAH_1398: '',
-        MEHR_1398: '',
-        ABA_1398: '',
-        AZAR_1398: '',
-        DEY_1398: '',
-        BAH_1398: '',
-        ESF_1398: '',
-        _1399: '',
-        _1400: ''
-      },
-      // type 0 - tab 3 && type 1 - tab 3
-      tempUnitPriceType: MEASURE_TYPE_CONSTANT,
-      //
-      tempConstantUnitPrice: '',
-      //
-      tempUnitPricePerPeriod: {
-        FAR_1398: '',
-        ORD_1398: '',
-        KHO_1398: '',
-        TIR_1398: '',
-        MOR_1398: '',
-        SHAH_1398: '',
-        MEHR_1398: '',
-        ABA_1398: '',
-        AZAR_1398: '',
-        DEY_1398: '',
-        BAH_1398: '',
-        ESF_1398: '',
-        _1399: '',
-        _1400: ''
-      },
-      // type 2 - tab 3
-      tempUpFrontFeeType: MEASURE_TYPE_FREE,
-      tempConstantUpFrontFee: '',
-      tempUpFrontFeePerPeriod: {
-        FAR_1398: '',
-        ORD_1398: '',
-        KHO_1398: '',
-        TIR_1398: '',
-        MOR_1398: '',
-        SHAH_1398: '',
-        MEHR_1398: '',
-        ABA_1398: '',
-        AZAR_1398: '',
-        DEY_1398: '',
-        BAH_1398: '',
-        ESF_1398: '',
-        _1399: '',
-        _1400: ''
-      },
-      tempRecurringChargeType: MEASURE_TYPE_CONSTANT,
-      tempConstantRecurringCharge: '',
-      tempRecurringChargePerPeriod: {
-        FAR_1398: '',
-        ORD_1398: '',
-        KHO_1398: '',
-        TIR_1398: '',
-        MOR_1398: '',
-        SHAH_1398: '',
-        MEHR_1398: '',
-        ABA_1398: '',
-        AZAR_1398: '',
-        DEY_1398: '',
-        BAH_1398: '',
-        ESF_1398: '',
-        _1399: '',
-        _1400: ''
-      },
-      tempRecurringChargeMonthFrequency: 1,
-      // type 2 - tab 4
-      tempChurnRateType: MEASURE_TYPE_CONSTANT,
-      tempConstantChurnRate: '',
-      tempChurnRatePerPeriod: {
-        FAR_1398: '',
-        ORD_1398: '',
-        KHO_1398: '',
-        TIR_1398: '',
-        MOR_1398: '',
-        SHAH_1398: '',
-        MEHR_1398: '',
-        ABA_1398: '',
-        AZAR_1398: '',
-        DEY_1398: '',
-        BAH_1398: '',
-        ESF_1398: '',
-        _1399: '',
-        _1400: ''
-      },
-      tempRevenueStreamType: MEASURE_TYPE_CONSTANT,
-      tempConstantRevenueStream: '',
-      tempConstantRevenueStreamPeriod: LENGTH_MONTH,
-      tempRevenueStreamPerPeriod: {
-        FAR_1398: '',
-        ORD_1398: '',
-        KHO_1398: '',
-        TIR_1398: '',
-        MOR_1398: '',
-        SHAH_1398: '',
-        MEHR_1398: '',
-        ABA_1398: '',
-        AZAR_1398: '',
-        DEY_1398: '',
-        BAH_1398: '',
-        ESF_1398: '',
-        _1399: '',
-        _1400: ''
-      } // currentTabValidators: [],
+        revenueStreamPerPeriod: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] // add isComplete flag to backend for tamp. saved ravenues
 
+      }
     };
   },
   methods: {
@@ -5331,7 +5068,6 @@ var REVENUE_STREAM = 4;
             validator.$touch();
 
             if (validator.$error) {
-              console.log('error');
               hasError = true;
             }
           });
@@ -5382,29 +5118,17 @@ var REVENUE_STREAM = 4;
               }
 
               $this.updateRevenueFromChart(ref, x, y);
-            } // 'redraw': function(e) {
-            //     // let output = {'ref': ref, 'series' : []};
-            //     // for (let i = 0; i < 12 ; i++ ){
-            //     //     output.series[i] = Math.round(this.series[0].data[i].y);
-            //     // }
-            //     // // $this.currentRevenue.unitSalesPerPeriod = output.series;
-            //     //
-            //     // // EventBus.$emit('modal-chart-redraw', output);
-            // }
-
+            }
           }
         },
         series: [{
           name: 'unit-sales',
-          data: data //     Object.keys(data).map(function(key) {
-          //     return data[key]? data[key] : 0;
-          //     // TODO solve totally null chart problem
-          // })
-          .slice(0, 12)
+          data: data.slice(0, 12) // TODO solve totally null chart problem
+
         }],
         plotOptions: {
           series: {
-            animation: true,
+            animation: false,
             stickyTracking: false,
             dragDrop: {
               draggableY: true,
@@ -5546,17 +5270,7 @@ var REVENUE_STREAM = 4;
           }
       }
 
-      var sum = 0; // for(let p in series){
-      //     if (!series.hasOwnProperty(p)){continue}
-      //     else{
-      //         if(!series[p] && series[p]!==0){}
-      //         else{
-      //             sum = sum + series[p];
-      //         }
-      //     }
-      //
-      // }
-
+      var sum = 0;
       series.forEach(function (item, i) {
         if (!item && item !== 0) {} else {
           sum = sum + item;
@@ -5565,11 +5279,6 @@ var REVENUE_STREAM = 4;
       return sum;
     },
     //ok
-    updateChartFromInput: function updateChartFromInput(value, ref, index) {// if(!value){
-      //     this.currentRevenue.unitSalesPerPeriod[index] = 0;
-      // }
-      // this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
-    },
     updateRevenueFromChart: function updateRevenueFromChart(ref, x, y) {
       switch (this.currentRevenue.type) {
         case REVENUE_TYPE_UNIT_SALES:
@@ -5577,89 +5286,112 @@ var REVENUE_STREAM = 4;
             switch (ref) {
               case UNIT_COUNT:
                 {
-                  this.$set(this.currentRevenue.unitSalesPerPeriod, x, Math.round(y)); // series.forEach(function (el, i) {
-                  //     console.log('$this.currentRevenue.unitSalesPerPeriod.i',$this.currentRevenue.unitSalesPerPeriod.i);
-                  //     $this.currentRevenue.unitSalesPerPeriod.i = el;
-                  // });
-
+                  this.$set(this.currentRevenue.unitSalesPerPeriod, x, Math.round(y));
                   break;
                 }
-              // case UNIT_PRICE:{
-              //     series.forEach(function (el, i) {
-              //         $this.currentRevenue.unitPricePerPeriod.i = el;
-              //     });
-              //     break;
-              // }
+
+              case UNIT_PRICE:
+                {
+                  this.$set(this.currentRevenue.unitPricePerPeriod, x, Math.round(y));
+                  break;
+                }
             }
 
             break;
           }
-        // case REVENUE_TYPE_BILLABLE_HOURS: {
-        //     switch (ref) {
-        //         case UNIT_COUNT:{
-        //             series.forEach(function (el, i) {
-        //                 $this.currentRevenue.billableHoursPerPeriod.i = el;
-        //             });
-        //             break;
-        //         }
-        //         case UNIT_PRICE:{
-        //             series.forEach(function (el, i) {
-        //                 $this.currentRevenue.hourPricePerPeriod.i = el;
-        //             });
-        //             break;
-        //         }
-        //     }
-        //     break;
-        // }
-        // case REVENUE_TYPE_RECURRING_CHANGES:{
-        //     switch (ref) {
-        //         case UNIT_COUNT:{
-        //             series.forEach(function (el, i) {
-        //                 $this.currentRevenue.customerCountPerPeriod.i = el;
-        //             });
-        //             break;
-        //         }
-        //         case UNIT_PRICE:{
-        //             series.forEach(function (el, i) {
-        //                 $this.currentRevenue.recurringChargePerPeriod.i = el;
-        //             });
-        //             break;
-        //         }
-        //         case UP_FEE:{
-        //             series.forEach(function (el, i) {
-        //                 $this.currentRevenue.upFrontFeePerPeriod.i = el;
-        //             });
-        //             break;
-        //         }
-        //         case CHURN_RATE:{
-        //             series.forEach(function (el, i) {
-        //                 $this.currentRevenue.churnRatePerPeriod.i = el;
-        //             });
-        //             break;
-        //         }
-        //     }
-        //     break;
-        // }
-        // case REVENUE_TYPE_REVENUE_ONLY:{
-        //     switch (ref) {
-        //         case REVENUE_STREAM:{
-        //             series.forEach(function (el, i) {
-        //                 $this.currentRevenue.revenueStreamPerPeriod.i = el;
-        //             });
-        //             break;
-        //         }
-        //     }
-        //     break;
-        // }
+
+        case REVENUE_TYPE_BILLABLE_HOURS:
+          {
+            switch (ref) {
+              case UNIT_COUNT:
+                {
+                  this.$set(this.currentRevenue.billableHoursPerPeriod, x, Math.round(y));
+                  break;
+                }
+
+              case UNIT_PRICE:
+                {
+                  this.$set(this.currentRevenue.hourPricePerPeriod, x, Math.round(y));
+                  break;
+                }
+            }
+
+            break;
+          }
+
+        case REVENUE_TYPE_RECURRING_CHANGES:
+          {
+            switch (ref) {
+              case UNIT_COUNT:
+                {
+                  this.$set(this.currentRevenue.customerCountPerPeriod, x, Math.round(y));
+                  break;
+                }
+
+              case UNIT_PRICE:
+                {
+                  this.$set(this.currentRevenue.recurringChargePerPeriod, x, Math.round(y));
+                  break;
+                }
+
+              case UP_FEE:
+                {
+                  this.$set(this.currentRevenue.upFrontFeePerPeriod, x, Math.round(y));
+                  break;
+                }
+
+              case CHURN_RATE:
+                {
+                  this.$set(this.currentRevenue.churnRatePerPeriod, x, Math.round(y));
+                  break;
+                }
+            }
+
+            break;
+          }
+
+        case REVENUE_TYPE_REVENUE_ONLY:
+          {
+            switch (ref) {
+              case REVENUE_STREAM:
+                {
+                  this.$set(this.currentRevenue.revenueStreamPerPeriod, x, Math.round(y));
+                  break;
+                }
+            }
+
+            break;
+          }
+      }
+    },
+    finalSave: function finalSave() {
+      var $this = this;
+      var hasError = false;
+
+      if (this.currentTabValidators.length) {
+        this.currentTabValidators.forEach(function (validator, i) {
+          validator.$touch();
+
+          if (validator.$error) {
+            hasError = true;
+          }
+        });
+
+        if (!hasError) {
+          this.$emit('save', this.currentRevenue);
+        }
+      } else {
+        this.$emit('save', this.currentRevenue);
       }
     }
+  },
+  tampSave: function tampSave() {//just check the name
   },
   validations: function validations() {
     return {
       currentRevenue: {
         start: {
-          required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-          between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(FAR_1398, _1400)
+          required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
         },
         name: {
           required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
@@ -5685,7 +5417,9 @@ var REVENUE_STREAM = 4;
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
         },
         constantUnitSalesPeriod: {
-          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(this.currentRevenue.unitSalesCountType === MEASURE_TYPE_CONSTANT),
+          required: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["requiredIf"])(function () {
+            return this.currentRevenue.unitSalesCountType === MEASURE_TYPE_CONSTANT;
+          }),
           between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(LENGTH_MONTH, LENGTH_YEAR)
         },
         constantUnitSales: {
@@ -5903,8 +5637,7 @@ var REVENUE_STREAM = 4;
         maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["maxLength"])(255)
       },
       revenueStart: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(1, 14)
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
       },
       tempRevenueType: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
@@ -6051,15 +5784,118 @@ var REVENUE_STREAM = 4;
             return [this.$v.currentRevenue.churnRateMeasureType, this.$v.currentRevenue.constantChurnRate, this.$v.currentRevenue.churnRatePerPeriod];
           }
       }
+    },
+    modalWidth: function modalWidth() {
+      switch (this.currentRevenue.type) {
+        case REVENUE_TYPE_UNIT_SALES:
+          {
+            switch (this.currentTab) {
+              case 2:
+                {
+                  if (this.currentRevenue.unitSalesCountType === MEASURE_TYPE_VARIABLE) {
+                    return MODAL_WIDTH_WIDE;
+                  } else {
+                    return MODAL_WIDTH_NARROW;
+                  }
+                }
+
+              case 3:
+                {
+                  if (this.currentRevenue.unitPriceMeasureType === MEASURE_TYPE_VARIABLE) {
+                    return MODAL_WIDTH_WIDE;
+                  } else {
+                    return MODAL_WIDTH_NARROW;
+                  }
+                }
+
+              default:
+                {
+                  return MODAL_WIDTH_NARROW;
+                }
+            }
+
+            break;
+          }
+
+        case REVENUE_TYPE_BILLABLE_HOURS:
+          {
+            switch (this.currentTab) {
+              case 2:
+                {
+                  if (this.currentRevenue.billableHoursCountType === MEASURE_TYPE_VARIABLE) {
+                    return MODAL_WIDTH_WIDE;
+                  } else {
+                    return MODAL_WIDTH_NARROW;
+                  }
+                }
+
+              case 3:
+                {
+                  if (this.currentRevenue.hourPriceMeasureType === MEASURE_TYPE_VARIABLE) {
+                    return MODAL_WIDTH_WIDE;
+                  } else {
+                    return MODAL_WIDTH_NARROW;
+                  }
+                }
+
+              default:
+                {
+                  return MODAL_WIDTH_NARROW;
+                }
+            }
+
+            break;
+          }
+
+        case REVENUE_TYPE_RECURRING_CHANGES:
+          {
+            switch (this.currentTab) {
+              case 2:
+                {
+                  if (this.currentRevenue.customerCountType === MEASURE_TYPE_VARIABLE) {
+                    return MODAL_WIDTH_WIDE;
+                  } else {
+                    return MODAL_WIDTH_NARROW;
+                  }
+                }
+
+              case 3:
+                {
+                  if (this.currentRevenue.upFrontFeeMeasureType === MEASURE_TYPE_VARIABLE || this.currentRevenue.recurringChargeMeasureType === MEASURE_TYPE_VARIABLE) {
+                    return MODAL_WIDTH_WIDE;
+                  } else {
+                    return MODAL_WIDTH_NARROW;
+                  }
+                }
+
+              default:
+                {
+                  return MODAL_WIDTH_NARROW;
+                }
+            }
+
+            break;
+          }
+
+        case REVENUE_TYPE_REVENUE_ONLY:
+          {
+            if (this.currentTab === 2 && this.currentRevenue.revenueStreamType === MEASURE_TYPE_VARIABLE) {
+              return MODAL_WIDTH_WIDE;
+            } else {
+              return MODAL_WIDTH_NARROW;
+            }
+
+            break;
+          }
+
+        default:
+          {
+            return MODAL_WIDTH_NARROW;
+          }
+      }
     }
   },
-  mounted: function mounted() {
-    var _this = this;
-
-    _js_event_bus_js__WEBPACK_IMPORTED_MODULE_2__["EventBus"].$on('modal-chart-redraw', function (data) {
-      _this.updateRevenueFromChart(data);
-    });
-  },
+  mounted: function mounted() {},
   props: {
     revenue: {
       type: Object
@@ -6069,7 +5905,7 @@ var REVENUE_STREAM = 4;
     BaseModal: _components_BaseModal__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   watch: {
-    currentRevenue: {}
+    currentRevenue: function currentRevenue() {}
   }
 });
 
@@ -7643,991 +7479,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -9278,24 +8129,11 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData; // console.log(this.annualUnitSalesChartOptions.series[0].data);
-    } // TODO optional: make a new component from modal contents
-    // checkName(serverSide = false){
-    //     console.log('validation');
-    //     if (this.tempRevenueName.length < 1){
-    //         this.errors['name'].push('نام را وارد کنید');
-    //         return false;
-    //     }
-    //     else{
-    //
-    //         if(serverSide){
-    //             //TODO implement server side validation logic
-    //         }
-    //     }
-    //     this.errors.name = [];
-    //     return true;
-    //
-    // },
-
+    },
+    saveRevenue: function saveRevenue(revenue) {
+      this.toggleModalVisibility(1);
+      console.log(revenue);
+    }
   },
   computed: {
     tableData: function tableData() {
@@ -9517,7 +8355,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.modal-mask[data-v-baa08afe] {\n    z-index: 11010;\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    overflow: auto;\n    background-color: rgba(44, 46, 47, 0.99);\n}\n.modal-wrapper[data-v-baa08afe] {\n    position: absolute;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    top: 0;\n    margin-top: 50px;\n    border-radius: 3px;\n}\n.modal-container[data-v-baa08afe] {\n    width: 500px;\n    margin: 0 auto;\n    /* padding: 20px 30px; */\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-baa08afe] {\n    margin-top: 0;\n    color: #42b983;\n}\n.base-modal-body[data-v-baa08afe] {\n    margin: 20px 0;\n    position: relative;\n}\n.base-modal-body .modal-close-button[data-v-baa08afe], .base-modal-body .modal-close-text[data-v-baa08afe] {\n    position: absolute;\n    cursor: pointer;\n}\n.base-modal-body .modal-close-button[data-v-baa08afe]{\n    top: 18px;\n    width: 20px;\n    height: 20px;\n    right: 18px;\n}\n.base-modal-body .modal-close-button[data-v-baa08afe]:before, .base-modal-body .modal-close-button[data-v-baa08afe]:after {\n    position: absolute;\n    content: ' ';\n    height: 20px;\n    width: 2px;\n    background-color: #fff;\n}\n.base-modal-body .modal-close-button[data-v-baa08afe]:before {\n    transform: rotate(45deg);\n}\n.base-modal-body .modal-close-button[data-v-baa08afe]:after {\n    transform: rotate(-45deg);\n}\n.modal-default-button[data-v-baa08afe] {\n    float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-baa08afe] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-baa08afe] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-baa08afe],\n.modal-leave-active .modal-container[data-v-baa08afe] {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\n.base-modal-header-wrapper[data-v-baa08afe] {\n    background-color: #72C152;\n    height: 55px;\n    border-radius: 3px 3px 0 0;\n}\n.base-modal-header-wrapper .base-modal-header[data-v-baa08afe]{\n    direction: rtl;\n    text-align: right;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    line-height: 55px;\n    margin-left: 55px;\n    margin-right: 30px;\n    font-size: 18px;\n    color: #FFFFFF;\n    font-family: IRANSans, Tahoma;\n}\n/*TODO correct margins*/\n.modal-content-container[data-v-baa08afe]{\n    padding-top: 30px;\n    padding-left: 30px;\n    padding-right: 30px;\n    font-family: IRANSans, Tahoma;\n    direction: rtl;\n    text-align: right;\n    /*TODO add class for font and direction*/\n}\n.modal-footer[data-v-baa08afe]{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -ms-flex-direction: row-reverse;\n    flex-direction: row-reverse;\n    -webkit-box-align: center;\n    -ms-flex-align: center;\n    align-items: center;\n    border-radius: 0 0 3px 3px;\n    height: 70px;\n    background-color: #D5DBE1;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    padding: 0 30px;\n    font-family: IRANSans, Tahoma;\n}\n", ""]);
+exports.push([module.i, "\n.modal-mask[data-v-baa08afe] {\n    z-index: 11010;\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    overflow: auto;\n    background-color: rgba(44, 46, 47, 0.99);\n}\n.modal-wrapper[data-v-baa08afe] {\n    position: absolute;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    top: 0;\n    margin-top: 50px;\n    border-radius: 3px;\n}\n.modal-container[data-v-baa08afe] {\n    width: 500px;\n    margin: 0 auto;\n    /* padding: 20px 30px; */\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-container.wide-container[data-v-baa08afe]{\n    width: 1024px;\n}\n.modal-header h3[data-v-baa08afe] {\n    margin-top: 0;\n    color: #42b983;\n}\n.base-modal-body[data-v-baa08afe] {\n    margin: 20px 0;\n    position: relative;\n}\n.base-modal-body .modal-close-button[data-v-baa08afe], .base-modal-body .modal-close-text[data-v-baa08afe] {\n    position: absolute;\n    cursor: pointer;\n}\n.base-modal-body .modal-close-button[data-v-baa08afe]{\n    top: 18px;\n    width: 20px;\n    height: 20px;\n    right: 18px;\n}\n.base-modal-body .modal-close-button[data-v-baa08afe]:before, .base-modal-body .modal-close-button[data-v-baa08afe]:after {\n    position: absolute;\n    content: ' ';\n    height: 20px;\n    width: 2px;\n    background-color: #fff;\n}\n.base-modal-body .modal-close-button[data-v-baa08afe]:before {\n    transform: rotate(45deg);\n}\n.base-modal-body .modal-close-button[data-v-baa08afe]:after {\n    transform: rotate(-45deg);\n}\n.modal-default-button[data-v-baa08afe] {\n    float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-baa08afe] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-baa08afe] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-baa08afe],\n.modal-leave-active .modal-container[data-v-baa08afe] {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\n.base-modal-header-wrapper[data-v-baa08afe] {\n    background-color: #72C152;\n    height: 55px;\n    border-radius: 3px 3px 0 0;\n}\n.base-modal-header-wrapper .base-modal-header[data-v-baa08afe]{\n    direction: rtl;\n    text-align: right;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    line-height: 55px;\n    margin-left: 55px;\n    margin-right: 30px;\n    font-size: 18px;\n    color: #FFFFFF;\n    font-family: IRANSans, Tahoma;\n}\n/*TODO correct margins*/\n.modal-content-container[data-v-baa08afe]{\n    padding-top: 30px;\n    padding-left: 30px;\n    padding-right: 30px;\n    font-family: IRANSans, Tahoma;\n    direction: rtl;\n    text-align: right;\n    /*TODO add class for font and direction*/\n}\n.modal-footer[data-v-baa08afe]{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -ms-flex-direction: row-reverse;\n    flex-direction: row-reverse;\n    -webkit-box-align: center;\n    -ms-flex-align: center;\n    align-items: center;\n    border-radius: 0 0 3px 3px;\n    height: 70px;\n    background-color: #D5DBE1;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    padding: 0 30px;\n    font-family: IRANSans, Tahoma;\n}\n", ""]);
 
 // exports
 
@@ -9555,7 +8393,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
 
 // exports
 
@@ -34280,46 +33118,50 @@ var render = function() {
     ? _c("div", [
         _c("div", { staticClass: "modal-mask" }, [
           _c("div", { staticClass: "modal-wrapper" }, [
-            _c("div", { staticClass: "modal-container" }, [
-              _c("div", { staticClass: "base-modal-body" }, [
-                _c("div", { staticClass: "base-modal-header-wrapper" }, [
-                  _c(
-                    "div",
-                    { staticClass: "base-modal-header" },
-                    [
-                      _vm._t("header"),
-                      _vm._v(" "),
-                      _c("a", {
-                        staticClass: "modal-close-button",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.close($event)
+            _c(
+              "div",
+              { class: ["modal-container", _vm.wider ? "wide-container" : ""] },
+              [
+                _c("div", { staticClass: "base-modal-body" }, [
+                  _c("div", { staticClass: "base-modal-header-wrapper" }, [
+                    _c(
+                      "div",
+                      { staticClass: "base-modal-header" },
+                      [
+                        _vm._t("header"),
+                        _vm._v(" "),
+                        _c("a", {
+                          staticClass: "modal-close-button",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.close($event)
+                            }
                           }
-                        }
-                      })
-                    ],
-                    2
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { attrs: { role: "group" } }, [
+                        })
+                      ],
+                      2
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { attrs: { role: "group" } }, [
+                    _c(
+                      "div",
+                      { staticClass: "modal-content-container" },
+                      [_vm._t("content")],
+                      2
+                    )
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "modal-content-container" },
-                    [_vm._t("content")],
+                    { staticClass: "modal-footer" },
+                    [_vm._t("footer")],
                     2
                   )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "modal-footer" },
-                  [_vm._t("footer")],
-                  2
-                )
-              ])
-            ])
+                ])
+              ]
+            )
           ])
         ])
       ])
@@ -34539,7 +33381,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("base-modal", {
-    attrs: { "show-modal": "true" },
+    attrs: { "show-modal": "true", wider: _vm.modalWidth },
     on: { close: _vm.close },
     scopedSlots: _vm._u([
       {
@@ -39336,6 +38178,99 @@ var render = function() {
                     )
                   ]
                 )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.currentTab === 2
+              ? _c(
+                  "div",
+                  { staticClass: "modal-footer-controls-container left" },
+                  [
+                    _c(
+                      "button",
+                      {
+                        class: ["modal-button", "primary"],
+                        attrs: { tabindex: "0" },
+                        on: {
+                          click: function($event) {
+                            return _vm.handleTabChange(3)
+                          }
+                        }
+                      },
+                      [_vm._v("بعدی")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "modal-button enabled",
+                        attrs: { tabindex: "0" }
+                      },
+                      [_vm._v("ذخیره و افزودن مورد دیگر")]
+                    )
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.currentTab === 3 &&
+            _vm.currentRevenue.type === _vm.REVENUE_TYPE_RECURRING_CHANGES
+              ? _c(
+                  "div",
+                  { staticClass: "modal-footer-controls-container left" },
+                  [
+                    _c(
+                      "button",
+                      {
+                        class: ["modal-button", "primary"],
+                        attrs: { tabindex: "0" },
+                        on: {
+                          click: function($event) {
+                            return _vm.handleTabChange(4)
+                          }
+                        }
+                      },
+                      [_vm._v("بعدی")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "modal-button enabled",
+                        attrs: { tabindex: "0" }
+                      },
+                      [_vm._v("ذخیره و افزودن مورد دیگر")]
+                    )
+                  ]
+                )
+              : _vm.currentTab === 3 &&
+                _vm.currentRevenue.type !== _vm.REVENUE_TYPE_RECURRING_CHANGES
+              ? _c(
+                  "div",
+                  { staticClass: "modal-footer-controls-container left" },
+                  [
+                    _c(
+                      "button",
+                      {
+                        class: ["modal-button", "primary"],
+                        attrs: { tabindex: "0" },
+                        on: {
+                          click: function($event) {
+                            return _vm.finalSave()
+                          }
+                        }
+                      },
+                      [_vm._v("بعدی")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "modal-button enabled",
+                        attrs: { tabindex: "0" }
+                      },
+                      [_vm._v("ذخیره و افزودن مورد دیگر")]
+                    )
+                  ]
+                )
               : _vm._e()
           ]
         },
@@ -42851,16 +41786,13 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-       false
-        ? undefined
-        : _vm._e(),
-      _vm._v(" "),
       _vm.isModalVisible(1)
         ? _c("modal-revenue-crud", {
             on: {
               "close-modal": function($event) {
                 return _vm.toggleModalVisibility(1)
-              }
+              },
+              save: _vm.saveRevenue
             }
           })
         : _vm._e()
@@ -42882,1252 +41814,6 @@ var staticRenderFns = [
           "\n                        لورم ایپسوم فلان فلان\n                    "
         )
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("strong", { staticClass: "faNum" }, [_vm._v("1398 - ")]),
-      _vm._v(
-        "\n                                                                فلان فلان فلان\n                                                            "
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("p", [_vm._v("1399")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "valid" }, [
-        _c("div", [
-          _c("input", {
-            staticClass: "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-            attrs: { type: "text", value: "" }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "fillRightDots", attrs: { "aria-hidden": "true" } },
-            [
-              _vm._v(
-                "\n                                                                                 \n                                                                            "
-              )
-            ]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("p", [_vm._v("1340")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "valid" }, [
-        _c("div", [
-          _c("input", {
-            staticClass: "input-box _3nXdR_fo3j0MwFs8AZWYc5",
-            attrs: { type: "text", value: "" }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "fillRightDots", attrs: { "aria-hidden": "true" } },
-            [
-              _vm._v(
-                "\n                                                                                 \n                                                                            "
-              )
-            ]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-        [
-          _c("div", { staticClass: "title-top" }, [
-            _vm._v(
-              "\n                                        What price will you charge for each unit?\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "title-content" }, [
-            _vm._v(
-              "\n                                        Enter your average selling price (excluding sales tax) for each unit of this\n                                        product or service. You can vary prices over time, if necessary, to reflect\n                                        seasonal changes in demand, planned increases, or scheduled discount\n                                        promotions. "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "radio-box CONSTANT",
-              attrs: {
-                role: "radiogroup",
-                tabindex: "-1",
-                "aria-orientation": "horizontal"
-              }
-            },
-            [
-              _c("ul", [
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(
-                      "\n                                                    لورم\n                                                "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(
-                      "\n                                                    Varying amounts over time\n                                                "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "input-with-dropdown" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "input-box-wrapper ",
-                  staticStyle: { width: "140px" }
-                },
-                [
-                  _c("input", {
-                    staticClass:
-                      "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                    attrs: { type: "text" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass: "currency",
-                      attrs: { "aria-hidden": "true" }
-                    },
-                    [_vm._v("ریال")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("span"),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-        [
-          _c("div", { staticClass: "title-top" }, [
-            _vm._v(
-              "\n                                        How many units will you sell?\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "title-content" }, [
-            _vm._v(
-              "\n                                        How best to define a 'unit' depends on what you sell. If you offer widgets,\n                                        just enter the quantity of those widgets (shirts or computers or whatever)\n                                        you think you'll sell. For other offerings, you might want to use units to\n                                        mean consulting engagements or fixed-price contracts or pallets of low-value\n                                        materials. Do what makes sense for your business.\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "radio-box CONSTANT",
-              attrs: {
-                role: "radiogroup",
-                tabindex: "-1",
-                "aria-orientation": "horizontal"
-              }
-            },
-            [
-              _c("ul", [
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._v("لورم")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._v(
-                      "Varying amounts over time\n                                                    "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "input-with-dropdown" }, [
-              _c("input", {
-                staticClass:
-                  "input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
-                attrs: {
-                  type: "text",
-                  value: "",
-                  "aria-describedby": "value-control-2",
-                  "aria-invalid": "true"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", [
-                _c("span", { staticClass: "per" }, [_vm._v("به ازای  ")]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "select-box",
-                    staticStyle: { "max-width": "999999px", width: "89px" }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "selected-option",
-                        attrs: { tabindex: "0", role: "button" }
-                      },
-                      [
-                        _vm._v("لورم"),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "arrow" })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "options right",
-                        staticStyle: { width: "88px" },
-                        attrs: { tabindex: "-1", role: "listbox" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "option-div",
-                            attrs: { role: "option", tabindex: "-1" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                                            Month\n                                                        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "selected option-div hovered",
-                            attrs: { role: "option", tabindex: "-1" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                                            Year\n                                                        "
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-        [
-          _c("div", { staticClass: "title-top" }, [
-            _vm._v(
-              "\n                                        When will this revenue start?\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "select-box" }, [
-            _c("div", { staticClass: "valid" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "selected-option",
-                  attrs: { tabindex: "0", role: "button" }
-                },
-                [
-                  _vm._v("Jan 2019"),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "arrow" })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "options right",
-                  staticStyle: { width: "88px" },
-                  attrs: { tabindex: "-1", role: "listbox" }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "option-div",
-                      attrs: { role: "option", tabindex: "-1" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                                    Month\n                                                "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "selected option-div hovered",
-                      attrs: { role: "option", tabindex: "-1" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                                    Year\n                                                "
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-        [
-          _c("div", { staticClass: "title-top" }, [
-            _vm._v(
-              "\n                                        What price will you charge for each unit?\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "title-content" }, [
-            _vm._v(
-              "\n                                        Enter your average selling price (excluding sales tax) for each unit of this\n                                        product or service. You can vary prices over time, if necessary, to reflect\n                                        seasonal changes in demand, planned increases, or scheduled discount\n                                        promotions. "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "radio-box CONSTANT",
-              attrs: {
-                role: "radiogroup",
-                tabindex: "-1",
-                "aria-orientation": "horizontal"
-              }
-            },
-            [
-              _c("ul", [
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(
-                      "\n                                                    لورم\n                                                "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(
-                      "\n                                                    Varying amounts over time\n                                                "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "input-with-dropdown" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "input-box-wrapper ",
-                  staticStyle: { width: "140px" }
-                },
-                [
-                  _c("input", {
-                    staticClass:
-                      "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                    attrs: { type: "text" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass: "currency",
-                      attrs: { "aria-hidden": "true" }
-                    },
-                    [_vm._v("ریال")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("span"),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-        [
-          _c("div", { staticClass: "title-top" }, [
-            _vm._v(
-              "\n                                        When will this revenue start?\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "select-box" }, [
-            _c("div", { staticClass: "valid" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "selected-option",
-                  attrs: { tabindex: "0", role: "button" }
-                },
-                [
-                  _vm._v("Jan 2019"),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "arrow" })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "options right",
-                  staticStyle: { width: "88px" },
-                  attrs: { tabindex: "-1", role: "listbox" }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "option-div",
-                      attrs: { role: "option", tabindex: "-1" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                                    Month\n                                                "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "selected option-div hovered",
-                      attrs: { role: "option", tabindex: "-1" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                                    Year\n                                                "
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-        [
-          _c("div", { staticClass: "title-top" }, [
-            _vm._v(
-              "\n                                        How many units will you sell?\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "title-content" }, [
-            _vm._v(
-              "\n                                        How best to define a 'unit' depends on what you sell. If you offer widgets,\n                                        just enter the quantity of those widgets (shirts or computers or whatever)\n                                        you think you'll sell. For other offerings, you might want to use units to\n                                        mean consulting engagements or fixed-price contracts or pallets of low-value\n                                        materials. Do what makes sense for your business.\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "radio-box CONSTANT",
-              attrs: {
-                role: "radiogroup",
-                tabindex: "-1",
-                "aria-orientation": "horizontal"
-              }
-            },
-            [
-              _c("ul", [
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._v("لورم")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._v(
-                      "Varying amounts over time\n                                                    "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "input-with-dropdown" }, [
-              _c("input", {
-                staticClass:
-                  "input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
-                attrs: {
-                  type: "text",
-                  value: "",
-                  "aria-describedby": "value-control-2",
-                  "aria-invalid": "true"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", [
-                _c("span", { staticClass: "per" }, [_vm._v(" در ماه")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "forecast-item-editor" }, [
-      _c("div", [
-        _c(
-          "div",
-          { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-          [
-            _c("div", { staticClass: "title-top" }, [
-              _vm._v(
-                "\n                                            What price will you charge for each unit?\n                                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "title-content" }, [
-              _vm._v(
-                "\n                                            Enter your average selling price (excluding sales tax) for each unit of\n                                            this product or service. You can vary prices over time, if necessary, to\n                                            reflect seasonal changes in demand, planned increases, or scheduled\n                                            discount promotions. "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "radio-box CONSTANT",
-                attrs: {
-                  role: "radiogroup",
-                  tabindex: "-1",
-                  "aria-orientation": "horizontal"
-                }
-              },
-              [
-                _c("ul", [
-                  _c("li", { staticClass: "horizontal" }, [
-                    _c("label", [
-                      _c("input", {
-                        attrs: {
-                          type: "radio",
-                          name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                          value: "on"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                                                        لورم\n                                                    "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "horizontal" }, [
-                    _c("label", [
-                      _c("input", {
-                        attrs: {
-                          type: "radio",
-                          name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                          value: "on"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                                                        Varying amounts over time\n                                                    "
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "clear" })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "input-with-dropdown" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "input-box-wrapper ",
-                    staticStyle: { width: "140px" }
-                  },
-                  [
-                    _c("input", {
-                      staticClass:
-                        "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                      attrs: { type: "text" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass: "currency",
-                        attrs: { "aria-hidden": "true" }
-                      },
-                      [_vm._v("ریال")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("span"),
-                _vm._v(" "),
-                _c("div", { staticClass: "clear" })
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "forecast-item-editor" }, [
-      _c("div", [
-        _c(
-          "div",
-          { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-          [
-            _c("div", { staticClass: "title-top" }, [
-              _vm._v(
-                "\n                                            What price will you charge for each unit?\n                                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "title-content" }, [
-              _vm._v(
-                "\n                                            Enter your average selling price (excluding sales tax) for each unit of\n                                            this product or service. You can vary prices over time, if necessary, to\n                                            reflect seasonal changes in demand, planned increases, or scheduled\n                                            discount promotions. "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "radio-box CONSTANT",
-                attrs: {
-                  role: "radiogroup",
-                  tabindex: "-1",
-                  "aria-orientation": "horizontal"
-                }
-              },
-              [
-                _c("ul", [
-                  _c("li", { staticClass: "horizontal" }, [
-                    _c("label", [
-                      _c("input", {
-                        attrs: {
-                          type: "radio",
-                          name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                          value: "on"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                                                        لورم\n                                                    "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "horizontal" }, [
-                    _c("label", [
-                      _c("input", {
-                        attrs: {
-                          type: "radio",
-                          name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                          value: "on"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                                                        Varying amounts over time\n                                                    "
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "clear" })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "input-with-dropdown" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "input-box-wrapper ",
-                    staticStyle: { width: "140px" }
-                  },
-                  [
-                    _c("input", {
-                      staticClass:
-                        "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                      attrs: { type: "text" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass: "currency",
-                        attrs: { "aria-hidden": "true" }
-                      },
-                      [_vm._v("ریال")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("span"),
-                _vm._v(" "),
-                _c("div", { staticClass: "clear" })
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "forecast-item-editor" }, [
-      _c("div", [
-        _c(
-          "div",
-          { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-          [
-            _c("div", { staticClass: "title-top" }, [
-              _vm._v(
-                "\n                                            How often is this charge assessed?\n                                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "select-box" }, [
-              _c("div", { staticClass: "valid" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "selected-option",
-                    attrs: { tabindex: "0", role: "button" }
-                  },
-                  [
-                    _vm._v("Jan 2019"),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "arrow" })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "options right",
-                    staticStyle: { width: "88px" },
-                    attrs: { tabindex: "-1", role: "listbox" }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "option-div",
-                        attrs: { role: "option", tabindex: "-1" }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                                        Month\n                                                    "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "selected option-div hovered",
-                        attrs: { role: "option", tabindex: "-1" }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                                        Year\n                                                    "
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "forecast-item-editor" }, [
-      _c("div", [
-        _c(
-          "div",
-          { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-          [
-            _c("div", { staticClass: "title-top" }, [
-              _vm._v(
-                "\n                                            What price will you charge for each unit?\n                                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "title-content" }, [
-              _vm._v(
-                "\n                                            Enter your average selling price (excluding sales tax) for each unit of\n                                            this product or service. You can vary prices over time, if necessary, to\n                                            reflect seasonal changes in demand, planned increases, or scheduled\n                                            discount promotions. "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "radio-box CONSTANT",
-                attrs: {
-                  role: "radiogroup",
-                  tabindex: "-1",
-                  "aria-orientation": "horizontal"
-                }
-              },
-              [
-                _c("ul", [
-                  _c("li", { staticClass: "horizontal" }, [
-                    _c("label", [
-                      _c("input", {
-                        attrs: {
-                          type: "radio",
-                          name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                          value: "on"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                                                        لورم\n                                                    "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "horizontal" }, [
-                    _c("label", [
-                      _c("input", {
-                        attrs: {
-                          type: "radio",
-                          name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                          value: "on"
-                        }
-                      }),
-                      _vm._v(
-                        "\n                                                        Varying amounts over time\n                                                    "
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "clear" })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "input-with-dropdown" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "input-box-wrapper ",
-                    staticStyle: { width: "140px" }
-                  },
-                  [
-                    _c("input", {
-                      staticClass:
-                        "faNum input-box input-box-with-currency _36slfUixQ4wAFF1EUIGq5f mediumCash _3nXdR_fo3j0MwFs8AZWYc5",
-                      attrs: { type: "text" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass: "currency",
-                        attrs: { "aria-hidden": "true" }
-                      },
-                      [_vm._v("ریال")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("span"),
-                _vm._v(" "),
-                _c("div", { staticClass: "clear" })
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-        [
-          _c("div", { staticClass: "title-top" }, [
-            _vm._v(
-              "\n                                        How many units will you sell?\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "title-content" }, [
-            _vm._v(
-              "\n                                        How best to define a 'unit' depends on what you sell. If you offer widgets,\n                                        just enter the quantity of those widgets (shirts or computers or whatever)\n                                        you think you'll sell. For other offerings, you might want to use units to\n                                        mean consulting engagements or fixed-price contracts or pallets of low-value\n                                        materials. Do what makes sense for your business.\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "radio-box CONSTANT",
-              attrs: {
-                role: "radiogroup",
-                tabindex: "-1",
-                "aria-orientation": "horizontal"
-              }
-            },
-            [
-              _c("ul", [
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._v("لورم")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "horizontal" }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "radio",
-                        name: "0acbd865-1c1d-83e1-d4e1-72abbb104878",
-                        value: "on"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._v(
-                      "Varying amounts over time\n                                                    "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "input-with-dropdown" }, [
-              _c("input", {
-                staticClass:
-                  "input-box _36slfUixQ4wAFF1EUIGq5f error medium-cash",
-                attrs: {
-                  type: "text",
-                  value: "",
-                  "aria-describedby": "value-control-2",
-                  "aria-invalid": "true"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", [
-                _c("span", { staticClass: "per" }, [_vm._v("به ازای  ")]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "select-box",
-                    staticStyle: { "max-width": "999999px", width: "89px" }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "selected-option",
-                        attrs: { tabindex: "0", role: "button" }
-                      },
-                      [
-                        _vm._v("لورم"),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "arrow" })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "options right",
-                        staticStyle: { width: "88px" },
-                        attrs: { tabindex: "-1", role: "listbox" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "option-div",
-                            attrs: { role: "option", tabindex: "-1" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                                            Month\n                                                        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "selected option-div hovered",
-                            attrs: { role: "option", tabindex: "-1" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                                            Year\n                                                        "
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "clear" })
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "section", staticStyle: { "margin-bottom": "30px" } },
-        [
-          _c("div", { staticClass: "title-top" }, [
-            _vm._v(
-              "\n                                        When will this revenue start?\n                                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "select-box" }, [
-            _c("div", { staticClass: "valid" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "selected-option",
-                  attrs: { tabindex: "0", role: "button" }
-                },
-                [
-                  _vm._v("Jan 2019"),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "arrow" })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "options right",
-                  staticStyle: { width: "88px" },
-                  attrs: { tabindex: "-1", role: "listbox" }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "option-div",
-                      attrs: { role: "option", tabindex: "-1" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                                    Month\n                                                "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "selected option-div hovered",
-                      attrs: { role: "option", tabindex: "-1" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                                    Year\n                                                "
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
-          ])
-        ]
-      )
     ])
   }
 ]

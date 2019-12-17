@@ -1,5 +1,5 @@
 <template>
-    <base-modal show-modal="true" @close="close">
+    <base-modal show-modal="true" @close="close" :wider="modalWidth">
         <template #header>
             <p v-if="currentRevenue.headerName.length">
                 درباره"{{currentRevenue.headerName}}"
@@ -2730,38 +2730,18 @@
                 <button :class="['modal-button','primary']" tabindex="0" v-if="!$v.currentRevenue.type.$invalid" @click="handleTabChange(2)">بعدی</button>
                 <button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>
             </div>
-            <!--<div class="modal-footer-controls-container left" v-if="currentTab===2">-->
-                <!--<button :class="['modal-button','primary','disabled']" tabindex="0" >بعدی</button>-->
-                <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
-            <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentTab===2">-->
-                <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
-                <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
-
-            <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentTab===3">-->
-                <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
-                <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
-            <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentTab===2">-->
-                <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
-                <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
-            <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===21 && currentTab===2">-->
-                <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
-                <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
-            <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentTab===3">-->
-                <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
-                <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
-            <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===22 && currentTab===4">-->
-                <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
-                <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
-            <!--</div>-->
-            <!--<div class="modal-footer-controls-container left" v-if="getModalState(1)===23 && currentTab===2">-->
-                <!--<button :class="['modal-button','primary','disabled', ]" tabindex="0">بعدی</button>-->
-                <!--<button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>-->
+            <div class="modal-footer-controls-container left" v-if="currentTab===2">
+                <button :class="['modal-button','primary']" tabindex="0" @click="handleTabChange(3)">بعدی</button>
+                <button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>
+            </div>
+            <div class="modal-footer-controls-container left" v-if="currentTab===3 && currentRevenue.type === REVENUE_TYPE_RECURRING_CHANGES">
+                <button :class="['modal-button','primary']" tabindex="0" @click="handleTabChange(4)">بعدی</button>
+                <button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>
+            </div>
+            <div class="modal-footer-controls-container left" v-else-if="currentTab===3 && currentRevenue.type !== REVENUE_TYPE_RECURRING_CHANGES">
+                <button :class="['modal-button','primary']" tabindex="0" @click="finalSave()">بعدی</button>
+                <button class="modal-button enabled" tabindex="0">ذخیره و افزودن مورد دیگر</button>
+            </div>
 
         </template>
     </base-modal>
@@ -2774,6 +2754,7 @@
     const LENGTH_MONTH = 0;const LENGTH_YEAR = 1;const FAR_1398 = 'f';const ORD_1398 = 'o';const KHO_1398 = 'k';const TIR_1398 = 't';
     const MOR_1398 = 'mo';const SHAH_1398 = 'sh';const MEHR_1398 = 'me';const ABA_1398 = 'ab'; const AZAR_1398 = 'az'; const DEY_1398 = 'd';const BAH_1398 = 'b';
     const ESF_1398 = 'es'; const _1399 = 'p1'; const _1400 = 'p2'; const UNIT_COUNT= 0;const UNIT_PRICE= 1;const UP_FEE= 2;const CHURN_RATE= 3; const REVENUE_STREAM = 4;
+    const MODAL_WIDTH_WIDE = true; const MODAL_WIDTH_NARROW = false;
 
     import BaseModal from './../components/BaseModal';
     import { required, integer, between, maxLength, numeric, minValue, requiredIf } from 'vuelidate/lib/validators';
@@ -2800,34 +2781,14 @@
                     {title: 'سال', code: LENGTH_YEAR},
                 ],
                 startOptions :[
-                    {title: 'فروردین 1398', code: FAR_1398},
-                    {title: 'اردیبهشت 1398', code: ORD_1398},
-                    {title: 'خرداد 1398', code: KHO_1398},
-                    {title: 'تیر 1398', code: TIR_1398},
-                    {title: 'مرداد 1398', code: MOR_1398},
-                    {title: 'شهریور 1398', code: SHAH_1398},
-                    {title: 'مهر 1398', code: MEHR_1398},
-                    {title: 'آبان 1398', code: ABA_1398},
-                    {title: 'آذر 1398', code: AZAR_1398},
-                    {title: 'دی 1398', code: DEY_1398},
-                    {title: 'بهمن 1398', code: BAH_1398},
-                    {title: 'اسفند 1398', code: ESF_1398},
-                    {title: '1399', code: _1399},
-                    {title: '1400', code: _1400},
+                    {title: 'فروردین 1398', code: FAR_1398}, {title: 'اردیبهشت 1398', code: ORD_1398}, {title: 'خرداد 1398', code: KHO_1398}, {title: 'تیر 1398', code: TIR_1398},
+                    {title: 'مرداد 1398', code: MOR_1398}, {title: 'شهریور 1398', code: SHAH_1398}, {title: 'مهر 1398', code: MEHR_1398}, {title: 'آبان 1398', code: ABA_1398},
+                    {title: 'آذر 1398', code: AZAR_1398}, {title: 'دی 1398', code: DEY_1398}, {title: 'بهمن 1398', code: BAH_1398}, {title: 'اسفند 1398', code: ESF_1398},
+                    {title: '1399', code: _1399}, {title: '1400', code: _1400},
                 ],
-                recurringChargeMonthFrequencyOptions: [
-                    {title: '1', code: 1},
-                    {title: '2', code: 2},
-                    {title: '3', code: 3},
-                    {title: '4', code: 4},
-                    {title: '5', code: 5},
-                    {title: '6', code: 6},
-                    {title: '7', code: 7},
-                    {title: '8', code: 8},
-                    {title: '9', code: 9},
-                    {title: '10', code: 10},
-                    {title: '11', code: 11},
-                    {title: '12', code: 12}
+                recurringChargeMonthFrequencyOptions: [{title: '1', code: 1}, {title: '2', code: 2}, {title: '3', code: 3},
+                    {title: '4', code: 4}, {title: '5', code: 5}, {title: '6', code: 6}, {title: '7', code: 7}, {title: '8', code: 8},
+                    {title: '9', code: 9}, {title: '10', code: 10}, {title: '11', code: 11}, {title: '12', code: 12}
                 ],
                 chartUpdateArgs: [true, true, {duration: 1000}],
                 headerName : "",
@@ -2848,130 +2809,39 @@
                     ,
                     unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
                     constantUnitPrice: '',
-                    unitPricePerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
+                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
 
                     billableHoursCountType: MEASURE_TYPE_CONSTANT,
                     constantBillableHoursPeriod: LENGTH_MONTH,
                     constantBillableHours: '',
-                    billableHoursPerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
+                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
                     hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
                     constantHourPrice: '',
-                    hourPricePerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
+                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
 
                     customerCountType: MEASURE_TYPE_CONSTANT,
                     constantCustomerCount: '',
-                    customerCountPerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
+                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
 
                     upFrontFeeMeasureType: MEASURE_TYPE_FREE,
                     constantUpFrontFee: '',
-                    upFrontFeePerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
+                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
                     recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
                     constantRecurringCharge: '',
-                    recurringChargePerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
+                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
                     recurringChargeMonthFrequency: 1,
 
                     // type 2 - tab 4
                     churnRateMeasureType: MEASURE_TYPE_CONSTANT,
                     constantChurnRate: '',
-                    churnRatePerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
+                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
                     revenueStreamType: MEASURE_TYPE_CONSTANT,
                     constantRevenueStream: '',
                     constantRevenueStreamPeriod: LENGTH_MONTH,
-                    revenueStreamPerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
-                    },
-                },
+                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
 
-                revenueStart : FAR_1398,//
-
-                // tab 0
-                tempRevenueName: '',//
-                // tab 1
-                tempRevenueType: NOT_SELECTED,//
-                //type 0 - tab 2 && type 1 - tab 2 && && type 2 - tab 2 && type 3 - tab 1
-                tempServiceCountType: MEASURE_TYPE_CONSTANT,//
-                tempConstantServicePeriod: LENGTH_MONTH, // for type 2 = LENGTH_MONTH//
-                tempConstantServiceCount: '',//
-
-                tempServiceCountPerPeriod: {//
-                    FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                    MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                    _1399: '', _1400: ''
+                    // add isComplete flag to backend for tamp. saved ravenues
                 },
-                // type 0 - tab 3 && type 1 - tab 3
-                tempUnitPriceType: MEASURE_TYPE_CONSTANT,//
-                tempConstantUnitPrice: '',//
-                tempUnitPricePerPeriod: {
-                    FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                    MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                    _1399: '', _1400: ''
-                },
-                // type 2 - tab 3
-                tempUpFrontFeeType: MEASURE_TYPE_FREE,
-                tempConstantUpFrontFee: '',
-                tempUpFrontFeePerPeriod: {
-                    FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                    MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                    _1399: '', _1400: ''
-                },
-                tempRecurringChargeType: MEASURE_TYPE_CONSTANT,
-                tempConstantRecurringCharge: '',
-                tempRecurringChargePerPeriod: {
-                    FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                    MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                    _1399: '', _1400: ''
-                },
-                tempRecurringChargeMonthFrequency: 1,
-
-                // type 2 - tab 4
-                tempChurnRateType: MEASURE_TYPE_CONSTANT,
-                tempConstantChurnRate: '',
-                tempChurnRatePerPeriod: {
-                    FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                    MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                    _1399: '', _1400: ''
-                },
-                tempRevenueStreamType: MEASURE_TYPE_CONSTANT,
-                tempConstantRevenueStream: '',
-                tempConstantRevenueStreamPeriod: LENGTH_MONTH,
-                tempRevenueStreamPerPeriod: {
-                    FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                    MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                    _1399: '', _1400: ''
-                },
-                // currentTabValidators: [],
-
-
             }
         },
         methods: {
@@ -3014,7 +2884,6 @@
                         this.currentTabValidators.forEach(function (validator, i) {
                             validator.$touch();
                             if(validator.$error){
-                                console.log('error');
                                 hasError = true;
                             }
                         });
@@ -3073,33 +2942,22 @@
 
 
                                 },
-
-                                // 'redraw': function(e) {
-                                //     // let output = {'ref': ref, 'series' : []};
-                                //     // for (let i = 0; i < 12 ; i++ ){
-                                //     //     output.series[i] = Math.round(this.series[0].data[i].y);
-                                //     // }
-                                //     // // $this.currentRevenue.unitSalesPerPeriod = output.series;
-                                //     //
-                                //     // // EventBus.$emit('modal-chart-redraw', output);
-                                // }
                             },
                         },
 
                         series: [{
                             name: 'unit-sales',
                             data:
-                                data
-                            //     Object.keys(data).map(function(key) {
-                            //     return data[key]? data[key] : 0;
-                            //     // TODO solve totally null chart problem
-                            // })
-                                    .slice(0,12),
+                                data.slice(0,12),
+
+                                 // TODO solve totally null chart problem
+
+
 
                         }],
                         plotOptions: {
                             series: {
-                                animation: true,
+                                animation: false,
                                 stickyTracking: false,
                                 dragDrop: {
                                     draggableY: true,
@@ -3217,16 +3075,6 @@
 
                 }
                 let sum = 0;
-                // for(let p in series){
-                //     if (!series.hasOwnProperty(p)){continue}
-                //     else{
-                //         if(!series[p] && series[p]!==0){}
-                //         else{
-                //             sum = sum + series[p];
-                //         }
-                //     }
-                //
-                // }
                 series.forEach(function(item, i){
                     if(!item && item!==0){}
                     else{
@@ -3235,102 +3083,103 @@
                 });
                 return sum;
             }, //ok
-            updateChartFromInput(value,ref,index){
-                // if(!value){
-                //     this.currentRevenue.unitSalesPerPeriod[index] = 0;
-                // }
-                // this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
-            },
+
             updateRevenueFromChart: function (ref, x, y) {
                 switch(this.currentRevenue.type){
                     case REVENUE_TYPE_UNIT_SALES: {
                         switch (ref) {
                             case UNIT_COUNT:{
                                 this.$set(this.currentRevenue.unitSalesPerPeriod,x, Math.round(y));
-                                // series.forEach(function (el, i) {
-                                //     console.log('$this.currentRevenue.unitSalesPerPeriod.i',$this.currentRevenue.unitSalesPerPeriod.i);
-                                //     $this.currentRevenue.unitSalesPerPeriod.i = el;
-                                // });
                                 break;
                             }
-                            // case UNIT_PRICE:{
-                            //     series.forEach(function (el, i) {
-                            //         $this.currentRevenue.unitPricePerPeriod.i = el;
-                            //     });
-                            //     break;
-                            // }
+                            case UNIT_PRICE:{
+                                this.$set(this.currentRevenue.unitPricePerPeriod,x, Math.round(y));
+                                break;
+                            }
                         }
                         break;
                     }
-                    // case REVENUE_TYPE_BILLABLE_HOURS: {
-                    //     switch (ref) {
-                    //         case UNIT_COUNT:{
-                    //             series.forEach(function (el, i) {
-                    //                 $this.currentRevenue.billableHoursPerPeriod.i = el;
-                    //             });
-                    //             break;
-                    //         }
-                    //         case UNIT_PRICE:{
-                    //             series.forEach(function (el, i) {
-                    //                 $this.currentRevenue.hourPricePerPeriod.i = el;
-                    //             });
-                    //             break;
-                    //         }
-                    //     }
-                    //     break;
-                    // }
-                    // case REVENUE_TYPE_RECURRING_CHANGES:{
-                    //     switch (ref) {
-                    //         case UNIT_COUNT:{
-                    //             series.forEach(function (el, i) {
-                    //                 $this.currentRevenue.customerCountPerPeriod.i = el;
-                    //             });
-                    //             break;
-                    //         }
-                    //         case UNIT_PRICE:{
-                    //             series.forEach(function (el, i) {
-                    //                 $this.currentRevenue.recurringChargePerPeriod.i = el;
-                    //             });
-                    //             break;
-                    //         }
-                    //         case UP_FEE:{
-                    //             series.forEach(function (el, i) {
-                    //                 $this.currentRevenue.upFrontFeePerPeriod.i = el;
-                    //             });
-                    //             break;
-                    //         }
-                    //         case CHURN_RATE:{
-                    //             series.forEach(function (el, i) {
-                    //                 $this.currentRevenue.churnRatePerPeriod.i = el;
-                    //             });
-                    //             break;
-                    //         }
-                    //     }
-                    //     break;
-                    // }
-                    // case REVENUE_TYPE_REVENUE_ONLY:{
-                    //     switch (ref) {
-                    //         case REVENUE_STREAM:{
-                    //             series.forEach(function (el, i) {
-                    //                 $this.currentRevenue.revenueStreamPerPeriod.i = el;
-                    //             });
-                    //             break;
-                    //         }
-                    //     }
-                    //     break;
-                    // }
+                    case REVENUE_TYPE_BILLABLE_HOURS: {
+                        switch (ref) {
+                            case UNIT_COUNT:{
+                                this.$set(this.currentRevenue.billableHoursPerPeriod,x, Math.round(y));
+                                break;
+                            }
+                            case UNIT_PRICE:{
+                                this.$set(this.currentRevenue.hourPricePerPeriod,x, Math.round(y));
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    case REVENUE_TYPE_RECURRING_CHANGES:{
+                        switch (ref) {
+                            case UNIT_COUNT:{
+                                this.$set(this.currentRevenue.customerCountPerPeriod,x, Math.round(y));
+
+                                break;
+                            }
+                            case UNIT_PRICE:{
+
+                                this.$set(this.currentRevenue.recurringChargePerPeriod,x, Math.round(y));
+                                break;
+                            }
+                            case UP_FEE:{
+                                this.$set(this.currentRevenue.upFrontFeePerPeriod,x, Math.round(y));
+                                break;
+                            }
+                            case CHURN_RATE:{
+                                this.$set(this.currentRevenue.churnRatePerPeriod,x, Math.round(y));
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    case REVENUE_TYPE_REVENUE_ONLY:{
+                        switch (ref) {
+                            case REVENUE_STREAM:{
+                                this.$set(this.currentRevenue.revenueStreamPerPeriod,x, Math.round(y));
+                                break;
+                            }
+                        }
+                        break;
+                    }
 
                 }
 
-            }
+            },
 
+            finalSave: function () {
+                let $this = this;
+                let hasError = false;
+                if(this.currentTabValidators.length){
+                    this.currentTabValidators.forEach(function (validator, i) {
+                        validator.$touch();
+                        if(validator.$error){
+                            hasError = true;
+                        }
+                    });
+                    if(!hasError){
+                        this.$emit('save', this.currentRevenue)
+                    }
+                }
+                else{
+                    this.$emit('save', this.currentRevenue);
+                }
+
+
+            },
+
+
+        },
+        tampSave(){
+            //just check the name
         },
         validations(){
             return{
                 currentRevenue:{
                     start: {
                         required,
-                        between: between(FAR_1398,_1400),
                     },
                     name: {
                         required,
@@ -3356,7 +3205,9 @@
                         between: between(MEASURE_TYPE_CONSTANT,MEASURE_TYPE_VARIABLE)
                     },
                     constantUnitSalesPeriod: {
-                        required: requiredIf(this.currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT),
+                        required: requiredIf(function () {
+                            return this.currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT;
+                        }),
                         between: between(LENGTH_MONTH,LENGTH_YEAR)
                     },
                     constantUnitSales:{
@@ -3574,7 +3425,6 @@
                 },
                 revenueStart:{
                     required,
-                    between: between(1,14)
                 },
                 tempRevenueType:{
                     required,
@@ -3728,13 +3578,106 @@
                     }
                 }
             },
+            modalWidth: function () {
+                switch (this.currentRevenue.type){
+                    case REVENUE_TYPE_UNIT_SALES:{
+                        switch (this.currentTab) {
 
+                            case 2:{
+                                if(this.currentRevenue.unitSalesCountType===MEASURE_TYPE_VARIABLE){
+                                    return MODAL_WIDTH_WIDE;
+                                }
+                                else{
+                                    return MODAL_WIDTH_NARROW;
+                                }
+
+                            }
+                            case 3:{
+                                if(this.currentRevenue.unitPriceMeasureType===MEASURE_TYPE_VARIABLE){
+                                    return MODAL_WIDTH_WIDE;
+                                }
+                                else{
+                                    return MODAL_WIDTH_NARROW;
+                                }
+                            }
+                            default:{
+                                return MODAL_WIDTH_NARROW;
+                            }
+                        }
+                        break;
+                    }
+                    case REVENUE_TYPE_BILLABLE_HOURS:{
+                        switch (this.currentTab) {
+
+                            case 2:{
+                                if(this.currentRevenue.billableHoursCountType===MEASURE_TYPE_VARIABLE){
+                                    return MODAL_WIDTH_WIDE;
+                                }
+                                else{
+                                    return MODAL_WIDTH_NARROW;
+                                }
+
+                            }
+                            case 3:{
+                                if(this.currentRevenue.hourPriceMeasureType===MEASURE_TYPE_VARIABLE){
+                                    return MODAL_WIDTH_WIDE;
+                                }
+                                else{
+                                    return MODAL_WIDTH_NARROW;
+                                }
+                            }
+                            default:{
+                                return MODAL_WIDTH_NARROW;
+                            }
+                        }
+
+                        break;
+                    }
+                    case REVENUE_TYPE_RECURRING_CHANGES:{
+                        switch (this.currentTab) {
+
+                            case 2:{
+                                if(this.currentRevenue.customerCountType===MEASURE_TYPE_VARIABLE){
+                                    return MODAL_WIDTH_WIDE;
+                                }
+                                else{
+                                    return MODAL_WIDTH_NARROW;
+                                }
+
+                            }
+                            case 3:{
+                                if(this.currentRevenue.upFrontFeeMeasureType===MEASURE_TYPE_VARIABLE
+                                    || this.currentRevenue.recurringChargeMeasureType===MEASURE_TYPE_VARIABLE){
+                                    return MODAL_WIDTH_WIDE;
+                                }
+                                else{
+                                    return MODAL_WIDTH_NARROW;
+                                }
+                            }
+                            default:{
+                                return MODAL_WIDTH_NARROW;
+                            }
+                        }
+                        break;
+                    }
+                    case REVENUE_TYPE_REVENUE_ONLY:{
+                        if(this.currentTab===2 && this.currentRevenue.revenueStreamType === MEASURE_TYPE_VARIABLE){
+                            return MODAL_WIDTH_WIDE;
+                        }
+                        else{
+                            return MODAL_WIDTH_NARROW;
+                        }
+                        break;
+                    }
+                    default:{
+                        return MODAL_WIDTH_NARROW;
+                    }
+                }
+            }
 
         },
         mounted(){
-            EventBus.$on('modal-chart-redraw', data => {
-                this.updateRevenueFromChart(data);
-            });
+
         },
         props: {
             revenue: {
@@ -3745,7 +3688,8 @@
             BaseModal,
         },
         watch:{
-            currentRevenue:{
+            currentRevenue: function () {
+
 
             }
         }
