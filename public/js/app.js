@@ -4563,262 +4563,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var NOT_SELECTED = -1;
 var REVENUE_TYPE_UNIT_SALES = 0;
 var REVENUE_TYPE_BILLABLE_HOURS = 1;
@@ -4981,6 +4725,8 @@ var MODAL_WIDTH_NARROW = false;
       chartUpdateArgs: [true, true, {
         duration: 1000
       }],
+      chartShiftPercent: [0, 0, 0, 0],
+      applyingChartShift: [false, false, false, false],
       headerName: "",
       currentRevenue: {
         start: FAR_1398,
@@ -5055,8 +4801,9 @@ var MODAL_WIDTH_NARROW = false;
     updateHeaderName: function updateHeaderName() {
       this.currentRevenue.headerName = this.currentRevenue.name;
     },
-    resetValidators: function resetValidators() {
+    resetTypes: function resetTypes() {
       this.$v.$reset();
+      this.chartShiftPercent = [0, 0, 0, 0];
     },
     handleTabChange: function handleTabChange(to) {
       var $this = this;
@@ -5279,6 +5026,180 @@ var MODAL_WIDTH_NARROW = false;
       return sum;
     },
     //ok
+    shiftChart: function shiftChart(ref) {
+      var $this = this;
+
+      switch (this.currentRevenue.type) {
+        case REVENUE_TYPE_UNIT_SALES:
+          {
+            switch (ref) {
+              case UNIT_COUNT:
+                {
+                  console.log('32321');
+
+                  for (var i = 0; i <= 13; i++) {
+                    console.log(isNaN(this.currentRevenue.unitSalesPerPeriod[i]));
+
+                    if (!isNaN(this.currentRevenue.unitSalesPerPeriod[i])) {
+                      this.$set(this.currentRevenue.unitSalesPerPeriod, i, this.currentRevenue.unitSalesPerPeriod[i] * (1 + this.chartShiftPercent[0] / 100));
+                    }
+                  }
+
+                  this.$set(this.chartShiftPercent, 0, 0);
+                  this.$set(this.applyingChartShift, 0, true);
+                  setTimeout(function () {
+                    $this.$set($this.applyingChartShift, 0, false);
+                  }, 1000);
+                  break;
+                }
+
+              case UNIT_PRICE:
+                {
+                  for (var _i = 0; _i <= 13; _i++) {
+                    if (!isNaN(this.currentRevenue.unitSalesPerPeriod[_i])) {
+                      this.$set(this.currentRevenue.unitSalesPerPeriod, _i, this.currentRevenue.unitSalesPerPeriod[_i] * (1 + this.chartShiftPercent[1] / 100));
+                    }
+                  }
+
+                  this.$set(this.chartShiftPercent, 1, 0);
+                  this.$set(this.applyingChartShift, 1, true);
+                  setTimeout(function () {
+                    $this.$set($this.applyingChartShift, 1, false);
+                  }, 1000);
+                  break;
+                }
+            }
+
+            break;
+          }
+
+        case REVENUE_TYPE_BILLABLE_HOURS:
+          {
+            switch (ref) {
+              case UNIT_COUNT:
+                {
+                  for (var _i2 = 0; _i2 <= 13; _i2++) {
+                    if (!isNaN(this.currentRevenue.unitSalesPerPeriod[_i2])) {
+                      this.$set(this.currentRevenue.billableHoursPerPeriod, _i2, this.currentRevenue.billableHoursPerPeriod[_i2] * (1 + this.chartShiftPercent[0] / 100));
+                    }
+                  }
+
+                  this.$set(this.chartShiftPercent, 0, 0);
+                  this.$set(this.applyingChartShift, 0, true);
+                  setTimeout(function () {
+                    $this.$set($this.applyingChartShift, 0, false);
+                  }, 1000);
+                  break;
+                }
+
+              case UNIT_PRICE:
+                {
+                  for (var _i3 = 0; _i3 <= 13; _i3++) {
+                    if (!isNaN(this.currentRevenue.unitSalesPerPeriod[_i3])) {
+                      this.$set(this.currentRevenue.hourPricePerPeriod, _i3, this.currentRevenue.hourPricePerPeriod[_i3] * (1 + this.chartShiftPercent[1] / 100));
+                    }
+                  }
+
+                  this.$set(this.chartShiftPercent, 1, 0);
+                  this.$set(this.applyingChartShift, 1, true);
+                  setTimeout(function () {
+                    $this.$set($this.applyingChartShift, 1, false);
+                  }, 1000);
+                  break;
+                }
+            }
+
+            break;
+          }
+
+        case REVENUE_TYPE_RECURRING_CHANGES:
+          {
+            switch (ref) {
+              case UNIT_COUNT:
+                {
+                  for (var _i4 = 0; _i4 <= 13; _i4++) {
+                    if (!isNaN(this.currentRevenue.customerCountPerPeriod[_i4])) {
+                      this.$set(this.currentRevenue.customerCountPerPeriod, _i4, this.currentRevenue.customerCountPerPeriod[_i4] * (1 + this.chartShiftPercent[0] / 100));
+                    }
+                  }
+
+                  this.$set(this.chartShiftPercent, 0, 0);
+                  this.$set(this.applyingChartShift, 0, true);
+                  setTimeout(function () {
+                    $this.$set($this.applyingChartShift, 0, false);
+                  }, 1000);
+                  break;
+                }
+
+              case UP_FEE:
+                {
+                  for (var _i5 = 0; _i5 <= 13; _i5++) {
+                    if (!isNaN(this.currentRevenue.upFrontFeePerPeriod[_i5])) {
+                      this.$set(this.currentRevenue.billableHoursPerPeriod, _i5, this.currentRevenue.billableHoursPerPeriod[_i5] * (1 + this.chartShiftPercent[1] / 100));
+                    }
+                  }
+
+                  this.$set(this.chartShiftPercent, 1, 0);
+                  this.$set(this.applyingChartShift, 1, true);
+                  setTimeout(function () {
+                    $this.$set($this.applyingChartShift, 1, false);
+                  }, 1000);
+                  break;
+                }
+
+              case UNIT_PRICE:
+                {
+                  for (var _i6 = 0; _i6 <= 13; _i6++) {
+                    if (!isNaN(this.currentRevenue.recurringChargePerPeriod[_i6])) {
+                      this.$set(this.currentRevenue.recurringChargePerPeriod, _i6, this.currentRevenue.recurringChargePerPeriod[_i6] * (1 + this.chartShiftPercent[2] / 100));
+                    }
+                  }
+
+                  this.$set(this.chartShiftPercent, 2, 0);
+                  this.$set(this.applyingChartShift, 2, true);
+                  setTimeout(function () {
+                    $this.$set($this.applyingChartShift, 2, false);
+                  }, 1000);
+                  break;
+                }
+
+              case CHURN_RATE:
+                {
+                  for (var _i7 = 0; _i7 <= 13; _i7++) {
+                    if (!isNaN(this.currentRevenue.churnRatePerPeriod[_i7])) {
+                      this.$set(this.currentRevenue.churnRatePerPeriod, _i7, this.currentRevenue.churnRatePerPeriod[_i7] * (1 + this.chartShiftPercent[3] / 100));
+                    }
+                  }
+
+                  this.$set(this.chartShiftPercent, 3, 0);
+                  this.$set(this.applyingChartShift, 3, true);
+                  setTimeout(function () {
+                    $this.$set($this.applyingChartShift, 3, false);
+                  }, 1000);
+                  break;
+                }
+            }
+
+            break;
+          }
+
+        case REVENUE_TYPE_REVENUE_ONLY:
+          {
+            for (var _i8 = 0; _i8 <= 13; _i8++) {
+              if (!isNaN(this.currentRevenue.revenueStreamPerPeriod[_i8])) {
+                this.$set(this.currentRevenue.revenueStreamPerPeriod, _i8, this.currentRevenue.revenueStreamPerPeriod[_i8] * (1 + this.chartShiftPercent[0] / 100));
+              }
+            }
+
+            this.$set(this.chartShiftPercent, 0, 0);
+            this.$set(this.applyingChartShift, 0, true);
+            setTimeout(function () {
+              $this.$set($this.applyingChartShift, 0, false);
+            }, 1000);
+            break;
+          }
+      }
+    },
     updateRevenueFromChart: function updateRevenueFromChart(ref, x, y) {
       switch (this.currentRevenue.type) {
         case REVENUE_TYPE_UNIT_SALES:
@@ -5383,9 +5304,16 @@ var MODAL_WIDTH_NARROW = false;
       } else {
         this.$emit('save', this.currentRevenue);
       }
+    },
+    saveAdd: function saveAdd() {
+      if (this.$v.currentRevenue.name.$invalid) {
+        // TODO transfer validation to a new method
+        this.$v.currentRevenue.name.$touch();
+        this.currentTab = 0;
+      } else {
+        this.$emit('temp-save', this.currentRevenue); // TODO resetModal()
+      }
     }
-  },
-  tampSave: function tampSave() {//just check the name
   },
   validations: function validations() {
     return {
@@ -5628,92 +5556,6 @@ var MODAL_WIDTH_NARROW = false;
               return true;
             }
           }
-        }
-      },
-      tempRevenueName: {
-        required: function required(value) {
-          return value.length > 0;
-        },
-        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["maxLength"])(255)
-      },
-      revenueStart: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-      },
-      tempRevenueType: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        between: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["between"])(0, 3),
-        integer: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["integer"]
-      },
-      tempConstantServiceCount: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
-        minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1) // TODO make conditional (on variable vs constant)
-
-      },
-      tempServiceCountPerPeriod: {
-        filled: function filled() {
-          // TODO implement array emptiness check
-          return true;
-        }
-      },
-      tempConstantServicePeriod: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-      },
-      tempConstantUnitPrice: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
-        minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
-      },
-      tempUnitPricePerPeriod: {
-        filled: function filled() {
-          // TODO implement array emptiness check
-          return true;
-        }
-      },
-      tempConstantUpFrontFee: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
-        minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
-      },
-      tempUpFrontFeePerPeriod: {
-        filled: function filled() {
-          // TODO implement array emptiness check
-          return true;
-        }
-      },
-      tempConstantRecurringCharge: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
-        minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
-      },
-      tempRecurringChargePerPeriod: {
-        filled: function filled() {
-          // TODO implement array emptiness check
-          return true;
-        }
-      },
-      tempRecurringChargeMonthFrequency: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-      },
-      tempConstantChurnRate: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"]
-      },
-      tempChurnRatePerPeriod: {
-        filled: function filled() {
-          // TODO implement array emptiness check
-          return true;
-        }
-      },
-      tempConstantRevenueStream: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["numeric"],
-        minValue: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["minValue"])(1)
-      },
-      tempRevenueStreamPerPeriod: {
-        filled: function filled() {
-          // TODO implement array emptiness check
-          return true;
         }
       }
     };
@@ -7491,6 +7333,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      revenueModalKey: 0,
       annualTableData: {
         details: [{
           "key": "0",
@@ -8133,6 +7976,15 @@ __webpack_require__.r(__webpack_exports__);
     saveRevenue: function saveRevenue(revenue) {
       this.toggleModalVisibility(1);
       console.log(revenue);
+    },
+    saveTempRevenue: function saveTempRevenue(revenue) {
+      // TODO isTemp = true aka. just to be shown in table (??, should be checked)
+      // console.log(revenue);
+      this.renewRevenueModal();
+      console.log('preveious modal data:', revenue);
+    },
+    renewRevenueModal: function renewRevenueModal() {
+      this.revenueModalKey++;
     }
   },
   computed: {
@@ -8393,7 +8245,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*TODO make styles scoped*/\n", ""]);
 
 // exports
 
@@ -33829,7 +33681,7 @@ var render = function() {
                                     )
                                   },
                                   function($event) {
-                                    return _vm.resetValidators()
+                                    return _vm.resetTypes()
                                   }
                                 ]
                               }
@@ -33873,7 +33725,7 @@ var render = function() {
                                     )
                                   },
                                   function($event) {
-                                    return _vm.resetValidators()
+                                    return _vm.resetTypes()
                                   }
                                 ]
                               }
@@ -33921,7 +33773,7 @@ var render = function() {
                                     )
                                   },
                                   function($event) {
-                                    return _vm.resetValidators()
+                                    return _vm.resetTypes()
                                   }
                                 ]
                               }
@@ -33969,7 +33821,7 @@ var render = function() {
                                     )
                                   },
                                   function($event) {
-                                    return _vm.resetValidators()
+                                    return _vm.resetTypes()
                                   }
                                 ]
                               }
@@ -34287,10 +34139,170 @@ var render = function() {
                                                     ]),
                                                     _vm._v(" "),
                                                     _c("div", [
-                                                      _c("div", {
-                                                        staticClass:
-                                                          "financial-year-box-header-controls"
-                                                      })
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "financial-year-box-header-controls"
+                                                        },
+                                                        [
+                                                          _c("p", [
+                                                            _vm._v("تغییرات")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c("div", [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "input-box-wrapper _2fhqByVVd1xIFl73q95wYl",
+                                                                staticStyle: {
+                                                                  width: "87px"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "span",
+                                                                  {
+                                                                    staticClass:
+                                                                      "percent",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [_vm._v("%")]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .chartShiftPercent[0],
+                                                                      expression:
+                                                                        "chartShiftPercent[0]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .chartShiftPercent[0]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm.chartShiftPercent,
+                                                                        0,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _vm
+                                                            .chartShiftPercent[0] !==
+                                                          0
+                                                            ? _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "overlay-button primary",
+                                                                  attrs: {
+                                                                    tabindex:
+                                                                      "-1"
+                                                                  },
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.shiftChart(
+                                                                        _vm.UNIT_COUNT
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "اعمال\n                                                            "
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm
+                                                                .applyingChartShift[0] ===
+                                                              true
+                                                            ? _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "overlay-button primary",
+                                                                  staticStyle: {
+                                                                    opacity:
+                                                                      "0.7"
+                                                                  },
+                                                                  attrs: {
+                                                                    tabindex:
+                                                                      "-1"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "اعمال شد\n                                                            "
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "overlay-button primary",
+                                                                  attrs: {
+                                                                    tabindex:
+                                                                      "-1"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "اعمال\n                                                            "
+                                                                  )
+                                                                ]
+                                                              )
+                                                        ]
+                                                      )
                                                     ])
                                                   ]
                                                 ),
@@ -34431,41 +34443,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[0]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          0,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.FAR_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        0,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -34539,41 +34538,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[1]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          1,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.ORD_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        1,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -34647,41 +34633,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[2]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          2,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.KHO_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        2,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -34755,41 +34728,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[3]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          3,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.TIR_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        3,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -34863,41 +34823,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[4]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          4,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.MOR_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        4,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -34971,41 +34918,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[5]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          5,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.SHAH_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        5,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -35079,41 +35013,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[6]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          6,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.MEHR_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        6,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -35187,41 +35108,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[7]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          7,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.ABA_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        7,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -35295,41 +35203,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[8]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          8,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.AZAR_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        8,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -35403,41 +35298,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[9]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          9,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.DEY_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        9,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -35511,41 +35393,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[10]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          10,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.BAH_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        10,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -35619,41 +35488,28 @@ var render = function() {
                                                                         .unitSalesPerPeriod[11]
                                                                   },
                                                                   on: {
-                                                                    input: [
-                                                                      function(
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
                                                                         $event
+                                                                          .target
+                                                                          .composing
                                                                       ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm
-                                                                            .currentRevenue
-                                                                            .unitSalesPerPeriod,
-                                                                          11,
-                                                                          _vm._n(
-                                                                            $event
-                                                                              .target
-                                                                              .value
-                                                                          )
-                                                                        )
-                                                                      },
-                                                                      function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.updateChartFromInput(
-                                                                          $event
-                                                                            .target
-                                                                            .value,
-                                                                          _vm.UNIT_COUNT,
-                                                                          _vm.ESF_1398
-                                                                        )
+                                                                        return
                                                                       }
-                                                                    ],
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitSalesPerPeriod,
+                                                                        11,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
                                                                     blur: function(
                                                                       $event
                                                                     ) {
@@ -36067,7 +35923,1393 @@ var render = function() {
                             _vm._v(" "),
                             _vm.currentRevenue.unitPriceMeasureType ===
                             _vm.MEASURE_TYPE_VARIABLE
-                              ? _c("div")
+                              ? _c("div", [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "financial-year-box",
+                                      attrs: { role: "grid" }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "financial-year-box-container"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "financial-year-box-wrapper",
+                                              staticStyle: {
+                                                height: "400px",
+                                                width: "964px"
+                                              }
+                                            },
+                                            [
+                                              _c("div", [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "financial-year-box-header"
+                                                  },
+                                                  [
+                                                    _c("p", [
+                                                      _c(
+                                                        "strong",
+                                                        {
+                                                          staticClass: "faNum"
+                                                        },
+                                                        [_vm._v("1398 - ")]
+                                                      ),
+                                                      _vm._v(
+                                                        "\n                                                        فلان فلان فلان\n                                                    "
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("div", [
+                                                      _c("div", {
+                                                        staticClass:
+                                                          "financial-year-box-header-controls"
+                                                      })
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "financial-year-chart-container",
+                                                    attrs: {
+                                                      id: "unit-price-chart"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("highcharts", {
+                                                      staticClass: "chart",
+                                                      attrs: {
+                                                        options: _vm.getChartOptions(
+                                                          _vm.currentRevenue
+                                                            .unitPricePerPeriod,
+                                                          _vm.UNIT_PRICE
+                                                        ),
+                                                        updateArgs:
+                                                          _vm.chartUpdateArgs,
+                                                        highcharts: _vm.hc
+                                                      }
+                                                    })
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "financial-year-input-container"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "ul",
+                                                      {
+                                                        staticClass:
+                                                          "labels faNum"
+                                                      },
+                                                      [
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("1398")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number",
+                                                                    disabled:
+                                                                      "",
+                                                                    readOnly: ""
+                                                                  },
+                                                                  domProps: {
+                                                                    value: _vm.getChartCurrentYearValue(
+                                                                      _vm.UNIT_PRICE
+                                                                    )
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[0],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[0]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[0]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        0,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("اردیبهشت")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[1],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[1]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[1]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        1,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("خرداد")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[2],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[2]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[2]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        2,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[3],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[3]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[3]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        3,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[4],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[4]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[4]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        4,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[5],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[5]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[5]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        5,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[6],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[6]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[6]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        6,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[7],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[7]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[7]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        7,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[8],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[8]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[8]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        8,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[9],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[9]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[9]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        9,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("فروردین")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[10],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[10]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[10]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        10,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("اسفند")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model.number",
+                                                                      value:
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod[11],
+                                                                      expression:
+                                                                        "currentRevenue.unitPricePerPeriod[11]",
+                                                                      modifiers: {
+                                                                        number: true
+                                                                      }
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "number"
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .currentRevenue
+                                                                        .unitPricePerPeriod[11]
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm
+                                                                          .currentRevenue
+                                                                          .unitPricePerPeriod,
+                                                                        11,
+                                                                        _vm._n(
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      )
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$forceUpdate()
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("1399")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "text",
+                                                                    value: ""
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("li", [
+                                                          _c("p", [
+                                                            _vm._v("1340")
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "valid"
+                                                            },
+                                                            [
+                                                              _c("div", [
+                                                                _c("input", {
+                                                                  staticClass:
+                                                                    "input-box _3nXdR_fo3j0MwFs8AZWYc5",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "text",
+                                                                    value: ""
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fillRightDots",
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                                                                         \n                                                                    "
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ])
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ])
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
                               : _vm._e()
                           ]
                         )
@@ -37953,11 +39195,7 @@ var render = function() {
                             _vm._v(" "),
                             _vm.currentRevenue.revenueStreamType ===
                             _vm.MEASURE_TYPE_VARIABLE
-                              ? _c("div", [
-                                  _vm._v(
-                                    "\n                                variable\n                                "
-                                  )
-                                ])
+                              ? _c("div")
                               : _vm._e()
                           ]
                         ),
@@ -38139,7 +39377,12 @@ var render = function() {
                       "button",
                       {
                         staticClass: "modal-button enabled",
-                        attrs: { tabindex: "0" }
+                        attrs: { tabindex: "0" },
+                        on: {
+                          click: function($event) {
+                            return _vm.saveAdd()
+                          }
+                        }
                       },
                       [_vm._v("ذخیره و افزودن مورد دیگر")]
                     )
@@ -38172,7 +39415,12 @@ var render = function() {
                       "button",
                       {
                         staticClass: "modal-button enabled",
-                        attrs: { tabindex: "0" }
+                        attrs: { tabindex: "0" },
+                        on: {
+                          click: function($event) {
+                            return _vm.saveAdd()
+                          }
+                        }
                       },
                       [_vm._v("ذخیره و افزودن مورد دیگر")]
                     )
@@ -38203,7 +39451,12 @@ var render = function() {
                       "button",
                       {
                         staticClass: "modal-button enabled",
-                        attrs: { tabindex: "0" }
+                        attrs: { tabindex: "0" },
+                        on: {
+                          click: function($event) {
+                            return _vm.saveAdd()
+                          }
+                        }
                       },
                       [_vm._v("ذخیره و افزودن مورد دیگر")]
                     )
@@ -38235,14 +39488,23 @@ var render = function() {
                       "button",
                       {
                         staticClass: "modal-button enabled",
-                        attrs: { tabindex: "0" }
+                        attrs: { tabindex: "0" },
+                        on: {
+                          click: function($event) {
+                            return _vm.saveAdd()
+                          }
+                        }
                       },
                       [_vm._v("ذخیره و افزودن مورد دیگر")]
                     )
                   ]
                 )
-              : _vm.currentTab === 3 &&
-                _vm.currentRevenue.type !== _vm.REVENUE_TYPE_RECURRING_CHANGES
+              : (_vm.currentTab === 3 &&
+                  _vm.currentRevenue.type !==
+                    _vm.REVENUE_TYPE_RECURRING_CHANGES) ||
+                (_vm.currentTab === 4 &&
+                  _vm.currentRevenue.type ===
+                    _vm.REVENUE_TYPE_RECURRING_CHANGES)
               ? _c(
                   "div",
                   { staticClass: "modal-footer-controls-container left" },
@@ -38258,14 +39520,19 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("بعدی")]
+                      [_vm._v("ذخیره")]
                     ),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
                         staticClass: "modal-button enabled",
-                        attrs: { tabindex: "0" }
+                        attrs: { tabindex: "0" },
+                        on: {
+                          click: function($event) {
+                            return _vm.saveAdd()
+                          }
+                        }
                       },
                       [_vm._v("ذخیره و افزودن مورد دیگر")]
                     )
@@ -41788,11 +43055,13 @@ var render = function() {
       _vm._v(" "),
       _vm.isModalVisible(1)
         ? _c("modal-revenue-crud", {
+            key: _vm.revenueModalKey,
             on: {
               "close-modal": function($event) {
                 return _vm.toggleModalVisibility(1)
               },
-              save: _vm.saveRevenue
+              save: _vm.saveRevenue,
+              "temp-save": _vm.saveTempRevenue
             }
           })
         : _vm._e()

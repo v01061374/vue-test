@@ -319,7 +319,7 @@
 
 
 
-        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue"></modal-revenue-crud>
+        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveTempRevenue":key="revenueModalKey"></modal-revenue-crud>
 
 
     </div>
@@ -342,6 +342,7 @@
         },
         data: function(){
             return {
+                revenueModalKey: 0,
                 annualTableData: {
                     details: [
                         {
@@ -1079,6 +1080,15 @@
             saveRevenue(revenue){
                 this.toggleModalVisibility(1);
                 console.log(revenue);
+            },
+            saveTempRevenue(revenue){
+                // TODO isTemp = true aka. just to be shown in table (??, should be checked)
+                // console.log(revenue);
+                this.renewRevenueModal();
+                console.log('preveious modal data:', revenue);
+            },
+            renewRevenueModal(){
+                this.revenueModalKey++;
             }
         },
         computed:{
