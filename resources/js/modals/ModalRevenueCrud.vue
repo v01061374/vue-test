@@ -3381,8 +3381,12 @@
                 <button :class="['modal-button','primary']" tabindex="0" v-if="!$v.currentRevenue.type.$invalid" @click="handleTabChange(2)">بعدی</button>
                 <button class="modal-button enabled" tabindex="0" @click="saveAdd()">ذخیره و افزودن مورد دیگر</button>
             </div>
-            <div class="modal-footer-controls-container left" v-if="currentTab===2">
+            <div class="modal-footer-controls-container left" v-if="currentTab===2 && currentRevenue.type !== REVENUE_TYPE_REVENUE_ONLY">
                 <button :class="['modal-button','primary']" tabindex="0" @click="handleTabChange(3)">بعدی</button>
+                <button class="modal-button enabled" tabindex="0" @click="saveAdd()">ذخیره و افزودن مورد دیگر</button>
+            </div>
+            <div class="modal-footer-controls-container left" v-if="currentTab===2 && currentRevenue.type === REVENUE_TYPE_REVENUE_ONLY">
+                <button :class="['modal-button','primary']" tabindex="0" @click="finalSave()">ذخیره</button>
                 <button class="modal-button enabled" tabindex="0" @click="saveAdd()">ذخیره و افزودن مورد دیگر</button>
             </div>
             <div class="modal-footer-controls-container left" v-if="currentTab===3 && currentRevenue.type === REVENUE_TYPE_RECURRING_CHANGES">
@@ -3426,7 +3430,9 @@
 
                 isDeleting: false,
                 currentTab: 0,
-                
+                typeTabs: [
+                    [2,3], [2,3], [2,3,4], [2]
+                ],
                 periodsOptions: [
                     {title: 'ماه', code: LENGTH_MONTH},
                     {title: 'سال', code: LENGTH_YEAR},
@@ -3444,6 +3450,7 @@
                 chartUpdateArgs: [true, true, {duration: 1000}],
                 chartShiftPercent: [0, 0, 0, 0],
                 applyingChartShift: [false, false, false, false],
+                visitedTabs : [],
                 headerName : "",
                 currentRevenue:{
                     start: FAR_1398,
@@ -3499,9 +3506,9 @@
             }
         },
         methods: {
-            setCurrentTab: function (tab) {
-                this.currentTab = tab;
-            },
+            // setCurrentTab: function (tab) {
+            //     this.currentTab = tab;
+            // },
             close() {
                 this.$emit('close-modal');
             },
@@ -3529,7 +3536,8 @@
             },
             resetTypes(){
                 this.$v.$reset();
-                this.chartShiftPercent = [0, 0, 0, 0]
+                this.chartShiftPercent = [0, 0, 0, 0];
+                this.visitedTabs = [];
             },
             handleTabChange(to){
                 let $this = this;
@@ -3547,6 +3555,7 @@
                                 $this.updateHeaderName();
                             }
                             this.currentTab = to;
+
                         }
                     }
                     else{
@@ -3948,8 +3957,7 @@
 
             },
 
-            finalSave: function () {
-                let $this = this;
+            validateCurrentTab: function(){
                 let hasError = false;
                 if(this.currentTabValidators.length){
                     this.currentTabValidators.forEach(function (validator, i) {
@@ -3958,18 +3966,67 @@
                             hasError = true;
                         }
                     });
-                    if(!hasError){
-                        this.$emit('save', this.currentRevenue)
-                    }
+                    return !hasError;
+
                 }
                 else{
-                    this.$emit('save', this.currentRevenue);
+                    return true;
+                }
+            },
+            validateRevenueType: function(){
+                let $this = this;
+                let done = false;
+                let tabToGo = false;
+                this.typeTabs[this.currentRevenue.type].forEach(function (tab){
+                    if(!tabToGo){
+                        if($this.visitedTabs.length !== ($this.typeTabs[$this.currentRevenue.type]).length){
+                            if(!$this.tabIsVisited(tab)){
+                                $this.currentTab = tab;
+                                $this.validateCurrentTab();
+                                tabToGo = true;
+                            }
+                        }
+                        else{
+                            done = true;
+                        }
+                    }
+                });
+                if(done){
+                    return true;
+                }
+            },
+            tabIsVisited: function(tab){
+                return this.visitedTabs.includes(tab);
+            },
+            finalSave: function () {
+                // let $this = this;
+                // let hasTabError = false;
+                // if(this.currentTabValidators.length){
+                //     this.currentTabValidators.forEach(function (validator, i) {
+                //         validator.$touch();
+                //         if(validator.$error){
+                //             hasTabError = true;
+                //             console.log('error');
+                //         }
+                //     });
+                //     if(!hasTabError){
+                //         console.log(this.$v);
+                //         // this.$emit('save', this.currentRevenue)
+                //     }
+                // }
+                // else{
+                //     this.$emit('save', this.currentRevenue);
+                // }
+                if(this.validateCurrentTab()){
+                    if(this.validateRevenueType()){
+                        this.$emit('save', this.currentRevenue);
+                    }
                 }
 
+                else{
 
+                }
             },
-
-
             saveAdd: function(){
                 if(this.$v.currentRevenue.name.$invalid){ // TODO transfer validation to a new method
                     this.$v.currentRevenue.name.$touch();
@@ -4224,7 +4281,7 @@
                         required: requiredIf(function () {
                             return this.currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT;
                         }),
-                        between: between(MEASURE_TYPE_CONSTANT, MEASURE_TYPE_VARIABLE)
+                        between: between(LENGTH_MONTH, LENGTH_YEAR)
                     },
                     revenueStreamPerPeriod: {
                         filled: function (array){
@@ -4433,8 +4490,12 @@
             BaseModal,
         },
         watch:{
-            currentRevenue: function () {
-
+            currentTab: function () {
+                if(this.currentTab !== 0 && this.currentTab !== 1){
+                    if(!this.tabIsVisited(this.currentTab)){
+                        this.visitedTabs.push(this.currentTab);
+                    }
+                }
 
             }
         }
