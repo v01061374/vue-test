@@ -319,20 +319,25 @@
 
 
 
-        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveTempRevenue" @delete="deleteRevenue" :key="revenueModalKey"></modal-revenue-crud>
+        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveTempRevenue" @delete="deleteRevenue" :key="revenueModalKey" :revenue="testRevenue"></modal-revenue-crud>
 
 
     </div>
 </template>
 
 <script>
+
     import VideoModal from "@/js/components/VideoModal";
     import ModalRevenueCrud from "./../modals/ModalRevenueCrud";
     import { EventBus } from "@/js/event-bus.js"
-
-
     import { required, minLength, between, maxLength } from 'vuelidate/lib/validators';
 
+    const NOT_SELECTED = -1;const REVENUE_TYPE_UNIT_SALES = 0;const REVENUE_TYPE_BILLABLE_HOURS = 1;const REVENUE_TYPE_RECURRING_CHANGES = 2;
+    const REVENUE_TYPE_REVENUE_ONLY = 3;const MEASURE_TYPE_FREE = 0;const MEASURE_TYPE_CONSTANT = 1;const MEASURE_TYPE_VARIABLE = 2;
+    const LENGTH_MONTH = 0;const LENGTH_YEAR = 1;const FAR_1398 = 'f';const ORD_1398 = 'o';const KHO_1398 = 'k';const TIR_1398 = 't';
+    const MOR_1398 = 'mo';const SHAH_1398 = 'sh';const MEHR_1398 = 'me';const ABA_1398 = 'ab'; const AZAR_1398 = 'az'; const DEY_1398 = 'd';const BAH_1398 = 'b';
+    const ESF_1398 = 'es'; const _1399 = 'p1'; const _1400 = 'p2'; const UNIT_COUNT= 0;const UNIT_PRICE= 1;const UP_FEE= 2;const CHURN_RATE= 3; const REVENUE_STREAM = 4;
+    const MODAL_WIDTH_WIDE = true; const MODAL_WIDTH_NARROW = false;
 
     export default {
         name: "DashboardForecastRevenue",
@@ -343,6 +348,57 @@
         data: function(){
             return {
                 revenueModalKey: 0,
+                testRevenue:{
+                    start: FAR_1398,
+                    name: 'asdfasdf',
+                    id: '',
+                    type: NOT_SELECTED,
+                    unitSalesCountType: MEASURE_TYPE_CONSTANT,
+                    constantUnitSalesPeriod: LENGTH_MONTH,
+                    constantUnitSales: '',
+                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0]
+                    //     {
+                    //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
+                    //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
+                    //     _1399: '', _1400: ''
+                    // }
+                    ,
+                    unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
+                    constantUnitPrice: '',
+                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+
+                    billableHoursCountType: MEASURE_TYPE_CONSTANT,
+                    constantBillableHoursPeriod: LENGTH_MONTH,
+                    constantBillableHours: '',
+                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
+                    constantHourPrice: '',
+                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+
+                    customerCountType: MEASURE_TYPE_CONSTANT,
+                    constantCustomerCount: '',
+                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    constantCustomerCountPeriod: LENGTH_MONTH,
+
+                    upFrontFeeMeasureType: MEASURE_TYPE_FREE,
+                    constantUpFrontFee: '',
+                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
+                    constantRecurringCharge: '',
+                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    recurringChargeMonthFrequency: 1,
+
+                    // type 2 - tab 4
+                    churnRateMeasureType: MEASURE_TYPE_CONSTANT,
+                    constantChurnRate: '',
+                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    revenueStreamType: MEASURE_TYPE_CONSTANT,
+                    constantRevenueStream: '',
+                    constantRevenueStreamPeriod: LENGTH_MONTH,
+                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+
+                    // add isComplete flag to backend for tamp. saved ravenues
+                },
                 annualTableData: {
                     details: [
                         {

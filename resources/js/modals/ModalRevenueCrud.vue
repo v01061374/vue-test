@@ -4001,13 +4001,19 @@
                 }
             },
             handleTabChange(to){
-                if(this.validateCurrentTab()){
-                    if(this.currentTab === 0){
-                        this.updateHeaderName();
+                if(to > this.currentTab){
+                    if(this.validateCurrentTab()){
+                        if(this.currentTab === 0){
+                            this.updateHeaderName();
+                        }
+                        this.currentTab = to;
                     }
+                    else{}
+                }
+                else{
                     this.currentTab = to;
                 }
-                else{}
+
             },
             saveAdd: function(){
                 if(this.$v.currentRevenue.name.$invalid){ // TODO transfer validation to a new method
@@ -4455,11 +4461,6 @@
                     }
                 }
             }
-
-        },
-        mounted(){
-
-
         },
         props: {
             revenue: {
@@ -4468,6 +4469,12 @@
         },
         components:{
             BaseModal,
+        },
+        mounted(){
+            if(this.revenue){
+                this.currentRevenue = this.revenue;
+                this.currentRevenue.headerName = this.currentRevenue.name;
+            }
         },
         watch:{
             currentTab: function () {
