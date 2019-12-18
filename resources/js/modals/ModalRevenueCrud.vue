@@ -3539,41 +3539,7 @@
                 this.chartShiftPercent = [0, 0, 0, 0];
                 this.visitedTabs = [];
             },
-            handleTabChange(to){
-                let $this = this;
-                let hasError = false;
-                if(to > this.currentTab){
-                    if(this.currentTabValidators.length){
-                        this.currentTabValidators.forEach(function (validator, i) {
-                            validator.$touch();
-                            if(validator.$error){
-                                hasError = true;
-                            }
-                        });
-                        if(!hasError){
-                            if(this.currentTab === 0){
-                                $this.updateHeaderName();
-                            }
-                            this.currentTab = to;
 
-                        }
-                    }
-                    else{
-                        if(this.currentTab === 0){
-                            $this.updateHeaderName();
-                        }
-                        $this.currentTab=to;
-
-                    }
-                }
-                else{
-                    if(this.currentTab === 0){
-                        $this.updateHeaderName();
-                    }
-                    $this.currentTab=to;
-
-                }
-            },
             getChartOptions: function (data, ref) {
                 let $this = this;
                 // console.log(window.document.getElementById('unit-sales-chart').self);
@@ -4027,6 +3993,18 @@
 
                 }
             },
+            handleTabChange(to){
+                if(this.validateCurrentTab()){
+                    if(this.currentTab === 0){
+                        this.updateHeaderName();
+                    }
+                    this.currentTab = to;
+                }
+
+                else{
+
+                }
+            },
             saveAdd: function(){
                 if(this.$v.currentRevenue.name.$invalid){ // TODO transfer validation to a new method
                     this.$v.currentRevenue.name.$touch();
@@ -4037,6 +4015,7 @@
                     // TODO resetModal()
                 }
             },
+
 
 
         },
