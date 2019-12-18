@@ -3455,6 +3455,7 @@
                 currentRevenue:{
                     start: FAR_1398,
                     name: '',
+                    id: '',
                     headerName: '',
                     type: NOT_SELECTED,
                     unitSalesCountType: MEASURE_TYPE_CONSTANT,
@@ -3517,9 +3518,15 @@
                 this.isDeleting = !this.isDeleting;
             },
             deleteRecord: function () {
-                // TODO implement delete logic
-                this.close();
+                if(this.currentRevenue.id){
+                    this.$emit('delete', this.currentRevenue.id);
+                }
+                else{
+                    this.close();
+                }
+
             },
+
             getRevenueType: function(){
                 if(typeof this.revenue !== 'undefined'){
                     return this.revenue.type;
@@ -4000,10 +4007,7 @@
                     }
                     this.currentTab = to;
                 }
-
-                else{
-
-                }
+                else{}
             },
             saveAdd: function(){
                 if(this.$v.currentRevenue.name.$invalid){ // TODO transfer validation to a new method
@@ -4015,9 +4019,6 @@
                     // TODO resetModal()
                 }
             },
-
-
-
         },
 
         validations(){

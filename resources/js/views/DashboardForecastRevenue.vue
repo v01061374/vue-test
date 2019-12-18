@@ -319,7 +319,7 @@
 
 
 
-        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveTempRevenue":key="revenueModalKey"></modal-revenue-crud>
+        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveTempRevenue" @delete="deleteRevenue" :key="revenueModalKey"></modal-revenue-crud>
 
 
     </div>
@@ -1086,6 +1086,10 @@
                 // console.log(revenue);
                 this.renewRevenueModal();
                 console.log('preveious modal data:', revenue);
+            },
+            deleteRevenue: function(revenueId){
+                this.toggleModalVisibility(1);
+                console.log(revenueId);
             },
             renewRevenueModal(){
                 this.revenueModalKey++;
