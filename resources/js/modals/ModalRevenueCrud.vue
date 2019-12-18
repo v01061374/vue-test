@@ -467,7 +467,9 @@
                                                                 <div class="valid">
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
-                                                                               type="text" value="">
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.unitSalesPerPeriod[12]"
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -480,7 +482,9 @@
                                                                 <div class="valid">
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
-                                                                               type="text" value="">
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.unitSalesPerPeriod[13]"
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -531,8 +535,6 @@
                                     mean consulting engagements or fixed-price contracts or pallets of low-value
                                     materials. Do what makes sense for your business.
                                 </p>
-
-
                                 <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1"
                                      aria-orientation="horizontal">
                                     <ul>
@@ -588,27 +590,37 @@
                                                         </p>
                                                         <div>
                                                             <div class="financial-year-box-header-controls">
-                                                                <!--<p>تغییرات</p>-->
-                                                                <!--<div>-->
-                                                                <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"-->
-                                                                <!--style="width: 87px;">-->
-                                                                <!--<span aria-hidden="true"-->
-                                                                <!--class="percent">%</span>-->
-                                                                <!--<input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                                                <!--type="number"-->
-                                                                <!--v-model="annualSalesUnitShiftPercent">-->
-                                                                <!--</div>-->
-                                                                <!--</div>-->
-                                                                <!--<button class="overlay-button primary"-->
-                                                                <!--@click="shiftAnnualSalesUnitChart()"-->
-                                                                <!--tabindex="-1">اعمال-->
-                                                                <!--</button>-->
+                                                                <p>تغییرات</p>
+                                                                <div>
+                                                                    <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"
+                                                                         style="width: 87px;">
+                                                                        <span aria-hidden="true"
+                                                                              class="percent">%</span>
+                                                                        <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="chartShiftPercent[1]">
+                                                                    </div>
+                                                                </div>
+                                                                <button class="overlay-button primary"
+                                                                        @click="shiftChart(UNIT_PRICE)"
+                                                                        v-if="chartShiftPercent[1] !== 0"
+                                                                        tabindex="-1">اعمال
+                                                                </button>
+                                                                <button class="overlay-button primary"
+                                                                        style="opacity: 0.7"
+                                                                        v-else-if="applyingChartShift[1] === true"
+                                                                        tabindex="-1">اعمال شد
+                                                                </button>
+                                                                <button class="overlay-button primary"
+                                                                        v-else
+                                                                        tabindex="-1">اعمال
+                                                                </button>
                                                                 <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="financial-year-chart-container" id="unit-price-chart">
+                                                    <div class="financial-year-chart-container" id="unit-prices-chart">
                                                         <highcharts class="chart"
                                                                     :options="getChartOptions(currentRevenue.unitPricePerPeriod, UNIT_PRICE)"
                                                                     :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
@@ -635,7 +647,8 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.unitPricePerPeriod[0]">
+                                                                               v-model.number="currentRevenue.unitPricePerPeriod[0]"
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -650,7 +663,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[1]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -665,7 +678,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[2]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -680,7 +693,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[3]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -695,7 +708,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[4]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -710,7 +723,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[5]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -725,7 +738,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[6]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -740,7 +753,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[7]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -755,7 +768,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[8]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -770,7 +783,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[9]"
-                                                                              >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -785,7 +798,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[10]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -800,7 +813,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitPricePerPeriod[11]"
-                                                                               >
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -813,7 +826,9 @@
                                                                 <div class="valid">
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
-                                                                               type="text" value="">
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.unitPricePerPeriod[12]"
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -826,7 +841,9 @@
                                                                 <div class="valid">
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
-                                                                               type="text" value="">
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.unitPricePerPeriod[13]"
+                                                                        >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -846,7 +863,6 @@
                                 <!--TODO constant amount selected (delete this todo-->
 
                             </div>
-
                         </div>
                     </div>
 
@@ -902,279 +918,292 @@
                                         </div>
                                         <div class="clear"></div>
                                         <div class="feedback-line">
-                                            <p v-if="$v.currentRevenue.constantBillableHours.$error && !$v.currentRevenue.name.required">
+                                            <p v-if="$v.currentRevenue.constantBillableHours.$error && !$v.currentRevenue.constantBillableHours.required">
                                                 مقداری (بیش از 0) را وارد کنید
                                             </p>
                                         </div>
                                     </div><!-- react-empty: 148 -->
                                 </div>
                                 <div v-if="currentRevenue.billableHoursCountType===MEASURE_TYPE_VARIABLE">
-                                    variable
-                                    <!--<div class="financial-year-box" role="grid">-->
-                                    <!--<div class="financial-year-box-container">-->
-                                    <!--<div class="financial-year-box-wrapper"-->
-                                    <!--style="height: 400px; width: 964px">-->
-                                    <!--<div>-->
-                                    <!--<div class="financial-year-box-header">-->
-                                    <!--<p>-->
-                                    <!--<strong class="faNum">1398 - </strong>-->
-                                    <!--فلان فلان فلان-->
-                                    <!--</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="financial-year-box-header-controls">-->
-                                    <!--<p>تغییرات</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"-->
-                                    <!--style="width: 87px;">-->
-                                    <!--<span aria-hidden="true"-->
-                                    <!--class="percent">%</span>-->
-                                    <!--<input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model="annualSalesUnitShiftPercent">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button class="overlay-button primary"-->
-                                    <!--@click="shiftAnnualSalesUnitChart()"-->
-                                    <!--tabindex="-1">اعمال-->
-                                    <!--</button>-->
+                                    <div class="financial-year-box" role="grid">
+                                        <div class="financial-year-box-container">
+                                            <div class="financial-year-box-wrapper"
+                                                 style="height: 400px; width: 964px">
+                                                <div>
+                                                    <div class="financial-year-box-header">
+                                                        <p>
+                                                            <strong class="faNum">1398 - </strong>
+                                                            فلان فلان فلان
+                                                        </p>
+                                                        <div>
+                                                            <div class="financial-year-box-header-controls">
+                                                                <p>تغییرات</p>
+                                                                <div>
+                                                                    <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"
+                                                                         style="width: 87px;">
+                                                                        <span aria-hidden="true"
+                                                                              class="percent">%</span>
+                                                                        <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="chartShiftPercent[0]">
+                                                                    </div>
+                                                                </div>
+                                                                <button class="overlay-button primary"
+                                                                        @click="shiftChart(UNIT_COUNT)"
+                                                                        v-if="chartShiftPercent[0] !== 0"
+                                                                        tabindex="-1">اعمال
+                                                                </button>
+                                                                <button class="overlay-button primary"
+                                                                        style="opacity: 0.7"
+                                                                        v-else-if="applyingChartShift[0] === true"
+                                                                        tabindex="-1">اعمال شد
+                                                                </button>
+                                                                <button class="overlay-button primary"
+                                                                        v-else
+                                                                        tabindex="-1">اعمال
+                                                                </button>
+                                                                <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
 
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="financial-year-chart-container">-->
-                                    <!--<highcharts class="chart"-->
-                                    <!--:options="annualUnitSalesChartOptions"-->
-                                    <!--:updateArgs="updateArgs"-->
-                                    <!--@redraw="consolelog()"></highcharts>-->
-                                    <!--</div>-->
-                                    <!--<div class="financial-year-input-container">-->
-                                    <!--<ul class="labels faNum">-->
-                                    <!--<li>-->
-                                    <!--<p>1398</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number" disabled readOnly-->
-                                    <!--:value="currentYearAnnualUnitSales">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[0]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value , 0)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>اردیبهشت</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[1]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 1)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>خرداد</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[2]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 2)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[3]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 3)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[4]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 4)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[5]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value,5)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[6]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 6)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[7]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 7)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[8]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 8)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[9]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 9)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[10]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 10)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>اسفند</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[11]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 11)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>1399</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="text" value="">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>1340</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="text" value="">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="financial-year-chart-container" id="billable-hours-chart">
+                                                        <highcharts class="chart"
+                                                                    :options="getChartOptions(currentRevenue.billableHoursPerPeriod, UNIT_COUNT)"
+                                                                    :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
+                                                    </div>
+                                                    <div class="financial-year-input-container">
+                                                        <ul class="labels faNum">
+                                                            <li>
+                                                                <p>1398</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number" disabled readOnly
+                                                                               :value="getChartCurrentYearValue(UNIT_COUNT)">
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[0]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>اردیبهشت</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[1]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>خرداد</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[2]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[3]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[4]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[5]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[6]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[7]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[8]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[9]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[10]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>اسفند</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[11]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>1399</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[12]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>1340</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[13]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div> <!--TODO variable amount selected (delete this todo-->
 
 
@@ -1212,8 +1241,6 @@
                                     mean consulting engagements or fixed-price contracts or pallets of low-value
                                     materials. Do what makes sense for your business.
                                 </p>
-
-
                                 <div class="radio-box CONSTANT" role="radiogroup" tabindex="-1"
                                      aria-orientation="horizontal">
                                     <ul>
@@ -1234,8 +1261,6 @@
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
-
-
                                 </div>
                                 <!--TODO constant amount selected (delete this todo-->
                                 <div v-if="currentRevenue.hourPriceMeasureType===MEASURE_TYPE_CONSTANT">
@@ -1257,274 +1282,286 @@
                                     </div>
                                 </div>
                                 <div v-if="currentRevenue.hourPriceMeasureType===MEASURE_TYPE_VARIABLE">
-                                    variable
-                                    <!--<div class="financial-year-box" role="grid">-->
-                                    <!--<div class="financial-year-box-container">-->
-                                    <!--<div class="financial-year-box-wrapper"-->
-                                    <!--style="height: 400px; width: 964px">-->
-                                    <!--<div>-->
-                                    <!--<div class="financial-year-box-header">-->
-                                    <!--<p>-->
-                                    <!--<strong class="faNum">1398 - </strong>-->
-                                    <!--فلان فلان فلان-->
-                                    <!--</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="financial-year-box-header-controls">-->
-                                    <!--<p>تغییرات</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"-->
-                                    <!--style="width: 87px;">-->
-                                    <!--<span aria-hidden="true"-->
-                                    <!--class="percent">%</span>-->
-                                    <!--<input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model="annualSalesUnitShiftPercent">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button class="overlay-button primary"-->
-                                    <!--@click="shiftAnnualSalesUnitChart()"-->
-                                    <!--tabindex="-1">اعمال-->
-                                    <!--</button>-->
+                                    <div class="financial-year-box" role="grid">
+                                        <div class="financial-year-box-container">
+                                            <div class="financial-year-box-wrapper"
+                                                 style="height: 400px; width: 964px">
+                                                <div>
+                                                    <div class="financial-year-box-header">
+                                                        <p>
+                                                            <strong class="faNum">1398 - </strong>
+                                                            فلان فلان فلان
+                                                        </p>
+                                                        <div>
+                                                            <div class="financial-year-box-header-controls">
+                                                                <p>تغییرات</p>
+                                                                <div>
+                                                                    <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"
+                                                                         style="width: 87px;">
+                                                                        <span aria-hidden="true"
+                                                                              class="percent">%</span>
+                                                                        <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="chartShiftPercent[1]">
+                                                                    </div>
+                                                                </div>
+                                                                <button class="overlay-button primary"
+                                                                        @click="shiftChart(UNIT_PRICE)"
+                                                                        v-if="chartShiftPercent[1] !== 0"
+                                                                        tabindex="-1">اعمال
+                                                                </button>
+                                                                <button class="overlay-button primary"
+                                                                        style="opacity: 0.7"
+                                                                        v-else-if="applyingChartShift[1] === true"
+                                                                        tabindex="-1">اعمال شد
+                                                                </button>
+                                                                <button class="overlay-button primary"
+                                                                        v-else
+                                                                        tabindex="-1">اعمال
+                                                                </button>
+                                                                <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
 
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="financial-year-chart-container">-->
-                                    <!--<highcharts class="chart"-->
-                                    <!--:options="annualUnitSalesChartOptions"-->
-                                    <!--:updateArgs="updateArgs"-->
-                                    <!--@redraw="consolelog()"></highcharts>-->
-                                    <!--</div>-->
-                                    <!--<div class="financial-year-input-container">-->
-                                    <!--<ul class="labels faNum">-->
-                                    <!--<li>-->
-                                    <!--<p>1398</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number" disabled readOnly-->
-                                    <!--:value="currentYearAnnualUnitSales">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[0]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value , 0)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>اردیبهشت</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[1]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 1)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>خرداد</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[2]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 2)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[3]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 3)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[4]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 4)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[5]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value,5)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[6]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 6)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[7]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 7)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[8]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 8)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[9]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 9)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[10]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 10)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>اسفند</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[11]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 11)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>1399</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="text" value="">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>1340</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="text" value="">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="financial-year-chart-container" id="hour-price-chart">
+                                                        <highcharts class="chart"
+                                                                    :options="getChartOptions(currentRevenue.hourPricePerPeriod, UNIT_PRICE)"
+                                                                    :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
+                                                    </div>
+                                                    <div class="financial-year-input-container">
+                                                        <ul class="labels faNum">
+                                                            <li>
+                                                                <p>1398</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number" disabled readOnly
+                                                                               :value="getChartCurrentYearValue(UNIT_PRICE)">
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[0]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>اردیبهشت</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[1]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>خرداد</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[2]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[3]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[4]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[5]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[6]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[7]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[8]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[9]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[10]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>اسفند</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[11]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>1399</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[12]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>1340</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[13]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div> <!--TODO variable amount selected (delete this todo-->
-
 
                                 <!--TODO constant amount selected (delete this todo-->
 
@@ -1606,272 +1643,285 @@
                                     </div><!-- react-empty: 148 -->
                                 </div>
                                 <div v-if="currentRevenue.customerCountType===MEASURE_TYPE_VARIABLE">
-                                    variable
-                                    <!--<div class="financial-year-box" role="grid">-->
-                                    <!--<div class="financial-year-box-container">-->
-                                    <!--<div class="financial-year-box-wrapper"-->
-                                    <!--style="height: 400px; width: 964px">-->
-                                    <!--<div>-->
-                                    <!--<div class="financial-year-box-header">-->
-                                    <!--<p>-->
-                                    <!--<strong class="faNum">1398 - </strong>-->
-                                    <!--فلان فلان فلان-->
-                                    <!--</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="financial-year-box-header-controls">-->
-                                    <!--<p>تغییرات</p>-->
-                                    <!--<div>-->
-                                    <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"-->
-                                    <!--style="width: 87px;">-->
-                                    <!--<span aria-hidden="true"-->
-                                    <!--class="percent">%</span>-->
-                                    <!--<input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model="annualSalesUnitShiftPercent">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button class="overlay-button primary"-->
-                                    <!--@click="shiftAnnualSalesUnitChart()"-->
-                                    <!--tabindex="-1">اعمال-->
-                                    <!--</button>-->
+                                    <div class="financial-year-box" role="grid">
+                                        <div class="financial-year-box-container">
+                                            <div class="financial-year-box-wrapper"
+                                         style="height: 400px; width: 964px">
+                                        <div>
+                                            <div class="financial-year-box-header">
+                                                <p>
+                                                    <strong class="faNum">1398 - </strong>
+                                                    فلان فلان فلان
+                                                </p>
+                                                <div>
+                                                    <div class="financial-year-box-header-controls">
+                                                        <p>تغییرات</p>
+                                                        <div>
+                                                            <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"
+                                                                 style="width: 87px;">
+                                                                        <span aria-hidden="true"
+                                                                              class="percent">%</span>
+                                                                <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="chartShiftPercent[0]">
+                                                            </div>
+                                                        </div>
+                                                        <button class="overlay-button primary"
+                                                                @click="shiftChart(UNIT_COUNT)"
+                                                                v-if="chartShiftPercent[0] !== 0"
+                                                                tabindex="-1">اعمال
+                                                        </button>
+                                                        <button class="overlay-button primary"
+                                                                style="opacity: 0.7"
+                                                                v-else-if="applyingChartShift[0] === true"
+                                                                tabindex="-1">اعمال شد
+                                                        </button>
+                                                        <button class="overlay-button primary"
+                                                                v-else
+                                                                tabindex="-1">اعمال
+                                                        </button>
+                                                        <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
 
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="financial-year-chart-container">-->
-                                    <!--<highcharts class="chart"-->
-                                    <!--:options="annualUnitSalesChartOptions"-->
-                                    <!--:updateArgs="updateArgs"-->
-                                    <!--@redraw="consolelog()"></highcharts>-->
-                                    <!--</div>-->
-                                    <!--<div class="financial-year-input-container">-->
-                                    <!--<ul class="labels faNum">-->
-                                    <!--<li>-->
-                                    <!--<p>1398</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number" disabled readOnly-->
-                                    <!--:value="currentYearAnnualUnitSales">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[0]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value , 0)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>اردیبهشت</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[1]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 1)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>خرداد</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[2]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 2)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[3]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 3)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[4]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 4)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[5]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value,5)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[6]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 6)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[7]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 7)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[8]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 8)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[9]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 9)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>فروردین</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[10]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 10)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>اسفند</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="number"-->
-                                    <!--v-model.number="annualSalesUnitPeriodsData[11]"-->
-                                    <!--@input="updateAnnualSalesUnitChart($event.target.value, 11)">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>1399</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="text" value="">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                    <!--<p>1340</p>-->
-                                    <!--<div class="valid">-->
-                                    <!--<div>-->
-                                    <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                    <!--type="text" value="">-->
-                                    <!--<div class="fillRightDots"-->
-                                    <!--aria-hidden="true">-->
-                                    <!--&nbsp;-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</li>-->
-                                    <!--</ul>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="financial-year-chart-container" id="customer-count-chart">
+                                                <highcharts class="chart"
+                                                            :options="getChartOptions(currentRevenue.customerCountPerPeriod, UNIT_COUNT)"
+                                                            :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
+                                            </div>
+                                            <div class="financial-year-input-container">
+                                                <ul class="labels faNum">
+                                                    <li>
+                                                        <p>1398</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number" disabled readOnly
+                                                                       :value="getChartCurrentYearValue(UNIT_COUNT)">
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[0]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>اردیبهشت</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[1]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>خرداد</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[2]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[3]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[4]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[5]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[6]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[7]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[8]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[9]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>فروردین</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[10]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>اسفند</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[11]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>1399</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[12]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p>1340</p>
+                                                        <div class="valid">
+                                                            <div>
+                                                                <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                       type="number"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[13]"
+                                                                >
+                                                                <div class="fillRightDots"
+                                                                     aria-hidden="true">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </div>
+                                    </div>
                                 </div> <!--TODO variable amount selected (delete this todo-->
 
 
@@ -1941,6 +1991,287 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div v-if="currentRevenue.upFrontFeeMeasureType===MEASURE_TYPE_VARIABLE">
+                                        <div class="financial-year-box" role="grid">
+                                            <div class="financial-year-box-container">
+                                                <div class="financial-year-box-wrapper"
+                                                     style="height: 400px; width: 964px">
+                                                    <div>
+                                                        <div class="financial-year-box-header">
+                                                            <p>
+                                                                <strong class="faNum">1398 - </strong>
+                                                                فلان فلان فلان
+                                                            </p>
+                                                            <div>
+                                                                <div class="financial-year-box-header-controls">
+                                                                    <p>تغییرات</p>
+                                                                    <div>
+                                                                        <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"
+                                                                             style="width: 87px;">
+                                                                        <span aria-hidden="true"
+                                                                              class="percent">%</span>
+                                                                            <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="chartShiftPercent[1]">
+                                                                        </div>
+                                                                    </div>
+                                                                    <button class="overlay-button primary"
+                                                                            @click="shiftChart(UP_FEE)"
+                                                                            v-if="chartShiftPercent[1] !== 0"
+                                                                            tabindex="-1">اعمال
+                                                                    </button>
+                                                                    <button class="overlay-button primary"
+                                                                            style="opacity: 0.7"
+                                                                            v-else-if="applyingChartShift[1] === true"
+                                                                            tabindex="-1">اعمال شد
+                                                                    </button>
+                                                                    <button class="overlay-button primary"
+                                                                            v-else
+                                                                            tabindex="-1">اعمال
+                                                                    </button>
+                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="financial-year-chart-container" id="up-fee-chart">
+                                                            <highcharts class="chart"
+                                                                        :options="getChartOptions(currentRevenue.upFrontFeePerPeriod, UP_FEE)"
+                                                                        :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
+                                                        </div>
+                                                        <div class="financial-year-input-container">
+                                                            <ul class="labels faNum">
+                                                                <li>
+                                                                    <p>1398</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number" disabled readOnly
+                                                                                   :value="getChartCurrentYearValue(UP_FEE)">
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[0]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>اردیبهشت</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[1]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>خرداد</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[2]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[3]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[4]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[5]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[6]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[7]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[8]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[9]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[10]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>اسفند</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[11]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>1399</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[12]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>1340</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[13]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!--TODO constant amount selected (delete this todo-->
 
                                 </div>
@@ -1995,6 +2326,287 @@
                                         </div>
                                     </div>
                                     <!--TODO constant amount selected (delete this todo-->
+                                    <div v-if="currentRevenue.recurringChargeMeasureType===MEASURE_TYPE_VARIABLE">
+                                        <div class="financial-year-box" role="grid">
+                                            <div class="financial-year-box-container">
+                                                <div class="financial-year-box-wrapper"
+                                                     style="height: 400px; width: 964px">
+                                                    <div>
+                                                        <div class="financial-year-box-header">
+                                                            <p>
+                                                                <strong class="faNum">1398 - </strong>
+                                                                فلان فلان فلان
+                                                            </p>
+                                                            <div>
+                                                                <div class="financial-year-box-header-controls">
+                                                                    <p>تغییرات</p>
+                                                                    <div>
+                                                                        <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"
+                                                                             style="width: 87px;">
+                                                                        <span aria-hidden="true"
+                                                                              class="percent">%</span>
+                                                                            <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="chartShiftPercent[2]">
+                                                                        </div>
+                                                                    </div>
+                                                                    <button class="overlay-button primary"
+                                                                            @click="shiftChart(UNIT_PRICE)"
+                                                                            v-if="chartShiftPercent[2] !== 0"
+                                                                            tabindex="-1">اعمال
+                                                                    </button>
+                                                                    <button class="overlay-button primary"
+                                                                            style="opacity: 0.7"
+                                                                            v-else-if="applyingChartShift[2] === true"
+                                                                            tabindex="-1">اعمال شد
+                                                                    </button>
+                                                                    <button class="overlay-button primary"
+                                                                            v-else
+                                                                            tabindex="-1">اعمال
+                                                                    </button>
+                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="financial-year-chart-container" id="recurring-charge-chart">
+                                                            <highcharts class="chart"
+                                                                        :options="getChartOptions(currentRevenue.recurringChargePerPeriod, UNIT_PRICE)"
+                                                                        :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
+                                                        </div>
+                                                        <div class="financial-year-input-container">
+                                                            <ul class="labels faNum">
+                                                                <li>
+                                                                    <p>1398</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number" disabled readOnly
+                                                                                   :value="getChartCurrentYearValue(UNIT_PRICE)">
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[0]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>اردیبهشت</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[1]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>خرداد</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[2]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[3]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[4]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[5]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[6]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[7]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[8]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[9]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[10]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>اسفند</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[11]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>1399</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[12]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>1340</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[13]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <div class="section" style="margin-bottom: 30px">
@@ -2011,9 +2623,10 @@
                                         <div>
                                             <span class="per">هر</span>
                                             <span class="little-drop-down">
-                                                <drop-down v-model="currentRevenue.recurringChargeMonthFrequency" :options="currentRevenue.recurringChargeMonthFrequencyOptions"
+                                                <drop-down v-model="currentRevenue.recurringChargeMonthFrequency" :options="recurringChargeMonthFrequencyOptions"
                                                            optionLabel="title" optionValue="code"
                                                            scrollHeight="100px"/>
+
                                             </span>
                                             <span class="per">ماه</span>
                                         </div>
@@ -2068,284 +2681,299 @@
                                             <input :class="['input-box', '_1v965moXRbti5zqLRSk3wE','smallPercentage',
                                             '_3nXdR_fo3j0MwFs8AZWYc5', $v.currentRevenue.constantChurnRate.$error? 'error' : '']"
                                                    type="number"
-                                                   v-model="currentRevenue.constantChurnRate">
+                                                   v-model.trim="$v.currentRevenue.constantChurnRate.$model">
 
                                             <div class="clear"></div>
-                                            <div class="feedback-line">
-                                                <p v-if="$v.currentRevenue.constantChurnRate.$error && !$v.currentRevenue.constantChurnRate.required">
-                                                    مقداری را وارد کنید
-                                                </p>
-                                            </div>
+
                                         </div><!-- react-empty: 148 -->
+                                        <div class="feedback-line">
+                                            <p v-if="$v.currentRevenue.constantChurnRate.$error && !$v.currentRevenue.constantChurnRate.required">
+                                                مقداری را وارد کنید
+                                            </p>
+                                        </div>
+
                                     </div>
                                     <div v-if="currentRevenue.churnRateMeasureType===MEASURE_TYPE_VARIABLE">
-                                        variable
-                                        <!--<div class="financial-year-box" role="grid">-->
-                                        <!--<div class="financial-year-box-container">-->
-                                        <!--<div class="financial-year-box-wrapper"-->
-                                        <!--style="height: 400px; width: 964px">-->
-                                        <!--<div>-->
-                                        <!--<div class="financial-year-box-header">-->
-                                        <!--<p>-->
-                                        <!--<strong class="faNum">1398 - </strong>-->
-                                        <!--فلان فلان فلان-->
-                                        <!--</p>-->
-                                        <!--<div>-->
-                                        <!--<div class="financial-year-box-header-controls">-->
-                                        <!--<p>تغییرات</p>-->
-                                        <!--<div>-->
-                                        <!--<div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"-->
-                                        <!--style="width: 87px;">-->
-                                        <!--<span aria-hidden="true"-->
-                                        <!--class="percent">%</span>-->
-                                        <!--<input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model="annualSalesUnitShiftPercent">-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<button class="overlay-button primary"-->
-                                        <!--@click="shiftAnnualSalesUnitChart()"-->
-                                        <!--tabindex="-1">اعمال-->
-                                        <!--</button>-->
+                                        <div class="financial-year-box" role="grid">
+                                            <div class="financial-year-box-container">
+                                                <div class="financial-year-box-wrapper"
+                                                     style="height: 400px; width: 964px">
+                                                    <div>
+                                                        <div class="financial-year-box-header">
+                                                            <p>
+                                                                <strong class="faNum">1398 - </strong>
+                                                                فلان فلان فلان
+                                                            </p>
+                                                            <div>
+                                                                <div class="financial-year-box-header-controls">
+                                                                    <p>تغییرات</p>
+                                                                    <div>
+                                                                        <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"
+                                                                             style="width: 87px;">
+                                                                        <span aria-hidden="true"
+                                                                              class="percent">%</span>
+                                                                            <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="chartShiftPercent[3]">
+                                                                        </div>
+                                                                    </div>
+                                                                    <button class="overlay-button primary"
+                                                                            @click="shiftChart(CHURN_RATE)"
+                                                                            v-if="chartShiftPercent[3] !== 0"
+                                                                            tabindex="-1">اعمال
+                                                                    </button>
+                                                                    <button class="overlay-button primary"
+                                                                            style="opacity: 0.7"
+                                                                            v-else-if="applyingChartShift[3] === true"
+                                                                            tabindex="-1">اعمال شد
+                                                                    </button>
+                                                                    <button class="overlay-button primary"
+                                                                            v-else
+                                                                            tabindex="-1">اعمال
+                                                                    </button>
+                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
 
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div class="financial-year-chart-container">-->
-                                        <!--<highcharts class="chart"-->
-                                        <!--:options="annualUnitSalesChartOptions"-->
-                                        <!--:updateArgs="updateArgs"-->
-                                        <!--@redraw="consolelog()"></highcharts>-->
-                                        <!--</div>-->
-                                        <!--<div class="financial-year-input-container">-->
-                                        <!--<ul class="labels faNum">-->
-                                        <!--<li>-->
-                                        <!--<p>1398</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number" disabled readOnly-->
-                                        <!--:value="currentYearAnnualUnitSales">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[0]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value , 0)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>اردیبهشت</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[1]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 1)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>خرداد</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[2]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 2)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[3]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 3)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[4]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 4)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[5]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value,5)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[6]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 6)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[7]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 7)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[8]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 8)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[9]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 9)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>فروردین</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[10]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 10)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>اسفند</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="number"-->
-                                        <!--v-model.number="annualSalesUnitPeriodsData[11]"-->
-                                        <!--@input="updateAnnualSalesUnitChart($event.target.value, 11)">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>1399</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="text" value="">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--<li>-->
-                                        <!--<p>1340</p>-->
-                                        <!--<div class="valid">-->
-                                        <!--<div>-->
-                                        <!--<input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"-->
-                                        <!--type="text" value="">-->
-                                        <!--<div class="fillRightDots"-->
-                                        <!--aria-hidden="true">-->
-                                        <!--&nbsp;-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</li>-->
-                                        <!--</ul>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                        <!--</div>-->
-                                    </div> <!--TODO variable amount selected (delete this todo-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="financial-year-chart-container" id="churn-rate-chart">
+                                                            <highcharts class="chart"
+                                                                        :options="getChartOptions(currentRevenue.churnRatePerPeriod, CHURN_RATE)"
+                                                                        :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
+                                                        </div>
+                                                        <div class="financial-year-input-container">
+                                                            <ul class="labels faNum">
+                                                                <li>
+                                                                    <p>1398</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number" disabled readOnly
+                                                                                   :value="getChartCurrentYearValue(CHURN_RATE)">
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[0]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>اردیبهشت</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[1]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>خرداد</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[2]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[3]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[4]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[5]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[6]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[7]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[8]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[9]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>فروردین</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[10]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>اسفند</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[11]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>1399</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[12]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p>1340</p>
+                                                                    <div class="valid">
+                                                                        <div>
+                                                                            <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                                   type="number"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[13]"
+                                                                            >
+                                                                            <div class="fillRightDots"
+                                                                                 aria-hidden="true">
+                                                                                &nbsp;
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
                                     <!--TODO constant amount selected (delete this todo-->
@@ -2412,8 +3040,286 @@
                                     </div><!-- react-empty: 148 -->
                                 </div>
                                 <div v-if="currentRevenue.revenueStreamType===MEASURE_TYPE_VARIABLE">
-                                    
-                                </div> <!--TODO variable amount selected (delete this todo-->
+                                    <div class="financial-year-box" role="grid">
+                                        <div class="financial-year-box-container">
+                                            <div class="financial-year-box-wrapper"
+                                                 style="height: 400px; width: 964px">
+                                                <div>
+                                                    <div class="financial-year-box-header">
+                                                        <p>
+                                                            <strong class="faNum">1398 - </strong>
+                                                            فلان فلان فلان
+                                                        </p>
+                                                        <div>
+                                                            <div class="financial-year-box-header-controls">
+                                                                <p>تغییرات</p>
+                                                                <div>
+                                                                    <div class="input-box-wrapper _2fhqByVVd1xIFl73q95wYl"
+                                                                         style="width: 87px;">
+                                                                        <span aria-hidden="true"
+                                                                              class="percent">%</span>
+                                                                        <input class="input-box _1v965moXRbti5zqLRSk3wE smallPercentage _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="chartShiftPercent[3]">
+                                                                    </div>
+                                                                </div>
+                                                                <button class="overlay-button primary"
+                                                                        @click="shiftChart(REVENUE_STREAM)"
+                                                                        v-if="chartShiftPercent[3] !== 0"
+                                                                        tabindex="-1">اعمال
+                                                                </button>
+                                                                <button class="overlay-button primary"
+                                                                        style="opacity: 0.7"
+                                                                        v-else-if="applyingChartShift[3] === true"
+                                                                        tabindex="-1">اعمال شد
+                                                                </button>
+                                                                <button class="overlay-button primary"
+                                                                        v-else
+                                                                        tabindex="-1">اعمال
+                                                                </button>
+                                                                <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="financial-year-chart-container" id="revenue-stream-chart">
+                                                        <highcharts class="chart"
+                                                                    :options="getChartOptions(currentRevenue.revenueStreamPerPeriod, REVENUE_STREAM)"
+                                                                    :updateArgs="chartUpdateArgs" :highcharts="hc"></highcharts>
+                                                    </div>
+                                                    <div class="financial-year-input-container">
+                                                        <ul class="labels faNum">
+                                                            <li>
+                                                                <p>1398</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number" disabled readOnly
+                                                                               :value="getChartCurrentYearValue(REVENUE_STREAM)">
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[0]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>اردیبهشت</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[1]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>خرداد</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[2]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[3]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[4]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[5]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[6]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[7]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[8]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[9]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>فروردین</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[10]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>اسفند</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[11]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>1399</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[12]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <p>1340</p>
+                                                                <div class="valid">
+                                                                    <div>
+                                                                        <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
+                                                                               type="number"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[13]"
+                                                                        >
+                                                                        <div class="fillRightDots"
+                                                                             aria-hidden="true">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
                                 <!--TODO constant amount selected (delete this todo-->
@@ -2434,6 +3340,7 @@
                                 </div>
                             </div>
                             <!--TODO constant amount selected (delete this todo-->
+
                         </div>
                     </div>
 
@@ -2568,6 +3475,7 @@
                     customerCountType: MEASURE_TYPE_CONSTANT,
                     constantCustomerCount: '',
                     customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    constantCustomerCountPeriod: LENGTH_MONTH,
 
                     upFrontFeeMeasureType: MEASURE_TYPE_FREE,
                     constantUpFrontFee: '',
@@ -2783,7 +3691,7 @@
                                 break;
                             }
                             case UNIT_PRICE:{
-                                series = this.currentRevenue.billableHoursPerPeriod;
+                                series = this.currentRevenue.hourPricePerPeriod;
                                 break;
                             }
                         }
@@ -2822,12 +3730,12 @@
 
                 }
                 let sum = 0;
-                series.forEach(function(item, i){
-                    if(!item && item!==0){}
+                for(let i = 0 ; i <= 11; i++){
+                    if(!series[i] && series[i]!==0){}
                     else{
-                        sum = sum + item;
+                        sum = sum + series[i];
                     }
-                });
+                }
                 return sum;
             }, //ok
 
@@ -2842,7 +3750,7 @@
                                 for(let i = 0 ; i<=13 ; i++){
                                     console.log(isNaN(this.currentRevenue.unitSalesPerPeriod[i]));
                                     if(!isNaN(this.currentRevenue.unitSalesPerPeriod[i])){
-                                        this.$set(this.currentRevenue.unitSalesPerPeriod, i, this.currentRevenue.unitSalesPerPeriod[i]*(1+(this.chartShiftPercent[0])/100));
+                                        this.$set(this.currentRevenue.unitSalesPerPeriod, i, Math.round(this.currentRevenue.unitSalesPerPeriod[i]*(1+(this.chartShiftPercent[0])/100)));
 
                                     }
                                 }
@@ -2855,8 +3763,8 @@
                             }
                             case UNIT_PRICE:{
                                 for(let i = 0 ; i<=13 ; i++){
-                                    if(!isNaN(this.currentRevenue.unitSalesPerPeriod[i])){
-                                        this.$set(this.currentRevenue.unitSalesPerPeriod, i, this.currentRevenue.unitSalesPerPeriod[i]*(1+(this.chartShiftPercent[1])/100));
+                                    if(!isNaN(this.currentRevenue.unitPricePerPeriod[i])){
+                                        this.$set(this.currentRevenue.unitPricePerPeriod, i, Math.round(this.currentRevenue.unitPricePerPeriod[i]*(1+(this.chartShiftPercent[1])/100)));
                                     }
                                 }
                                 this.$set(this.chartShiftPercent, 1, 0);
@@ -2873,8 +3781,8 @@
                         switch (ref) {
                             case UNIT_COUNT:{
                                 for(let i = 0 ; i<=13 ; i++){
-                                    if(!isNaN(this.currentRevenue.unitSalesPerPeriod[i])){
-                                        this.$set(this.currentRevenue.billableHoursPerPeriod, i, this.currentRevenue.billableHoursPerPeriod[i]*(1+(this.chartShiftPercent[0])/100));
+                                    if(!isNaN(this.currentRevenue.billableHoursPerPeriod[i])){
+                                        this.$set(this.currentRevenue.billableHoursPerPeriod, i, Math.round(this.currentRevenue.billableHoursPerPeriod[i]*(1+(this.chartShiftPercent[0])/100)));
                                     }
                                 }
                                 this.$set(this.chartShiftPercent, 0, 0);
@@ -2886,8 +3794,8 @@
                             }
                             case UNIT_PRICE:{
                                 for(let i = 0 ; i<=13 ; i++){
-                                    if(!isNaN(this.currentRevenue.unitSalesPerPeriod[i])){
-                                        this.$set(this.currentRevenue.hourPricePerPeriod, i, this.currentRevenue.hourPricePerPeriod[i]*(1+(this.chartShiftPercent[1])/100));
+                                    if(!isNaN(this.currentRevenue.hourPricePerPeriod[i])){
+                                        this.$set(this.currentRevenue.hourPricePerPeriod, i, Math.round(this.currentRevenue.hourPricePerPeriod[i]*(1+(this.chartShiftPercent[1])/100)));
                                     }
                                 }
                                 this.$set(this.chartShiftPercent, 1, 0);
@@ -2905,7 +3813,7 @@
                             case UNIT_COUNT:{
                                 for(let i = 0 ; i<=13 ; i++){
                                     if(!isNaN(this.currentRevenue.customerCountPerPeriod[i])){
-                                        this.$set(this.currentRevenue.customerCountPerPeriod, i, this.currentRevenue.customerCountPerPeriod[i]*(1+(this.chartShiftPercent[0])/100));
+                                        this.$set(this.currentRevenue.customerCountPerPeriod, i, Math.round(this.currentRevenue.customerCountPerPeriod[i]*(1+(this.chartShiftPercent[0])/100)));
                                     }
                                 }
                                 this.$set(this.chartShiftPercent, 0, 0);
@@ -2918,7 +3826,7 @@
                             case UP_FEE:{
                                 for(let i = 0 ; i<=13 ; i++){
                                     if(!isNaN(this.currentRevenue.upFrontFeePerPeriod[i])){
-                                        this.$set(this.currentRevenue.billableHoursPerPeriod, i, this.currentRevenue.billableHoursPerPeriod[i]*(1+(this.chartShiftPercent[1])/100));
+                                        this.$set(this.currentRevenue.upFrontFeePerPeriod, i, Math.round(this.currentRevenue.upFrontFeePerPeriod[i]*(1+(this.chartShiftPercent[1])/100)));
                                     }
                                 }
                                 this.$set(this.chartShiftPercent, 1, 0);
@@ -2931,7 +3839,7 @@
                             case UNIT_PRICE:{
                                 for(let i = 0 ; i<=13 ; i++){
                                     if(!isNaN(this.currentRevenue.recurringChargePerPeriod[i])){
-                                        this.$set(this.currentRevenue.recurringChargePerPeriod, i, this.currentRevenue.recurringChargePerPeriod[i]*(1+(this.chartShiftPercent[2])/100));
+                                        this.$set(this.currentRevenue.recurringChargePerPeriod, i, Math.round(this.currentRevenue.recurringChargePerPeriod[i]*(1+(this.chartShiftPercent[2])/100)));
                                     }
                                 }
                                 this.$set(this.chartShiftPercent, 2, 0);
@@ -2944,7 +3852,7 @@
                             case CHURN_RATE:{
                                 for(let i = 0 ; i<=13 ; i++){
                                     if(!isNaN(this.currentRevenue.churnRatePerPeriod[i])){
-                                        this.$set(this.currentRevenue.churnRatePerPeriod, i, this.currentRevenue.churnRatePerPeriod[i]*(1+(this.chartShiftPercent[3])/100));
+                                        this.$set(this.currentRevenue.churnRatePerPeriod, i, Math.round(this.currentRevenue.churnRatePerPeriod[i]*(1+(this.chartShiftPercent[3])/100)));
                                     }
                                 }
                                 this.$set(this.chartShiftPercent, 3, 0);
@@ -2960,8 +3868,9 @@
                     case REVENUE_TYPE_REVENUE_ONLY:{
                         for(let i = 0 ; i<=13 ; i++){
                             if(!isNaN(this.currentRevenue.revenueStreamPerPeriod[i])){
-                                this.$set(this.currentRevenue.revenueStreamPerPeriod, i, this.currentRevenue.revenueStreamPerPeriod[i]*(1+(this.chartShiftPercent[0])/100));
+                                this.$set(this.currentRevenue.revenueStreamPerPeriod, i, Math.round(this.currentRevenue.revenueStreamPerPeriod[i]*(1+(this.chartShiftPercent[0])/100)));
                             }
+
                         }
                         this.$set(this.chartShiftPercent, 0, 0);
                         this.$set(this.applyingChartShift, 0, true);
@@ -3202,11 +4111,23 @@
                             }
                         }
                     },
-                    constantCustomerCount: '',
+                    constantCustomerCount: {
+                        required: requiredIf(function () {
+                            return this.currentRevenue.customerCountType===MEASURE_TYPE_CONSTANT;
+                        }),
+                        numeric,
+                        minValue: minValue(1)
+                    },
                     customerCountPerPeriod: {
-                        FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '',
-                        MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                        _1399: '', _1400: ''
+                        filled: function (array) {
+                            if(this.currentRevenue.customerCountType===MEASURE_TYPE_VARIABLE){
+                                //TODO implement logic
+                                return true;
+                            }
+                            else{
+                                return true;
+                            }
+                        }
                     },
                     customerCountType: {
                         required,
@@ -3352,6 +4273,7 @@
                                 return [this.$v.currentRevenue.customerCountType,
                                     this.$v.currentRevenue.constantCustomerCount,
                                     this.$v.currentRevenue.constantCustomerCountPeriod,
+                                    this.$v.currentRevenue.customerCountPerPeriod,
                                     this.$v.currentRevenue.start];
 
                             }
@@ -3462,6 +4384,14 @@
                             case 3:{
                                 if(this.currentRevenue.upFrontFeeMeasureType===MEASURE_TYPE_VARIABLE
                                     || this.currentRevenue.recurringChargeMeasureType===MEASURE_TYPE_VARIABLE){
+                                    return MODAL_WIDTH_WIDE;
+                                }
+                                else{
+                                    return MODAL_WIDTH_NARROW;
+                                }
+                            }
+                            case 4:{
+                                if(this.currentRevenue.churnRateMeasureType===MEASURE_TYPE_VARIABLE){
                                     return MODAL_WIDTH_WIDE;
                                 }
                                 else{
