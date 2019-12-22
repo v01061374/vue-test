@@ -4703,6 +4703,9 @@ span.divider{
     width:30%;
     border-right: 1px solid #c8c8c8;
 }
+.details-container .table-container .table-names-container table{
+    width: 100%;
+}
 .details-container .table-container .table-details-container{
     float: right;
     width: 70%;
@@ -4755,8 +4758,16 @@ span.divider{
     border-left: 0 !important;
     background-color: #fff !important;
     text-align: center !important;
+    min-width: 90px;
 }
-
+.details-container .table-container .table-details-container tr > th:nth-last-child(1),
+.details-container .table-container .table-details-container tr > th:nth-last-child(2),
+.details-container .table-container .table-details-container tr > th:nth-last-child(3),
+.details-container .table-container .table-details-container tr > td:nth-last-child(1),
+.details-container .table-container .table-details-container tr > td:nth-last-child(2),
+.details-container .table-container .table-details-container tr > td:nth-last-child(3){
+    background-color: #F9F9F9 !important;
+}
 
 /*.details-container .table-container .table-details-container tbody tr:hover td {*/
     /*background-color: #F1F1F1 !important;*/

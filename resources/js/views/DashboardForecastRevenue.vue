@@ -51,10 +51,10 @@
                             <span>
                                 <div class="double-column">
                                     <div class="right-chart">
-                                        <highcharts class="chart" :options="monthlyChartOptions" :updateArgs="updateArgs"></highcharts>
+                                        <highcharts class="chart" :options="chartByMonth" :updateArgs="updateArgs"></highcharts>
                                     </div>
                                     <div class="left-chart">
-                                        <highcharts class="chart" :options="annualChartOptions" :updateArgs="updateArgs"></highcharts>
+                                        <highcharts class="chart" :options="chartByYear" :updateArgs="updateArgs"></highcharts>
                                     </div>
                                 </div>
                             </span>
@@ -62,26 +62,23 @@
                 </div>
             </div>
             <div class="details-container">
-
-
-
                 <div class="table-container faNum"><!--class=_itvKHRBWKjJt7IYI2Cy8-->
 
-                    <tree-table :value="tableData.details" v-if="!tableMonthlyDetailsActive">
+                    <tree-table :value="revenues.details"  @node-expand="monthlyTableNodeExpandHandler" @node-collapse="monthlyTableNodeCollapseHandler"  v-if="!tableMonthlyDetailsActive" :expandedKeys="monthlyTableExpandedKeys">
                         <column field="name" header="درآمد" :expander="true" headerStyle="width: 20%">
                             <template #footer>
                                 <p>
-                                    {{tableData.totals['title']}}
+                                    جمع
                                 </p>
                             </template>
                             <template #body="slotProps">
-                                <span v-if="slotProps.node.data.level === 1">
+                                <span v-if="slotProps.node.level === 1">
                                     {{slotProps.node.data.name}}
                                 </span>
-                                <span v-if="slotProps.node.data.level === 2">
+                                <span v-if="slotProps.node.level === 2">
                                     {{slotProps.node.data.name}}
                                 </span>
-                                <div v-if="slotProps.node.data.level === 3" class="editable-cell-wrapper">
+                                <div v-if="slotProps.node.level === 3" class="editable-cell-wrapper">
                                     <a @click="toggleModalVisibility(1)">
                                         {{slotProps.node.data.name}}
 
@@ -93,170 +90,230 @@
 
 
                                 </div>
+                                <!--in revenue page: all rows are from this type-->
 
                             </template>
                         </column>
                         <column field="1398" header="1398" headerStyle="width: 10%">
+                            <!--TODO get years from moment-jalali-->
+                            <template #body="slotProps">
+                                <p>{{slotProps.node.data.revenuePerPeriod[12]}}</p>
+                            </template>
                             <template #footer>
                                 <span>
-                                    {{tableData.totals['1398']}}
+                                    {{revenues.totals[12]}}
                                 </span>
                             </template>
                         </column>
                         <column field="1399" header="1399" headerStyle="width: 10%">
+                            <template #body="slotProps">
+                                <p>{{slotProps.node.data.revenuePerPeriod[13]}}</p>
+                            </template>
                             <template #footer>
                                 <span>
-                                    {{tableData.totals['1399']}}
+                                    {{revenues.totals[13]}}
                                 </span>
                             </template>
                         </column>
                         <column field="1400" header="1400" headerStyle="width: 10%">
+                            <template #body="slotProps">
+                                <p>{{slotProps.node.data.revenuePerPeriod[14]}}</p>
+                            </template>
                             <template #footer>
                                 <span>
-                                    {{tableData.totals['1400']}}
+                                    {{revenues.totals[14]}}
                                 </span>
                             </template>
                         </column>
                     </tree-table>
-
                     <div class="table-names-container"  v-if="tableMonthlyDetailsActive">
-                        <tree-table :value="tableData.details" @node-expand="monthlyTableNodeExpandHandler" @node-collapse="monthlyTableNodeCollapseHandler">
-                            <column field="name" header="درآمد" :expander="true" headerStyle="width: 35%" >
-
+                        <tree-table :value="revenues.details" @node-expand="monthlyTableNodeExpandHandler" @node-collapse="monthlyTableNodeCollapseHandler" :expandedKeys="monthlyTableExpandedKeys">
+                            <column field="name" header="درآمد" :expander="true" >
                                 <template #footer>
                                     <p>
-                                        {{tableData.totals['title']}}
+                                        جمع
                                     </p>
                                 </template>
                                 <template #body="slotProps">
-                                <span v-if="slotProps.node.data.level === 1">
+                                <span v-if="slotProps.node.level === 1">
                                     {{slotProps.node.data.name}}
                                 </span>
-                                    <span v-if="slotProps.node.data.level === 2">
+                                    <span v-if="slotProps.node.level === 2">
                                     {{slotProps.node.data.name}}
                                 </span>
-                                    <div v-if="slotProps.node.data.level === 3" class="editable-cell-wrapper">
+                                    <div v-if="slotProps.node.level === 3" class="editable-cell-wrapper">
                                         <a @click="toggleModalVisibility(1)">
                                             {{slotProps.node.data.name}}
+
                                         </a>
                                         <span class="row-edit-edit row-edit-control" title="Edit" @click="toggleModalVisibility(1)"></span>
                                         <span class="row-edit-copy  row-edit-control" title="Copy"></span>
                                         <span class="row-edit-move-up  row-edit-control" title="Move"></span>
+
+
+
                                     </div>
+                                    <!--in revenue page: all rows are from this type-->
+
                                 </template>
                             </column>
                         </tree-table>
                     </div>
+
                     <div class="border-corrector" v-if="tableMonthlyDetailsActive"></div>
                     <div class="table-details-container"  v-if="tableMonthlyDetailsActive">
-                        <tree-table :value="tableData.details"  :expandedKeys="monthlyTableExpandedKeys">
+                        <tree-table :value="revenues.details" :expandedKeys="monthlyTableExpandedKeys">
                             <column field="far" header="فروردین" headerStyle="width: 10%" >
-                                <template #footer>
-                            <span>
-                                {{tableData.totals['far']}}
-                            </span>
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[0]}}</p>
                                 </template>
-                            </column>
-                            <column field="ord" header="اردیبهشت" headerStyle="width: 10%">
-                                <template #footer>
-                            <span>
-                                {{tableData.totals['ord']}}
-                            </span>
-                                </template>
-                            </column>
-                            <column field="khor" header="خرداد" headerStyle="width: 10%">
-                                <template #footer>
-                            <span>
-                                {{tableData.totals['khor']}}
-                            </span>
-                                </template>
-                            </column>
-                            <column field="tir" header="تیر" headerStyle="width: 10%">
-                                <template #footer>
-                            <span>
-                                {{tableData.totals['tir']}}
-                            </span>
-                                </template>
-                            </column>
-                            <column field="mor" header="مرداد" headerStyle="width: 10%">
-                                <template #footer>
-                            <span>
-                                {{tableData.totals['mor']}}
-                            </span>
-                                </template>
-                            </column>
-                            <column field="shah" header="شهریور" headerStyle="width: 10%">
-                                <template #footer>
-                            <span>
-                                {{tableData.totals['shah']}}
-                            </span>
-                                </template>
-                            </column>
-                            <column field="mehr" header="مهر" headerStyle="width: 10%">
-                                <template #footer>
-                            <span>
-                                {{tableData.totals['mehr']}}
-                            </span>
-                                </template>
-                            </column>
-                            <column field="aban" header="آبان" headerStyle="width: 10%">
                                 <template #footer>
                                 <span>
-                                    {{tableData.totals['aban']}}
+                                    {{revenues.totals[0]}}
                                 </span>
                                 </template>
                             </column>
-                            <column field="azar" header="آذر" headerStyle="width: 10%">
+                            <column field="ord" header="اردیبهشت" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[1]}}</p>
+                                </template>
                                 <template #footer>
-                            <span>
-                                {{tableData.totals['azar']}}
-                            </span>
+                                    <span>
+                                        {{revenues.totals[1]}}
+                                    </span>
+                                </template>
+                            </column>
+                            <column field="khor" header="خرداد" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[2]}}</p>
+                                </template>
+                                <template #footer>
+                                    <span>
+                                        {{revenues.totals[2]}}
+                                    </span>
+                                </template>
+                            </column>
+                            <column field="tir" header="تیر" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[3]}}</p>
+                                </template>
+                                <template #footer>
+                                    <span>
+                                        {{revenues.totals[3]}}
+                                    </span>
+                                </template>
+                            </column>
+                            <column field="mor" header="مرداد" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[4]}}</p>
+                                </template>
+                                <template #footer>
+                                    <span>
+                                        {{revenues.totals[4]}}
+                                    </span>
+                                </template>
+                            </column>
+                            <column field="shah" header="شهریور" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[5]}}</p>
+                                </template>
+                                <template #footer>
+                                    <span>
+                                        {{revenues.totals[5]}}
+                                    </span>
+                                </template>
+                            </column>
+                            <column field="mehr" header="مهر" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[6]}}</p>
+                                </template>
+                                <template #footer>
+                                    <span>
+                                        {{revenues.totals[6]}}
+                                    </span>
+                                </template>
+                            </column>
+                            <column field="aban" header="آبان" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[7]}}</p>
+                                </template>
+                                <template #footer>
+                                    <span>
+                                        {{revenues.totals[7]}}
+                                    </span>
+                                </template>
+                            </column>
+                            <column field="azar" header="آذر" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[8]}}</p>
+                                </template>
+                                <template #footer>
+                                    <span>
+                                        {{revenues.totals[8]}}
+                                    </span>
                                 </template>
                             </column>
                             <column field="dey" header="دی" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[9]}}</p>
+                                </template>
                                 <template #footer>
-                            <span>
-                                {{tableData.totals['dey']}}
-                            </span>
+                                    <span>
+                                        {{revenues.totals[9]}}
+                                    </span>
                                 </template>
                             </column>
                             <column field="bah" header="بهمن" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[10]}}</p>
+                                </template>
                                 <template #footer>
-                            <span>
-                                {{tableData.totals['bah']}}
-                            </span>
+                                    <span>
+                                        {{revenues.totals[10]}}
+                                    </span>
                                 </template>
                             </column>
                             <column field="esf" header="اسفند" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[11]}}</p>
+                                </template>
                                 <template #footer>
-                            <span>
-                                {{tableData.totals['esf']}}
-                            </span>
+                                    <span>
+                                        {{revenues.totals[11]}}
+                                    </span>
                                 </template>
                             </column>
                             <column field="1398" header="1398" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[12]}}</p>
+                                </template>
                                 <template #footer>
-                            <span>
-                                {{tableData.totals['1398']}}
-                            </span>
+                                    <span>
+                                        {{revenues.totals[12]}}
+                                    </span>
                                 </template>
                             </column>
                             <column field="1399" header="1399" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[13]}}</p>
+                                </template>
                                 <template #footer>
-                            <span>
-                                {{tableData.totals['1399']}}
-                            </span>
+                                    <span>
+                                        {{revenues.totals[13]}}
+                                    </span>
                                 </template>
                             </column>
                             <column field="1400" header="1400" headerStyle="width: 10%">
+                                <template #body="slotProps">
+                                    <p>{{slotProps.node.data.revenuePerPeriod[14]}}</p>
+                                </template>
                                 <template #footer>
-                            <span>
-                                {{tableData.totals['1400']}}
-                            </span>
+                                    <span>
+                                        {{revenues.totals[14]}}
+                                    </span>
                                 </template>
                             </column>
                         </tree-table>
-
                     </div>
                     <br class="clear">
                 </div>
@@ -316,9 +373,6 @@
                 <v-playback :auto-play="false" :url="'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4'" ></v-playback>
 
         </video-modal>
-
-
-
         <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveTempRevenue" @delete="deleteRevenue" :key="revenueModalKey" :revenue="testRevenue"></modal-revenue-crud>
 
 
@@ -348,6 +402,7 @@
         data: function(){
             return {
                 revenueModalKey: 0,
+
                 testRevenue:{
                     start: FAR_1398,
                     name: 'asdfasdf',
@@ -397,7 +452,129 @@
                     constantRevenueStreamPeriod: LENGTH_MONTH,
                     revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
 
-                    // add isComplete flag to backend for tamp. saved ravenues
+                },
+                revenues : {
+                    //keys are the ids
+                    "details" : [{
+                        "key": "123654",
+                        "data": {
+                            start: FAR_1398,
+                            name: 'asdfasdf',
+                            id: "123654",
+                            type: NOT_SELECTED,
+                            unitSalesCountType: MEASURE_TYPE_CONSTANT,
+                            constantUnitSalesPeriod: LENGTH_MONTH,
+                            constantUnitSales: '',
+                            unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                            //     {
+                            //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
+                            //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
+                            //     _1399: '', _1400: ''
+                            // }
+                            ,
+                            unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
+                            constantUnitPrice: '',
+                            unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+                            billableHoursCountType: MEASURE_TYPE_CONSTANT,
+                            constantBillableHoursPeriod: LENGTH_MONTH,
+                            constantBillableHours: '',
+                            billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                            hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
+                            constantHourPrice: '',
+                            hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+                            customerCountType: MEASURE_TYPE_CONSTANT,
+                            constantCustomerCount: '',
+                            customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                            constantCustomerCountPeriod: LENGTH_MONTH,
+
+                            upFrontFeeMeasureType: MEASURE_TYPE_FREE,
+                            constantUpFrontFee: '',
+                            upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                            recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
+                            constantRecurringCharge: '',
+                            recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                            recurringChargeMonthFrequency: 1,
+
+                            // type 2 - tab 4
+                            churnRateMeasureType: MEASURE_TYPE_CONSTANT,
+                            constantChurnRate: '',
+                            churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                            revenueStreamType: MEASURE_TYPE_CONSTANT,
+                            constantRevenueStream: '',
+                            constantRevenueStreamPeriod: LENGTH_MONTH,
+                            revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+                            revenuePerPeriod: [11,22,33,44,55,66,77,88,99,10,11,12,9800,9900,140000],
+                            //TODO is calculated in backend e.g = total income per period
+
+                            // add isComplete flag to backend for temp. saved revenues
+                        },
+                        "children": [
+                            {
+                                "key": "1234",
+                                "data": {
+                                    start: FAR_1398,
+                                    name: 'asdfasdf',
+                                    id: "1234",
+                                    type: NOT_SELECTED,
+                                    unitSalesCountType: MEASURE_TYPE_CONSTANT,
+                                    constantUnitSalesPeriod: LENGTH_MONTH,
+                                    constantUnitSales: '',
+                                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0]
+                                    //     {
+                                    //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
+                                    //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
+                                    //     _1399: '', _1400: ''
+                                    // }
+                                    ,
+                                    unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
+                                    constantUnitPrice: '',
+                                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+                                    billableHoursCountType: MEASURE_TYPE_CONSTANT,
+                                    constantBillableHoursPeriod: LENGTH_MONTH,
+                                    constantBillableHours: '',
+                                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
+                                    constantHourPrice: '',
+                                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+                                    customerCountType: MEASURE_TYPE_CONSTANT,
+                                    constantCustomerCount: '',
+                                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    constantCustomerCountPeriod: LENGTH_MONTH,
+
+                                    upFrontFeeMeasureType: MEASURE_TYPE_FREE,
+                                    constantUpFrontFee: '',
+                                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
+                                    constantRecurringCharge: '',
+                                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    recurringChargeMonthFrequency: 1,
+
+                                    // type 2 - tab 4
+                                    churnRateMeasureType: MEASURE_TYPE_CONSTANT,
+                                    constantChurnRate: '',
+                                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    revenueStreamType: MEASURE_TYPE_CONSTANT,
+                                    constantRevenueStream: '',
+                                    constantRevenueStreamPeriod: LENGTH_MONTH,
+                                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    revenuePerPeriod: [11,22,33,44,55,66,77,88,99,10,11,12,9800,9900,140000],
+                                    //TODO is calculated in backend e.g = total income per period
+                                    // add isComplete flag to backend for temp. saved revenues
+                                },
+                                "level": 2,
+                                "totals": {},//total of children per period
+                            }
+                        ],
+                        "level": 1,
+                        "totals": {},//total of children per period
+                    }],
+                    "totals" : [111,22,3,444,5,6,7,8,9,10,11,12,98,99,1400],
+
                 },
                 annualTableData: {
                     details: [
@@ -527,6 +704,58 @@
                                         1
                                 }
                             ,
+                            "children"
+                                :
+                                [
+                                    {
+                                        "key": "2-0",
+                                        "data": {
+                                            "name": "استودیو فلان",
+                                            "1398": "1500ریال",
+                                            "1399": "1700ریال",
+                                            "1400": "1600ریال",
+                                            "level":
+                                                2
+                                        },
+                                        "children"
+                                            :
+                                            [
+                                                {
+                                                    "key": "2-0-0",
+                                                    "data": {
+                                                        "name": "استودیو فلان",
+                                                        "1398": "1500ریال",
+                                                        "1399": "1700ریال",
+                                                        "1400": "1600ریال",
+                                                        "level":
+                                                            3
+                                                    }
+                                                },
+                                                {
+                                                    "key": "2-0-1",
+                                                    "data": {
+                                                        "name": "استودیو فلان",
+                                                        "1398": "1500ریال",
+                                                        "1399": "1700ریال",
+                                                        "1400": "1600ریال",
+                                                        "level":
+                                                            3
+                                                    }
+                                                }
+                                            ]
+                                    },
+                                    {
+                                        "key": "2-1",
+                                        "data": {
+                                            "name": "استودیو فلان",
+                                            "1398": "1500ریال",
+                                            "1399": "1700ریال",
+                                            "1400": "1600ریال",
+                                            "level":
+                                                2
+                                        }
+                                    }
+                                ]
                         }
                         ],
                     totals: {
@@ -685,6 +914,70 @@
                                         1
                                 }
                             ,
+                            "children"
+                                :
+                                [
+                                    {
+                                        "key": "2-0",
+                                        "data": {
+                                            "name": "استودیو فلان",
+                                            'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                            'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                            'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                            "1398": "1500ریال",
+                                            "1399": "1700ریال",
+                                            "1400": "1600ریال",
+                                            "level":
+                                                2
+                                        },
+                                        "children"
+                                            :
+                                            [
+                                                {
+                                                    "key": "2-0-0",
+                                                    "data": {
+                                                        "name": "استودیو فلان",
+                                                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                                        "1398": "1500ریال",
+                                                        "1399": "1700ریال",
+                                                        "1400": "1600ریال",
+                                                        "level":
+                                                            3
+                                                    }
+                                                },
+                                                {
+                                                    "key": "2-0-1",
+                                                    "data": {
+                                                        "name": "استودیو فلان",
+                                                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                                        "1398": "1500ریال",
+                                                        "1399": "1700ریال",
+                                                        "1400": "1600ریال",
+                                                        "level":
+                                                            3
+                                                    }
+                                                }
+                                            ]
+                                    },
+                                    {
+                                        "key": "2-1",
+                                        "data": {
+                                            "name": "استودیو فلان",
+                                            'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
+                                            'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
+                                            'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
+                                            "1398": "1500ریال",
+                                            "1399": "1700ریال",
+                                            "1400": "1600ریال",
+                                            "level":
+                                                2
+                                        }
+                                    }
+                                ]
                         }
                     ],
                     totals: {
@@ -697,8 +990,9 @@
                         '1400': '2500 ریال',
                     }
                 },
+
                 tableMonthlyDetailsActive: false,
-                monthlyTableExpandedKeys: {},
+                monthlyTableExpandedKeys:[],
                 annualChartOptions: {
                     chart: {
                         type: 'column',
@@ -720,9 +1014,9 @@
                         reversed: true,
                         className: 'faNum',
                         categories: [
+                            1398,
                             1399,
-                            1400,
-                            1401
+                            1400
                         ],
                         title:{
                             text: '  '
@@ -764,7 +1058,6 @@
                         // }],
 
                         labels:{
-
                             useHTML: true,
                             formatter: function() {
                                 if (this.value >= 0){
@@ -784,7 +1077,7 @@
 
                     },
                     tooltip: {
-                        valueSuffix: ' تومان',
+                        valueSuffix: ' ریال',
                         useHTML:true,
                         style:{
                             fontFamily: 'IRANSansFaNum',
@@ -893,169 +1186,45 @@
                     },
                 },
                 updateArgs: [true, true, {duration: 1000}],
-
                 instructionVisibility:true,
                 moreInstructionVisibility: false,
-                modals: { //list of modals (except video modal)
-                    // TODO resolve state change scroll bug
-                    1:{
-                        state: 0,
-                        previousState: 0,
-                        // cases:{
-                        //     0: new entry,
-                        //     1: tab1: entry title added,
-                        //     2: ... -> tab2: non-selected {
-                        //                 option 1 selected: 21
-                        //                 option 2 selected: 22
-                        //                 option 3 selected: 23
-                        //                 option 4 selected: 24
-                        //                      }
-                        //
-                        //
-                        //     3: ... -> TODO add next cases
-                        //
-                        //
-                        //
-                        // }
-                        isDeleting: false
-                    },// revenue addition modal
-                },
+                // modals: { //list of modals (except video modal)
+                //     // TODO resolve state change scroll bug
+                //     1:{
+                //         state: 0,
+                //         previousState: 0,
+                //         // cases:{
+                //         //     0: new entry,
+                //         //     1: tab1: entry title added,
+                //         //     2: ... -> tab2: non-selected {
+                //         //                 option 1 selected: 21
+                //         //                 option 2 selected: 22
+                //         //                 option 3 selected: 23
+                //         //                 option 4 selected: 24
+                //         //                      }
+                //         //
+                //         //
+                //         //     3: ... -> TODO add next cases
+                //         //
+                //         //
+                //         //
+                //         // }
+                //         isDeleting: false
+                //     },// revenue addition modal
+                // },
                 modalVisibility: [false,false],
-                currentModalTab: 0,
-                currentModalData: {},
-                selectedLength: 'm',
-                selectedPeriod: '1', //TODO will be transferred into currentModalData
-                lengthOptions: [
-                    {title: 'ماه', code: 'm'},
-                    {title: 'سال', code: 'y'},
-                ],
-                periodOptions: [
-                    {title: 'فروردین 1398', code: '1'},
-                    {title: 'اردیبهشت 1398', code: '2'},
-                    {title: 'خرداد 1398', code: '3'},
-                    {title: 'تیر 1398', code: '4'},
-                    {title: 'مرداد 1398', code: '5'},
-                ],
-                unitSalesTypeIsConstant: '1',
-                annualUnitSalesChartOptions:{
-                    chart: {
-                        type: 'line',
-                        height: 260,
-                        animation: false,
-                        backgroundColor: null,
-                        events: {
-                            'click': function(e) {
-
-                                let x = e.xAxis[0].value;
-                                let y = e.yAxis[0].value;
-
-                                if(x < 0){
-                                    x=0;
-                                }
-                                else if(x>=12){
-                                    x=12;
-                                }
-                                else{
-                                    x = Math.round(x);
-                                }
-                                this.series[0].data[x].y = y;
-                                this.series[0].setData(this.series[0].data, true, true, true);
-                            },
-                            'redraw': function(e) {
-                                let output = [];
-                                for (let i = 0; i< 12 ; i++ ){
-                                    output[i] = Math.round(this.series[0].data[i].y);
-                                }
-                                EventBus.$emit('modal-chart-redraw', output);
-                            }
-                        },
-                    },
-
-                    series: [{
-                        name: 'unit-sales',
-                        data: [0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0],
-
-                    }],
-                    plotOptions: {
-                        series: {
-                            animation: false,
-                            stickyTracking: false,
-                            dragDrop: {
-                                draggableY: true,
-                                liveRedraw: false,
-                                animation: false,
-                                // TODO add mouse movement addition
-                                // TODO improve range and animation smoothness
-                            },
-                        },
-
-                        line: {
-                            cursor: 'ns-resize',
-
-                        },
-                    },
-                    xAxis:{
-
-                        reversed: true,
-                        className: 'rtl-faNum',
-                        labels: {
-                            enabled: false // disable labels
-                        },
-                        visible: false
-                    },
-                    yAxis:{
-                        opposite: true,
-                        className: 'faNum',
-                        softMin: -100,
-                        softMax: 100,
-                        title: {
-                            text: null
-                        },
-                        allowDecimals: false,
-                        minPadding: 2,
-                        maxPadding: 2,
-
-                        // TODO handle automatic y-axis
-                    },
-                    legend: {
-                        enabled: false
-
-                    },
-                    tooltip: {
-                        enabled: false,
-
-                    },
-
-                },
-                annualSalesUnitPeriodsData: [135, 152, 165, 135, 152, 165, 135, 152, 165, 135, 152, 165],
-                annualSalesUnitShiftPercent: 0,
 
 
-                tempRevenueName: '',
+
 
             }
         },
         validations:{
-            tempRevenueName:{
-                required,
-                maxLength: maxLength(255),
-                test: function(value){
-                    // TODO server check
-                    return true;
-                }
-            }
-        },
-        mounted(){
-            EventBus.$on('modal-chart-redraw', data => {
-                this.annualSalesUnitPeriodsData = data
-            });
+
         },
         destroyed(){
         },
         methods:{
-            log(data){
-                console.log(data)
-            },
             toggleInstruction(){
                 this.instructionVisibility = !this.instructionVisibility;
                 this.moreInstructionVisibility = false;
@@ -1064,75 +1233,23 @@
                 let visible = (typeof this.modalVisibility[modalID] !== 'undefined')? this.modalVisibility[modalID] : false;
                 if(visible === true){
                     this.$set(this.modalVisibility, modalID, !visible);
-                    this.shiftPercent = 0;
-                    this.setModalTab(0);
-                    this.setModalIsDeleting(modalID, false);
-                    this.handleModalState(modalID);
+
                 }
                 else{
-                    this.handleModalState(modalID);
                     this.$set(this.modalVisibility, modalID, !visible);
                 }
             },
             isModalVisible: function (i) {
                 return this.modalVisibility[i];
             },
-            setModalTab: function (tab) {
-                this.currentModalTab = tab;
-            },
-            // TODO implement getModalTab
-            setModalState: function (modalID, stateIndex) {
-                // this.$set(this.modals[modalID], 'state', stateIndex)
-                this.modals[modalID].previousState = this.modals[modalID].state ;
-                this.modals[modalID].state = stateIndex;
-            },
-            getModalState: function(modalID){
-                return this.modals[modalID].state;
-            },
-            toggleModalIsDeleting: function(modalID){
-                this.modals[modalID].isDeleting = !this.modals[modalID].isDeleting;
-            },
-            setModalIsDeleting: function(modalID, isDeleting){
-                this.modals[modalID].isDeleting = false;
-            },
-            deleteEntry: function (modalID) {
-                // TODO implement delete logic
-                this.toggleModalVisibility(modalID);
-            },
-            handleModalState: function (modalID) {
-                // TODO set state according to data
-                this.setModalState(1, 0);
-                // default
-            },
             monthlyTableNodeExpandHandler(node){
-                console.log(node);
                 let k = node.key;
                 this.$set(this.monthlyTableExpandedKeys, k, true);
             },
             monthlyTableNodeCollapseHandler(node){
-                console.log(node);
                 let k = node.key;
-
                 this.$set(this.monthlyTableExpandedKeys, k, false);
-
             },
-            updateAnnualSalesUnitChart(value, index){
-                if(!value){
-                    this.annualSalesUnitPeriodsData[index] = 0;
-                }
-                this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
-            },
-            shiftAnnualSalesUnitChart(){
-                console.log('shifted');
-                for(let i = 0 ; i<=11 ; i++){
-                    this.$set(this.annualSalesUnitPeriodsData, i, this.annualSalesUnitPeriodsData[i]*(1+(this.annualSalesUnitShiftPercent)/100));
-                }
-                this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
-                // console.log(this.annualUnitSalesChartOptions.series[0].data);
-
-            },
-
-
             saveRevenue(revenue){
                 this.toggleModalVisibility(1);
                 console.log(revenue);
@@ -1149,7 +1266,21 @@
             },
             renewRevenueModal(){
                 this.revenueModalKey++;
+            },
+            getTableFormattedRevenues(revenues){
+                let out = [];
+                let single_out = {};
+                let r = {};
+                for (let id in revenues){
+                    if(revenues.hasOwnProperty(id)){
+                        r = revenues[id];
+                        // single_out['name'] =
+                    }
+                }
             }
+        },
+        mounted(){
+
         },
         computed:{
             tableData: function(){
@@ -1160,32 +1291,223 @@
                     return this.monthlyTableData;
                 }
             },
-            currentYearAnnualUnitSales(){
-                let sum = 0;
-                this.annualSalesUnitPeriodsData.forEach(function e(item, index){
-                    if(!item && item!==0){}
-                    else{
-                        sum = sum + item;
+            revenueDataFormatter: function(){
+                let revenueTableData = {details: [], totals: []};
+                let annualChartOptions = {};
+                let monthlyChartOptions = {};
+                let revenue = {};
+                for(let revenueId in this.revenues){
+                    if (this.revenues.hasOwnProperty(revenueId)) {
+                        // console.log(this.revenues[revenueId]);
+                        revenue = this.revenues[revenueId];
+
+                        // revenueTableData.details.push()
                     }
-                });
-                return sum;
+                }
+            },
+            chartByMonth: function () {
+                return {
+                    chart: {
+                        type: 'column',
+                        height: 200,
+                    },
+                    title: {
+                        text: ''
+                    },
+                    series: [{
+                        data:[this.revenues.totals[0], this.revenues.totals[1],
+                            this.revenues.totals[2], this.revenues.totals[3],
+                            this.revenues.totals[4], this.revenues.totals[5],
+                            this.revenues.totals[6], this.revenues.totals[7],
+                            this.revenues.totals[8], this.revenues.totals[9],
+                            this.revenues.totals[10], this.revenues.totals[11]],
+                        color: '#4c9aee',
+                        negativeColor: '#d83405',
+                        name: 'سری 1',
 
+                    }],
+
+                    xAxis:{
+                        reversed: true,
+                        className: 'faNum',
+                        categories: ['فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'فروردین 98', 'اسفند 98'],
+                        labels: {
+                            align: 'left',
+                            rotation: 60
+                        }
+                    },
+                    legend: {
+                        // rtl: true,
+                        // useHTML:true,
+                        // itemStyle:{
+                        //     fontFamily: 'IRANSansFaNum',
+                        //     direction: 'rtl',
+                        //     textAlign: 'right'
+                        // },
+                        enabled: false
+
+
+                    },
+                    yAxis:{
+                        opposite: true,
+                        className: 'rtl-faNum',
+
+                        title: '',
+
+                        gridLineWidth: 1,
+
+                        labels:{
+                            useHTML: true,
+                            formatter: function() {
+                                if (this.value >= 0){
+                                    return '<span class="faNum ltr"> '+this.value + ' ریال</span> ';
+                                }
+                                else{
+                                    this.value = -1*this.value;
+                                    return '<span class="faNum ltr"> ('+this.value + ' ریال</span>)';
+                                }
+
+
+                            }
+
+
+                        }
+
+
+                    },
+                    tooltip: {
+                        valueSuffix: ' ریال',
+                        useHTML:true,
+                        style:{
+                            fontFamily: 'IRANSansFaNum',
+                            direction: 'rtl',
+                            textAlign: 'right',
+                            // TODO make tooltip black
+                        },
+                        formatter: function() {
+                            if(this.y >=0){
+                                return '<b>' + this.y +  ' ریال</b>';
+                            }
+                            else{
+                                this.y = -1*this.y;
+
+                                return '<b>(' + this.y +  '  ریال)</b>';
+                            }
+
+                        }
+                    },
+                }
+            },
+            chartByYear: function () {
+                return {
+                    chart: {
+                        type: 'column',
+                        height: 200,
+                        title: '',
+                    },
+                    title: {
+                        text: ''
+                    },
+                    series: [{
+                        data: [this.revenues.totals[12], this.revenues.totals[13], this.revenues.totals[14]],
+                        color: '#4c9aee',
+                        negativeColor: '#d83405',
+                        name: 'سری 1',
+
+                    }],
+
+                    xAxis:{
+                        reversed: true,
+                        className: 'faNum',
+                        categories: [
+                            1398,
+                            1399,
+                            1400
+                        ],
+                        title:{
+                            text: '  '
+                        },
+                        labels:{
+                            rotation: 60,
+                            align: 'left',
+
+                        }
+
+
+
+                    },
+                    legend: {
+                        // rtl: true,
+                        // useHTML:true,
+                        // itemStyle:{
+                        //     fontFamily: 'IRANSansFaNum',
+                        //     direction: 'rtl',
+                        //     textAlign: 'right'
+                        // },
+                        enabled: false
+
+
+                    },
+                    yAxis:{
+                        opposite: true,
+                        className: 'rtl-faNum',
+
+                        title: '',
+                        // TODO align charts zero gridlines
+                        // gridLineColor: '#197F07',
+                        // gridLineWidth: 0,
+                        // lineWidth:1,
+                        // plotLines: [{
+                        //     color: '#FF0000',
+                        //     width: 1,
+                        //     value: 0
+                        // }],
+
+                        labels:{
+                            useHTML: true,
+                            formatter: function() {
+                                if (this.value >= 0){
+                                    return '<span class="faNum ltr"> '+this.value + ' ریال</span> ';
+                                }
+                                else{
+                                    this.value = -1*this.value;
+                                    return '<span class="faNum ltr"> ('+this.value + ' ریال</span>)';
+                                }
+
+
+                            }
+
+
+                        }
+
+
+                    },
+                    tooltip: {
+                        valueSuffix: ' ریال',
+                        useHTML:true,
+                        style:{
+                            fontFamily: 'IRANSansFaNum',
+                            direction: 'rtl',
+                            textAlign: 'right',
+                            // TODO make tooltip black
+                        },
+                        formatter: function() {
+                            if(this.y >=0){
+                                return '<b>' + this.y +  ' ریال</b>';
+                            }
+                            else{
+                                this.y = -1*this.y;
+
+                                return '<b>(' + this.y +  '  ریال)</b>';
+                            }
+
+                        }
+                    },
+                }
             }
-
         },
         watch:{
-            unitSalesTypeIsConstant: function () {
 
-                let modalContainer = window.document.getElementsByClassName('modal-container')[0];
-
-                if(this.unitSalesTypeIsConstant==='0'){
-                    modalContainer.setAttribute("style", "width: 1024px");
-                    this.annualUnitSalesChartOptions.series[0].data = this.annualSalesUnitPeriodsData;
-                }
-                else{
-                    modalContainer.setAttribute("style", "width: 500px");
-                }
-            }
         }
     }
 </script>
