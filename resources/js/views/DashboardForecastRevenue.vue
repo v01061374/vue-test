@@ -51,10 +51,10 @@
                             <span>
                                 <div class="double-column">
                                     <div class="right-chart">
-                                        <highcharts class="chart" :options="chartByMonth" :updateArgs="updateArgs"></highcharts>
+                                        <highcharts class="chart" :options="chartByMonth" :updateArgs="chartUpdateArgs"></highcharts>
                                     </div>
                                     <div class="left-chart">
-                                        <highcharts class="chart" :options="chartByYear" :updateArgs="updateArgs"></highcharts>
+                                        <highcharts class="chart" :options="chartByYear" :updateArgs="chartUpdateArgs"></highcharts>
                                     </div>
                                 </div>
                             </span>
@@ -388,9 +388,9 @@
 
     const NOT_SELECTED = -1;const REVENUE_TYPE_UNIT_SALES = 0;const REVENUE_TYPE_BILLABLE_HOURS = 1;const REVENUE_TYPE_RECURRING_CHANGES = 2;
     const REVENUE_TYPE_REVENUE_ONLY = 3;const MEASURE_TYPE_FREE = 0;const MEASURE_TYPE_CONSTANT = 1;const MEASURE_TYPE_VARIABLE = 2;
-    const LENGTH_MONTH = 0;const LENGTH_YEAR = 1;const FAR_1398 = 'f';const ORD_1398 = 'o';const KHO_1398 = 'k';const TIR_1398 = 't';
-    const MOR_1398 = 'mo';const SHAH_1398 = 'sh';const MEHR_1398 = 'me';const ABA_1398 = 'ab'; const AZAR_1398 = 'az'; const DEY_1398 = 'd';const BAH_1398 = 'b';
-    const ESF_1398 = 'es'; const _1399 = 'p1'; const _1400 = 'p2'; const UNIT_COUNT= 0;const UNIT_PRICE= 1;const UP_FEE= 2;const CHURN_RATE= 3; const REVENUE_STREAM = 4;
+    const LENGTH_MONTH = 0;const LENGTH_YEAR = 1;const FAR_1398 = 0;const ORD_1398 = 1;const KHO_1398 = 2;const TIR_1398 = 3;
+    const MOR_1398 = 4;const SHAH_1398 = 5;const MEHR_1398 = 6;const ABA_1398 = 7; const AZAR_1398 = 8; const DEY_1398 = 9;const BAH_1398 = 10;
+    const ESF_1398 = 11; const _1399 = 12; const _1400 = 13; const UNIT_COUNT= 0;const UNIT_PRICE= 1;const UP_FEE= 2;const CHURN_RATE= 3; const REVENUE_STREAM = 4;
     const MODAL_WIDTH_WIDE = true; const MODAL_WIDTH_NARROW = false;
 
     export default {
@@ -402,7 +402,6 @@
         data: function(){
             return {
                 revenueModalKey: 0,
-
                 testRevenue:{
                     start: FAR_1398,
                     name: 'asdfasdf',
@@ -562,6 +561,7 @@
                                     constantRevenueStream: '',
                                     constantRevenueStreamPeriod: LENGTH_MONTH,
                                     revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+
                                     revenuePerPeriod: [11,22,33,44,55,66,77,88,99,10,11,12,9800,9900,140000],
                                     //TODO is calculated in backend e.g = total income per period
                                     // add isComplete flag to backend for temp. saved revenues
@@ -576,423 +576,10 @@
                     "totals" : [111,22,3,444,5,6,7,8,9,10,11,12,98,99,1400],
 
                 },
-                annualTableData: {
-                    details: [
-                        {
-                        "key"
-                            :
-                            "0",
-                        "data"
-                            :
-                            {
-                                "name"
-                                    :
-                                    "زرد",
-                                "1398"
-                                    :
-                                    "11000000ریال",
-                                "1399"
-                                    :
-                                    "11000000ریال",
-                                "1400"
-                                    :
-                                    "11000000ریال",
-                                "level":
-                                    1
-                            }
-                        ,
-
-                        }
-                        ,
-                        {
-                            "key"
-                                :
-                                "1",
-                            "data"
-                                :
-                                {
-                                    "name"
-                                        :
-                                        "استودیو فلان",
-                                    "1398"
-                                        :
-                                        "1500ریال",
-                                    "1399"
-                                        :
-                                        "1700ریال",
-                                    "1400"
-                                        :
-                                        "1600ریال",
-                                    "level":
-                                        1
-                                        }
-                            ,
-                            "children"
-                                :
-                                [
-                                    {
-                                        "key": "1-0",
-                                        "data": {
-                                            "name": "استودیو فلان",
-                                            "1398": "1500ریال",
-                                            "1399": "1700ریال",
-                                            "1400": "1600ریال",
-                                            "level":
-                                                2
-                                        },
-                                        "children"
-                                            :
-                                            [
-                                                {
-                                                    "key": "1-0-0",
-                                                    "data": {
-                                                        "name": "استودیو فلان",
-                                                        "1398": "1500ریال",
-                                                        "1399": "1700ریال",
-                                                        "1400": "1600ریال",
-                                                        "level":
-                                                            3
-                                                    }
-                                                },
-                                                {
-                                                    "key": "1-0-1",
-                                                    "data": {
-                                                        "name": "استودیو فلان",
-                                                        "1398": "1500ریال",
-                                                        "1399": "1700ریال",
-                                                        "1400": "1600ریال",
-                                                        "level":
-                                                            3
-                                                    }
-                                                }
-                                            ]
-                                    },
-                                    {
-                                        "key": "1-1",
-                                        "data": {
-                                            "name": "استودیو فلان",
-                                            "1398": "1500ریال",
-                                            "1399": "1700ریال",
-                                            "1400": "1600ریال",
-                                            "level":
-                                                2
-                                        }
-                                    }
-                                ]
-                        }
-                        ,
-                        {
-                            "key"
-                                :
-                                "2",
-                            "data"
-                                :
-                                {
-                                    "name"
-                                        :
-                                        "استودیو بهمان",
-                                    "1398"
-                                        :
-                                        "1500ریال",
-                                    "1399"
-                                        :
-                                        "1700ریال",
-                                    "1400"
-                                        :
-                                        "1600ریال",
-                                    "level":
-                                        1
-                                }
-                            ,
-                            "children"
-                                :
-                                [
-                                    {
-                                        "key": "2-0",
-                                        "data": {
-                                            "name": "استودیو فلان",
-                                            "1398": "1500ریال",
-                                            "1399": "1700ریال",
-                                            "1400": "1600ریال",
-                                            "level":
-                                                2
-                                        },
-                                        "children"
-                                            :
-                                            [
-                                                {
-                                                    "key": "2-0-0",
-                                                    "data": {
-                                                        "name": "استودیو فلان",
-                                                        "1398": "1500ریال",
-                                                        "1399": "1700ریال",
-                                                        "1400": "1600ریال",
-                                                        "level":
-                                                            3
-                                                    }
-                                                },
-                                                {
-                                                    "key": "2-0-1",
-                                                    "data": {
-                                                        "name": "استودیو فلان",
-                                                        "1398": "1500ریال",
-                                                        "1399": "1700ریال",
-                                                        "1400": "1600ریال",
-                                                        "level":
-                                                            3
-                                                    }
-                                                }
-                                            ]
-                                    },
-                                    {
-                                        "key": "2-1",
-                                        "data": {
-                                            "name": "استودیو فلان",
-                                            "1398": "1500ریال",
-                                            "1399": "1700ریال",
-                                            "1400": "1600ریال",
-                                            "level":
-                                                2
-                                        }
-                                    }
-                                ]
-                        }
-                        ],
-                    totals: {
-                        'title': 'جمع',
-                        '1398': '2500 ریال',
-                        '1399': '2500 ریال',
-                        '1400': '2500 ریال',
-                    }
-                },
-                monthlyTableData:{
-                    details: [
-                        {
-                            "key"
-                                :
-                                "0",
-                            "data"
-                                :
-                                {
-                                    "name"
-                                        :
-                                        "زرد",
-                                    'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                    'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                    'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                    "1398"
-                                        :
-                                        "11000000ریال",
-                                    "1399"
-                                        :
-                                        "11000000ریال",
-                                    "1400"
-                                        :
-                                        "11000000ریال",
-                                    "level":
-                                        1
-                                }
-                            ,
-
-                        }
-                        ,
-                        {
-                            "key"
-                                :
-                                "1",
-                            "data"
-                                :
-                                {
-                                    "name"
-                                        :
-                                        "استودیو فلان",
-                                    'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                    'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                    'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                    "1398"
-                                        :
-                                        "1500ریال",
-                                    "1399"
-                                        :
-                                        "1700ریال",
-                                    "1400"
-                                        :
-                                        "1600ریال",
-                                    "level":
-                                        1
-                                }
-                            ,
-                            "children"
-                                :
-                                [
-                                    {
-                                        "key": "1-0",
-                                        "data": {
-                                            "name": "استودیو فلان",
-                                            'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                            'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                            'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                            "1398": "1500ریال",
-                                            "1399": "1700ریال",
-                                            "1400": "1600ریال",
-                                            "level":
-                                                2
-                                        },
-                                        "children"
-                                            :
-                                            [
-                                                {
-                                                    "key": "1-0-0",
-                                                    "data": {
-                                                        "name": "استودیو فلان",
-                                                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                                        "1398": "1500ریال",
-                                                        "1399": "1700ریال",
-                                                        "1400": "1600ریال",
-                                                        "level":
-                                                            3
-                                                    }
-                                                },
-                                                {
-                                                    "key": "1-0-1",
-                                                    "data": {
-                                                        "name": "استودیو فلان",
-                                                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                                        "1398": "1500ریال",
-                                                        "1399": "1700ریال",
-                                                        "1400": "1600ریال",
-                                                        "level":
-                                                            3
-                                                    }
-                                                }
-                                            ]
-                                    },
-                                    {
-                                        "key": "1-1",
-                                        "data": {
-                                            "name": "استودیو فلان",
-                                            'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                            'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                            'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                            "1398": "1500ریال",
-                                            "1399": "1700ریال",
-                                            "1400": "1600ریال",
-                                            "level":
-                                                2
-                                        }
-                                    }
-                                ]
-                        }
-                        ,
-                        {
-                            "key"
-                                :
-                                "2",
-                            "data"
-                                :
-                                {
-                                    "name"
-                                        :
-                                        "استودیو بهمان",
-                                    'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                    'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                    'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                    "1398"
-                                        :
-                                        "1500ریال",
-                                    "1399"
-                                        :
-                                        "1700ریال",
-                                    "1400"
-                                        :
-                                        "1600ریال",
-                                    "level":
-                                        1
-                                }
-                            ,
-                            "children"
-                                :
-                                [
-                                    {
-                                        "key": "2-0",
-                                        "data": {
-                                            "name": "استودیو فلان",
-                                            'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                            'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                            'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                            "1398": "1500ریال",
-                                            "1399": "1700ریال",
-                                            "1400": "1600ریال",
-                                            "level":
-                                                2
-                                        },
-                                        "children"
-                                            :
-                                            [
-                                                {
-                                                    "key": "2-0-0",
-                                                    "data": {
-                                                        "name": "استودیو فلان",
-                                                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                                        "1398": "1500ریال",
-                                                        "1399": "1700ریال",
-                                                        "1400": "1600ریال",
-                                                        "level":
-                                                            3
-                                                    }
-                                                },
-                                                {
-                                                    "key": "2-0-1",
-                                                    "data": {
-                                                        "name": "استودیو فلان",
-                                                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                                        "1398": "1500ریال",
-                                                        "1399": "1700ریال",
-                                                        "1400": "1600ریال",
-                                                        "level":
-                                                            3
-                                                    }
-                                                }
-                                            ]
-                                    },
-                                    {
-                                        "key": "2-1",
-                                        "data": {
-                                            "name": "استودیو فلان",
-                                            'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                                            'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                                            'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                                            "1398": "1500ریال",
-                                            "1399": "1700ریال",
-                                            "1400": "1600ریال",
-                                            "level":
-                                                2
-                                        }
-                                    }
-                                ]
-                        }
-                    ],
-                    totals: {
-                        'title': 'جمع',
-                        'far': '2500 ریال', 'ord': '2500 ریال', 'khor': '2500 ریال', 'tir': '2500 ریال',
-                        'mor': '2500 ریال', 'shah': '2500 ریال', 'mehr': '2500 ریال', 'aban': '2500 ریال',
-                        'azar': '2500 ریال', 'dey': '2500 ریال', 'bah': '2500 ریال', 'esf': '2500 ریال',
-                        '1398': '2500 ریال',
-                        '1399': '2500 ریال',
-                        '1400': '2500 ریال',
-                    }
-                },
 
                 tableMonthlyDetailsActive: false,
                 monthlyTableExpandedKeys:[],
+
                 annualChartOptions: {
                     chart: {
                         type: 'column',
@@ -1185,33 +772,12 @@
                         }
                     },
                 },
-                updateArgs: [true, true, {duration: 1000}],
+
+                chartUpdateArgs: [true, true, {duration: 1000}],
+
                 instructionVisibility:true,
                 moreInstructionVisibility: false,
-                // modals: { //list of modals (except video modal)
-                //     // TODO resolve state change scroll bug
-                //     1:{
-                //         state: 0,
-                //         previousState: 0,
-                //         // cases:{
-                //         //     0: new entry,
-                //         //     1: tab1: entry title added,
-                //         //     2: ... -> tab2: non-selected {
-                //         //                 option 1 selected: 21
-                //         //                 option 2 selected: 22
-                //         //                 option 3 selected: 23
-                //         //                 option 4 selected: 24
-                //         //                      }
-                //         //
-                //         //
-                //         //     3: ... -> TODO add next cases
-                //         //
-                //         //
-                //         //
-                //         // }
-                //         isDeleting: false
-                //     },// revenue addition modal
-                // },
+
                 modalVisibility: [false,false],
 
 
@@ -1267,44 +833,19 @@
             renewRevenueModal(){
                 this.revenueModalKey++;
             },
-            getTableFormattedRevenues(revenues){
-                let out = [];
-                let single_out = {};
-                let r = {};
-                for (let id in revenues){
-                    if(revenues.hasOwnProperty(id)){
-                        r = revenues[id];
-                        // single_out['name'] =
-                    }
-                }
-            }
         },
         mounted(){
 
         },
         computed:{
-            tableData: function(){
-                if(!this.tableMonthlyDetailsActive){
-                    return this.annualTableData;
-                }
-                else{
-                    return this.monthlyTableData;
-                }
-            },
-            revenueDataFormatter: function(){
-                let revenueTableData = {details: [], totals: []};
-                let annualChartOptions = {};
-                let monthlyChartOptions = {};
-                let revenue = {};
-                for(let revenueId in this.revenues){
-                    if (this.revenues.hasOwnProperty(revenueId)) {
-                        // console.log(this.revenues[revenueId]);
-                        revenue = this.revenues[revenueId];
-
-                        // revenueTableData.details.push()
-                    }
-                }
-            },
+            // tableData: function(){
+            //     if(!this.tableMonthlyDetailsActive){
+            //         return this.annualTableData;
+            //     }
+            //     else{
+            //         return this.monthlyTableData;
+            //     }
+            // },
             chartByMonth: function () {
                 return {
                     chart: {

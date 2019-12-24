@@ -274,7 +274,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number" disabled readOnly
-                                                                               :value="getChartCurrentYearValue(UNIT_COUNT)">
+                                                                               v-model="currentRevenue.unitSalesPerPeriod[12]">
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -283,7 +283,7 @@
                                                                 </div>
                                                             </li>
                                                             <li>
-                                                                <p>فروردین</p>
+                                                                <p>فروdردین</p>
                                                                 <div class="valid">
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
@@ -304,6 +304,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitSalesPerPeriod[1]"
+
                                                                                >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -424,7 +425,7 @@
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
                                                                                v-model.number="currentRevenue.unitSalesPerPeriod[9]"
-                                                                              >
+                                                                               >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -468,7 +469,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.unitSalesPerPeriod[12]"
+                                                                               v-model.number="currentRevenue.unitSalesPerPeriod[13]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -483,7 +484,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.unitSalesPerPeriod[13]"
+                                                                               v-model.number="currentRevenue.unitSalesPerPeriod[14]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -633,7 +634,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number" disabled readOnly
-                                                                               :value="getChartCurrentYearValue(UNIT_PRICE)">
+                                                                               v-model="currentRevenue.unitPricePerPeriod[12]">
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -827,7 +828,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.unitPricePerPeriod[12]"
+                                                                               v-model.number="currentRevenue.unitPricePerPeriod[13]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -842,7 +843,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.unitPricePerPeriod[13]"
+                                                                               v-model.number="currentRevenue.unitPricePerPeriod[14]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -980,7 +981,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number" disabled readOnly
-                                                                               :value="getChartCurrentYearValue(UNIT_COUNT)">
+                                                                               v-model="currentRevenue.billableHoursPerPeriod[12]">
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -1174,7 +1175,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[12]"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[13]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -1189,7 +1190,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[13]"
+                                                                               v-model.number="currentRevenue.billableHoursPerPeriod[14]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -1337,7 +1338,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number" disabled readOnly
-                                                                               :value="getChartCurrentYearValue(UNIT_PRICE)">
+                                                                               v-model="currentRevenue.hourPricePerPeriod[12]">
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -1531,7 +1532,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.hourPricePerPeriod[12]"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[13]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -1546,7 +1547,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.hourPricePerPeriod[13]"
+                                                                               v-model.number="currentRevenue.hourPricePerPeriod[14]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -1698,7 +1699,7 @@
                                                             <div>
                                                                 <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                        type="number" disabled readOnly
-                                                                       :value="getChartCurrentYearValue(UNIT_COUNT)">
+                                                                       v-model="currentRevenue.customerCountPerPeriod[12]">
                                                                 <div class="fillRightDots"
                                                                      aria-hidden="true">
                                                                     &nbsp;
@@ -1892,7 +1893,7 @@
                                                             <div>
                                                                 <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                        type="number"
-                                                                       v-model.number="currentRevenue.customerCountPerPeriod[12]"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[13]"
                                                                 >
                                                                 <div class="fillRightDots"
                                                                      aria-hidden="true">
@@ -1907,7 +1908,7 @@
                                                             <div>
                                                                 <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                        type="number"
-                                                                       v-model.number="currentRevenue.customerCountPerPeriod[13]"
+                                                                       v-model.number="currentRevenue.customerCountPerPeriod[14]"
                                                                 >
                                                                 <div class="fillRightDots"
                                                                      aria-hidden="true">
@@ -2047,7 +2048,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number" disabled readOnly
-                                                                                   :value="getChartCurrentYearValue(UP_FEE)">
+                                                                                   v-model="currentRevenue.upFrontFeePerPeriod[12]">
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
                                                                                 &nbsp;
@@ -2241,7 +2242,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number"
-                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[12]"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[13]"
                                                                             >
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
@@ -2256,7 +2257,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number"
-                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[13]"
+                                                                                   v-model.number="currentRevenue.upFrontFeePerPeriod[14]"
                                                                             >
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
@@ -2382,7 +2383,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number" disabled readOnly
-                                                                                   :value="getChartCurrentYearValue(UNIT_PRICE)">
+                                                                                   v-model="currentRevenue.recurringChargePerPeriod[12]">
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
                                                                                 &nbsp;
@@ -2576,7 +2577,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number"
-                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[12]"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[13]"
                                                                             >
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
@@ -2591,7 +2592,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number"
-                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[13]"
+                                                                                   v-model.number="currentRevenue.recurringChargePerPeriod[14]"
                                                                             >
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
@@ -2749,7 +2750,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number" disabled readOnly
-                                                                                   :value="getChartCurrentYearValue(CHURN_RATE)">
+                                                                                   v-model="currentRevenue.churnRatePerPeriod[12]">
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
                                                                                 &nbsp;
@@ -2943,7 +2944,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number"
-                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[12]"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[13]"
                                                                             >
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
@@ -2958,7 +2959,7 @@
                                                                         <div>
                                                                             <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                    type="number"
-                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[13]"
+                                                                                   v-model.number="currentRevenue.churnRatePerPeriod[14]"
                                                                             >
                                                                             <div class="fillRightDots"
                                                                                  aria-hidden="true">
@@ -3095,7 +3096,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number" disabled readOnly
-                                                                               :value="getChartCurrentYearValue(REVENUE_STREAM)">
+                                                                               v-model="currentRevenue.revenueStreamPerPeriod[12]">
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
                                                                             &nbsp;
@@ -3289,7 +3290,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[12]"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[13]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -3304,7 +3305,7 @@
                                                                     <div>
                                                                         <input class="input-box _3nXdR_fo3j0MwFs8AZWYc5"
                                                                                type="number"
-                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[13]"
+                                                                               v-model.number="currentRevenue.revenueStreamPerPeriod[14]"
                                                                         >
                                                                         <div class="fillRightDots"
                                                                              aria-hidden="true">
@@ -3406,9 +3407,9 @@
 
     const NOT_SELECTED = -1;const REVENUE_TYPE_UNIT_SALES = 0;const REVENUE_TYPE_BILLABLE_HOURS = 1;const REVENUE_TYPE_RECURRING_CHANGES = 2;
     const REVENUE_TYPE_REVENUE_ONLY = 3;const MEASURE_TYPE_FREE = 0;const MEASURE_TYPE_CONSTANT = 1;const MEASURE_TYPE_VARIABLE = 2;
-    const LENGTH_MONTH = 0;const LENGTH_YEAR = 1;const FAR_1398 = 'f';const ORD_1398 = 'o';const KHO_1398 = 'k';const TIR_1398 = 't';
-    const MOR_1398 = 'mo';const SHAH_1398 = 'sh';const MEHR_1398 = 'me';const ABA_1398 = 'ab'; const AZAR_1398 = 'az'; const DEY_1398 = 'd';const BAH_1398 = 'b';
-    const ESF_1398 = 'es'; const _1399 = 'p1'; const _1400 = 'p2'; const UNIT_COUNT= 0;const UNIT_PRICE= 1;const UP_FEE= 2;const CHURN_RATE= 3; const REVENUE_STREAM = 4;
+    const LENGTH_MONTH = 0;const LENGTH_YEAR = 1;const FAR_1398 = 0;const ORD_1398 = 1;const KHO_1398 = 2;const TIR_1398 = 3;
+    const MOR_1398 = 4;const SHAH_1398 = 5;const MEHR_1398 = 6;const ABA_1398 = 7; const AZAR_1398 = 8; const DEY_1398 = 9;const BAH_1398 = 10;
+    const ESF_1398 = 11; const _1399 = 12; const _1400 = 13; const UNIT_COUNT= 0;const UNIT_PRICE= 1;const UP_FEE= 2;const CHURN_RATE= 3; const REVENUE_STREAM = 4;
     const MODAL_WIDTH_WIDE = true; const MODAL_WIDTH_NARROW = false;
 
     import BaseModal from './../components/BaseModal';
@@ -3461,7 +3462,7 @@
                     unitSalesCountType: MEASURE_TYPE_CONSTANT,
                     constantUnitSalesPeriod: LENGTH_MONTH,
                     constantUnitSales: '',
-                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0]
+                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
                     //     {
                     //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
                     //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
@@ -3470,37 +3471,37 @@
                     ,
                     unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
                     constantUnitPrice: '',
-                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                     billableHoursCountType: MEASURE_TYPE_CONSTANT,
                     constantBillableHoursPeriod: LENGTH_MONTH,
                     constantBillableHours: '',
-                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
                     constantHourPrice: '',
-                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                     customerCountType: MEASURE_TYPE_CONSTANT,
                     constantCustomerCount: '',
-                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     constantCustomerCountPeriod: LENGTH_MONTH,
 
                     upFrontFeeMeasureType: MEASURE_TYPE_FREE,
                     constantUpFrontFee: '',
-                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
                     constantRecurringCharge: '',
-                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     recurringChargeMonthFrequency: 1,
 
                     // type 2 - tab 4
                     churnRateMeasureType: MEASURE_TYPE_CONSTANT,
                     constantChurnRate: '',
-                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     revenueStreamType: MEASURE_TYPE_CONSTANT,
                     constantRevenueStream: '',
                     constantRevenueStreamPeriod: LENGTH_MONTH,
-                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                     // add isComplete flag to backend for tamp. saved ravenues
                 },
@@ -3528,12 +3529,9 @@
             },
 
             getRevenueType: function(){
-                if(typeof this.revenue !== 'undefined'){
-                    return this.revenue.type;
-                }
-                else{
+
                     return this.currentRevenue.type;
-                }
+
             },
             setRevenueType: function (revenueType) {
                 this.currentRevenue.type = revenueType;
@@ -3547,7 +3545,7 @@
                 this.visitedTabs = [];
             },
 
-            getChartOptions: function (data, ref) {
+            getChartOptions: function (data, ref) { // TODO change to computed
                 let $this = this;
                 // console.log(window.document.getElementById('unit-sales-chart').self);
 
@@ -3648,19 +3646,38 @@
                         tooltip: {
                             enabled: false,
                         },
+
+                    // TODO set min and max for each type of revenue
                 }
             },
-            getChartCurrentYearValue(ref){
+            calculateCurrentYearValue(ref){
                 let series = {};
+                let sum = 0;
                 switch(this.currentRevenue.type){
                     case REVENUE_TYPE_UNIT_SALES: {
                         switch (ref) {
                             case UNIT_COUNT:{
                                 series = this.currentRevenue.unitSalesPerPeriod;
+                                sum = 0;
+                                for(let i = 0 ; i <= 11; i++){
+                                    if(!series[i] && series[i]!==0){}
+                                    else{
+                                        sum = sum + series[i];
+                                    }
+                                }
+                                this.$set(this.currentRevenue.unitSalesPerPeriod, 12, sum);
                                 break;
                             }
                             case UNIT_PRICE:{
                                 series = this.currentRevenue.unitPricePerPeriod;
+                                sum = 0;
+                                for(let i = 0 ; i <= 11; i++){
+                                    if(!series[i] && series[i]!==0){}
+                                    else{
+                                        sum = sum + series[i];
+                                    }
+                                }
+                                this.currentRevenue.unitPricePerPeriod[12] = sum;
                                 break;
                             }
                         }
@@ -3670,10 +3687,26 @@
                         switch (ref) {
                             case UNIT_COUNT:{
                                 series = this.currentRevenue.billableHoursPerPeriod;
+                                sum = 0;
+                                for(let i = 0 ; i <= 11; i++){
+                                    if(!series[i] && series[i]!==0){}
+                                    else{
+                                        sum = sum + series[i];
+                                    }
+                                }
+                                this.currentRevenue.billableHoursPerPeriod[12] = sum;
                                 break;
                             }
                             case UNIT_PRICE:{
                                 series = this.currentRevenue.hourPricePerPeriod;
+                                sum = 0;
+                                for(let i = 0 ; i <= 11; i++){
+                                    if(!series[i] && series[i]!==0){}
+                                    else{
+                                        sum = sum + series[i];
+                                    }
+                                }
+                                this.currentRevenue.hourPricePerPeriod[12] = sum;
                                 break;
                             }
                         }
@@ -3702,7 +3735,7 @@
                     }
                     case REVENUE_TYPE_REVENUE_ONLY:{
                         switch (ref) {
-                            case REVENUE_STREAM:{;
+                            case REVENUE_STREAM:{
                                 series = this.currentRevenue.revenueStreamPerPeriod;
                                 break;
                             }
@@ -3711,15 +3744,9 @@
                     }
 
                 }
-                let sum = 0;
-                for(let i = 0 ; i <= 11; i++){
-                    if(!series[i] && series[i]!==0){}
-                    else{
-                        sum = sum + series[i];
-                    }
-                }
+
                 return sum;
-            }, //ok
+            }, //ok // TODO change to computed
 
             shiftChart: function(ref){
 
@@ -3972,24 +3999,7 @@
                 return this.visitedTabs.includes(tab);
             },
             finalSave: function () {
-                // let $this = this;
-                // let hasTabError = false;
-                // if(this.currentTabValidators.length){
-                //     this.currentTabValidators.forEach(function (validator, i) {
-                //         validator.$touch();
-                //         if(validator.$error){
-                //             hasTabError = true;
-                //             console.log('error');
-                //         }
-                //     });
-                //     if(!hasTabError){
-                //         console.log(this.$v);
-                //         // this.$emit('save', this.currentRevenue)
-                //     }
-                // }
-                // else{
-                //     this.$emit('save', this.currentRevenue);
-                // }
+
                 if(this.validateCurrentTab()){
                     if(this.validateRevenueType()){
                         this.$emit('save', this.currentRevenue);
@@ -4460,7 +4470,213 @@
                         return MODAL_WIDTH_NARROW;
                     }
                 }
+            },
+
+            finalRevenue: function () {
+                let out = this.currentRevenue;
+                let revenuePerPeriod = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                let price = 0;
+                let count = 0;
+                let sum = 0;
+                switch (this.currentRevenue.type) {
+                    // TODO correct revenue calculation
+                    case REVENUE_TYPE_UNIT_SALES:{
+                        if(out.unitSalesCountType === MEASURE_TYPE_CONSTANT && out.unitPriceMeasureType === MEASURE_TYPE_CONSTANT){
+                            sum = 0;
+                            if(out.constantUnitSalesPeriod === LENGTH_MONTH){
+                                revenuePerPeriod.forEach(function (item, period) {
+                                    if(period >= out.start){
+                                        if(period < 12) { // months
+                                            revenuePerPeriod[period] = out.constantUnitSales * out.constantUnitPrice;
+                                            sum = sum + revenuePerPeriod[period];
+                                        }
+                                        else if (period === 12){
+                                            revenuePerPeriod[period] = sum;
+                                        }
+                                        else{
+                                            revenuePerPeriod[period] = 12 * out.constantUnitSales * out.constantUnitPrice;
+                                        }
+                                    }
+                                });
+                            }
+                            else{
+                                revenuePerPeriod[12] =  out.constantUnitSales * out.constantUnitPrice; // TODO ask them! (what if start is not from first month of current year)
+                                revenuePerPeriod[13] =  revenuePerPeriod[12];
+                                revenuePerPeriod[14] = revenuePerPeriod[12];
+                            }
+
+                        } // TODO bara har kodum az casa bar asase start o period (age constant bud mohasebe kon)
+                        else if(out.unitSalesCountType === MEASURE_TYPE_CONSTANT && out.unitPriceMeasureType === MEASURE_TYPE_VARIABLE){
+                            count = out.constantUnitSales;
+                            sum = 0;
+                            if(out.constantUnitSalesPeriod === LENGTH_MONTH){
+                                out.unitPricePerPeriod.forEach(function (tPrice, period) {
+                                    if(period >= out.start){
+                                        if(!isNaN(tPrice)){
+                                            if(!isNaN(tPrice)){
+                                                if(period < 12) { // months
+                                                    revenuePerPeriod[period] = count * tPrice;
+                                                }
+                                                else if (period === 12){
+                                                    revenuePerPeriod[period] = sum;
+                                                }
+                                                else{
+                                                    revenuePerPeriod[period] = 12*out.constantUnitSales * out.unitPricePerPeriod[period]; // for next years
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                            else{
+                                out.unitPricePerPeriod.forEach(function () { // baraye sale konuni
+                                    // TODO ask them! ma masalan salane 10 mikhaim befrushim. bad age gheimat moteghayyer bashe chejuri hesab mishe
+                                });
+
+                                revenuePerPeriod[13] = count * out.unitPricePerPeriod[13];
+                                revenuePerPeriod[14] = count * out.unitPricePerPeriod[14];
+                            }
+
+                        }
+                        else if(out.unitSalesCountType === MEASURE_TYPE_VARIABLE && out.unitPriceMeasureType === MEASURE_TYPE_CONSTANT){
+                            price = out.constantUnitPrice;
+                            sum = 0;
+                            out.unitSalesPerPeriod.forEach(function (tCount, period) {
+                                if(!isNaN(tCount)){
+                                    if(!isNaN(price)){
+                                        if(period < 12) { // months
+                                            revenuePerPeriod[period] = tCount * price;
+                                            sum = sum + revenuePerPeriod[period]
+                                        }
+                                        else if (period === 12){
+                                            revenuePerPeriod[period] = sum;
+                                        }
+                                        else{
+                                            revenuePerPeriod[period] = out.unitSalesPerPeriod[period] * price; // for next years
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                        else if(out.unitSalesCountType === MEASURE_TYPE_VARIABLE && out.unitPriceMeasureType === MEASURE_TYPE_VARIABLE){
+                            sum = 0;
+                            out.unitSalesPerPeriod.forEach(function (tCount, period) {
+                                if(!isNaN(tCount)){
+                                    price = out.unitPricePerPeriod[period];
+                                    if(!isNaN(price)){
+                                        if(period < 12) { // months
+                                            revenuePerPeriod[period] = tCount * price;
+                                            sum = sum + revenuePerPeriod[period]
+                                        }
+                                        else if (period === 12){
+                                            revenuePerPeriod[period] = sum;
+                                        }
+                                        else{
+                                            revenuePerPeriod[period] = tCount * price; // for next years
+                                        }
+
+                                    }
+                                }
+                            });
+                        }
+
+                        break;
+                    }
+                    case REVENUE_TYPE_BILLABLE_HOURS:{
+                        if(out.billableHoursCountType === MEASURE_TYPE_CONSTANT && out.hourPriceMeasureType === MEASURE_TYPE_CONSTANT){
+                            sum = 0;
+                            if(out.constantBillableHoursPeriod === LENGTH_MONTH){
+                                revenuePerPeriod.forEach(function (item, period) {
+                                    if(period >= out.start){
+                                        if(period < 12) { // months
+                                            revenuePerPeriod[period] = out.constantUnitSales * out.constantUnitPrice;
+                                            sum = sum + revenuePerPeriod[period];
+                                        }
+                                        else if (period === 12){
+                                            revenuePerPeriod[period] = sum;
+                                        }
+                                        else{
+                                            revenuePerPeriod[period] = 12 * out.constantUnitSales * out.constantUnitPrice;
+                                        }
+                                    }
+                                });
+                            }
+                            else{
+                                revenuePerPeriod[12] =  out.constantUnitSales * out.constantUnitPrice; // TODO ask them! (what if start is not from first month of current year)
+                                revenuePerPeriod[13] =  revenuePerPeriod[12];
+                                revenuePerPeriod[14] = revenuePerPeriod[12];
+                            }
+
+                        } // TODO bara har kodum az casa bar asase start o period (age constant bud mohasebe kon)
+                        else if(out.billableHoursCountType === MEASURE_TYPE_CONSTANT && out.hourPriceMeasureType === MEASURE_TYPE_VARIABLE){
+                            count = out.constantUnitSales;
+                            sum = 0;
+                            if(out.constantUnitSalesPeriod === LENGTH_MONTH){
+                                out.unitPricePerPeriod.forEach(function (tPrice, period) {
+                                    if(period >= out.start){
+                                        if(!isNaN(tPrice)){
+                                            if(!isNaN(tPrice)){
+                                                if(period < 12) { // months
+                                                    revenuePerPeriod[period] = count * tPrice;
+                                                }
+                                                else if (period === 12){
+                                                    revenuePerPeriod[period] = sum;
+                                                }
+                                                else{
+                                                    revenuePerPeriod[period] = 12*out.constantUnitSales * out.unitPricePerPeriod[period]; // for next years
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                            else{
+                                out.unitPricePerPeriod.forEach(function () { // baraye sale konuni
+                                    // TODO ask them! ma masalan salane 10 mikhaim befrushim. bad age gheimat moteghayyer bashe chejuri hesab mishe
+                                });
+
+                                revenuePerPeriod[13] = count * out.unitPricePerPeriod[13];
+                                revenuePerPeriod[14] = count * out.unitPricePerPeriod[14];
+                            }
+
+                        }
+                        else if(out.billableHoursCountType === MEASURE_TYPE_VARIABLE && out.hourPriceMeasureType === MEASURE_TYPE_CONSTANT){
+                            price = out.constantUnitPrice;
+                            out.unitSalesPerPeriod.forEach(function (tCount, period) {
+                                if(!isNaN(tCount)){
+                                    if(!isNaN(price)){
+                                        revenuePerPeriod[period] = tCount * price;
+                                    }
+                                }
+                            });
+                        }
+                        else if(out.billableHoursCountType === MEASURE_TYPE_VARIABLE && out.hourPriceMeasureType === MEASURE_TYPE_VARIABLE){
+                            out.unitSalesPerPeriod.forEach(function (tCount, period) {
+                                if(!isNaN(tCount)){
+                                    price = out.unitPricePerPeriod[period];
+                                    if(!isNaN(price)){
+                                        revenuePerPeriod[period] = tCount * price;
+                                    }
+                                }
+                            });
+                        }
+
+                        break;
+                    }
+                    case REVENUE_TYPE_RECURRING_CHANGES: {
+
+                        break;
+                    }
+                    case REVENUE_TYPE_REVENUE_ONLY: {
+                        revenuePerPeriod = out.revenueStreamPerPeriod;
+                        break;
+                    }
+                }
+                out.revenuePerPeriod = revenuePerPeriod;
+                return out;
             }
+
+
         },
         props: {
             revenue: {
@@ -4471,10 +4687,10 @@
             BaseModal,
         },
         mounted(){
-            if(this.revenue){
-                this.currentRevenue = this.revenue;
-                this.currentRevenue.headerName = this.currentRevenue.name;
-            }
+            // if(this.revenue){
+            //     this.currentRevenue = this.revenue;
+            //     this.currentRevenue.headerName = this.currentRevenue.name;
+            // }
         },
         watch:{
             currentTab: function () {
@@ -4484,7 +4700,43 @@
                     }
                 }
 
-            }
+            },
+            'currentRevenue.unitSalesPerPeriod': function(){
+                this.currentRevenue.unitSalesPerPeriod[12] =
+                    this.currentRevenue.unitSalesPerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
+            'currentRevenue.unitPricePerPeriod': function(){
+                this.currentRevenue.unitPricePerPeriod[12] =
+                    this.currentRevenue.unitPricePerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
+            'currentRevenue.billableHoursPerPeriod': function(){
+                this.currentRevenue.billableHoursPerPeriod[12] =
+                    this.currentRevenue.billableHoursPerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
+            'currentRevenue.hourPricePerPeriod': function(){
+                this.currentRevenue.hourPricePerPeriod[12] =
+                    this.currentRevenue.hourPricePerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
+            'currentRevenue.customerCountPerPeriod': function(){
+                this.currentRevenue.customerCountPerPeriod[12] =
+                    this.currentRevenue.customerCountPerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
+            'currentRevenue.upFrontFeePerPeriod': function(){
+                this.currentRevenue.upFrontFeePerPeriod[12] =
+                    this.currentRevenue.upFrontFeePerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
+            'currentRevenue.recurringChargePerPeriod': function(){
+                this.currentRevenue.recurringChargePerPeriod[12] =
+                    this.currentRevenue.recurringChargePerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
+            'currentRevenue.churnRatePerPeriod': function(){
+                this.currentRevenue.churnRatePerPeriod[12] =
+                    this.currentRevenue.churnRatePerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
+            'currentRevenue.revenueStreamPerPeriod': function(){
+                this.currentRevenue.revenueStreamPerPeriod[12] =
+                    this.currentRevenue.revenueStreamPerPeriod.slice(0, 11).reduce((a, b) => a + b, 0)
+            },
         }
     }
 </script>
