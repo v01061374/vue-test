@@ -83,7 +83,7 @@
                                         {{slotProps.node.data.name}}
 
                                     </a>
-                                    <span class="row-edit-edit row-edit-control" title="Edit" @click="toggleModalVisibility(1)"></span>
+                                    <span class="row-edit-edit row-edit-control" title="Edit" @click="editRevenue(slotProps.node.data.id)"></span>
                                     <span class="row-edit-copy  row-edit-control" title="Copy"></span>
                                     <span class="row-edit-move-up  row-edit-control" title="Move"></span>
 
@@ -373,7 +373,7 @@
                 <v-playback :auto-play="false" :url="'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4'" ></v-playback>
 
         </video-modal>
-        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveTempRevenue" @delete="deleteRevenue" :key="revenueModalKey" :revenue="testRevenue"></modal-revenue-crud>
+        <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveAddRevenue" @refresh-modal="renewRevenueModal" @delete="deleteRevenue" :key="revenueModalKey" :revenue="JSON.stringify(modalRevenue)"></modal-revenue-crud>
 
 
     </div>
@@ -402,66 +402,19 @@
         data: function(){
             return {
                 revenueModalKey: 0,
-                testRevenue:{
-                    start: FAR_1398,
-                    name: 'asfdds',
-                    id: '',
-                    headerName: '',
-                    type: NOT_SELECTED,
-                    unitSalesCountType: MEASURE_TYPE_CONSTANT,
-                    constantUnitSalesPeriod: LENGTH_MONTH,
-                    constantUnitSales: '',
-                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-                    //     {
-                    //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
-                    //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
-                    //     _1399: '', _1400: ''
-                    // }
-                    ,
-                    unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
-                    constantUnitPrice: '',
-                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-
-                    billableHoursCountType: MEASURE_TYPE_CONSTANT,
-                    constantBillableHoursPeriod: LENGTH_MONTH,
-                    constantBillableHours: '',
-                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
-                    constantHourPrice: '',
-                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-
-                    customerCountType: MEASURE_TYPE_CONSTANT,
-                    constantCustomerCount: '',
-                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    constantCustomerCountPeriod: LENGTH_MONTH,
-
-                    upFrontFeeMeasureType: MEASURE_TYPE_FREE,
-                    constantUpFrontFee: '',
-                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
-                    constantRecurringCharge: '',
-                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    recurringChargeMonthFrequency: 1,
-
-                    // type 2 - tab 4
-                    churnRateMeasureType: MEASURE_TYPE_CONSTANT,
-                    constantChurnRate: '',
-                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    revenueStreamType: MEASURE_TYPE_CONSTANT,
-                    constantRevenueStream: '',
-                    constantRevenueStreamPeriod: LENGTH_MONTH,
-                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-
-                    // add isComplete flag to backend for tamp. saved ravenues
-                },
+                modalRevenue:{},
+                revenueBeingEditedIndex: '',
                 revenues : {
                     //keys are the ids
-                    "details" : [{
+                    "details" : [
+                        {
                         "key": "123654",
                         "data": {
                             start: FAR_1398,
                             name: 'asdfasdf',
-                            id: "123654",
+                            id: '123654',
+                            dbID: '123654',
+                            headerName: '',
                             type: NOT_SELECTED,
                             unitSalesCountType: MEASURE_TYPE_CONSTANT,
                             constantUnitSalesPeriod: LENGTH_MONTH,
@@ -483,7 +436,7 @@
                             billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                             hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
                             constantHourPrice: '',
-                            hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                            hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                             customerCountType: MEASURE_TYPE_CONSTANT,
                             constantCustomerCount: '',
@@ -492,7 +445,7 @@
 
                             upFrontFeeMeasureType: MEASURE_TYPE_FREE,
                             constantUpFrontFee: '',
-                            upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                            upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                             recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
                             constantRecurringCharge: '',
                             recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -507,23 +460,23 @@
                             constantRevenueStreamPeriod: LENGTH_MONTH,
                             revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
-                            revenuePerPeriod: [11,22,33,44,55,66,77,88,99,10,11,12,9800,9900,140000],
-                            //TODO is calculated in backend e.g = total income per period
+                            revenuePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-                            // add isComplete flag to backend for temp. saved revenues
+                            // add isComplete flag to backend for tamp. saved ravenues
                         },
                         "children": [
                             {
                                 "key": "1234",
                                 "data": {
                                     start: FAR_1398,
-                                    name: 'asdfasdf',
-                                    id: "1234",
+                                    name: 'asfdds',
+                                    id: '1234',
+                                    headerName: '',
                                     type: NOT_SELECTED,
                                     unitSalesCountType: MEASURE_TYPE_CONSTANT,
                                     constantUnitSalesPeriod: LENGTH_MONTH,
                                     constantUnitSales: '',
-                                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0]
+                                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
                                     //     {
                                     //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
                                     //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
@@ -532,51 +485,111 @@
                                     ,
                                     unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
                                     constantUnitPrice: '',
-                                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                                     billableHoursCountType: MEASURE_TYPE_CONSTANT,
                                     constantBillableHoursPeriod: LENGTH_MONTH,
                                     constantBillableHours: '',
-                                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                                     hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
                                     constantHourPrice: '',
-                                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                                     customerCountType: MEASURE_TYPE_CONSTANT,
                                     constantCustomerCount: '',
-                                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                                     constantCustomerCountPeriod: LENGTH_MONTH,
 
                                     upFrontFeeMeasureType: MEASURE_TYPE_FREE,
                                     constantUpFrontFee: '',
-                                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                                     recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
                                     constantRecurringCharge: '',
-                                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                                     recurringChargeMonthFrequency: 1,
 
                                     // type 2 - tab 4
                                     churnRateMeasureType: MEASURE_TYPE_CONSTANT,
                                     constantChurnRate: '',
-                                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                                     revenueStreamType: MEASURE_TYPE_CONSTANT,
                                     constantRevenueStream: '',
                                     constantRevenueStreamPeriod: LENGTH_MONTH,
-                                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
-                                    revenuePerPeriod: [11,22,33,44,55,66,77,88,99,10,11,12,9800,9900,140000],
-                                    //TODO is calculated in backend e.g = total income per period
-                                    // add isComplete flag to backend for temp. saved revenues
+                                    revenuePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+                                    // add isComplete flag to backend for tamp. saved ravenues
                                 },
                                 "level": 2,
                                 "totals": {},//total of children per period
                             }
                         ],
                         "level": 1,
-                        "totals": {},//total of children per period
-                    }],
-                    "totals" : [111,22,3,444,5,6,7,8,9,10,11,12,98,99,1400],
+                        "totals": {},//total of children per period for other pages
+                    },
+                        { //all revenue entries are level 3
+                            "key": "14",
+                            "data": {
+                                start: FAR_1398,
+                                name: 'asfdds',
+                                id: '14',
+                                dbID: '14', //TODO after fetching from db => id = dbID
+                                headerName: '',
+                                type: REVENUE_TYPE_UNIT_SALES,
+                                unitSalesCountType: MEASURE_TYPE_CONSTANT,
+                                constantUnitSalesPeriod: LENGTH_MONTH,
+                                constantUnitSales: 1,
+                                unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                                //     {
+                                //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
+                                //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
+                                //     _1399: '', _1400: ''
+                                // }
+                                ,
+                                unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
+                                constantUnitPrice: 1,
+                                unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
+                                billableHoursCountType: MEASURE_TYPE_CONSTANT,
+                                constantBillableHoursPeriod: LENGTH_MONTH,
+                                constantBillableHours: '',
+                                billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
+                                constantHourPrice: '',
+                                hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+                                customerCountType: MEASURE_TYPE_CONSTANT,
+                                constantCustomerCount: '',
+                                customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                constantCustomerCountPeriod: LENGTH_MONTH,
+
+                                upFrontFeeMeasureType: MEASURE_TYPE_FREE,
+                                constantUpFrontFee: '',
+                                upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
+                                constantRecurringCharge: '',
+                                recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                recurringChargeMonthFrequency: 1,
+
+                                // type 2 - tab 4
+                                churnRateMeasureType: MEASURE_TYPE_CONSTANT,
+                                constantChurnRate: '',
+                                churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                revenueStreamType: MEASURE_TYPE_CONSTANT,
+                                constantRevenueStream: '',
+                                constantRevenueStreamPeriod: LENGTH_MONTH,
+                                revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+                                revenuePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+                                // add isComplete flag to backend for tamp. saved ravenues
+                            },
+                            "children": [],
+                            "level": 3,
+                            "totals": {},//total of children per period for other pages
+                        }],
+                    "totals" : [111,22,3,444,5,6,7,8,9,10,11,12,98,99,1400],
                 },
 
                 tableMonthlyDetailsActive: false,
@@ -801,7 +814,7 @@
                 let visible = (typeof this.modalVisibility[modalID] !== 'undefined')? this.modalVisibility[modalID] : false;
                 if(visible === true){
                     this.$set(this.modalVisibility, modalID, !visible);
-
+                    this.clearModalRevenue();
                 }
                 else{
                     this.$set(this.modalVisibility, modalID, !visible);
@@ -818,11 +831,39 @@
                 let k = node.key;
                 this.$set(this.monthlyTableExpandedKeys, k, false);
             },
-            saveRevenue(revenue){
-                this.toggleModalVisibility(1);
-                console.log(revenue);
+            editRevenue: function(id){
+                let r = (this.revenues.details.find(revenue => revenue.data.id === id));
+               this.modalRevenue = r.data;
+               this.revenueBeingEditedIndex = this.revenues.details.indexOf(r);
+               this.toggleModalVisibility(1);
             },
-            saveTempRevenue(revenue){
+            saveRevenue(revenue){
+
+
+                if(revenue.id){
+                    console.log('edited revenue', revenue);
+
+
+                    this.revenues.details[this.revenueBeingEditedIndex].data = revenue;
+
+                    // this.revenues.details[this.revenues.details.indexOf(this.revenues.details.find(revenue => revenue.data.id === revenue.id))].data = revenue;
+                }
+                else{
+                    revenue.id = this.getTempId();
+                    this.revenues.details.push({
+                        "key": revenue.id,
+                        "data": revenue,
+                        "children": [],
+                        "level": 3,
+                        "totals": {},//total of children per period for other pages
+                    });
+                    // TODO implement server save via dbID
+                    console.log('new revenue', revenue);
+
+                }
+                this.toggleModalVisibility(1);
+            },
+            saveAddRevenue(revenue){
                 // TODO isTemp = true aka. just to be shown in table (??, should be checked)
                 // console.log(revenue);
                 this.renewRevenueModal();
@@ -833,8 +874,16 @@
                 console.log(revenueId);
             },
             renewRevenueModal(){
+                this.clearModalRevenue();
                 this.revenueModalKey++;
             },
+            clearModalRevenue: function(){
+                this.modalRevenue = {};
+                this.revenueBeingEditedIndex = '';
+            },
+            getTempId: function(){
+                return ""+Date.now();
+            }
         },
         mounted(){
 

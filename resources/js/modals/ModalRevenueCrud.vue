@@ -3453,10 +3453,11 @@
                 applyingChartShift: [false, false, false, false],
                 visitedTabs : [],
                 headerName : "",
-                currentRevenue:{
+                currentRevenue: JSON.parse(this.revenue).name? JSON.parse(this.revenue) : {
                     start: FAR_1398,
                     name: '',
                     id: '',
+                    dbID: '',
                     headerName: '',
                     type: NOT_SELECTED,
                     unitSalesCountType: MEASURE_TYPE_CONSTANT,
@@ -3503,6 +3504,8 @@
                     constantRevenueStreamPeriod: LENGTH_MONTH,
                     revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
+                    revenuePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
                     // add isComplete flag to backend for tamp. saved ravenues
                 },
             }
@@ -3547,8 +3550,6 @@
 
             getChartOptions: function (data, ref) { // TODO change to computed
                 let $this = this;
-                // console.log(window.document.getElementById('unit-sales-chart').self);
-
                 return {
                         chart: {
                             type: 'line',
@@ -4037,12 +4038,11 @@
 
                 if(this.validateCurrentTab()){
                     if(this.validateRevenueType()){
-                        this.$emit('save', this.finalRevenue);
+                            this.$emit('save', this.finalRevenue);
                     }
                 }
 
                 else{
-
                 }
             },
             handleTabChange(to){
@@ -4331,6 +4331,7 @@
 
         },
         computed:{
+
             currentTabValidators: function () {
                 switch (this.currentTab) {
                     case 0: {
@@ -4739,17 +4740,14 @@
         },
         props: {
             revenue: {
-                type: Object,
+                type: String,
             }
         },
         components:{
             BaseModal,
         },
         mounted(){
-            // if(this.revenue){
-            //     this.currentRevenue = this.revenue;
-            //     this.currentRevenue.headerName = this.currentRevenue.name;
-            // }
+
         },
         watch:{
             currentTab: function () {

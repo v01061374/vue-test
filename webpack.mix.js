@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin;
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -17,7 +18,8 @@ mix.webpackConfig({
         alias:{
             '@': __dirname + '/resources'
         }
-    }
+    },
+    plugins: [new BundleAnalyzerPlugin()]
 });
 mix.js('resources/js/app.js', 'public/js')
    .css('resources/css/app.css', 'public/css');
