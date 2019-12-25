@@ -4037,7 +4037,7 @@
 
                 if(this.validateCurrentTab()){
                     if(this.validateRevenueType()){
-                        this.$emit('save', this.currentRevenue);
+                        this.$emit('save', this.finalRevenue);
                     }
                 }
 
@@ -4066,7 +4066,7 @@
                     this.currentTab = 0;
                 }
                 else{
-                    this.$emit('temp-save', this.currentRevenue);
+                    this.$emit('temp-save', this.finalRevenue);
                     // TODO resetModal()
                 }
             },

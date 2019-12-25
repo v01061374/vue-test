@@ -404,13 +404,14 @@
                 revenueModalKey: 0,
                 testRevenue:{
                     start: FAR_1398,
-                    name: 'asdfasdf',
+                    name: 'asfdds',
                     id: '',
+                    headerName: '',
                     type: NOT_SELECTED,
                     unitSalesCountType: MEASURE_TYPE_CONSTANT,
                     constantUnitSalesPeriod: LENGTH_MONTH,
                     constantUnitSales: '',
-                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0]
+                    unitSalesPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
                     //     {
                     //     FAR_1398: '', ORD_1398: '', KHO_1398: '', TIR_1398: '', MOR_1398: '', SHAH_1398: '' ,
                     //     MEHR_1398: '', ABA_1398: '', AZAR_1398: '', DEY_1398: '', BAH_1398: '', ESF_1398: '',
@@ -419,38 +420,39 @@
                     ,
                     unitPriceMeasureType: MEASURE_TYPE_CONSTANT,
                     constantUnitPrice: '',
-                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    unitPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                     billableHoursCountType: MEASURE_TYPE_CONSTANT,
                     constantBillableHoursPeriod: LENGTH_MONTH,
                     constantBillableHours: '',
-                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    billableHoursPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     hourPriceMeasureType: MEASURE_TYPE_CONSTANT,
                     constantHourPrice: '',
-                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    hourPricePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                     customerCountType: MEASURE_TYPE_CONSTANT,
                     constantCustomerCount: '',
-                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    customerCountPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     constantCustomerCountPeriod: LENGTH_MONTH,
 
                     upFrontFeeMeasureType: MEASURE_TYPE_FREE,
                     constantUpFrontFee: '',
-                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    upFrontFeePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     recurringChargeMeasureType: MEASURE_TYPE_CONSTANT,
                     constantRecurringCharge: '',
-                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    recurringChargePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     recurringChargeMonthFrequency: 1,
 
                     // type 2 - tab 4
                     churnRateMeasureType: MEASURE_TYPE_CONSTANT,
                     constantChurnRate: '',
-                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    churnRatePerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     revenueStreamType: MEASURE_TYPE_CONSTANT,
                     constantRevenueStream: '',
                     constantRevenueStreamPeriod: LENGTH_MONTH,
-                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    revenueStreamPerPeriod: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
+                    // add isComplete flag to backend for tamp. saved ravenues
                 },
                 revenues : {
                     //keys are the ids
