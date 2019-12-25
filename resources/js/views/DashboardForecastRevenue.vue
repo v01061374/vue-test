@@ -84,7 +84,7 @@
 
                                     </a>
                                     <span class="row-edit-edit row-edit-control" title="Edit" @click="editRevenue(slotProps.node.data.id)"></span>
-                                    <span class="row-edit-copy  row-edit-control" title="Copy"></span>
+                                    <span class="row-edit-copy  row-edit-control" title="Copy" @click="duplicateRevenue(slotProps.node.data.id)"></span>
                                     <span class="row-edit-move-up  row-edit-control" title="Move"></span>
 
 
@@ -374,7 +374,7 @@
 
         </video-modal>
         <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveAddRevenue" @refresh-modal="renewRevenueModal" @delete="deleteRevenue" :key="revenueModalKey" :revenue="JSON.stringify(modalRevenue)"></modal-revenue-crud>
-
+        <modal-revenue-duplicate v-if="isModalVisible(2)" @close-modal="toggleModalVisibility(2)" @duplicate="saveDuplicatedRevenue" :inputName="modalRevenue.name"></modal-revenue-duplicate>
 
     </div>
 </template>
@@ -383,6 +383,7 @@
 
     import VideoModal from "@/js/components/VideoModal";
     import ModalRevenueCrud from "./../modals/ModalRevenueCrud";
+    import ModalRevenueDuplicate from "./../modals/ModalRevenueDuplicate";
     import { EventBus } from "@/js/event-bus.js"
     import { required, minLength, between, maxLength } from 'vuelidate/lib/validators';
 
@@ -398,6 +399,7 @@
         components: {
             VideoModal,
             ModalRevenueCrud,
+            ModalRevenueDuplicate
         },
         data: function(){
             return {
@@ -883,6 +885,28 @@
             },
             getTempId: function(){
                 return ""+Date.now();
+            },
+
+
+            duplicateRevenue(id){
+                let r = (this.revenues.details.find(revenue => revenue.data.id === id));
+                this.modalRevenue = r.data;
+                this.toggleModalVisibility(2);
+            },
+            saveDuplicatedRevenue(name){
+                let duplicated = JSON.parse(JSON.stringify(this.modalRevenue));
+                duplicated.id = '';
+                duplicated.name = name;
+                duplicated.headerName = name;
+                duplicated.id = this.getTempId();
+                this.revenues.details.push({
+                    "key": duplicated.id,
+                    "data": duplicated,
+                    "children": [],
+                    "level": 3,
+                    "totals": {},//total of children per period for other pages
+                });
+                this.toggleModalVisibility(2);
             }
         },
         mounted(){
