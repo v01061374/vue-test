@@ -3448,7 +3448,7 @@
                     {title: '4', code: 4}, {title: '5', code: 5}, {title: '6', code: 6}, {title: '7', code: 7}, {title: '8', code: 8},
                     {title: '9', code: 9}, {title: '10', code: 10}, {title: '11', code: 11}, {title: '12', code: 12}
                 ],
-                chartUpdateArgs: [true, true, {duration: 1000}],
+                chartUpdateArgs: [true, true, {duration: 0}],
                 chartShiftPercent: [0, 0, 0, 0],
                 applyingChartShift: [false, false, false, false],
                 visitedTabs : [],
@@ -3560,8 +3560,13 @@
                             events: {
                                 'click': function(e) {
 
+
                                     let x = e.xAxis[0].value;
                                     let y = e.yAxis[0].value;
+
+                                    console.log('chart clicked', ref, x , y);
+
+                                    x = Math.round(x);
 
                                     if(x < 0){
                                         x=0;
@@ -3569,9 +3574,7 @@
                                     else if(x>=12){
                                         x=12;
                                     }
-                                    else{
-                                        x = Math.round(x);
-                                    }
+
 
                                     $this.updateRevenueFromChart(ref, x, y);
 
@@ -3604,9 +3607,40 @@
                                 },
                                 point:{
                                     events:{
+                                        'drag': function (e) {
+                                            if(e.newPoint.y > (this.series.yAxis.max - 500)
+                                                // || this.series.yAxis.dataMax < this.series.yAxis.max - 500
+                                            ){
+                                                this.series.yAxis.setExtremes(null, e.newPoint.y + 500);
+                                            }
+                                            else if(e.newPoint.y < (this.series.yAxis.min + 500)
+                                                // || this.series.yAxis.dataMin < this.series.yAxis.min + 500
+                                            ){
+                                                this.series.yAxis.setExtremes(e.newPoint.y - 500
+                                                    , null);
+                                            }
+
+
+
+                                            // this.series.yAxis.setExtremes(-100, 300);
+                                            console.log(this.series)
+                                        },
                                         'drop': function (e) {
                                             let x = e.target.x;
                                             let y = e.newPoint.y;
+
+                                            console.log('chart dragged and dropped!',ref, x, y);
+                                            // if( this.series.yAxis.dataMax < this.series.yAxis.max - 500){
+                                            //     this.series.yAxis.setExtremes(null, this.series.yAxis.dataMax + 500);
+                                            // }
+                                            // else if(this.series.yAxis.dataMin < this.series.yAxis.min + 500){
+                                            //     this.series.yAxis.setExtremes(this.series.yAxis.dataMin - 500
+                                            //         , null);
+                                            // }
+
+                                            // TODO dynamic min and max (yani ezafe nabashan)
+
+
                                             $this.updateRevenueFromChart(ref, x, y);
                                         }
                                     }
@@ -3746,7 +3780,7 @@
                 }
 
                 return sum;
-            }, //ok // TODO change to computed
+            }, //removed // TODO delete
 
             shiftChart: function(ref){
 
@@ -3893,6 +3927,7 @@
 
             },
             updateRevenueFromChart: function (ref, x, y) {
+                console.log('function: updateRevenueFromChart', ref, x, y);
                 switch(this.currentRevenue.type){
                     case REVENUE_TYPE_UNIT_SALES: {
                         switch (ref) {
@@ -4505,7 +4540,7 @@
                                 revenuePerPeriod[14] = revenuePerPeriod[12];
                             }
 
-                        } // TODO bara har kodum az casa bar asase start o period (age constant bud mohasebe kon)
+                        }
                         else if(out.unitSalesCountType === MEASURE_TYPE_CONSTANT && out.unitPriceMeasureType === MEASURE_TYPE_VARIABLE){
                             count = out.constantUnitSales;
                             sum = 0;
@@ -4516,6 +4551,7 @@
                                             if(!isNaN(tPrice)){
                                                 if(period < 12) { // months
                                                     revenuePerPeriod[period] = count * tPrice;
+                                                    sum = sum + revenuePerPeriod[period];
                                                 }
                                                 else if (period === 12){
                                                     revenuePerPeriod[period] = sum;
@@ -4589,41 +4625,42 @@
                                 revenuePerPeriod.forEach(function (item, period) {
                                     if(period >= out.start){
                                         if(period < 12) { // months
-                                            revenuePerPeriod[period] = out.constantUnitSales * out.constantUnitPrice;
+                                            revenuePerPeriod[period] = out.constantBillableHours * out.constantHourPrice;
                                             sum = sum + revenuePerPeriod[period];
                                         }
                                         else if (period === 12){
                                             revenuePerPeriod[period] = sum;
                                         }
                                         else{
-                                            revenuePerPeriod[period] = 12 * out.constantUnitSales * out.constantUnitPrice;
+                                            revenuePerPeriod[period] = 12 * out.constantBillableHours * out.constantHourPrice;
                                         }
                                     }
                                 });
                             }
                             else{
-                                revenuePerPeriod[12] =  out.constantUnitSales * out.constantUnitPrice; // TODO ask them! (what if start is not from first month of current year)
+                                revenuePerPeriod[12] =  out.constantBillableHours * out.constantHourPrice; // TODO ask them! (what if start is not from first month of current year)
                                 revenuePerPeriod[13] =  revenuePerPeriod[12];
                                 revenuePerPeriod[14] = revenuePerPeriod[12];
                             }
 
-                        } // TODO bara har kodum az casa bar asase start o period (age constant bud mohasebe kon)
+                        }
                         else if(out.billableHoursCountType === MEASURE_TYPE_CONSTANT && out.hourPriceMeasureType === MEASURE_TYPE_VARIABLE){
-                            count = out.constantUnitSales;
+                            count = out.constantBillableHours;
                             sum = 0;
-                            if(out.constantUnitSalesPeriod === LENGTH_MONTH){
-                                out.unitPricePerPeriod.forEach(function (tPrice, period) {
+                            if(out.constantBillableHoursPeriod === LENGTH_MONTH){
+                                out.hourPricePerPeriod.forEach(function (tPrice, period) {
                                     if(period >= out.start){
                                         if(!isNaN(tPrice)){
                                             if(!isNaN(tPrice)){
                                                 if(period < 12) { // months
                                                     revenuePerPeriod[period] = count * tPrice;
+                                                    sum = sum + revenuePerPeriod[period];
                                                 }
                                                 else if (period === 12){
                                                     revenuePerPeriod[period] = sum;
                                                 }
                                                 else{
-                                                    revenuePerPeriod[period] = 12*out.constantUnitSales * out.unitPricePerPeriod[period]; // for next years
+                                                    revenuePerPeriod[period] = 12*out.constantBillableHours * out.hourPricePerPeriod[period]; // for next years
                                                 }
                                             }
                                         }
@@ -4631,40 +4668,62 @@
                                 });
                             }
                             else{
-                                out.unitPricePerPeriod.forEach(function () { // baraye sale konuni
+                                out.hourPricePerPeriod.forEach(function () { // baraye sale konuni
                                     // TODO ask them! ma masalan salane 10 mikhaim befrushim. bad age gheimat moteghayyer bashe chejuri hesab mishe
                                 });
 
-                                revenuePerPeriod[13] = count * out.unitPricePerPeriod[13];
-                                revenuePerPeriod[14] = count * out.unitPricePerPeriod[14];
+                                revenuePerPeriod[13] = count * out.hourPricePerPeriod[13];
+                                revenuePerPeriod[14] = count * out.hourPricePerPeriod[14];
                             }
 
                         }
                         else if(out.billableHoursCountType === MEASURE_TYPE_VARIABLE && out.hourPriceMeasureType === MEASURE_TYPE_CONSTANT){
-                            price = out.constantUnitPrice;
-                            out.unitSalesPerPeriod.forEach(function (tCount, period) {
+                            price = out.constantHourPrice;
+                            sum = 0;
+                            out.billableHoursPerPeriod.forEach(function (tCount, period) {
                                 if(!isNaN(tCount)){
                                     if(!isNaN(price)){
-                                        revenuePerPeriod[period] = tCount * price;
+                                        if(period < 12) { // months
+                                            revenuePerPeriod[period] = tCount * price;
+                                            sum = sum + revenuePerPeriod[period]
+                                        }
+                                        else if (period === 12){
+                                            revenuePerPeriod[period] = sum;
+                                        }
+                                        else{
+                                            revenuePerPeriod[period] = out.billableHoursPerPeriod[period] * price; // for next years
+                                        }
                                     }
                                 }
                             });
                         }
                         else if(out.billableHoursCountType === MEASURE_TYPE_VARIABLE && out.hourPriceMeasureType === MEASURE_TYPE_VARIABLE){
-                            out.unitSalesPerPeriod.forEach(function (tCount, period) {
+                            sum = 0;
+                            out.billableHoursPerPeriod.forEach(function (tCount, period) {
                                 if(!isNaN(tCount)){
-                                    price = out.unitPricePerPeriod[period];
+                                    price = out.hourPricePerPeriod[period];
                                     if(!isNaN(price)){
-                                        revenuePerPeriod[period] = tCount * price;
+                                        if(period < 12) { // months
+                                            revenuePerPeriod[period] = tCount * price;
+                                            sum = sum + revenuePerPeriod[period]
+                                        }
+                                        else if (period === 12){
+                                            revenuePerPeriod[period] = sum;
+                                        }
+                                        else{
+                                            revenuePerPeriod[period] = tCount * price; // for next years
+                                        }
+
                                     }
                                 }
                             });
                         }
 
                         break;
+                    
                     }
                     case REVENUE_TYPE_RECURRING_CHANGES: {
-
+                        // TODO ask them! what is the formula
                         break;
                     }
                     case REVENUE_TYPE_REVENUE_ONLY: {
