@@ -7,16 +7,19 @@
                             <div class="base-modal-header-wrapper">
                                 <div class="base-modal-header">
                                     <slot name="header"></slot>
+                                    <slot name="close-confirmation-header"></slot>
                                     <a class="modal-close-button" @click.prevent="close"></a>
                                 </div>
                             </div>
                             <div role="group">
                                 <div class="modal-content-container" >
                                     <slot name="content"></slot>
+                                    <slot name="close-confirmation-content"></slot>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <slot name="footer"></slot>
+                                <slot name="close-confirmation-footer"></slot>
                             </div>
                         </div>
                     </div>

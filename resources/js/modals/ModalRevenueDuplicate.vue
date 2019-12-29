@@ -56,9 +56,7 @@
 <script>
 
     import BaseModal from './../components/BaseModal';
-    import { required, integer, between, maxLength, numeric, minValue, requiredIf } from 'vuelidate/lib/validators';
-    import { EventBus } from "@/js/event-bus.js";
-    import Highcharts from 'highcharts';
+    import { required, maxLength} from 'vuelidate/lib/validators';
 
     export default {
         name: "ModalRevenueDuplicate",

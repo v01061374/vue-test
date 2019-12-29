@@ -366,8 +366,6 @@
                     </div>
                 </div>
             </div>
-
-
         <video-modal v-if="isModalVisible(0)" @close-modal="toggleModalVisibility(0)" :showModal="isModalVisible(0)">
 
                 <v-playback :auto-play="false" :url="'https://as10.cdn.asset.aparat.com/aparat-video/2131bb93e50b506157ef09e9a57870d017847243-144p__43354.mp4'" ></v-playback>
@@ -375,7 +373,6 @@
         </video-modal>
         <modal-revenue-crud v-if="isModalVisible(1)" @close-modal="toggleModalVisibility(1)" @save="saveRevenue" @temp-save="saveAddRevenue" @refresh-modal="renewRevenueModal" @delete="deleteRevenue" :key="revenueModalKey" :revenue="JSON.stringify(modalRevenue)"></modal-revenue-crud>
         <modal-revenue-duplicate v-if="isModalVisible(2)" @close-modal="toggleModalVisibility(2)" @duplicate="saveDuplicatedRevenue" :inputName="modalRevenue.name"></modal-revenue-duplicate>
-
     </div>
 </template>
 
