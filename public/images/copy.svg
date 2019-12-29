@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="Layer_1" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0{fill:#3F484B;}</style>
+  <path class="st0" d="M9.3 3L14 7.7 4.7 17H0v-4.7L9.3 3zM4.1 15.6l1-1L2.5 12l-1 1v1.2h1.4v1.4h1.2zM9.9 5.1c0-.2-.1-.2-.2-.2s-.1 0-.2.1l-6.1 6.1c-.1.1-.1.1-.1.2 0 .2.1.2.2.2s.1 0 .2-.1l6.1-6.1c.1 0 .1-.1.1-.2zm7.1-1c0 .4-.1.7-.4 1L14.7 7 10 2.3 11.9.4c.3-.3.6-.4 1-.4s.7.1 1 .4L16.5 3c.4.3.5.7.5 1.1z" style="visibility: hidden;"/>
+  <path d="M 0.576 0.616 L 11.576 0.616 L 11.576 3.639 L 3.576 3.639 L 3.576 11.616 L 0.576 11.616 Z" style="fill: rgb(63, 72, 75); stroke: rgb(63, 72, 75); stroke-linejoin: round;"/>
+  <path d="M 5.494 5.494 L 16.494 5.494 L 16.494 16.494 L 5.494 16.494 L 5.494 5.494 Z" style="fill: rgb(63, 72, 75); stroke: rgb(63, 72, 75); stroke-linejoin: round;"/>
+</svg>
