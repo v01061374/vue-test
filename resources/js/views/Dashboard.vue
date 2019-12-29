@@ -21,7 +21,6 @@
             </div>
             <the-footer/>
         </the-container>
-
 </template>
 
 <script>

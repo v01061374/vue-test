@@ -79,7 +79,7 @@
                 <div>
                     <div>
                         <!--TODO resolve extra height caused by extra 30px paddings-->
-                        <!--TODO reset data on type change-->
+                        
                         <div class="section" v-if="currentTab===0">
 
                             <div class="title-top">
@@ -180,7 +180,7 @@
                                                 <label>
                                                     <input type="radio" name="sales-unit-type" :value="MEASURE_TYPE_CONSTANT"
                                                            v-model="currentRevenue.unitSalesCountType" @change="$v.currentRevenue.constantUnitSales.$reset">
-                                                    <!--TODO add this reset to all radios-->
+                                                    
                                                     <!-- react-text: 131 -->لورم<!-- /react-text -->
                                                 </label>
                                             </li>
@@ -196,7 +196,7 @@
                                         <div class="clear"></div>
 
                                     </div>
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
                                     <div v-if="currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-with-dropdown length-selection">
                                             <input type="number"
@@ -256,7 +256,7 @@
                                                                             v-else
                                                                             tabindex="-1">اعمال
                                                                     </button>
-                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                    
 
                                                                 </div>
                                                             </div>
@@ -499,14 +499,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> <!--TODO variable amount selected (delete this todo-->
+                                    </div> 
 
 
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
 
                                 </div>
 
-                                <!--TODO constant amount selected (delete this todo-->
+                                
                                 <div class="section" style="margin-bottom: 30px"
                                      v-if="currentRevenue.unitSalesCountType===MEASURE_TYPE_CONSTANT">
                                     <div class="title-top">
@@ -519,7 +519,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--TODO constant amount selected (delete this todo-->
+                                
 
                             </div>
                         </div>
@@ -559,7 +559,7 @@
 
 
                                     </div>
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
                                     <div v-if="currentRevenue.unitPriceMeasureType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-with-dropdown">
                                             <div class="input-box-wrapper " style="width: 140px;">
@@ -616,7 +616,7 @@
                                                                             v-else
                                                                             tabindex="-1">اعمال
                                                                     </button>
-                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                    
 
                                                                 </div>
                                                             </div>
@@ -858,10 +858,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> <!--TODO variable amount selected (delete this todo-->
+                                    </div> 
 
 
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
 
                                 </div>
                             </div>
@@ -904,7 +904,7 @@
                                         <div class="clear"></div>
 
                                     </div>
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
                                     <div v-if="currentRevenue.billableHoursCountType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-with-dropdown length-selection">
                                             <input type="number"
@@ -963,7 +963,7 @@
                                                                             v-else
                                                                             tabindex="-1">اعمال
                                                                     </button>
-                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                    
 
                                                                 </div>
                                                             </div>
@@ -1205,14 +1205,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> <!--TODO variable amount selected (delete this todo-->
+                                    </div> 
 
 
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
 
                                 </div>
 
-                                <!--TODO constant amount selected (delete this todo-->
+                                
                                 <div class="section" style="margin-bottom: 30px"
                                      v-if="currentRevenue.billableHoursCountType===MEASURE_TYPE_CONSTANT">
                                     <div class="title-top">
@@ -1225,7 +1225,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--TODO constant amount selected (delete this todo-->
+                                
 
                             </div>
                         </div>
@@ -1263,7 +1263,7 @@
                                         </ul>
                                         <div class="clear"></div>
                                     </div>
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
                                     <div v-if="currentRevenue.hourPriceMeasureType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-with-dropdown">
                                             <div class="input-box-wrapper " style="width: 140px;">
@@ -1320,7 +1320,7 @@
                                                                             v-else
                                                                             tabindex="-1">اعمال
                                                                     </button>
-                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                    
 
                                                                 </div>
                                                             </div>
@@ -1562,9 +1562,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> <!--TODO variable amount selected (delete this todo-->
+                                    </div> 
 
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
 
                                 </div>
 
@@ -1576,7 +1576,7 @@
                         <div class="forecast-item-editor" v-if="getRevenueType()===REVENUE_TYPE_RECURRING_CHANGES && currentTab===2">
 
                             <div>
-                                <!--TODO constant amount selected (delete this todo-->
+                                
                                 <div class="section" style="margin-bottom: 30px">
                                     <div class="title-top">
                                         When will this revenue start?
@@ -1588,7 +1588,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--TODO constant amount selected (delete this todo-->
+                                
                                 <div class="section" style="margin-bottom: 30px">
                                     <div class="title-top">
                                         How many customers?
@@ -1622,7 +1622,7 @@
                                         <div class="clear"></div>
 
                                     </div>
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
                                     <div v-if="currentRevenue.customerCountType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-with-dropdown length-selection">
                                             <input type="number"
@@ -1681,7 +1681,7 @@
                                                                             v-else
                                                                             tabindex="-1">اعمال
                                                                     </button>
-                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                    
 
                                                                 </div>
                                                             </div>
@@ -1923,10 +1923,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> <!--TODO variable amount selected (delete this todo-->
+                                    </div> 
 
 
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
 
                                 </div>
 
@@ -1973,7 +1973,7 @@
                                             </ul>
                                             <div class="clear"></div>
                                         </div>
-                                        <!--TODO constant amount selected (delete this todo-->
+                                        
                                         <div v-if="currentRevenue.upFrontFeeMeasureType===MEASURE_TYPE_CONSTANT">
                                             <div class="input-with-dropdown">
                                                 <div class="input-box-wrapper " style="width: 140px;">
@@ -2030,7 +2030,7 @@
                                                                                 v-else
                                                                                 tabindex="-1">اعمال
                                                                         </button>
-                                                                        <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                        
 
                                                                     </div>
                                                                 </div>
@@ -2273,7 +2273,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--TODO constant amount selected (delete this todo-->
+                                        
 
                                     </div>
                                     <div class="section" style="margin-bottom: 30px">
@@ -2307,7 +2307,7 @@
                                             </ul>
                                             <div class="clear"></div>
                                         </div>
-                                        <!--TODO constant amount selected (delete this todo-->
+                                        
                                         <div v-if="currentRevenue.recurringChargeMeasureType===MEASURE_TYPE_CONSTANT">
                                             <div class="input-with-dropdown">
                                                 <div class="input-box-wrapper " style="width: 140px;">
@@ -2326,7 +2326,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--TODO constant amount selected (delete this todo-->
+                                        
                                         <div v-if="currentRevenue.recurringChargeMeasureType===MEASURE_TYPE_VARIABLE">
                                             <div class="financial-year-box" role="grid">
                                                 <div class="financial-year-box-container">
@@ -2365,7 +2365,7 @@
                                                                                 v-else
                                                                                 tabindex="-1">اعمال
                                                                         </button>
-                                                                        <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                        
 
                                                                     </div>
                                                                 </div>
@@ -2674,7 +2674,7 @@
                                             <div class="clear"></div>
 
                                         </div>
-                                        <!--TODO constant amount selected (delete this todo-->
+                                        
                                         <div v-if="currentRevenue.churnRateMeasureType===MEASURE_TYPE_CONSTANT">
                                             <div class="input-box-wrapper" style="width: unset;">
                                             <span aria-hidden="true"
@@ -2732,7 +2732,7 @@
                                                                                 v-else
                                                                                 tabindex="-1">اعمال
                                                                         </button>
-                                                                        <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                        
 
                                                                     </div>
                                                                 </div>
@@ -2977,7 +2977,7 @@
                                         </div>
 
 
-                                        <!--TODO constant amount selected (delete this todo-->
+                                        
 
                                     </div>
                                 </div>
@@ -3019,7 +3019,7 @@
                                         <div class="clear"></div>
 
                                     </div>
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
                                     <div v-if="currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT">
                                         <div class="input-with-dropdown length-selection">
                                             <input type="number"
@@ -3078,7 +3078,7 @@
                                                                             v-else
                                                                             tabindex="-1">اعمال
                                                                     </button>
-                                                                    <!--&lt;!&ndash;TODO implement applied effect&ndash;&gt;-->
+                                                                    
 
                                                                 </div>
                                                             </div>
@@ -3323,11 +3323,11 @@
                                     </div>
 
 
-                                    <!--TODO constant amount selected (delete this todo-->
+                                    
 
                                 </div>
 
-                                <!--TODO constant amount selected (delete this todo-->
+                                
                                 <div class="section" style="margin-bottom: 30px"
                                      v-if="currentRevenue.revenueStreamType===MEASURE_TYPE_CONSTANT">
                                     <div class="title-top">
@@ -3340,7 +3340,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--TODO constant amount selected (delete this todo-->
+                                
 
                             </div>
                         </div>
@@ -3635,7 +3635,6 @@
                                     animation: false,
 
                                     // TODO add mouse movement addition
-                                    // TODO improve range and animation smoothness
                                 },
                                 point:{
                                     events:{
@@ -3703,7 +3702,6 @@
                             allowDecimals: false,
                             // minPadding: 2,
                             // maxPadding: 10,
-                            // TODO handle automatic y-axis
                         },
                         legend: {
                             enabled: false
@@ -4092,13 +4090,12 @@
 
             },
             saveAdd: function(){
-                if(this.$v.currentRevenue.name.$invalid){ // TODO transfer validation to a new method
+                if(this.$v.currentRevenue.name.$invalid){
                     this.$v.currentRevenue.name.$touch();
                     this.currentTab = 0;
                 }
                 else{
                     this.$emit('temp-save', this.finalRevenue);
-                    // TODO resetModal()
                 }
             },
         },
@@ -4546,7 +4543,7 @@
                 let count = 0;
                 let sum = 0;
                 switch (this.currentRevenue.type) {
-                    // TODO correct revenue calculation
+                    // TODO compelete revenue calculation
                     case REVENUE_TYPE_UNIT_SALES:{
                         if(out.unitSalesCountType === MEASURE_TYPE_CONSTANT && out.unitPriceMeasureType === MEASURE_TYPE_CONSTANT){
                             sum = 0;

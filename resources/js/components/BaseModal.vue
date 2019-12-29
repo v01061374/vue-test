@@ -194,7 +194,6 @@
         font-family: IRANSans, Tahoma;
         direction: rtl;
         text-align: right;
-        /*TODO add class for font and direction*/
     }
     .modal-footer{
         display: -webkit-box;

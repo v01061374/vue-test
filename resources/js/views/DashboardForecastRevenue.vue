@@ -648,7 +648,7 @@
                         className: 'rtl-faNum',
 
                         title: '',
-                        // TODO align charts zero gridlines
+
                         // gridLineColor: '#197F07',
                         // gridLineWidth: 0,
                         // lineWidth:1,
@@ -789,7 +789,7 @@
 
                 chartUpdateArgs: [true, true, {duration: 1000}],
 
-                instructionVisibility:true,
+                instructionVisibility: true,
                 moreInstructionVisibility: false,
 
                 modalVisibility: [false,false],
@@ -1066,7 +1066,7 @@
                         className: 'rtl-faNum',
 
                         title: '',
-                        // TODO align charts zero gridlines
+
                         // gridLineColor: '#197F07',
                         // gridLineWidth: 0,
                         // lineWidth:1,
