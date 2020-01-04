@@ -19,7 +19,11 @@ import Taxes from "./views/DashboardForecastTaxes";
 import Dividends from "./views/DashboardForecastDividends";
 import CashFlowAssumptions from "./views/DashboardForecastCashFlowAssumptions";
 import Financing from "./views/DashboardForecastFinancing";
+import Login from "./views/DashboardLogin";
+import Register from "./views/DashboardRegister";
+import Auth from "./layouts/TheAuthContainer";
 
+import store from './store'
 
 
 
@@ -32,12 +36,16 @@ const router = new VueRouter({
             path: '/dashboard',
             name: 'dashboard.index',
             component: Dashboard,
+
+            // TODO redirect
             children: [
                 {
                     path: '/dashboard/forecast',
                     component: Forecast,
                     name: 'dashboard.forecast',
-
+                    meta: {
+                        requiresAuth: true
+                    },
                     children: [
                         {
                             path: '/dashboard/forecast/financial-tables',
@@ -49,6 +57,7 @@ const router = new VueRouter({
                                     path: 'revenue',
                                     component: Revenue,
                                     name: 'dashboard.forecast.financialTables.revenue',
+
                                 },
                                 {
                                     path: 'direct-costs',
@@ -114,9 +123,43 @@ const router = new VueRouter({
                     ]
 
 
+                },
+
+
+            ]
+        },
+        {
+            path: '/user',
+            component: Auth,
+            name: 'auth.index',
+            children: [
+                {
+                    path: '/user/login',
+                    component: Login,
+                    name: 'auth.login',
+                },
+                {
+                    path: '/user/register',
+                    component: Register,
+                    name: 'auth.register',
                 }
             ]
-        }
+        },
+
     ]
+});
+router.beforeEach((to, from, next) => {
+    if(to.matched.some(record => record.meta.requiresAuth)) {
+
+        if (store.getters['user/isLoggedIn']) {
+            return next();
+        }
+        else{
+            next('/user/login/?redirect=' + to.fullPath);
+        }
+
+    } else {
+        next()
+    }
 });
 export default router;

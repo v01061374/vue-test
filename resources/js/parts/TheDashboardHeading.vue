@@ -116,16 +116,27 @@
 
                                 </button>
                                 <div class="header-top-bar-title-drop-down-container"
-                                     style="left: -55.3812px;">
+                                     style="left: -55.3812px; display: unset !important;">
                                     <div>
                                         <div class="arrow-up"></div>
                                         <div class="header-top-bar-title-drop-down-items-container">
                                             <a href="/account/overview" target="_blank"
                                                class="cursor-pointer header-top-bar-title-drop-down-section transition-one-sec header-link-container"><span
-                                                    class="link-span">مدیریت حساب</span></a><a
-                                                href="/logout" target="_blank"
+                                                    class="link-span">مدیریت حساب</span></a>
+                                            <a
+                                                href="#" target="_blank" @click.prevent="logout()"
                                                 class="cursor-pointer header-top-bar-title-drop-down-section transition-one-sec header-link-container"><span
                                                 class="link-span">خارج شدن</span></a>
+                                            <router-link
+                                                         class="tabs-menu-item-link-container"
+                                                         :to="'/user/login'">
+                                                ورود
+                                            </router-link>
+                                            <router-link
+                                                    class="tabs-menu-item-link-container"
+                                                    :to="'/user/register'">
+                                                ثبت نام
+                                            </router-link>
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +218,14 @@
 
 <script>
     export default {
-        name: "TheDashboardHeading"
+        name: "TheDashboardHeading",
+        methods:{
+            logout: function(){
+                return this.$store.dispatch('user/logout').then(() => {
+                    return this.$router.push({ name: 'auth.login'})
+                });
+            }
+        }
     }
 </script>
 

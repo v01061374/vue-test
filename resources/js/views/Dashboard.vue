@@ -26,7 +26,7 @@
 <script>
     import TheContainer from '@/js/layouts/TheDashboardContainer.vue';
     import TheHeading from '@/js/parts/TheDashboardHeading.vue';
-    import TheNavBar from '@/js/parts/TheDashboardNavigationBar.vue';
+    import TheNavBar from './../parts/TheDashboardNavigationBar';
     import TheFooter from '@/js/parts/TheDashboardFooter.vue';
 
 

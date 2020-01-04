@@ -29,5 +29,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'passport' => [
+        'login_endpoint' => env('PASSPORT_SERVER') . env('PASSPORT_LOGIN_ENDPOINT'),
+        // TODO passport server should be replaced with app url
+        'client_id' => env('PASSPORT_CLIENT_ID'),
+        'client_secret' => env('PASSPORT_CLIENT_SECRET')
+    ]
 
 ];

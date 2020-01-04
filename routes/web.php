@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,4 +11,16 @@
 |
 */
 
-Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
+
+
+//Route::domain('app.localhost:8000')->group(function(){
+//    Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
+//});
+
+Route::group(array('domain' => 'app.{domain}'), function () {
+    Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
+});
+
+Route::get('/', function(){
+   var_dump('backend');
+});
