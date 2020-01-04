@@ -11,6 +11,7 @@ const state = {
 // Getter functions
 const getters = {
     isLoggedIn: function (state){
+
         return state.token;
     },
     authSuccess: state => state.status
@@ -47,7 +48,7 @@ const actions = {
                     headers: AuthEndPoints.logoutEndpoint.headers
                 }).then(r => {
                     localStorage.removeItem('token');
-                    Axios.defaults.headers.common['Authorization'];
+                    delete Axios.defaults.headers.common['Authorization'];
                     commit('logout_success');
                     resolve(r);
                 }).catch(error => {

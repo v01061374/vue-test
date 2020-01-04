@@ -10,7 +10,8 @@ let  AuthEndPoints =
             headers: {
                 'Content-Type': 'application/json'
             },
-        }
+        },
+
 
     }
 ;

@@ -33,9 +33,19 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
+            path: 'loggedIn',
+            name: 'afterLogInRoute',
+            redirect: {
+                name: 'dashboard.index'
+            }
+        },
+        {
             path: '/dashboard',
             name: 'dashboard.index',
             component: Dashboard,
+            meta: {
+                requiresAuth: true
+            },
 
             // TODO redirect
             children: [
@@ -43,9 +53,7 @@ const router = new VueRouter({
                     path: '/dashboard/forecast',
                     component: Forecast,
                     name: 'dashboard.forecast',
-                    meta: {
-                        requiresAuth: true
-                    },
+
                     children: [
                         {
                             path: '/dashboard/forecast/financial-tables',
@@ -137,11 +145,17 @@ const router = new VueRouter({
                     path: '/user/login',
                     component: Login,
                     name: 'auth.login',
+                    meta: {
+                        forAuthentication: true
+                    }
                 },
                 {
                     path: '/user/register',
                     component: Register,
                     name: 'auth.register',
+                    meta: {
+                        forAuthentication: true
+                    }
                 }
             ]
         },
@@ -155,11 +169,20 @@ router.beforeEach((to, from, next) => {
             return next();
         }
         else{
-            next('/user/login/?redirect=' + to.fullPath);
+            return next('/user/login/?redirect=' + to.fullPath);
         }
 
-    } else {
-        next()
+    }
+    else if(to.matched.some(record => record.meta.forAuthentication)){
+        if(store.getters['user/isLoggedIn']){
+            return next({ name: 'afterLogInRoute' })
+        }
+        else{
+            return next()
+        }
+    }
+    else {
+        next();
     }
 });
 export default router;

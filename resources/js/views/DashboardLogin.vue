@@ -10,7 +10,7 @@
 </template>
 
 <script>
-
+    import AuthEndPoints from './../helpers/AuthEndpoints';
     export default {
         name: "DashboardLogin",
         data: function () {
@@ -25,7 +25,7 @@
                 let password = this.password;
                 this.$store.dispatch('user/login', {username, password}).then(
                     ()=>
-                        this.$router.push(this.$route.query.redirect || '/dashboard')
+                        this.$router.push(this.$route.query.redirect || this.$router.push({name: 'afterLogInRoute'}))
                 ).catch(() => {})
             }
         }
