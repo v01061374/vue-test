@@ -39,6 +39,20 @@ const actions = {
                 })
         })
     },
+    register ({commit}, user){
+        console.log(user);
+        return new Promise((resolve, reject) => {
+            Axios({
+                url: AuthEndPoints.registerEndPoint.url,
+                method: AuthEndPoints.registerEndPoint.method,
+                data: user
+            }).then(r => {
+                resolve(r);
+            }).catch(error => {
+                reject(error)
+            });
+        })
+    },
     logout({commit, getters}){
         if(getters.isLoggedIn){
             return new Promise((resolve, reject) => {

@@ -11,6 +11,10 @@ let  AuthEndPoints =
                 'Content-Type': 'application/json'
             },
         },
+        registerEndPoint: {
+            url: 'http://127.0.0.1:8000/api/register',
+            method: 'POST',
+        }
 
 
     }

@@ -10,7 +10,6 @@
 </template>
 
 <script>
-    import AuthEndPoints from './../helpers/AuthEndpoints';
     export default {
         name: "DashboardLogin",
         data: function () {
